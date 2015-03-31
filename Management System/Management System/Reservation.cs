@@ -8,5 +8,9 @@ namespace Management_System
 {
     class Reservation
     {
+        public Guest reserver = new Guest();
+
+        public bool Paid { get; set; }
+        public decimal Amount { get; set; }
     }
 }

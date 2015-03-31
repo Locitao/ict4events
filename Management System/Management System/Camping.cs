@@ -8,5 +8,13 @@ namespace Management_System
 {
     class Camping
     {
+        public string Name { get; set; }
+        public string Place { get; set; }
+        public string MapPath { get; set; }
+
+        public Camping()
+        {
+            
+        }
     }
 }

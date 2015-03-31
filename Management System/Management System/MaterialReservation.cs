@@ -8,5 +8,12 @@ namespace Management_System
 {
     class MaterialReservation
     {
+        public DateTime Date { get; set; }
+        public Guest Reserver = new Guest();
+
+        public MaterialReservation()
+        {
+            
+        }
     }
 }

@@ -8,5 +8,13 @@ namespace Management_System
 {
     class Location
     {
+        public int LocationId { get; set; }
+        public string Type { get; set; }
+        public bool Reserved { get; set; }
+
+        public Location()
+        {
+            
+        }
     }
 }

@@ -21,5 +21,15 @@ namespace Management_System
         {
 
         }
+
+        private void Login()
+        {
+            
+        }
+
+        private void LogOut()
+        {
+            
+        }
     }
 }

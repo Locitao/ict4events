@@ -8,5 +8,17 @@ namespace Management_System
 {
     class Event
     {
+        public int EventId { get; set; }
+        public string Name { get; set; }
+
+        public Event()
+        {
+            
+        }
+
+        public void Reserve()
+        {
+            
+        }
     }
 }

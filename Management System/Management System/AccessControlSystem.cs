@@ -8,5 +8,21 @@ namespace Management_System
 {
     class AccessControlSystem
     {
+        public string Name { get; set; }
+
+        public AccessControlSystem()
+        {
+            
+        }
+
+        public void CheckIn()
+        {
+            
+        }
+
+        public void CheckOut()
+        {
+            
+        }
     }
 }
