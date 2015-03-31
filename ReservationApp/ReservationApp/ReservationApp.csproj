@@ -48,6 +48,7 @@
     <Compile Include="Event.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="Material.cs" />
     <Compile Include="Reservation Form.cs">
       <SubType>Form</SubType>
     </Compile>

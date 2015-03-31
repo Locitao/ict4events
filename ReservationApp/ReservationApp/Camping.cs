@@ -8,5 +8,16 @@ namespace ReservationApp
 {
     class Camping
     {
+        /// <summary>
+        /// First the properties, then a constructor.
+        /// </summary>
+        public string Name { get; set; }
+        public string Place { get; set; }
+        public string MapPath { get; set; }
+
+        public Camping()
+        {
+            
+        }
     }
 }

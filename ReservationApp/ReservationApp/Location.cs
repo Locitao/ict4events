@@ -8,5 +8,16 @@ namespace ReservationApp
 {
     class Location
     {
+        /// <summary>
+        /// Again, first the properties then a constructor.
+        /// </summary>
+        public int LocationId { get; set; }
+        public string Type { get; set; }
+        public bool Reserved { get; set; }
+
+        public Location()
+        {
+            
+        }
     }
 }
