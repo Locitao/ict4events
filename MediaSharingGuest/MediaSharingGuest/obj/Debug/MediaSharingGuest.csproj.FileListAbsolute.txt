@@ -1,1 +1,2 @@
 c:\users\rvanduijnhoven\documents\visual studio 2013\Projects\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe.config
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe.config
