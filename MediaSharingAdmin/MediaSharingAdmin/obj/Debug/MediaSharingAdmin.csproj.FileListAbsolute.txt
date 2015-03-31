@@ -1,0 +1,1 @@
+c:\users\rvanduijnhoven\documents\visual studio 2013\Projects\MediaSharingAdmin\MediaSharingAdmin\bin\Debug\MediaSharingAdmin.exe.config
