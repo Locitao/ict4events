@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camping.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="Guest.cs" />
+    <Compile Include="Location.cs" />
     <Compile Include="Reservation Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +56,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation.cs" />
+    <Compile Include="ReservationSystem.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
