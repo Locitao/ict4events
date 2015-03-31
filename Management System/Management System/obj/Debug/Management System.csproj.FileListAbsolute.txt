@@ -1,1 +1,2 @@
 c:\users\rvanduijnhoven\documents\visual studio 2013\Projects\Management System\Management System\bin\Debug\Management System.exe.config
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\bin\Debug\Management System.exe.config
