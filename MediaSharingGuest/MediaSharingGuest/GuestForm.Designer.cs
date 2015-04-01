@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "GuestForm";
             this.Text = "Media Sharing";
+            this.Load += new System.EventHandler(this.GuestForm_Load);
             this.ResumeLayout(false);
 
         }

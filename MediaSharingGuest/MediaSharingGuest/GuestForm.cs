@@ -16,5 +16,15 @@ namespace MediaSharingGuest
         {
             InitializeComponent();
         }
+
+        private void GuestForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Login()
+        {
+            
+        }
     }
 }

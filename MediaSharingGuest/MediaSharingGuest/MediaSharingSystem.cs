@@ -8,5 +8,29 @@ namespace MediaSharingGuest
 {
     class MediaSharingSystem
     {
+        public MediaSharingSystem()
+        {
+
+        }
+
+        public void AddCategory()
+        {
+
+        }
+
+        public void DeleteCategory()
+        {
+
+        }
+
+        public void AddReactionToNewsFeed()
+        {
+
+        }
+
+        public void DeleteReactionFromNewsFeed()
+        {
+
+        }
     }
 }

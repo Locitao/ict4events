@@ -8,5 +8,6 @@ namespace MediaSharingGuest
 {
     class Like
     {
+
     }
 }
