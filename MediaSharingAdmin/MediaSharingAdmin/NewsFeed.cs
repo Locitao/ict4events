@@ -8,5 +8,21 @@ namespace MediaSharingAdmin
 {
     class NewsFeed
     {
+        public int MessageDisplayTime { get; set; }
+
+        public NewsFeed()
+        {
+            
+        }
+
+        public void AddMessage()
+        {
+            
+        }
+
+        public void DeleteMessage()
+        {
+            
+        }
     }
 }

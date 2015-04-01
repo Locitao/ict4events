@@ -16,5 +16,20 @@ namespace MediaSharingAdmin
         {
             InitializeComponent();
         }
+
+        private void Administration_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Login()
+        {
+            
+        }
+
+        public void ShowReports()
+        {
+            
+        }
     }
 }

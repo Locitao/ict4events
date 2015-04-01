@@ -8,5 +8,9 @@ namespace MediaSharingAdmin
 {
     class Like
     {
+        public Like()
+        {
+            
+        }
     }
 }
