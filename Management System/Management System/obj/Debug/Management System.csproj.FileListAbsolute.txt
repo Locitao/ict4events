@@ -1,2 +1,11 @@
 c:\users\rvanduijnhoven\documents\visual studio 2013\Projects\Management System\Management System\bin\Debug\Management System.exe.config
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\bin\Debug\Management System.exe.config
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\bin\Debug\Management System.exe
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\bin\Debug\Management System.pdb
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\bin\Debug\Oracle.DataAccess.dll
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\Debug\Management System.csprojResolveAssemblyReference.cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\Debug\Management_System.Form1.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\Debug\Management_System.Properties.Resources.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\Debug\Management System.csproj.GenerateResource.Cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\Debug\Management System.exe
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\Debug\Management System.pdb
