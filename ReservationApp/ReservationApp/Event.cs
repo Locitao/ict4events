@@ -14,16 +14,31 @@ namespace ReservationApp
         public int EventID { get; set; }
         public string Name { get; set; }
 
-        public Event()
+
+        /// <summary>
+        /// Two lists, one to keep track of reservations
+        /// and one to keep track of all the material available at the event
+        /// </summary>
+        public List<Reservation> Reservations = new List<Reservation>();
+        public List<Material> allMaterials = new List<Material>(); 
+         
+
+        public Event(string name, int eventId, Camping camping)
         {
-            
+            name = Name;
+            eventId = EventID;
+            camping = new Camping("Test name", "Groesbeek", "google it");
+
         }
         /// <summary>
         /// Reserve lets the user reserve a location and possibly materials.
         /// </summary>
-        public void Reserve()
+        public void Reserve(Location location)
         {
-            
+            int locationId;
+            string type;
+            bool reserved;
+            Reservations.Add(new Reservation(1));
         }
     }
 }

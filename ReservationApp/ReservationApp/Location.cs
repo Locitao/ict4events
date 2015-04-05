@@ -15,9 +15,11 @@ namespace ReservationApp
         public string Type { get; set; }
         public bool Reserved { get; set; }
 
-        public Location()
+        public Location(int locationId, string type, bool reserved)
         {
-            
+            locationId = LocationId;
+            type = Type;
+            reserved = Reserved;
         }
     }
 }

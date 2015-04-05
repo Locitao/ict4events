@@ -10,5 +10,15 @@ namespace ReservationApp
     {
         public string Name { get; set; }
         public decimal Price { get; set; }
+        public int MaterialId { get; set; }
+        public bool Reserved { get; set; }
+
+        public Material(string name, decimal price, int materialId, bool reserved)
+        {
+            name = Name;
+            price = Price;
+            materialId = MaterialId;
+            reserved = Reserved;
+        }
     }
 }

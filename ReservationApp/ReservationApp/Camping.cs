@@ -15,9 +15,13 @@ namespace ReservationApp
         public string Place { get; set; }
         public string MapPath { get; set; }
 
-        public Camping()
+        public List<Location> locations = new List<Location>();
+
+        public Camping(string name, string place, string mapPath)
         {
-            
+            name = Name;
+            place = Place;
+            mapPath = MapPath;
         }
     }
 }

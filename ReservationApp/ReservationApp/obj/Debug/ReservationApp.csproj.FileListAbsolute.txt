@@ -1,2 +1,6 @@
 c:\users\rvanduijnhoven\documents\visual studio 2013\Projects\ReservationApp\ReservationApp\bin\Debug\ReservationApp.exe.config
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\ReservationApp\ReservationApp\bin\Debug\ReservationApp.exe.config
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\Debug\ReservationApp.csprojResolveAssemblyReference.cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\Debug\ReservationApp.Properties.Resources.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\Debug\ReservationApp.Form1.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\Debug\ReservationApp.csproj.GenerateResource.Cache

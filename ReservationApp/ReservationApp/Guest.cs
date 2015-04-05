@@ -18,12 +18,27 @@ namespace ReservationApp
         public string Street { get; set; }
         public int StreetNumber { get; set; }
         public string Email { get; set; }
-        public bool Reserver { get; set; }
+        public Guest Reserver { get; set; }
         public bool Paid { get; set; }
 
-        public Guest()
+        public Guest(string name, bool paid, string rfidCode)
         {
-            
+            name = Name;
+            paid = Paid;
+            rfidCode = RfidCode;
+        }
+
+        public Guest(string name, string rfidCode, string postalCode, string city, string street, int streetNumber, string eMail, Guest reserver, bool paid)
+        {
+            name = Name;
+            rfidCode = RfidCode;
+            postalCode = PostalCode;
+            city = City;
+            street = Street;
+            streetNumber = StreetNumber;
+            eMail = Email;
+            reserver = Reserver;
+            paid = Paid;
         }
     }
 }

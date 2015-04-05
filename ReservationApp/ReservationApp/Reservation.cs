@@ -15,10 +15,11 @@ namespace ReservationApp
         private List<Material> reservedMaterials = new List<Material>();
         public bool Paid { get; set; }
         public decimal Amount { get; set; }
+        public int EventId { get; set; }
 
-        public Reservation()
+        public Reservation(int eventId)
         {
-            
+            eventId = EventId;
         }
     }
 }
