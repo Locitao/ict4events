@@ -14,7 +14,7 @@ namespace Management_System
     
     public partial class Form1 : Form
     {
-        Connection connect = new Connection();
+        Connection connection = new Connection();
         
         public Form1()
         {
@@ -38,14 +38,14 @@ namespace Management_System
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(connect.NewConnection()
+            MessageBox.Show(connection.OpenConnection()
                 ? "Connection with database succeeded."
                 : "Check your settings, connection to database failed!");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            connect.CloseConnection();
+            connection.CloseConnection();
         }
     }
 }
