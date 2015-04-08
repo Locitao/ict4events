@@ -18,7 +18,7 @@ namespace ReservationApp
 
         public List<Dictionary<string, object>> Select_locations()
         {
-            const string sql = "SELECT loc.loc_type, loc.max_people, loc.price FROM PT_EVENT_LOCATION loc, PT_RESERVATION WHERE loc.location_ID NOT IN PT_RESERVATION.location_ID";
+            const string sql = "SELECT loc.loc_type, loc.max_people, loc.price, loc.location_ID FROM PT_EVENT_LOCATION loc, PT_RESERVATION WHERE loc.location_ID NOT IN PT_RESERVATION.location_ID";
 
             var data = Connection.ExecuteQuery(sql);
             return data;
