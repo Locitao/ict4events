@@ -68,6 +68,12 @@
     <Compile Include="SendReport.Designer.cs">
       <DependentUpon>SendReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="UploadFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadFile.Designer.cs">
+      <DependentUpon>UploadFile.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GuestForm.resx">
       <DependentUpon>GuestForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +88,9 @@
     </Compile>
     <EmbeddedResource Include="SendReport.resx">
       <DependentUpon>SendReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadFile.resx">
+      <DependentUpon>UploadFile.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
