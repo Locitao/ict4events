@@ -54,6 +54,12 @@ namespace ReservationApp
         private void Refresh()
         {
             lbLocations.Items.Clear();
+            tbAddress.Clear();
+            tbCity.Clear();
+            tbName.Clear();
+            tbPhone.Clear();
+            tbPostal.Clear();
+            nmLocId.Value = 0;
 
             try
             {
@@ -61,7 +67,7 @@ namespace ReservationApp
 
                 foreach (Dictionary<string, object> row in locations)
                 {
-                    lbLocations.Items.Add("Type: "+row["LOC_TYPE"]+". "+"Maximum amount of people: "+row["MAX_PEOPLE"]+". "+"Price: "+row["PRICE"]+".");
+                    lbLocations.Items.Add("Location ID: "+row["LOCATION_ID"]+". Type: "+row["LOC_TYPE"]+". "+"Maximum amount of people: "+row["MAX_PEOPLE"]+". "+"Price: "+row["PRICE"]+".");
                 }
             }
             catch (Exception ex)
@@ -69,6 +75,17 @@ namespace ReservationApp
                 MessageBox.Show(ex.Message);
             }
             
+        }
+        /// <summary>
+        /// Button below creates a new reservation in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCreateRes_Click(object sender, EventArgs e)
+        {
+            
+
+            Refresh();
         }
     }
 }

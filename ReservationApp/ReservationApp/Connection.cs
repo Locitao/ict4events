@@ -81,5 +81,21 @@ namespace ReservationApp
             }
             return result;
         }
+
+        public void Execute(string sql)
+        {
+            string query = sql;
+
+
+            if (NewConnection())
+            {
+                // Command opzetten voor het uitvoeren van de query
+                OracleCommand cmd = new OracleCommand(query, conn);
+
+                // Query uitvoeren, er wordt geen waarde terug gegeven
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
     }
 }

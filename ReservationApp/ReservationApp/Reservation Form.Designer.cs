@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.btnConnect = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.tbPostal = new System.Windows.Forms.TextBox();
+            this.tbCity = new System.Windows.Forms.TextBox();
+            this.tbPhone = new System.Windows.Forms.TextBox();
             this.lbLocations = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nmLocId = new System.Windows.Forms.NumericUpDown();
+            this.btnCreateRes = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.nmLocId)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -53,12 +56,12 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // textBox1
+            // tbName
             // 
-            this.textBox1.Location = new System.Drawing.Point(147, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbName.Location = new System.Drawing.Point(147, 59);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(135, 20);
+            this.tbName.TabIndex = 1;
             // 
             // label1
             // 
@@ -105,74 +108,94 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Phone number";
             // 
-            // textBox2
+            // tbAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 103);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(135, 20);
-            this.textBox2.TabIndex = 7;
+            this.tbAddress.Location = new System.Drawing.Point(147, 103);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(135, 20);
+            this.tbAddress.TabIndex = 7;
             // 
-            // textBox3
+            // tbPostal
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 140);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(135, 20);
-            this.textBox3.TabIndex = 8;
+            this.tbPostal.Location = new System.Drawing.Point(147, 140);
+            this.tbPostal.Name = "tbPostal";
+            this.tbPostal.Size = new System.Drawing.Size(135, 20);
+            this.tbPostal.TabIndex = 8;
             // 
-            // textBox4
+            // tbCity
             // 
-            this.textBox4.Location = new System.Drawing.Point(147, 174);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(135, 20);
-            this.textBox4.TabIndex = 9;
+            this.tbCity.Location = new System.Drawing.Point(147, 174);
+            this.tbCity.Name = "tbCity";
+            this.tbCity.Size = new System.Drawing.Size(135, 20);
+            this.tbCity.TabIndex = 9;
             // 
-            // textBox5
+            // tbPhone
             // 
-            this.textBox5.Location = new System.Drawing.Point(147, 209);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(135, 20);
-            this.textBox5.TabIndex = 10;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(118, 266);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 45);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Create reservation";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tbPhone.Location = new System.Drawing.Point(147, 209);
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(135, 20);
+            this.tbPhone.TabIndex = 10;
             // 
             // lbLocations
             // 
             this.lbLocations.FormattingEnabled = true;
             this.lbLocations.Location = new System.Drawing.Point(328, 28);
             this.lbLocations.Name = "lbLocations";
-            this.lbLocations.Size = new System.Drawing.Size(258, 95);
+            this.lbLocations.Size = new System.Drawing.Size(481, 290);
             this.lbLocations.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 250);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(161, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Location ID you want to reserve:";
+            // 
+            // nmLocId
+            // 
+            this.nmLocId.Location = new System.Drawing.Point(196, 248);
+            this.nmLocId.Name = "nmLocId";
+            this.nmLocId.Size = new System.Drawing.Size(86, 20);
+            this.nmLocId.TabIndex = 14;
+            // 
+            // btnCreateRes
+            // 
+            this.btnCreateRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateRes.Location = new System.Drawing.Point(86, 289);
+            this.btnCreateRes.Name = "btnCreateRes";
+            this.btnCreateRes.Size = new System.Drawing.Size(119, 45);
+            this.btnCreateRes.TabIndex = 15;
+            this.btnCreateRes.Text = "Create reservation";
+            this.btnCreateRes.UseVisualStyleBackColor = true;
+            this.btnCreateRes.Click += new System.EventHandler(this.btnCreateRes_Click);
             // 
             // ReservationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 336);
+            this.ClientSize = new System.Drawing.Size(821, 346);
+            this.Controls.Add(this.btnCreateRes);
+            this.Controls.Add(this.nmLocId);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lbLocations);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbPhone);
+            this.Controls.Add(this.tbCity);
+            this.Controls.Add(this.tbPostal);
+            this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.btnConnect);
             this.Name = "ReservationForm";
             this.Text = "New Reservation";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nmLocId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,18 +204,20 @@
         #endregion
 
         private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.TextBox tbPostal;
+        private System.Windows.Forms.TextBox tbCity;
+        private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.ListBox lbLocations;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown nmLocId;
+        private System.Windows.Forms.Button btnCreateRes;
     }
 }
 
