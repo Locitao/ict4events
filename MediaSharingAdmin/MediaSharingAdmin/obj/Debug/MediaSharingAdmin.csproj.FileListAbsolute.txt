@@ -9,3 +9,6 @@ C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaShari
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.csproj.GenerateResource.Cache
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.exe
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.pdb
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\bin\Debug\MediaSharingAdmin.exe.config
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.exe
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.pdb
