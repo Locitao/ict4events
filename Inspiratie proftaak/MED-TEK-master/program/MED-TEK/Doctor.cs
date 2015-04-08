@@ -267,5 +267,15 @@ namespace MED_TEK
         {
             Application.Exit();
         }
+
+        private void tbVoorNamen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbZiektes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

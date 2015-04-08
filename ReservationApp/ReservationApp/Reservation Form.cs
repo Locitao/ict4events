@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace ReservationApp
     {
         Connection connect = new Connection();
         Select select = new Select();
+        Insert insert = new Insert();
         
         public ReservationForm()
         {
@@ -74,7 +76,34 @@ namespace ReservationApp
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
+            try
+            {
+                var events = select.Select_Events();
+
+                foreach (Dictionary<string, object> row in events)
+                {
+                    cbEvent.Items.Add(row["EVENT_NAME"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            /*
+            try
+            {
+                var maxPeople = select.Select_Max_People(Convert.ToString(nmLocId));
+
+                nmPeople.Maximum = Convert.ToInt32(maxPeople);
+                nmPeople.Minimum = 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+               
+            }
+            */
         }
         /// <summary>
         /// Button below creates a new reservation in the database.
@@ -83,8 +112,23 @@ namespace ReservationApp
         /// <param name="e"></param>
         private void btnCreateRes_Click(object sender, EventArgs e)
         {
-            
+            if (tbAddress.Text == null || tbCity.Text == null || tbName.Text == null || tbPhone.Text == null ||
+                tbPostal.Text == null)
+            {
+                MessageBox.Show("You did not fill in all the required information!");
+            }
 
+            else
+            {
+                insert.Insert_Reservation("auto_inc_acc.nextval", "1", Convert.ToString(cbEvent.SelectedIndex + 2), Convert.ToString(nmPeople), "1");
+
+                Refresh();
+            }
+            
+        }
+
+        private void nmLocId_ValueChanged(object sender, EventArgs e)
+        {
             Refresh();
         }
     }

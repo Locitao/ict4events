@@ -8,6 +8,8 @@ using Oracle.DataAccess.Types;
 using Oracle.DataAccess;
 
 
+
+
 namespace ReservationApp
 {
     public class Connection
@@ -58,7 +60,7 @@ namespace ReservationApp
                     {
                         Dictionary<string, object> row = new Dictionary<string, object>();
 
-                        //Loop through fields, add them to the row
+                         //Loop through fields, add them to the row
 
                         for (int fieldId = 0; fieldId < resultReader.FieldCount; fieldId++)
                             row.Add(resultReader.GetName(fieldId), resultReader.GetValue(fieldId));
@@ -66,6 +68,7 @@ namespace ReservationApp
                         result.Add(row);
 
                     }
+                    connection.conn.Close();
                     return result;
                 }
                 catch (Exception ex)
@@ -79,6 +82,7 @@ namespace ReservationApp
                 
                 
             }
+            connection.conn.Close();
             return result;
         }
 

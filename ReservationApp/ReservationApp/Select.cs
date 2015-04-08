@@ -23,6 +23,24 @@ namespace ReservationApp
             var data = Connection.ExecuteQuery(sql);
             return data;
         }
-        
+
+        //A method that returns a list of events.
+        public List<Dictionary<string, object>> Select_Events()
+        {
+            const string sql = "SELECT * FROM PT_EVENT";
+
+            var data = Connection.ExecuteQuery(sql);
+            return data;
+        }
+/*
+        public List<Dictionary<string, object>> Select_Max_People(string location_Id)
+        {
+            string sql = "SELECT max_people FROM PT_EVENT_LOCATION WHERE PT_EVENT_LOCATION.location_ID = '" + location_Id + "'";
+
+            var data = Connection.ExecuteQuery(sql);
+            return data;
+        }
+        */
     }
+ 
 }
