@@ -72,3 +72,18 @@ C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\bin\Debug\MED-TEK.exe.config
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.exe
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.pdb
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\bin\Debug\MED-TEK.exe.config
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.exe
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.pdb
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.csprojResolveAssemblyReference.cache
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Ambulance.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Apotheek.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Delete.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Insert.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Overview.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Update.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Doctor.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Login.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.scan.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Properties.Resources.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.csproj.GenerateResource.Cache
