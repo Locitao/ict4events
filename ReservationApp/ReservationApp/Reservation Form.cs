@@ -15,6 +15,7 @@ namespace ReservationApp
     public partial class ReservationForm : Form
     {
         Connection connect = new Connection();
+        Select select = new Select();
         
         public ReservationForm()
         {
@@ -25,7 +26,7 @@ namespace ReservationApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Refresh();
         }
 
         private void CreateAccount()
@@ -48,6 +49,26 @@ namespace ReservationApp
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             connect.CloseConnection();
+        }
+
+        private void Refresh()
+        {
+            lbLocations.Items.Clear();
+
+            try
+            {
+                var locations = select.Select_locations();
+
+                foreach (Dictionary<string, object> row in locations)
+                {
+                    lbLocations.Items.Add(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }
