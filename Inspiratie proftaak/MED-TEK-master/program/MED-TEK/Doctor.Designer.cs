@@ -448,6 +448,7 @@
             this.lbZiektes.Name = "lbZiektes";
             this.lbZiektes.Size = new System.Drawing.Size(357, 134);
             this.lbZiektes.TabIndex = 0;
+            this.lbZiektes.SelectedIndexChanged += new System.EventHandler(this.lbZiektes_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -516,6 +517,7 @@
             this.tbVoorNamen.ReadOnly = true;
             this.tbVoorNamen.Size = new System.Drawing.Size(150, 20);
             this.tbVoorNamen.TabIndex = 8;
+            this.tbVoorNamen.TextChanged += new System.EventHandler(this.tbVoorNamen_TextChanged);
             // 
             // pbPasfoto
             // 
