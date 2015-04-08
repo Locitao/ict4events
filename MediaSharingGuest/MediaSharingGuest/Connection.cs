@@ -5,6 +5,7 @@ namespace MediaSharingGuest
 {
     public class Connection
     {
+        //KIJK MIJN COMMENT
         OracleConnection conn = new OracleConnection();
 
         public bool NewConnection()
