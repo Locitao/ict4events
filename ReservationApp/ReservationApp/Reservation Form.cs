@@ -12,10 +12,10 @@ using Oracle.DataAccess.Types;
 
 namespace ReservationApp
 {
-    public partial class Form1 : Form
+    public partial class ReservationForm : Form
     {
         private OracleConnection conn;
-        public Form1()
+        public ReservationForm()
         {
             InitializeComponent();
             conn = new OracleConnection();
@@ -55,6 +55,11 @@ namespace ReservationApp
 
             btnConnect.Enabled = false;
             MessageBox.Show("Connection succeeded!");
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            conn.Close();
         }
     }
 }

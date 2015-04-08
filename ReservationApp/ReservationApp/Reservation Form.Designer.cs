@@ -1,6 +1,6 @@
 ﻿namespace ReservationApp
 {
-    partial class Form1
+    partial class ReservationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -41,14 +41,15 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // Form1
+            // ReservationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.btnConnect);
-            this.Name = "Form1";
+            this.Name = "ReservationForm";
             this.Text = "Reservation Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
