@@ -37,6 +37,7 @@
             this.btnUpload = new System.Windows.Forms.Button();
             this.tbPath = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.tbLocation = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,9 +54,9 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Location = new System.Drawing.Point(256, 7);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(107, 13);
+            this.lblDescription.Size = new System.Drawing.Size(154, 13);
             this.lblDescription.TabIndex = 16;
-            this.lblDescription.Text = "Title and Description:";
+            this.lblDescription.Text = "Title, Description and Location:";
             // 
             // lblThumbnail
             // 
@@ -71,7 +72,7 @@
             this.tbDesciption.Location = new System.Drawing.Point(259, 49);
             this.tbDesciption.Multiline = true;
             this.tbDesciption.Name = "tbDesciption";
-            this.tbDesciption.Size = new System.Drawing.Size(241, 144);
+            this.tbDesciption.Size = new System.Drawing.Size(241, 118);
             this.tbDesciption.TabIndex = 14;
             this.tbDesciption.Text = "Description";
             // 
@@ -119,11 +120,20 @@
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             // 
+            // tbLocation
+            // 
+            this.tbLocation.Location = new System.Drawing.Point(259, 173);
+            this.tbLocation.Name = "tbLocation";
+            this.tbLocation.Size = new System.Drawing.Size(241, 20);
+            this.tbLocation.TabIndex = 18;
+            this.tbLocation.Text = "Location";
+            // 
             // UploadFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 262);
+            this.Controls.Add(this.tbLocation);
             this.Controls.Add(this.tbTitel);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblThumbnail);
@@ -152,5 +162,6 @@
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.TextBox tbPath;
         private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.TextBox tbLocation;
     }
 }
