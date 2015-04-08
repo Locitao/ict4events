@@ -61,7 +61,7 @@ namespace ReservationApp
 
                 foreach (Dictionary<string, object> row in locations)
                 {
-                    lbLocations.Items.Add(row);
+                    lbLocations.Items.Add("Type: "+row["LOC_TYPE"]+". "+"Maximum amount of people: "+row["MAX_PEOPLE"]+". "+"Price: "+row["PRICE"]+".");
                 }
             }
             catch (Exception ex)

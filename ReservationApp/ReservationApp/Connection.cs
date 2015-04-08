@@ -45,6 +45,8 @@ namespace ReservationApp
             List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
 
             Connection connection = new Connection();
+            connection.CloseConnection();
+            
 
             if (connection.NewConnection())
             {
