@@ -14,6 +14,7 @@ namespace Management_System
     
     public partial class Form1 : Form
     {
+        private bool loggedIn = false;
         Connection connection = new Connection();
         
         public Form1()
@@ -21,19 +22,20 @@ namespace Management_System
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void Login()
+        private bool Login(string username, string password)
         {
-            
+            if (connection.LogIn(username, password))
+            {
+                loggedIn = true;
+                return true;
+            }
+            else { return false; }
         }
 
         private void LogOut()
         {
-            
+            loggedIn = false;
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -43,9 +45,11 @@ namespace Management_System
                 : "Check your settings, connection to database failed!");
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            connection.CloseConnection();
+            Login(tbame.Text, tbPassword.Text);
         }
     }
 }

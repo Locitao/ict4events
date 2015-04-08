@@ -37,6 +37,18 @@ namespace Management_System
             conn.Close();
         }
 
+        public bool LogIn(string username, string password)
+        {
+
+
+
+
+
+            return false;
+        }
+
+
+
         public void TestSQLquery() // example of how to run a query
         {
             OracleCommand command = new OracleCommand("CREATE TABLE test(ID int, name VARCHAR(10), password VARCHAR(5));");
