@@ -12,3 +12,10 @@ C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaShari
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe.config
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.exe
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.pdb
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.csprojResolveAssemblyReference.cache
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.GuestForm.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.Properties.Resources.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.SendReport.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.UploadFile.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ViewFile.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.csproj.GenerateResource.Cache

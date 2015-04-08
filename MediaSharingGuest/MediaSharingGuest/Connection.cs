@@ -1,5 +1,7 @@
 ﻿using System;
 using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using Oracle.DataAccess;
 
 namespace MediaSharingGuest
 {
