@@ -14,38 +14,42 @@ namespace Management_System
     
     public partial class Form1 : Form
     {
-        Connection connect = new Connection();
+        private bool loggedIn = false;
+        Connection connection = new Connection();
         
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void Login()
+        private bool Login(string username, string password)
         {
-            
+            if (connection.LogIn(username, password))
+            {
+                loggedIn = true;
+                return true;
+            }
+            else { return false; }
         }
 
         private void LogOut()
         {
-            
+            loggedIn = false;
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(connect.NewConnection()
+            MessageBox.Show(connection.OpenConnection()
                 ? "Connection with database succeeded."
                 : "Check your settings, connection to database failed!");
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            connect.CloseConnection();
+            Login(tbame.Text, tbPassword.Text);
         }
     }
 }
