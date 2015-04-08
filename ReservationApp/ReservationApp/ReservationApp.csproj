@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camping.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="Location.cs" />

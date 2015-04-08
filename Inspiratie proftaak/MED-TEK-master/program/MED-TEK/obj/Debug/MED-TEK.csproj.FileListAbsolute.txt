@@ -1,0 +1,74 @@
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\bin\Debug\MED-TEK.exe.config
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\bin\Debug\MED-TEK.exe
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\bin\Debug\MED-TEK.pdb
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\bin\Debug\mysql.data.dll
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED-TEK.csprojResolveAssemblyReference.cache
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.Beheer_Insert.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.Beheer_Overview.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.Login.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.scan.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.Properties.Resources.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED-TEK.csproj.GenerateResource.Cache
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED-TEK.exe
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED-TEK.pdb
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.exe.config
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.pdb
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.exe
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.pdb
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.csprojResolveAssemblyReference.cache
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Insert.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Overview.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Login.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.scan.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Properties.Resources.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.csproj.GenerateResource.Cache
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.exe
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Ambulance.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Update.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Apotheek.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Doctor.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Psycholoog.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Delete.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.exe.config
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.exe
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.pdb
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Ambulance.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Apotheek.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Delete.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Insert.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Overview.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Update.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Doctor.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Login.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Psycholoog.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.scan.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Properties.Resources.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.exe
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.pdb
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.exe.config
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.exe.manifest
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.application
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.exe
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\bin\Debug\MED-TEK.pdb
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Ambulance.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Apotheek.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Delete.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Insert.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Overview.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Update.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Doctor.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Login.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.scan.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Properties.Resources.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.TrustInfo.xml
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.exe.manifest
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.application
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.exe
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.pdb
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.csprojResolveAssemblyReference.cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\bin\Debug\MED-TEK.exe.config
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.exe
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.pdb

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MED_TEK.Connect">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAQRgAAADAAAAAAAAAgAAAAAAAgAAEQI=</HashCode>
+      <FileName>Connect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MED_TEK.Delete">
+    <Position X="2.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Delete.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MED_TEK.Insert">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAgABAAAAAABAAAAAAAgAAAAAAAAAABQA=</HashCode>
+      <FileName>Insert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MED_TEK.Miscellaneous">
+    <Position X="6.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAABAA=</HashCode>
+      <FileName>Miscellaneous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MED_TEK.Select">
+    <Position X="8.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Select.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MED_TEK.Update">
+    <Position X="10.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Update.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

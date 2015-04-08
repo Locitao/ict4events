@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="MED-TEK.exe" version="1.0.0.0" publicKeyToken="0ea1d820613f9bc6" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Logo Smart Patient Small.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MED-TEK" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MED-TEK.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+            If you want to change the Windows User Account Control level replace the 
+            requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel node will disable file and registry virtualization.
+            If you want to utilize File and Registry Virtualization for backward 
+            compatibility then delete the requestedExecutionLevel node.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Phidget21.NET" version="2.1.8.197" publicKeyToken="C2B1F2A3594BCE52" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MED-TEK.exe" size="479232">
+      <assemblyIdentity name="MED-TEK" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>KgHkNFgVBx6CC6GhOLSXj1hCHgUNYlTKALPqYuRSzMQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="mysql.data.dll" size="455168">
+      <assemblyIdentity name="MySql.Data" version="6.8.3.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>XVWVKKNSf7V1KLrm8cxaqLQF1aQOLK6JOkT6jR+Z9po=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Logo Smart Patient Small.ico" size="32038">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>AjoIwf8Bprm7qHAIo72IE4jkh6uZagCuOHPRPFyJMqc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="MED-TEK.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of all Windows versions that this application is designed to work with. 
+      Windows will automatically select the most compatible environment.-->
+      <!-- If your application is designed to work with Windows Vista, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}"></supportedOS>-->
+      <!-- If your application is designed to work with Windows 7, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
+      <!-- If your application is designed to work with Windows 8, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"></supportedOS>-->
+      <!-- If your application is designed to work with Windows 8.1, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/>-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=JULESKREUTZ454C\juleskreutzer" issuerKeyHash="49b48f242419ace2c528f688a943255fa23c38ed" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>XkVFYEm58C3NQBYlvq4H/6QDAFa7Jig+o2fYSY6Z9nY=</DigestValue></Reference></SignedInfo><SignatureValue>n/uWNqD9/2ULDgfzTYvrMrX+S20poZ7xcdXqzJzynD7j+08gyiBhKvFjiUjtRy7+ZvQrkPjQmw2S3c5x7+l6ucmKBzdqtnt9XI6ejKQ+SCWXMQYgrywiXk07lJ4X3KQa48pcjjNXN13oeFtfd+JtoKvjAYm3mw8UVry8LF8GgaQ=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>oQ53EqZeS/tN2z8GD/N7GvAuS0m13modEb4bH/vo8bWGtBRPdIE6XusTdlkscS1bId9/RFxARo4kjiQXM0KErYxjbHArSUnypsc6f+uG8efX2qpAABcTPzkm0sZVxoq9qUhk18LzuSNr8OivIf6frIAc/tp+uRd7S52CWZ2KbCs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="76f6998e49d867a33e2826bb560003a4ff07aebe251640cd2df0b9496045455e" Description="" Url=""><as:assemblyIdentity name="MED-TEK.exe" version="1.0.0.0" publicKeyToken="0ea1d820613f9bc6" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=JULESKREUTZ454C\juleskreutzer</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>kzhVOXjeziKQSbRd/Zz5uc5ep6BBgAz56JGiGOkyqfA=</DigestValue></Reference></SignedInfo><SignatureValue>QY9wH9jcndHbBFbdchk5XlUYmoF59UTpvTDuDitrQOrSJwC7R3BxEeN1/ngNMX98K1nRsR2d9/V35QcBJvNgYZm4uyAp5NmFMjRU7Punr76g3ygT3ctOLg+AjTLocGc1kgmO6rTguoIVbKx07h0+qL5Azh6TSu3Nb5WMZlJNqFE=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>oQ53EqZeS/tN2z8GD/N7GvAuS0m13modEb4bH/vo8bWGtBRPdIE6XusTdlkscS1bId9/RFxARo4kjiQXM0KErYxjbHArSUnypsc6f+uG8efX2qpAABcTPzkm0sZVxoq9qUhk18LzuSNr8OivIf6frIAc/tp+uRd7S52CWZ2KbCs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIICDTCCAXagAwIBAgIQeHyrYNsmJ4ZEdaXNuLseKjANBgkqhkiG9w0BAQsFADBFMUMwQQYDVQQDHjoASgBVAEwARQBTAEsAUgBFAFUAVABaADQANQA0AEMAXABqAHUAbABlAHMAawByAGUAdQB0AHoAZQByMB4XDTE1MDEyMzE0MDI0MloXDTE2MDEyMzIwMDI0MlowRTFDMEEGA1UEAx46AEoAVQBMAEUAUwBLAFIARQBVAFQAWgA0ADUANABDAFwAagB1AGwAZQBzAGsAcgBlAHUAdAB6AGUAcjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAoQ53EqZeS/tN2z8GD/N7GvAuS0m13modEb4bH/vo8bWGtBRPdIE6XusTdlkscS1bId9/RFxARo4kjiQXM0KErYxjbHArSUnypsc6f+uG8efX2qpAABcTPzkm0sZVxoq9qUhk18LzuSNr8OivIf6frIAc/tp+uRd7S52CWZ2KbCsCAwEAATANBgkqhkiG9w0BAQsFAAOBgQCU6SUnKZEFtteFvRcV4QV1hGqX5fWBZBl7Hv6eiqA6zEoAhZwLYTOdoYpz7ZIYEy+DDHSihDNgwBHBRaDwUQuGvi3H0CgriKIeCrI/be2O880p9T3IJq0ICbnefWmowyWsxYersJoF8ni1mECX99napwMmECQ7i0tRcWOMxFLJqQ==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

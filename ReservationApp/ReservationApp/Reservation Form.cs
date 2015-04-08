@@ -14,11 +14,13 @@ namespace ReservationApp
 {
     public partial class ReservationForm : Form
     {
-        private OracleConnection conn;
+        Connection connect = new Connection();
+        
         public ReservationForm()
         {
             InitializeComponent();
-            conn = new OracleConnection();
+
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,28 +40,14 @@ namespace ReservationApp
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            const string user = "dbi320839";
-            const string pw = "ioMMVpigPp";
-
-            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    "//192.168.15.50:1521/fhictora" + ";";
-            try
-            {
-                conn.Open();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            btnConnect.Enabled = false;
-            MessageBox.Show("Connection succeeded!");
+            MessageBox.Show(connect.NewConnection()
+                ? "Connection with database succeeded."
+                : "Check your settings, connection to database failed!");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            conn.Close();
+            connect.CloseConnection();
         }
     }
 }
