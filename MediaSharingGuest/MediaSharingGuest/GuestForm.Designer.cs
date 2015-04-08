@@ -49,6 +49,7 @@
             this.Controls.Add(this.btnConnect);
             this.Name = "GuestForm";
             this.Text = "Media Sharing";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GuestForm_FormClosing);
             this.Load += new System.EventHandler(this.GuestForm_Load);
             this.ResumeLayout(false);
 

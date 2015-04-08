@@ -1,2 +1,11 @@
 c:\users\rvanduijnhoven\documents\visual studio 2013\Projects\MediaSharingAdmin\MediaSharingAdmin\bin\Debug\MediaSharingAdmin.exe.config
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\bin\Debug\MediaSharingAdmin.exe.config
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\bin\Debug\MediaSharingAdmin.exe
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\bin\Debug\MediaSharingAdmin.pdb
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\bin\Debug\Oracle.DataAccess.dll
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.csprojResolveAssemblyReference.cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.Administration.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.Properties.Resources.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.csproj.GenerateResource.Cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.exe
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingAdmin\MediaSharingAdmin\obj\Debug\MediaSharingAdmin.pdb

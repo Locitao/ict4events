@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="GuestForm.cs">
       <SubType>Form</SubType>

@@ -53,6 +53,7 @@
       <DependentUpon>Administration Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Camping.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventManagementSystem.cs" />
     <Compile Include="Guest.cs" />

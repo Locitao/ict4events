@@ -49,6 +49,7 @@
             this.Controls.Add(this.btnConnect);
             this.Name = "Administration";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Administration_FormClosing);
             this.Load += new System.EventHandler(this.Administration_Load);
             this.ResumeLayout(false);
 

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Oracle.DataAccess.Client;
-using Oracle.DataAccess.Types;
 
-namespace ReservationApp
+namespace MediaSharingAdmin
 {
     public class Connection
     {
@@ -14,7 +9,7 @@ namespace ReservationApp
 
         public bool NewConnection()
         {
-            
+
             const string user = "dbi320839";
             const string pw = "ioMMVpigPp";
 
@@ -30,7 +25,7 @@ namespace ReservationApp
                 return false;
             }
 
-            
+
         }
 
         public void CloseConnection()

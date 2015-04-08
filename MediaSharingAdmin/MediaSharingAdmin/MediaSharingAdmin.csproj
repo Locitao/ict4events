@@ -53,6 +53,7 @@
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
     <Compile Include="Category.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="Like.cs" />
     <Compile Include="Media.cs" />

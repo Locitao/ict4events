@@ -1,2 +1,11 @@
 c:\users\rvanduijnhoven\documents\visual studio 2013\Projects\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe.config
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe.config
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.pdb
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\Oracle.DataAccess.dll
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.csprojResolveAssemblyReference.cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.GuestForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.Properties.Resources.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.csproj.GenerateResource.Cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.exe
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.pdb
