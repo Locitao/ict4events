@@ -55,6 +55,12 @@
       <DependentUpon>GuestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Like.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Media.cs" />
     <Compile Include="MediaSharingSystem.cs" />
     <Compile Include="NewsFeed.cs" />
@@ -84,6 +90,9 @@
     </Compile>
     <EmbeddedResource Include="GuestForm.resx">
       <DependentUpon>GuestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

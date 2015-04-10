@@ -13,7 +13,7 @@ namespace MediaSharingGuest
     /// <summary>
     /// This class converts files to be saved into the database.
     /// </summary>
-    class Persistance
+    class Persistence
     {
         public void SerializeToByteArray(string imagePath)
         {

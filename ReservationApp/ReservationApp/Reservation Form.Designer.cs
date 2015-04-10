@@ -46,8 +46,12 @@
             this.cbEvent = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.nmPeople = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pbLocations = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nmLocId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPeople)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLocations)).BeginInit();
             this.SuspendLayout();
             // 
             // tbName
@@ -199,11 +203,46 @@
             this.nmPeople.Size = new System.Drawing.Size(86, 20);
             this.nmPeople.TabIndex = 19;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(339, 321);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(470, 20);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Location ID\'s correspond to numbers of the locations on the map.";
+            // 
+            // pbLocations
+            // 
+            this.pbLocations.Image = global::ReservationApp.Properties.Resources.Locations;
+            this.pbLocations.InitialImage = global::ReservationApp.Properties.Resources.Locations;
+            this.pbLocations.Location = new System.Drawing.Point(328, 360);
+            this.pbLocations.Name = "pbLocations";
+            this.pbLocations.Size = new System.Drawing.Size(494, 339);
+            this.pbLocations.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLocations.TabIndex = 21;
+            this.pbLocations.TabStop = false;
+            this.pbLocations.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbLocations_MouseDoubleClick);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(339, 341);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(325, 20);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Double click image to open it in your browser.";
+            // 
             // ReservationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 661);
+            this.ClientSize = new System.Drawing.Size(834, 711);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.pbLocations);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.nmPeople);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cbEvent);
@@ -228,6 +267,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nmLocId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPeople)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLocations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,6 +293,9 @@
         private System.Windows.Forms.ComboBox cbEvent;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown nmPeople;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pbLocations;
+        private System.Windows.Forms.Label label10;
     }
 }
 

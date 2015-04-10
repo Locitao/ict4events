@@ -32,15 +32,16 @@ namespace ReservationApp
             var data = Connection.ExecuteQuery(sql);
             return data;
         }
-/*
-        public List<Dictionary<string, object>> Select_Max_People(string location_Id)
+
+        public List<Dictionary<string, object>> Select_Materials()
         {
-            string sql = "SELECT max_people FROM PT_EVENT_LOCATION WHERE PT_EVENT_LOCATION.location_ID = '" + location_Id + "'";
+            const string sql =
+                "SELECT PT_MAT_CATEGORY.mat_name, PT_MAT_CATEGORY.price FROM PT_MAT_CATEGORY, PT_MATERIAL WHERE PT_MATERIAL.mat_category = PT_MAT_CATEGORY.mat_category_ID AND PT_MATERIAL.rfid_CODE IS NULL";
 
             var data = Connection.ExecuteQuery(sql);
             return data;
         }
-        */
+
     }
  
 }

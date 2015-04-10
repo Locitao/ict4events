@@ -19,3 +19,7 @@ C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSha
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.UploadFile.resources
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ViewFile.resources
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.csproj.GenerateResource.Cache
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.LoginForm.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.pdb
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\Oracle.DataAccess.dll
