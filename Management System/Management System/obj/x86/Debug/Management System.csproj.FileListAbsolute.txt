@@ -1,0 +1,9 @@
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\bin\x86\Debug\Management System.exe.config
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.csprojResolveAssemblyReference.cache
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.Form1.resources
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.Properties.Resources.resources
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.csproj.GenerateResource.Cache
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\bin\x86\Debug\Management System.exe
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\bin\x86\Debug\Management System.pdb
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.exe
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.pdb

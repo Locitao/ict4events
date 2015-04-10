@@ -43,6 +43,7 @@ namespace Management_System
             MessageBox.Show(connection.OpenConnection()
                 ? "Connection with database succeeded."
                 : "Check your settings, connection to database failed!");
+            connection.CloseConnection();
         }
 
         
