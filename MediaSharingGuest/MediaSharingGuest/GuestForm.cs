@@ -13,18 +13,19 @@ namespace MediaSharingGuest
 {
     public partial class GuestForm : Form
     {
+        MediaSharingSystem medias;
+
         public GuestForm(MediaSharingSystem medias)
         {
             InitializeComponent();
+            this.medias = medias;
         }
 
-        private void btnAddNewsFeedMessage_Click(object sender, EventArgs e, MediaSharingSystem medias)
-        {
-            AddMessageToNewsFeed(tbNewsFeed.Text, medias); 
-        }
+        List<Category> Categories = new List<Category>();
 
-        public void AddMessageToNewsFeed(string message, MediaSharingSystem medias)
+        public void AddMessageToNewsFeed(string message, Guest mediauser)
         {
+            string rfidcode = mediauser.RFIDcode;
             //INSERT query to insert a newsfeedmessage.
         }
 
@@ -36,6 +37,8 @@ namespace MediaSharingGuest
         public void LoadFolders(int parentCategoryID)
         {
             //SELECT query to select all folders from the selected folder.
+            Categories.Clear();
+            //foreach loop die elke terug gegeven categorie in een lijst plaatst
         }
 
         public void LoadClickedFolder(string foldername)
@@ -43,14 +46,21 @@ namespace MediaSharingGuest
             //SELECT query to select the folder content from the database
         }
 
-        public void AddFolder(string foldername, int folderID, int parentfolderID)
+        public void AddFolder(string categoryname, int categoryID, int parentCategoryID)
         {
-            //INSERT query to Insert a folder
+            //INSERT query to Insert a category
+
+        }
+
+        private void btnAddFile_Click_1(object sender, EventArgs e)
+        {
+            UploadFile uploadfile = new UploadFile(medias);
+            uploadfile.Show();
         }
 
         private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
         {
-
+            AddMessageToNewsFeed(tbNewsFeed.Text, medias.MediaUser);
         }
     }
 }

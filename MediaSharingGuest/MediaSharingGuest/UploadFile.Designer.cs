@@ -33,12 +33,12 @@
             this.lblThumbnail = new System.Windows.Forms.Label();
             this.tbDesciption = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.btnUpload = new System.Windows.Forms.Button();
             this.tbPath = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.tbLocation = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // tbTitel
@@ -84,14 +84,15 @@
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // pictureBox1
+            // pbImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(241, 144);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.pbImage.Location = new System.Drawing.Point(12, 23);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(241, 144);
+            this.pbImage.TabIndex = 12;
+            this.pbImage.TabStop = false;
             // 
             // btnUpload
             // 
@@ -101,6 +102,7 @@
             this.btnUpload.TabIndex = 11;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // tbPath
             // 
@@ -109,7 +111,6 @@
             this.tbPath.ReadOnly = true;
             this.tbPath.Size = new System.Drawing.Size(241, 20);
             this.tbPath.TabIndex = 10;
-            this.tbPath.Text = "Path";
             // 
             // btnBrowse
             // 
@@ -119,6 +120,7 @@
             this.btnBrowse.TabIndex = 9;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // tbLocation
             // 
@@ -139,13 +141,13 @@
             this.Controls.Add(this.lblThumbnail);
             this.Controls.Add(this.tbDesciption);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbImage);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.tbPath);
             this.Controls.Add(this.btnBrowse);
             this.Name = "UploadFile";
             this.Text = "UploadFile";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,7 +160,7 @@
         private System.Windows.Forms.Label lblThumbnail;
         private System.Windows.Forms.TextBox tbDesciption;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.TextBox tbPath;
         private System.Windows.Forms.Button btnBrowse;

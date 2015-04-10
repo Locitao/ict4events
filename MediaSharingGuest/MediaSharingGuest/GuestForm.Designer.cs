@@ -147,6 +147,7 @@
             this.btnAddFile.TabIndex = 8;
             this.btnAddFile.Text = "Add File";
             this.btnAddFile.UseVisualStyleBackColor = true;
+            this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click_1);
             // 
             // gbFolders
             // 
