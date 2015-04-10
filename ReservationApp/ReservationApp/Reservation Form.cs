@@ -41,13 +41,6 @@ namespace ReservationApp
             
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(connect.NewConnection()
-                ? "Connection with database succeeded."
-                : "Check your settings, connection to database failed!");
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             connect.CloseConnection();
