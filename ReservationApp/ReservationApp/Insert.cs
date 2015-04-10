@@ -18,11 +18,11 @@ namespace ReservationApp
             try
             {
                 string query =
-                "INSERT INTO PT_RESERVATION (reservation_ID, rfid_CODE, event_ID, location_ID, person_amount, paid) VALUES (auto_inc_res.nextval, " +
-                rfid_Code + ", " + event_ID + ", " + location_ID + ", " + person_amount + ", " + paid + ");";
+                "INSERT INTO PT_RESERVATION (reservation_ID, rfid_CODE, event_ID, person_amount, paid) VALUES (auto_inc_res.nextval, '" +
+                rfid_Code + "', '" + event_ID + "', '" + location_ID + "', '" + person_amount + "', '" + paid + "')";
 
                 conn.Execute(query);
-                string succes = "Reservation created!";
+                const string succes = "Reservation created!";
                 return succes;
             }
             catch (Exception ex)
