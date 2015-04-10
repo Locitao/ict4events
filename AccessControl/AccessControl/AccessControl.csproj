@@ -54,8 +54,11 @@
     <Compile Include="AccessControlForm.Designer.cs">
       <DependentUpon>AccessControlForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connection.cs" />
+    <Compile Include="Insert.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Select.cs" />
     <EmbeddedResource Include="AccessControlForm.resx">
       <DependentUpon>AccessControlForm.cs</DependentUpon>
     </EmbeddedResource>
