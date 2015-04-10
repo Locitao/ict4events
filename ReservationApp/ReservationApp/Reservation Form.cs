@@ -100,7 +100,14 @@ namespace ReservationApp
 
             else
             {
-                insert.Insert_Reservation("auto_inc_acc.nextval", "1", Convert.ToString(cbEvent.SelectedIndex + 2), Convert.ToString(nmPeople), "1");
+                string paid = "0";
+                if (cbPay.Checked)
+                {
+                    paid = "1";
+                }
+                
+                MessageBox.Show(insert.Insert_Reservation("auto_inc_acc.nextval", "1", Convert.ToString(cbEvent.SelectedIndex + 2), Convert.ToString(nmPeople), paid));
+                
 
                 Refresh();
             }
@@ -109,7 +116,7 @@ namespace ReservationApp
 
         private void nmLocId_ValueChanged(object sender, EventArgs e)
         {
-            Refresh();
+            
         }
 
         private void pbLocations_MouseDoubleClick(object sender, MouseEventArgs e)

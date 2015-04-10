@@ -49,6 +49,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pbLocations = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.cbPay = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nmLocId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPeople)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLocations)).BeginInit();
@@ -162,7 +163,7 @@
             // btnCreateRes
             // 
             this.btnCreateRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateRes.Location = new System.Drawing.Point(85, 316);
+            this.btnCreateRes.Location = new System.Drawing.Point(85, 339);
             this.btnCreateRes.Name = "btnCreateRes";
             this.btnCreateRes.Size = new System.Drawing.Size(119, 45);
             this.btnCreateRes.TabIndex = 15;
@@ -235,11 +236,22 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Double click image to open it in your browser.";
             // 
+            // cbPay
+            // 
+            this.cbPay.AutoSize = true;
+            this.cbPay.Location = new System.Drawing.Point(204, 316);
+            this.cbPay.Name = "cbPay";
+            this.cbPay.Size = new System.Drawing.Size(67, 17);
+            this.cbPay.TabIndex = 23;
+            this.cbPay.Text = "Pay now";
+            this.cbPay.UseVisualStyleBackColor = true;
+            // 
             // ReservationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 711);
+            this.Controls.Add(this.cbPay);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pbLocations);
             this.Controls.Add(this.label9);
@@ -296,6 +308,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pbLocations;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox cbPay;
     }
 }
 

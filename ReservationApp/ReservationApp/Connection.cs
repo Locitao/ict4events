@@ -8,8 +8,6 @@ using Oracle.DataAccess.Types;
 using Oracle.DataAccess;
 
 
-
-
 namespace ReservationApp
 {
     public class Connection
