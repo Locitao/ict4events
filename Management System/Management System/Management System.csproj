@@ -66,15 +66,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessControlSystem.cs" />
-    <Compile Include="Administration Form.cs">
+    <Compile Include="AdministrationLogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administration Form.Designer.cs">
-      <DependentUpon>Administration Form.cs</DependentUpon>
+    <Compile Include="AdministrationLogInForm.Designer.cs">
+      <DependentUpon>AdministrationLogInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Camping.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="ConnectionNotInUse.cs" />
+    <Compile Include="EvenementManagementSystemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvenementManagementSystemForm.Designer.cs">
+      <DependentUpon>EvenementManagementSystemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Event.cs" />
     <Compile Include="EventManagementSystem.cs" />
     <Compile Include="Guest.cs" />
@@ -85,8 +91,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
-    <EmbeddedResource Include="Administration Form.resx">
-      <DependentUpon>Administration Form.cs</DependentUpon>
+    <EmbeddedResource Include="AdministrationLogInForm.resx">
+      <DependentUpon>AdministrationLogInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
