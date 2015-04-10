@@ -42,6 +42,7 @@
             this.btnAddFolder = new System.Windows.Forms.Button();
             this.btnAddFile = new System.Windows.Forms.Button();
             this.gbFolders = new System.Windows.Forms.GroupBox();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.gbNewsfeed.SuspendLayout();
             this.gbFolders.SuspendLayout();
             this.SuspendLayout();
@@ -158,11 +159,21 @@
             this.gbFolders.TabStop = false;
             this.gbFolders.Text = "Folders";
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(1087, 679);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(75, 23);
+            this.btnLogOut.TabIndex = 10;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            // 
             // GuestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 806);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.gbFolders);
             this.Controls.Add(this.gbFiles);
             this.Controls.Add(this.btnAddNewsFeedMessage);
@@ -198,6 +209,7 @@
         private System.Windows.Forms.Button btnAddFolder;
         private System.Windows.Forms.Button btnAddFile;
         private System.Windows.Forms.GroupBox gbFolders;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }
 

@@ -14,8 +14,12 @@ namespace MediaSharingGuest
 
         public void InsertImage(string mediaID, string categoryID, string medName, string medLocation, string medDescription)
         {
-            string query;
-            query = "INSERT INTO MEDIA(media_ID, category_ID, med_name, med_location, med_description, photo) values(" + mediaID + "," + "'" + categoryID + "'," + "'" + medName + "," + "'" + medLocation + "'," + "'" + medDescription + "'," + " :BlobParameter )";
+            string query = "INSERT INTO MEDIA(media_ID, category_ID, med_name, med_location, med_description, photo) values(" + mediaID + "," + "'" + categoryID + "'," + "'" + medName + "," + "'" + medLocation + "'," + "'" + medDescription + "'," + " :BlobParameter )";
+        }
+
+        public string GetRFID(string Rfidcode)
+        {
+            string query = 
         }
     }
 }

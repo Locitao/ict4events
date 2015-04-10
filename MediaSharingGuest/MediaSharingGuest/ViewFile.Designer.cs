@@ -34,7 +34,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddComment = new System.Windows.Forms.Button();
             this.btnLikeThisFile = new System.Windows.Forms.Button();
-            this.lblLiked = new System.Windows.Forms.Label();
+            this.lblLikes = new System.Windows.Forms.Label();
             this.lblYourComment = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblComments = new System.Windows.Forms.Label();
@@ -99,14 +99,14 @@
             this.btnLikeThisFile.Text = "Like this file!";
             this.btnLikeThisFile.UseVisualStyleBackColor = true;
             // 
-            // lblLiked
+            // lblLikes
             // 
-            this.lblLiked.AutoSize = true;
-            this.lblLiked.Location = new System.Drawing.Point(12, 498);
-            this.lblLiked.Name = "lblLiked";
-            this.lblLiked.Size = new System.Drawing.Size(36, 13);
-            this.lblLiked.TabIndex = 21;
-            this.lblLiked.Text = "Liked:";
+            this.lblLikes.AutoSize = true;
+            this.lblLikes.Location = new System.Drawing.Point(12, 498);
+            this.lblLikes.Name = "lblLikes";
+            this.lblLikes.Size = new System.Drawing.Size(35, 13);
+            this.lblLikes.TabIndex = 21;
+            this.lblLikes.Text = "Likes:";
             // 
             // lblYourComment
             // 
@@ -181,7 +181,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddComment);
             this.Controls.Add(this.btnLikeThisFile);
-            this.Controls.Add(this.lblLiked);
+            this.Controls.Add(this.lblLikes);
             this.Controls.Add(this.lblYourComment);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.lblComments);
@@ -205,7 +205,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAddComment;
         private System.Windows.Forms.Button btnLikeThisFile;
-        private System.Windows.Forms.Label lblLiked;
+        private System.Windows.Forms.Label lblLikes;
         private System.Windows.Forms.Label lblYourComment;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblComments;
