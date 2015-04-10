@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace MediaSharingGuest
 {
-    class MediaSharingSystem
+    public class MediaSharingSystem
     {
-        public MediaSharingSystem()
+        public Guest MediaUser { get; set; }
+
+        public MediaSharingSystem(Guest user)
         {
-
+            MediaUser = user;
         }
-
         public void AddCategory()
         {
 

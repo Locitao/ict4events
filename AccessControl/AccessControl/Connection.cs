@@ -7,16 +7,15 @@ using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 using Oracle.DataAccess;
 
-
-namespace ReservationApp
+namespace AccessControl
 {
-    public class Connection
+    class Connection
     {
         OracleConnection conn = new OracleConnection();
 
         public bool NewConnection()
         {
-            
+
             const string user = "dbi320839";
             const string pw = "ioMMVpigPp";
 
@@ -31,8 +30,6 @@ namespace ReservationApp
             {
                 return false;
             }
-
-            
         }
 
         public void CloseConnection()
@@ -46,7 +43,6 @@ namespace ReservationApp
 
             Connection connection = new Connection();
             connection.CloseConnection();
-            
 
             if (connection.NewConnection())
             {
@@ -58,13 +54,12 @@ namespace ReservationApp
                     {
                         Dictionary<string, object> row = new Dictionary<string, object>();
 
-                         //Loop through fields, add them to the row
+                        //Loop through fields, add them to the row
 
                         for (int fieldId = 0; fieldId < resultReader.FieldCount; fieldId++)
                             row.Add(resultReader.GetName(fieldId), resultReader.GetValue(fieldId));
 
                         result.Add(row);
-
                     }
                     connection.conn.Close();
                     return result;
@@ -73,12 +68,8 @@ namespace ReservationApp
                 {
                     throw;
                 }
-                
 
                 //Loop through files, add them to result
-
-                
-                
             }
             connection.conn.Close();
             return result;
@@ -87,7 +78,6 @@ namespace ReservationApp
         public void Execute(string sql)
         {
             string query = sql;
-
 
             if (NewConnection())
             {

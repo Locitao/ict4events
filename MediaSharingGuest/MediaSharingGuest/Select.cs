@@ -17,9 +17,9 @@ namespace MediaSharingGuest
             string query = "INSERT INTO MEDIA(media_ID, category_ID, med_name, med_location, med_description, photo) values(" + mediaID + "," + "'" + categoryID + "'," + "'" + medName + "," + "'" + medLocation + "'," + "'" + medDescription + "'," + " :BlobParameter )";
         }
 
-        public string GetRFID(string Rfidcode)
+        public void GetRFID(string Rfidcode)
         {
-            string query = 
+            string query = "SELECT Name FROM PT_USER_ACC WHERE RFID_CODE = " + Rfidcode;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace MediaSharingGuest
         {
             InitializeComponent();
             rbUser.Checked = true;
+            
         }
 
         public string Rfidcode { get; set; }
@@ -54,14 +55,44 @@ namespace MediaSharingGuest
             }
         }
 
-        public void LogIn(string Username, string Password)
+        public void LogIn(string username, string password)
         {
+            //Query that returns password of the username.
 
+            string tablePassword;
+
+            if (password == Password)
+            {
+                //MediaSharingSystem ms = new MediaSharingSystem(username);
+                //GuestForm guestform = new GuestForm(ms);
+            }
+
+            else
+            {
+                MessageBox.Show("Wrong password or username");
+            }
         }
 
-        public void LogIn(string Rfidcode)
+        public void LogIn(string rfidcode)
         {
+            //Query that returns Name of the user, if no name then no login.
 
+            string name = "jaap";
+
+            if (Name != null)
+            {
+                //Query that returns the warnlv 
+                Guest user = new Guest (name, rfidcode);
+                MediaSharingSystem ms = new MediaSharingSystem(user);
+                GuestForm guestform = new GuestForm(ms);
+                this.Hide();
+                guestform.Show();
+            }
+
+            else
+            {
+                MessageBox.Show("Wrong password or username");
+            }
         }
 
         public void LogOut()
@@ -69,6 +100,18 @@ namespace MediaSharingGuest
             Password = null;
             Username = null;
             Rfidcode = null;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (rbUser.Checked == true)
+            {
+                LogIn(tbUserOrRFID.Text);
+            }
+            else if (rbAdmin.Checked == true)
+            {
+                LogIn(tbUserOrRFID.Text, tbPassword.Text);
+            }
         }
     }
 }
