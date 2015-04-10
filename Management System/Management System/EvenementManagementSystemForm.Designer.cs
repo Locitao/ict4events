@@ -55,6 +55,8 @@
             this.lblLocationType = new System.Windows.Forms.Label();
             this.numericPrice = new System.Windows.Forms.NumericUpDown();
             this.lblPrice = new System.Windows.Forms.Label();
+            this.lblmap = new System.Windows.Forms.Label();
+            this.btnAddMapPath = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMaxGuests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).BeginInit();
@@ -62,7 +64,7 @@
             // 
             // btnNewCamping
             // 
-            this.btnNewCamping.Location = new System.Drawing.Point(119, 174);
+            this.btnNewCamping.Location = new System.Drawing.Point(119, 202);
             this.btnNewCamping.Name = "btnNewCamping";
             this.btnNewCamping.Size = new System.Drawing.Size(108, 23);
             this.btnNewCamping.TabIndex = 2;
@@ -183,7 +185,7 @@
             // 
             // btnDeleteCamping
             // 
-            this.btnDeleteCamping.Location = new System.Drawing.Point(12, 174);
+            this.btnDeleteCamping.Location = new System.Drawing.Point(12, 202);
             this.btnDeleteCamping.Name = "btnDeleteCamping";
             this.btnDeleteCamping.Size = new System.Drawing.Size(101, 23);
             this.btnDeleteCamping.TabIndex = 15;
@@ -329,11 +331,31 @@
             this.lblPrice.TabIndex = 29;
             this.lblPrice.Text = "Price:";
             // 
+            // lblmap
+            // 
+            this.lblmap.AutoSize = true;
+            this.lblmap.Location = new System.Drawing.Point(14, 176);
+            this.lblmap.Name = "lblmap";
+            this.lblmap.Size = new System.Drawing.Size(55, 13);
+            this.lblmap.TabIndex = 30;
+            this.lblmap.Text = "Map path:";
+            // 
+            // btnAddMapPath
+            // 
+            this.btnAddMapPath.Location = new System.Drawing.Point(97, 172);
+            this.btnAddMapPath.Name = "btnAddMapPath";
+            this.btnAddMapPath.Size = new System.Drawing.Size(130, 23);
+            this.btnAddMapPath.TabIndex = 31;
+            this.btnAddMapPath.Text = "Import Map path";
+            this.btnAddMapPath.UseVisualStyleBackColor = true;
+            // 
             // EvenementManagementSystemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(467, 441);
+            this.Controls.Add(this.btnAddMapPath);
+            this.Controls.Add(this.lblmap);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.numericPrice);
             this.Controls.Add(this.lblLocationType);
@@ -400,6 +422,8 @@
         private System.Windows.Forms.Label lblLocationType;
         private System.Windows.Forms.NumericUpDown numericPrice;
         private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblmap;
+        private System.Windows.Forms.Button btnAddMapPath;
 
     }
 }
