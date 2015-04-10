@@ -13,32 +13,44 @@ namespace MediaSharingGuest
 {
     public partial class GuestForm : Form
     {
-        Connection connect = new Connection();
-        public GuestForm()
+        public GuestForm(MediaSharingSystem medias)
         {
             InitializeComponent();
         }
 
-        private void GuestForm_Load(object sender, EventArgs e)
+        private void btnAddNewsFeedMessage_Click(object sender, EventArgs e, MediaSharingSystem medias)
         {
-
+            AddMessageToNewsFeed(tbNewsFeed.Text, medias); 
         }
 
-        public void Login()
+        public void AddMessageToNewsFeed(string message, MediaSharingSystem medias)
         {
-            
+            //INSERT query to insert a newsfeedmessage.
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
+        public void LoadNewsFeedMessages()
         {
-            MessageBox.Show(connect.NewConnection()
-                ? "Connection with database succeeded."
-                : "Check your settings, connection to database failed!");
+            //SELECT query to select all messages without mediaID and display each of them.
         }
 
-        private void GuestForm_FormClosing(object sender, FormClosingEventArgs e)
+        public void LoadFolders(int parentCategoryID)
         {
-            connect.CloseConnection();
+            //SELECT query to select all folders from the selected folder.
+        }
+
+        public void LoadClickedFolder(string foldername)
+        {
+            //SELECT query to select the folder content from the database
+        }
+
+        public void AddFolder(string foldername, int folderID, int parentfolderID)
+        {
+            //INSERT query to Insert a folder
+        }
+
+        private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

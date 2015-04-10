@@ -19,3 +19,10 @@ C:\Users\martijn\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x
 C:\Users\martijn\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.Properties.Resources.resources
 C:\Users\martijn\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.ReservationForm.resources
 C:\Users\martijn\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.csproj.GenerateResource.Cache
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\bin\x86\Debug\ReservationApp.exe
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\bin\x86\Debug\ReservationApp.pdb
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\bin\x86\Debug\Oracle.DataAccess.dll
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.csprojResolveAssemblyReference.cache
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.Properties.Resources.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.ReservationForm.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.csproj.GenerateResource.Cache

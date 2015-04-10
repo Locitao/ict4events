@@ -33,7 +33,7 @@
             this.timerNewsFeed = new System.Windows.Forms.Timer(this.components);
             this.gbNewsfeed = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbNewsFeed = new System.Windows.Forms.TextBox();
             this.lblNewsFeedMessage = new System.Windows.Forms.Label();
             this.btnAddNewsFeedMessage = new System.Windows.Forms.Button();
             this.lbFolders = new System.Windows.Forms.ListBox();
@@ -43,6 +43,8 @@
             this.btnAddFile = new System.Windows.Forms.Button();
             this.gbFolders = new System.Windows.Forms.GroupBox();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.lblLoggedInAs = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.gbNewsfeed.SuspendLayout();
             this.gbFolders.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +57,6 @@
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // gbNewsfeed
             // 
@@ -77,12 +78,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Jan: Newsfeed bericht!!!";
             // 
-            // textBox1
+            // tbNewsFeed
             // 
-            this.textBox1.Location = new System.Drawing.Point(227, 163);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(744, 20);
-            this.textBox1.TabIndex = 2;
+            this.tbNewsFeed.Location = new System.Drawing.Point(227, 163);
+            this.tbNewsFeed.Name = "tbNewsFeed";
+            this.tbNewsFeed.Size = new System.Drawing.Size(744, 20);
+            this.tbNewsFeed.TabIndex = 2;
             // 
             // lblNewsFeedMessage
             // 
@@ -101,6 +102,7 @@
             this.btnAddNewsFeedMessage.TabIndex = 3;
             this.btnAddNewsFeedMessage.Text = "Add Message";
             this.btnAddNewsFeedMessage.UseVisualStyleBackColor = true;
+            this.btnAddNewsFeedMessage.Click += new System.EventHandler(this.btnAddNewsFeedMessage_Click);
             // 
             // lbFolders
             // 
@@ -168,23 +170,41 @@
             this.btnLogOut.Text = "Log out";
             this.btnLogOut.UseVisualStyleBackColor = true;
             // 
+            // lblLoggedInAs
+            // 
+            this.lblLoggedInAs.AutoSize = true;
+            this.lblLoggedInAs.Location = new System.Drawing.Point(1075, 22);
+            this.lblLoggedInAs.Name = "lblLoggedInAs";
+            this.lblLoggedInAs.Size = new System.Drawing.Size(71, 13);
+            this.lblLoggedInAs.TabIndex = 11;
+            this.lblLoggedInAs.Text = "Logged in as:";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(1075, 35);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 12;
+            this.lblName.Text = "Name";
+            // 
             // GuestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 806);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.gbFolders);
             this.Controls.Add(this.gbFiles);
             this.Controls.Add(this.btnAddNewsFeedMessage);
             this.Controls.Add(this.lblNewsFeedMessage);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbNewsFeed);
             this.Controls.Add(this.gbNewsfeed);
             this.Controls.Add(this.btnConnect);
             this.Name = "GuestForm";
             this.Text = "Mediasharing";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GuestForm_FormClosing);
-            this.Load += new System.EventHandler(this.GuestForm_Load);
             this.gbNewsfeed.ResumeLayout(false);
             this.gbNewsfeed.PerformLayout();
             this.gbFolders.ResumeLayout(false);
@@ -200,7 +220,7 @@
         private System.Windows.Forms.Timer timerNewsFeed;
         private System.Windows.Forms.GroupBox gbNewsfeed;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbNewsFeed;
         private System.Windows.Forms.Label lblNewsFeedMessage;
         private System.Windows.Forms.Button btnAddNewsFeedMessage;
         private System.Windows.Forms.ListBox lbFolders;
@@ -210,6 +230,8 @@
         private System.Windows.Forms.Button btnAddFile;
         private System.Windows.Forms.GroupBox gbFolders;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Label lblLoggedInAs;
+        private System.Windows.Forms.Label lblName;
     }
 }
 

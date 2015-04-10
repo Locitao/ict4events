@@ -11,7 +11,7 @@ namespace MediaSharingGuest
         public string Name { get; set; }
         public int CategoryId { get; set; }
 
-        public Guest creator = new Guest();
+        public Guest Creator { get; set; }
 
         public string Description { get; set; }
 
