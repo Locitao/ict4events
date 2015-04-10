@@ -12,14 +12,24 @@ namespace ReservationApp
     class Insert
     {
         Connection conn = new Connection();
-        public void Insert_Reservation(string rfid_Code, string event_ID, string location_ID,
+        public string Insert_Reservation(string rfid_Code, string event_ID, string location_ID,
             string person_amount, string paid)
         {
-            string query =
+            try
+            {
+                string query =
                 "INSERT INTO PT_RESERVATION (reservation_ID, rfid_CODE, event_ID, location_ID, person_amount, paid) VALUES (auto_inc_res.nextval, " +
-                rfid_Code + ", " + event_ID + ", " + location_ID + ", " + person_amount + ", " + paid + ")";
+                rfid_Code + ", " + event_ID + ", " + location_ID + ", " + person_amount + ", " + paid + ");";
 
-            conn.Execute(query);
+                conn.Execute(query);
+                string succes = "Reservation created!";
+                return succes;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            
         }
     }
 }
