@@ -52,5 +52,15 @@ namespace Management_System
         {
             Login(tbame.Text, tbPassword.Text);
         }
+
+        private void btnLoginToManagementSystem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogInMaterialRenting_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

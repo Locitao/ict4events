@@ -16,5 +16,20 @@ namespace Management_System
         {
             InitializeComponent();
         }
+
+        private void lblLocations_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbLocations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewLocation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

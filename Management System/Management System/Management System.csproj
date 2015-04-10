@@ -94,6 +94,9 @@
     <EmbeddedResource Include="AdministrationLogInForm.resx">
       <DependentUpon>AdministrationLogInForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EvenementManagementSystemForm.resx">
+      <DependentUpon>EvenementManagementSystemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
