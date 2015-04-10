@@ -22,8 +22,8 @@ namespace ReservationApp
         public ReservationForm()
         {
             InitializeComponent();
-
             
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -90,20 +90,7 @@ namespace ReservationApp
             {
                 MessageBox.Show(ex.Message);
             }
-            /*
-            try
-            {
-                var maxPeople = select.Select_Max_People(Convert.ToString(nmLocId));
-
-                nmPeople.Maximum = Convert.ToInt32(maxPeople);
-                nmPeople.Minimum = 1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-               
-            }
-            */
+            
         }
         /// <summary>
         /// Button below creates a new reservation in the database.
@@ -130,6 +117,11 @@ namespace ReservationApp
         private void nmLocId_ValueChanged(object sender, EventArgs e)
         {
             Refresh();
+        }
+
+        private void pbLocations_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"http://i.imgur.com/fN9DGFz.jpg");
         }
     }
 }
