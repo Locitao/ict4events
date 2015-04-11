@@ -73,7 +73,7 @@
     </Compile>
     <Compile Include="Camping.cs" />
     <Compile Include="Connection.cs" />
-    <Compile Include="ConnectionNotInUse.cs" />
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="EvenementManagementSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>

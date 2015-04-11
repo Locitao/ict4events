@@ -15,7 +15,7 @@ namespace Management_System
     public partial class Form1 : Form
     {
         private bool loggedIn = false;
-        ConnectionNotInUse connection = new ConnectionNotInUse();
+        DatabaseConnection connection = new DatabaseConnection();
         
         public Form1()
         {
@@ -25,12 +25,7 @@ namespace Management_System
 
         private bool Login(string username, string password)
         {
-            if (connection.LogIn(username, password))
-            {
-                loggedIn = true;
-                return true;
-            }
-            else { return false; }
+            return false;
         }
 
         private void LogOut()

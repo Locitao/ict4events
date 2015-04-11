@@ -5,21 +5,30 @@ using Oracle.DataAccess.Client;
 
 namespace Management_System
 {
-    public class ConnectionNotInUse
+    /// <summary>
+    /// This class has hardcoded connection login data and is used to submit and submit and receive data from the database
+    /// </summary>
+    public class DatabaseConnection
     {
         private OracleConnection conn;
 
-
-        public ConnectionNotInUse()
+        /// <summary>
+        /// login data is hardcoded
+        /// </summary>
+        public DatabaseConnection()
         {
             conn = new OracleConnection();
-            const string user = "dbi320839";
-            const string pw = "ioMMVpigPp";
+            string user = "dbi320839";
+            string pw = "ioMMVpigPp";
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
                                     "//192.168.15.50:1521/fhictora" + ";";
         }
 
-        public bool OpenConnection()
+        /// <summary>
+        /// Tries to open a connoction with the database
+        /// </summary>
+        /// <returns>true if a connection has been opened, false if an error has occured</returns>
+        private bool OpenConnection()
         {
             try
             {
@@ -33,26 +42,22 @@ namespace Management_System
 
 
         }
-
-        public void CloseConnection()
+        /// <summary>
+        /// Closes the connection with the database if it was open
+        /// </summary>
+        private void CloseConnection()
         {
             conn.Close();
         }
 
-        public bool LogIn(string username, string password)
-        {
-
-
-
-
-
-            return false;
-        }
-
-
 
         
-
+        /// <summary>
+        /// This method uses a query to receive data from the oracle database
+        /// </summary>
+        /// <param name="query">The SQL query that specifies what you want to receive from the database</param>
+        /// <param name="output">outputs an 2D list with all received data</param>
+        /// <returns>true if the query is succesfull, false if an error has occured</returns>
         public bool SQLQueryWithOutput(string query, out List<List<string>> output)
         {
             try
@@ -100,6 +105,13 @@ namespace Management_System
                 CloseConnection();
             }
         }
+        /// <summary>
+        /// This method uses a query to receive data from the oracle database
+        /// </summary>
+        /// <param name="query">The SQL query that specifies what you want to receive from the database</param>
+        /// <param name="output">outputs an 2D list with all received data</param>
+        /// <param name="exception">outputs the exception if there was one, if not this outputs null</param>
+        /// <returns>true if the query is succesfull, false if an error has occured</returns>
         public bool SQLQueryWithOutput(string query, out List<List<string>> output, out Exception exception)
         {
             try
@@ -151,8 +163,11 @@ namespace Management_System
             }
         }
 
-
-
+        /// <summary>
+        /// This method uses a query to submit data to the oracle database
+        /// </summary>
+        /// <param name="query">the SQL query that contais what you want to submit to the database</param>
+        /// <returns>true if the query is succesfull, false if an error has occured</returns>
         public bool SQLQueryNoOutput(string query)
         {
             try
@@ -171,6 +186,12 @@ namespace Management_System
                 CloseConnection();
             }
         }
+        /// <summary>
+        /// This method uses a query to submit data to the oracle database
+        /// </summary>
+        /// <param name="query">the SQL query that contais what you want to submit to the database</param>
+        /// <param name="exception">outputs the exception if there was one, if not this outputs null</param>
+        /// <returns>true if the query is succesfull, false if an error has occured</returns>
         public bool SQLQueryNoOutput(string query, out Exception exception)
         {
             try
