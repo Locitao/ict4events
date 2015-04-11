@@ -15,7 +15,7 @@ namespace Management_System
     public partial class Form1 : Form
     {
         private bool loggedIn = false;
-        Connection connection = new Connection();
+        ConnectionNotInUse connection = new ConnectionNotInUse();
         
         public Form1()
         {
@@ -40,10 +40,12 @@ namespace Management_System
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(connection.OpenConnection()
+            /*MessageBox.Show(connection.OpenConnection()
                 ? "Connection with database succeeded."
                 : "Check your settings, connection to database failed!");
-            connection.CloseConnection();
+            connection.CloseConnection();*/
+            List<List<string>> listtest;
+            connection.SQLQueryWithOutput("", out listtest);
         }
 
         
