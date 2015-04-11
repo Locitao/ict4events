@@ -56,7 +56,7 @@
             this.numericPrice = new System.Windows.Forms.NumericUpDown();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblmap = new System.Windows.Forms.Label();
-            this.btnAddMapPath = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMaxGuests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).BeginInit();
@@ -340,21 +340,19 @@
             this.lblmap.TabIndex = 30;
             this.lblmap.Text = "Map path:";
             // 
-            // btnAddMapPath
+            // textBox1
             // 
-            this.btnAddMapPath.Location = new System.Drawing.Point(97, 172);
-            this.btnAddMapPath.Name = "btnAddMapPath";
-            this.btnAddMapPath.Size = new System.Drawing.Size(130, 23);
-            this.btnAddMapPath.TabIndex = 31;
-            this.btnAddMapPath.Text = "Import Map path";
-            this.btnAddMapPath.UseVisualStyleBackColor = true;
+            this.textBox1.Location = new System.Drawing.Point(97, 173);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(130, 20);
+            this.textBox1.TabIndex = 32;
             // 
             // EvenementManagementSystemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(467, 441);
-            this.Controls.Add(this.btnAddMapPath);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblmap);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.numericPrice);
@@ -423,7 +421,7 @@
         private System.Windows.Forms.NumericUpDown numericPrice;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblmap;
-        private System.Windows.Forms.Button btnAddMapPath;
+        private System.Windows.Forms.TextBox textBox1;
 
     }
 }

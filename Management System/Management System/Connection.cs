@@ -12,6 +12,9 @@ using Oracle.DataAccess;
 
 namespace Management_System
 {
+    /// <summary>
+    /// old database connection class, it's not deleted because we might need it back again in the future
+    /// </summary>
     public class Connection
     {
         OracleConnection conn = new OracleConnection();
