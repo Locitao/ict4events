@@ -12,9 +12,46 @@ namespace MediaSharingGuest
 {
     public partial class ViewFile : Form
     {
-        public ViewFile()
+        MediaSharingSystem medias;
+        Media mediaitem;
+
+        public ViewFile(MediaSharingSystem medias, Media mediaitem)
         {
             InitializeComponent();
+            this.medias = medias;
+            this.mediaitem = mediaitem;
+        }
+
+        public void ShowAllInformation()
+        {
+            //Shows the image
+            pbImage.ImageLocation = @mediaitem.Path;
+            pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            //Shows the comments
+            mediaitem.Update();
+            
+            foreach (Reaction comment in mediaitem.Comments)
+            {
+                lbComments.Items.Add(comment);
+            }
+
+            //shows the name of the uploader
+
+            //SELECT statement to select the name of the creator.
+            string rfidCreator = mediaitem.
+            string creator;
+            lblName.Text = 
+        }
+
+        private void btnAddComment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

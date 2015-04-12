@@ -36,18 +36,20 @@
             this.btnLikeThisFile = new System.Windows.Forms.Button();
             this.lblLikes = new System.Windows.Forms.Label();
             this.lblYourComment = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbYourComment = new System.Windows.Forms.TextBox();
             this.lblComments = new System.Windows.Forms.Label();
-            this.tbComments = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDescription = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.lbComments = new System.Windows.Forms.ListBox();
+            this.lblUploadedBy = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReportFile
             // 
-            this.btnReportFile.Location = new System.Drawing.Point(336, 647);
+            this.btnReportFile.Location = new System.Drawing.Point(336, 715);
             this.btnReportFile.Name = "btnReportFile";
             this.btnReportFile.Size = new System.Drawing.Size(116, 40);
             this.btnReportFile.TabIndex = 27;
@@ -56,7 +58,7 @@
             // 
             // btnReportComment
             // 
-            this.btnReportComment.Location = new System.Drawing.Point(662, 647);
+            this.btnReportComment.Location = new System.Drawing.Point(662, 715);
             this.btnReportComment.Name = "btnReportComment";
             this.btnReportComment.Size = new System.Drawing.Size(146, 40);
             this.btnReportComment.TabIndex = 26;
@@ -65,7 +67,7 @@
             // 
             // btnLikeComment
             // 
-            this.btnLikeComment.Location = new System.Drawing.Point(469, 647);
+            this.btnLikeComment.Location = new System.Drawing.Point(469, 715);
             this.btnLikeComment.Name = "btnLikeComment";
             this.btnLikeComment.Size = new System.Drawing.Size(146, 40);
             this.btnLikeComment.TabIndex = 25;
@@ -74,25 +76,27 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(134, 647);
+            this.btnCancel.Location = new System.Drawing.Point(134, 715);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(116, 40);
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAddComment
             // 
-            this.btnAddComment.Location = new System.Drawing.Point(12, 647);
+            this.btnAddComment.Location = new System.Drawing.Point(12, 715);
             this.btnAddComment.Name = "btnAddComment";
             this.btnAddComment.Size = new System.Drawing.Size(116, 40);
             this.btnAddComment.TabIndex = 23;
             this.btnAddComment.Text = "Add Comment";
             this.btnAddComment.UseVisualStyleBackColor = true;
+            this.btnAddComment.Click += new System.EventHandler(this.btnAddComment_Click);
             // 
             // btnLikeThisFile
             // 
-            this.btnLikeThisFile.Location = new System.Drawing.Point(377, 488);
+            this.btnLikeThisFile.Location = new System.Drawing.Point(377, 556);
             this.btnLikeThisFile.Name = "btnLikeThisFile";
             this.btnLikeThisFile.Size = new System.Drawing.Size(75, 52);
             this.btnLikeThisFile.TabIndex = 22;
@@ -102,7 +106,7 @@
             // lblLikes
             // 
             this.lblLikes.AutoSize = true;
-            this.lblLikes.Location = new System.Drawing.Point(12, 498);
+            this.lblLikes.Location = new System.Drawing.Point(12, 566);
             this.lblLikes.Name = "lblLikes";
             this.lblLikes.Size = new System.Drawing.Size(35, 13);
             this.lblLikes.TabIndex = 21;
@@ -111,70 +115,90 @@
             // lblYourComment
             // 
             this.lblYourComment.AutoSize = true;
-            this.lblYourComment.Location = new System.Drawing.Point(12, 530);
+            this.lblYourComment.Location = new System.Drawing.Point(12, 598);
             this.lblYourComment.Name = "lblYourComment";
             this.lblYourComment.Size = new System.Drawing.Size(78, 13);
             this.lblYourComment.TabIndex = 20;
             this.lblYourComment.Text = "Your comment:";
             // 
-            // textBox2
+            // tbYourComment
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 546);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(440, 95);
-            this.textBox2.TabIndex = 19;
+            this.tbYourComment.Location = new System.Drawing.Point(12, 614);
+            this.tbYourComment.Multiline = true;
+            this.tbYourComment.Name = "tbYourComment";
+            this.tbYourComment.Size = new System.Drawing.Size(440, 95);
+            this.tbYourComment.TabIndex = 19;
             // 
             // lblComments
             // 
             this.lblComments.AutoSize = true;
-            this.lblComments.Location = new System.Drawing.Point(466, 14);
+            this.lblComments.Location = new System.Drawing.Point(466, 82);
             this.lblComments.Name = "lblComments";
             this.lblComments.Size = new System.Drawing.Size(59, 13);
             this.lblComments.TabIndex = 18;
             this.lblComments.Text = "Comments:";
             // 
-            // tbComments
+            // tbDescription
             // 
-            this.tbComments.Location = new System.Drawing.Point(469, 30);
-            this.tbComments.Multiline = true;
-            this.tbComments.Name = "tbComments";
-            this.tbComments.Size = new System.Drawing.Size(339, 611);
-            this.tbComments.TabIndex = 17;
-            this.tbComments.Text = "Comments";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 364);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(443, 122);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.Text = "Description";
+            this.tbDescription.Location = new System.Drawing.Point(12, 432);
+            this.tbDescription.Multiline = true;
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.ReadOnly = true;
+            this.tbDescription.Size = new System.Drawing.Size(443, 122);
+            this.tbDescription.TabIndex = 16;
+            this.tbDescription.Text = "Description";
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(12, 12);
+            this.lblTitle.Location = new System.Drawing.Point(12, 80);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(27, 13);
             this.lblTitle.TabIndex = 15;
             this.lblTitle.Text = "Title";
             // 
-            // pictureBox1
+            // pbImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(443, 330);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.pbImage.Location = new System.Drawing.Point(12, 96);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(443, 330);
+            this.pbImage.TabIndex = 14;
+            this.pbImage.TabStop = false;
+            // 
+            // lbComments
+            // 
+            this.lbComments.FormattingEnabled = true;
+            this.lbComments.Location = new System.Drawing.Point(469, 98);
+            this.lbComments.Name = "lbComments";
+            this.lbComments.Size = new System.Drawing.Size(339, 615);
+            this.lbComments.TabIndex = 28;
+            // 
+            // lblUploadedBy
+            // 
+            this.lblUploadedBy.AutoSize = true;
+            this.lblUploadedBy.Location = new System.Drawing.Point(4, 9);
+            this.lblUploadedBy.Name = "lblUploadedBy";
+            this.lblUploadedBy.Size = new System.Drawing.Size(70, 13);
+            this.lblUploadedBy.TabIndex = 29;
+            this.lblUploadedBy.Text = "Uploaded by:";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(80, 9);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 30;
+            this.lblName.Text = "Name";
             // 
             // ViewFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 704);
+            this.ClientSize = new System.Drawing.Size(828, 778);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblUploadedBy);
+            this.Controls.Add(this.lbComments);
             this.Controls.Add(this.btnReportFile);
             this.Controls.Add(this.btnReportComment);
             this.Controls.Add(this.btnLikeComment);
@@ -183,15 +207,14 @@
             this.Controls.Add(this.btnLikeThisFile);
             this.Controls.Add(this.lblLikes);
             this.Controls.Add(this.lblYourComment);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbYourComment);
             this.Controls.Add(this.lblComments);
-            this.Controls.Add(this.tbComments);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbImage);
             this.Name = "ViewFile";
             this.Text = "ViewFile";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,11 +230,13 @@
         private System.Windows.Forms.Button btnLikeThisFile;
         private System.Windows.Forms.Label lblLikes;
         private System.Windows.Forms.Label lblYourComment;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbYourComment;
         private System.Windows.Forms.Label lblComments;
-        private System.Windows.Forms.TextBox tbComments;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.ListBox lbComments;
+        private System.Windows.Forms.Label lblUploadedBy;
+        private System.Windows.Forms.Label lblName;
     }
 }
