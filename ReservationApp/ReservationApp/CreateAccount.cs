@@ -43,7 +43,9 @@ namespace ReservationApp
                 var address = tbAddress.Text + ", " + tbCity.Text + ", " + tbCountry.Text;
 
                 MessageBox.Show(insert.Insert_Account(name, address, phone));
+                Hide();
                 ReservationForm reserve = new ReservationForm(name, phone);
+                reserve.Closed += (s, args) => Close();
                 reserve.Show();
 
             }

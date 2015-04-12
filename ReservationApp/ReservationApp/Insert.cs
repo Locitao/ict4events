@@ -46,18 +46,17 @@ namespace ReservationApp
 
                 conn.Execute(query);
                 const string succes = "Account created!";
+                conn.CloseConnection();
                 return succes;
 
             }
             catch (Exception ex)
             {
+                conn.CloseConnection();
                 return ex.Message;
             }
 
-            finally
-            {
-                conn.CloseConnection();
-            }
+            
            
         }
     }
