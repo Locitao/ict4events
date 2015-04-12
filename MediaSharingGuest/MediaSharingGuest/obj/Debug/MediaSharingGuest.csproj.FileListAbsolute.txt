@@ -23,3 +23,4 @@ C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSha
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.pdb
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.CreateFolder.resources

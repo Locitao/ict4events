@@ -47,6 +47,12 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Connection.cs" />
+    <Compile Include="CreateFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateFolder.Designer.cs">
+      <DependentUpon>CreateFolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Guest.cs" />
     <Compile Include="GuestForm.cs">
       <SubType>Form</SubType>
@@ -87,6 +93,9 @@
     <Compile Include="ViewFile.Designer.cs">
       <DependentUpon>ViewFile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreateFolder.resx">
+      <DependentUpon>CreateFolder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GuestForm.resx">
       <DependentUpon>GuestForm.cs</DependentUpon>
     </EmbeddedResource>

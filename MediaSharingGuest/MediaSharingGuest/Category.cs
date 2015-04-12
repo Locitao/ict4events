@@ -6,18 +6,34 @@ using System.Threading.Tasks;
 
 namespace MediaSharingGuest
 {
-    class Category
+    public class Category
     {
         public string Name { get; set; }
         public int CategoryId { get; set; }
+        public int ParentCategoryId 
+        { 
+            get 
+            { 
+                return ParentCategoryId; 
+            }
+            set
+            {
+                if (value == null)
+                {
+                    value = 0;
+                }
+                ParentCategoryId = value;
+            }
+        }
 
-        public Guest Creator { get; set; }
+        public string Rfidcode { get; set; }
 
-        public string Description { get; set; }
-
-        public Category()
+        public Category(string name, int categoryid, int parentcategoryid, string rfidcode)
         {
-
+            Name = name;
+            CategoryId = categoryid;
+            ParentCategoryId = parentcategoryid;
+            Rfidcode = Rfidcode;
         }
 
         public void AddMedia()

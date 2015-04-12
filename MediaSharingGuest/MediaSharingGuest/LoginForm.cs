@@ -113,5 +113,10 @@ namespace MediaSharingGuest
                 LogIn(tbUserOrRFID.Text, tbPassword.Text);
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

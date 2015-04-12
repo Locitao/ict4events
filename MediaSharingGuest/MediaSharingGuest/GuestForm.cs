@@ -14,11 +14,17 @@ namespace MediaSharingGuest
     public partial class GuestForm : Form
     {
         MediaSharingSystem medias;
+        Category currentCategory = new Category("Test:", 1, 0, "1111");
 
         public GuestForm(MediaSharingSystem medias)
         {
             InitializeComponent();
             this.medias = medias;
+
+            if (currentCategory.ParentCategoryId == 0)
+            {
+                btnBack.Enabled = false;
+            }
         }
 
         List<Category> Categories = new List<Category>();
@@ -34,33 +40,57 @@ namespace MediaSharingGuest
             //SELECT query to select all messages without mediaID and display each of them.
         }
 
-        public void LoadFolders(int parentCategoryID)
+        public void LoadFolders()
         {
-            //SELECT query to select all folders from the selected folder.
-            Categories.Clear();
-            //foreach loop die elke terug gegeven categorie in een lijst plaatst
+            //SELECT query to select the starting folder and it's content.
         }
 
-        public void LoadClickedFolder(string foldername)
+        public void LoadClickedFolder(int categoryID)
         {
-            //SELECT query to select the folder content from the database
-        }
-
-        public void AddFolder(string categoryname, int categoryID, int parentCategoryID)
-        {
-            //INSERT query to Insert a category
-
+            lbFolders.Items.Clear();
+            //SELECT query to select the folder content from the database.
+            
+            //foreach code to update the listbox.
         }
 
         private void btnAddFile_Click_1(object sender, EventArgs e)
         {
-            UploadFile uploadfile = new UploadFile(medias);
+            UploadFile uploadfile = new UploadFile(medias, currentCategory);
             uploadfile.Show();
         }
 
         private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
         {
             AddMessageToNewsFeed(tbNewsFeed.Text, medias.MediaUser);
+        }
+
+        private void btnAddFolder_Click(object sender, EventArgs e)
+        {
+            CreateFolder createfolder = new CreateFolder(medias, currentCategory);
+            createfolder.Show();
+        }
+
+        private void lbFolders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object selectedobject = lbFolders.SelectedItem;
+            currentCategory = selectedobject as Category;
+            LoadClickedFolder(currentCategory.CategoryId);
+
+            if (currentCategory.ParentCategoryId == 0)
+            {
+                btnBack.Enabled = false;
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            int parentCategoryID = currentCategory.ParentCategoryId;
+            LoadClickedFolder(parentCategoryID);
+
+            if (currentCategory.ParentCategoryId == 0)
+            {
+                btnBack.Enabled = false;
+            }
         }
     }
 }

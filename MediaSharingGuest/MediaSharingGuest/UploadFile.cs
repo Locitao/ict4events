@@ -12,7 +12,7 @@ namespace MediaSharingGuest
 {
     public partial class UploadFile : Form
     {
-        public UploadFile(MediaSharingSystem ms)
+        public UploadFile(MediaSharingSystem ms, Category categoryID)
         {
             InitializeComponent();
         }
@@ -38,6 +38,11 @@ namespace MediaSharingGuest
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
+            if (filePath == "")
+            {
+                MessageBox.Show("No file selected!");
+            }
+
             title = tbTitel.Text;
             description = tbDesciption.Text;
             location = tbLocation.Text;

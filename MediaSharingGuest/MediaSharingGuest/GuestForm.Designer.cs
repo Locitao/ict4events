@@ -45,6 +45,7 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.gbNewsfeed.SuspendLayout();
             this.gbFolders.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +112,7 @@
             this.lbFolders.Name = "lbFolders";
             this.lbFolders.Size = new System.Drawing.Size(257, 407);
             this.lbFolders.TabIndex = 4;
+            this.lbFolders.SelectedIndexChanged += new System.EventHandler(this.lbFolders_SelectedIndexChanged);
             // 
             // lblParentFolder
             // 
@@ -138,6 +140,7 @@
             this.btnAddFolder.TabIndex = 7;
             this.btnAddFolder.Text = "Add Folder";
             this.btnAddFolder.UseVisualStyleBackColor = true;
+            this.btnAddFolder.Click += new System.EventHandler(this.btnAddFolder_Click);
             // 
             // btnAddFile
             // 
@@ -151,6 +154,7 @@
             // 
             // gbFolders
             // 
+            this.gbFolders.Controls.Add(this.btnBack);
             this.gbFolders.Controls.Add(this.lblParentFolder);
             this.gbFolders.Controls.Add(this.btnAddFile);
             this.gbFolders.Controls.Add(this.lbFolders);
@@ -188,6 +192,16 @@
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 12;
             this.lblName.Text = "Name";
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(191, 22);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "<<";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // GuestForm
             // 
@@ -233,6 +247,7 @@
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblLoggedInAs;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 
