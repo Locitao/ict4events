@@ -9,21 +9,7 @@ namespace MediaSharingGuest
     public class Reaction
     {
         public string Content { get; set; }
-        public int MediaID
-        {
-            get
-            {
-                return MediaID;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    value = 0;
-                }
-                MediaID = value;
-            }
-        }
+        public int MediaID { get; set; }
         public int ReactionID { get; set; }
         public List<Like> Likes { get; set; }
 

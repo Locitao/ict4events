@@ -10,21 +10,7 @@ namespace MediaSharingGuest
     {
         public string Name { get; set; }
         public int CategoryId { get; set; }
-        public int ParentCategoryId 
-        { 
-            get 
-            { 
-                return ParentCategoryId; 
-            }
-            set
-            {
-                if (value == null)
-                {
-                    value = 0;
-                }
-                ParentCategoryId = value;
-            }
-        }
+        public int ParentCategoryId { get; set; }
         public List<Media> MediaItems { get; set; }
 
         public string Rfidcode { get; set; }

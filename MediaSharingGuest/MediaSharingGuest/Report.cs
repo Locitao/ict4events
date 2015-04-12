@@ -10,51 +10,9 @@ namespace MediaSharingGuest
     {
         public string Content { get; set; }
         public int ReportID { get; set; }
-        public int CategoryID
-        {
-            get
-            {
-                return CategoryID;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    value = 0;
-                }
-                CategoryID = value;
-            }
-        }
-        public int MediaID
-        {
-            get
-            {
-                return MediaID;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    value = 0;
-                }
-                MediaID = value;
-            }
-        }
-        public int ReactionID
-        {
-            get
-            {
-                return ReactionID;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    value = 0;
-                }
-                ReactionID = value;
-            }
-        }
+        public int CategoryID { get; set; }
+        public int MediaID {get; set;}
+        public int ReactionID { get; set; }
         public string RFIDCodeReporter { get; set; }
         public Report(string content, int categoryid, int mediaid, int reactionid, string rfidCodeReporter)
         {
