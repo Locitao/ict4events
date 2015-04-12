@@ -44,6 +44,8 @@
             this.lbComments = new System.Windows.Forms.ListBox();
             this.lblUploadedBy = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblTakenAt = new System.Windows.Forms.Label();
+            this.lblLocation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +57,7 @@
             this.btnReportFile.TabIndex = 27;
             this.btnReportFile.Text = "Report this file";
             this.btnReportFile.UseVisualStyleBackColor = true;
+            this.btnReportFile.Click += new System.EventHandler(this.btnReportFile_Click);
             // 
             // btnReportComment
             // 
@@ -192,11 +195,31 @@
             this.lblName.TabIndex = 30;
             this.lblName.Text = "Name";
             // 
+            // lblTakenAt
+            // 
+            this.lblTakenAt.AutoSize = true;
+            this.lblTakenAt.Location = new System.Drawing.Point(4, 22);
+            this.lblTakenAt.Name = "lblTakenAt";
+            this.lblTakenAt.Size = new System.Drawing.Size(53, 13);
+            this.lblTakenAt.TabIndex = 31;
+            this.lblTakenAt.Text = "Taken at:";
+            // 
+            // lblLocation
+            // 
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(80, 22);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(48, 13);
+            this.lblLocation.TabIndex = 32;
+            this.lblLocation.Text = "Location";
+            // 
             // ViewFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 778);
+            this.Controls.Add(this.lblLocation);
+            this.Controls.Add(this.lblTakenAt);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblUploadedBy);
             this.Controls.Add(this.lbComments);
@@ -239,5 +262,7 @@
         private System.Windows.Forms.ListBox lbComments;
         private System.Windows.Forms.Label lblUploadedBy;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblTakenAt;
+        private System.Windows.Forms.Label lblLocation;
     }
 }

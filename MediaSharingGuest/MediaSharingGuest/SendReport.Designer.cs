@@ -51,6 +51,7 @@
             this.btnSendReport.TabIndex = 6;
             this.btnSendReport.Text = "Send Report";
             this.btnSendReport.UseVisualStyleBackColor = true;
+            this.btnSendReport.Click += new System.EventHandler(this.btnSendReport_Click);
             // 
             // lblDescription
             // 

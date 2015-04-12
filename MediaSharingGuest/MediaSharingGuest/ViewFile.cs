@@ -24,11 +24,11 @@ namespace MediaSharingGuest
 
         public void ShowAllInformation()
         {
-            //Shows the image
+            //Shows the image.
             pbImage.ImageLocation = @mediaitem.Path;
             pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            //Shows the comments
+            //Shows the comments.
             mediaitem.Update();
             
             foreach (Reaction comment in mediaitem.Comments)
@@ -36,18 +36,25 @@ namespace MediaSharingGuest
                 lbComments.Items.Add(comment);
             }
 
-            //shows the name of the uploader
+            //shows the name of the uploader.
 
             //SELECT statement to select the name of the creator.
             string rfidCreator = mediaitem.RfidCreator;
             string creator;
 
             lblName.Text = "";
+
+            //Shows the desciption.
+            tbDescription.Text = mediaitem.Description;
+
+            //Shows the Location where the image was taken.
+            lblLocation.Text = mediaitem.Location;
         }
 
         private void btnAddComment_Click(object sender, EventArgs e)
         {
-
+            string content = tbYourComment.Text;
+            Reaction comment = new Reaction(content, mediaitem.MediaID);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -60,6 +67,12 @@ namespace MediaSharingGuest
             object selectedobject = lbComments.SelectedItem;
             Reaction selectedReaction = selectedobject as Reaction;
             Like like = new Like(medias.MediaUser.RFIDcode, 0, mediaitem.MediaID);
+        }
+
+        private void btnReportFile_Click(object sender, EventArgs e)
+        {
+            SendReport sendreport = new SendReport(medias, mediaitem, "File");
+            sendreport.Show();
         }
     }
 }

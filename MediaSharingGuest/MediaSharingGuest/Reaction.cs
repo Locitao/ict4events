@@ -8,9 +8,33 @@ namespace MediaSharingGuest
 {
     class Reaction
     {
-        public int ReactionId { get; set; }
         public string Content { get; set; }
+        public int MediaID
+        {
+            get
+            {
+                return MediaID;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    value = 0;
+                }
+                MediaID = value;
+            }
+        }
+        public int ReactionID { get; set; }
         public List<Like> Likes { get; set; }
+
+        public Reaction(string content, int mediaid)
+        {
+            Content = content;
+            MediaID = mediaid;
+
+            //INSERT reaction into db, RETURNS reactionID.
+            ReactionID = 0;
+        }
 
         public void EditReaction()
         {
