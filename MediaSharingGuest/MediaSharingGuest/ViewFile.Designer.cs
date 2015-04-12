@@ -102,6 +102,7 @@
             this.btnLikeThisFile.TabIndex = 22;
             this.btnLikeThisFile.Text = "Like this file!";
             this.btnLikeThisFile.UseVisualStyleBackColor = true;
+            this.btnLikeThisFile.Click += new System.EventHandler(this.btnLikeThisFile_Click);
             // 
             // lblLikes
             // 

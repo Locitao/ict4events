@@ -10,6 +10,7 @@ namespace MediaSharingGuest
     {
         public int ReactionId { get; set; }
         public string Content { get; set; }
+        public List<Like> Likes { get; set; }
 
         public void EditReaction()
         {

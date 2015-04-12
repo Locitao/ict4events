@@ -25,6 +25,7 @@ namespace MediaSharingGuest
                 ParentCategoryId = value;
             }
         }
+        public List<Media> MediaItems { get; set; }
 
         public string Rfidcode { get; set; }
 
@@ -34,6 +35,16 @@ namespace MediaSharingGuest
             CategoryId = categoryid;
             ParentCategoryId = parentcategoryid;
             Rfidcode = Rfidcode;
+        }
+
+        public void ReturnMediaItems()
+        {
+            //SELECT statement to return all media items in this category
+        }
+
+        public void ReturnCategories()
+        {
+            //SELECT statement to return all categories in this category
         }
     }
 }

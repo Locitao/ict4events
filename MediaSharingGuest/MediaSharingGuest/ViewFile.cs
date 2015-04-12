@@ -39,9 +39,10 @@ namespace MediaSharingGuest
             //shows the name of the uploader
 
             //SELECT statement to select the name of the creator.
-            string rfidCreator = mediaitem.
+            string rfidCreator = mediaitem.RfidCreator;
             string creator;
-            lblName.Text = 
+
+            lblName.Text = "";
         }
 
         private void btnAddComment_Click(object sender, EventArgs e)
@@ -52,6 +53,13 @@ namespace MediaSharingGuest
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLikeThisFile_Click(object sender, EventArgs e)
+        {
+            object selectedobject = lbComments.SelectedItem;
+            Reaction selectedReaction = selectedobject as Reaction;
+            Like like = new Like(medias.MediaUser.RFIDcode, 0, mediaitem.MediaID);
         }
     }
 }

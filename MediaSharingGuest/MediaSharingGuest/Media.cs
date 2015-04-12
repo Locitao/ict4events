@@ -9,22 +9,28 @@ namespace MediaSharingGuest
     class Media
     {
         public string Name { get; set; }
+        public int MediaID { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }
         public List<Reaction> Comments { get; set; }
+        public List<Like> Likes { get; set; }
 
         public string RfidCreator { get; set; }
         public string Location { get; set; }
+        public int CategoryID { get; set; }
 
-        public Media(string name, string path, string description, string rfidcreator, string location)
+        public Media(string name, string path, string description, string rfidcreator, string location, int categoryid)
         {
             Name = name;
             Path = path;
             Description = description;
             RfidCreator = rfidcreator;
             Location = location;
+            CategoryID = categoryid;
 
-            //INSERT statement to add new media item to the database.
+            //INSERT statement to add new media item to the database. RETURNS MediaID!
+
+            MediaID = 0;
         }
 
         public void AddReaction()
@@ -39,9 +45,11 @@ namespace MediaSharingGuest
 
         public void Update()
         {
-            //SELECT statement to select all the comments on the media item, AND who made the comments, AND the ammount of likes on each comment.
+            //SELECT statement to select all the comments on the media item and the likes on the media item.
 
             //Foreach loop to add this info to the comment list.
+
+            //Foreach loop to add likes to the comment list.
         }
     }
 }

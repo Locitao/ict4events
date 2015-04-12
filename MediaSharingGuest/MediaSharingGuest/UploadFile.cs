@@ -13,10 +13,13 @@ namespace MediaSharingGuest
     public partial class UploadFile : Form
     {
         MediaSharingSystem medias;
-        public UploadFile(MediaSharingSystem medias, Category categoryID)
+        Category category;
+
+        public UploadFile(MediaSharingSystem medias, Category category)
         {
             InitializeComponent();
             this.medias = medias;
+            this.category = category;
         }
         private string filePath = "";
         private string title = "";
@@ -50,7 +53,7 @@ namespace MediaSharingGuest
             location = tbLocation.Text;
             string creatorRfid = medias.MediaUser.RFIDcode;
 
-            Media newMediaItem = new Media(title, filePath, description, creatorRfid, location);
+            Media newMediaItem = new Media(title, filePath, description, creatorRfid, location, category.CategoryId);
 
             this.Close();
         }

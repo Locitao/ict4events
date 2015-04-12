@@ -40,12 +40,12 @@ namespace MediaSharingGuest
             //SELECT query to select all messages without mediaID and display each of them.
         }
 
-        public void LoadFolders()
+        public void LoadCategorys()
         {
             //SELECT query to select the starting folder and it's content.
         }
 
-        public void LoadClickedFolder(int categoryID)
+        public void LoadClickedCategory(int categoryID)
         {
             lbFolders.Items.Clear();
             //SELECT query to select the folder content from the database.
@@ -74,7 +74,7 @@ namespace MediaSharingGuest
         {
             object selectedobject = lbFolders.SelectedItem;
             currentCategory = selectedobject as Category;
-            LoadClickedFolder(currentCategory.CategoryId);
+            LoadClickedCategory(currentCategory.CategoryId);
 
             if (currentCategory.ParentCategoryId == 0)
             {
@@ -85,7 +85,7 @@ namespace MediaSharingGuest
         private void btnBack_Click(object sender, EventArgs e)
         {
             int parentCategoryID = currentCategory.ParentCategoryId;
-            LoadClickedFolder(parentCategoryID);
+            LoadClickedCategory(parentCategoryID);
 
             if (currentCategory.ParentCategoryId == 0)
             {

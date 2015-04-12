@@ -13,12 +13,15 @@ namespace MediaSharingGuest
         public int ReactionID { get; set; }
         public int MediaID { get; set; }
 
-        public Like (string rfidcode, int likeid, int reactionid, int mediaid)
+        public Like (string rfidcode, int reactionid, int mediaid)
         {
             RfidCode = rfidcode;
-            LikeID = likeid;
             ReactionID = reactionid;
             MediaID = mediaid;
+
+            //INSERT to add LIKE to database, RETURNS LIKE ID
+
+            LikeID = 0;
         }
 
     }
