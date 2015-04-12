@@ -43,6 +43,32 @@ namespace ReservationApp
             var data = Connection.ExecuteQuery(sql);
             return data;
         }
+        /// <summary>
+        /// Method below returns a string of the needed RFID code, which is looked up with a phone number
+        /// </summary>
+        /// <returns>string of rfid_code</returns>
+        public string Select_User(string phone)
+        {
+            try
+            {
+                //THEN WHO WAS PHONE?!
+                string sql = "SELECT rfid_CODE FROM PT_USER_ACC WHERE user_phone = '" + phone + "'";
+                string rfid = "Operation failed";
+
+                var data = Connection.ExecuteQuery(sql);
+                foreach (Dictionary<string, object> row in data)
+                {
+                    rfid = Convert.ToString(row["rfid_CODE"]);
+                }
+                return rfid;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            
+            
+        }
 
     }
  

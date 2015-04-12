@@ -32,16 +32,6 @@ namespace ReservationApp
             Refresh();
         }
 
-        private void CreateAccount()
-        {
-            
-        }
-
-        private void Login()
-        {
-            
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             connect.CloseConnection();
@@ -96,7 +86,7 @@ namespace ReservationApp
                     paid = "1";
                 }
 
-                MessageBox.Show(insert.Insert_Reservation("auto_inc_acc.nextval", "1", Convert.ToString(nmPeople), paid));
+                
 
 
                 Refresh();
