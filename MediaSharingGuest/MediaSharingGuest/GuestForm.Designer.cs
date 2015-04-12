@@ -62,6 +62,7 @@
             // 
             // timerNewsFeed
             // 
+            this.timerNewsFeed.Interval = 1000;
             this.timerNewsFeed.Tick += new System.EventHandler(this.timerNewsFeed_Tick);
             // 
             // gbNewsfeed

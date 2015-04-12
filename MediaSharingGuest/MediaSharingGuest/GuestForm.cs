@@ -15,9 +15,10 @@ namespace MediaSharingGuest
     {
         //TESTDATA INSERT
         Category currentCategory = new Category("Test:", 1, 0, "1111");
-        Guest guest = new Guest();
-        Reaction reaction = new Reaction();
+        Guest guest1 = new Guest("jaap", "1111");
         //
+
+
         MediaSharingSystem medias;
         NewsFeed newsfeed = new NewsFeed();
         List<string> NewsFeedMessages = new List<string>();
@@ -25,6 +26,12 @@ namespace MediaSharingGuest
 
         public GuestForm(MediaSharingSystem medias)
         {
+            //TEST DATA
+            Reaction message = new Reaction("hallo", 0, guest1);
+            newsfeed.UpdateMessages(message);
+            LoadNewsFeedMessages();
+            //
+
             InitializeComponent();
             this.medias = medias;
             timerNewsFeed.Start();
@@ -39,7 +46,7 @@ namespace MediaSharingGuest
 
         public void LoadNewsFeedMessages()
         {
-            newsfeed.UpdateMessages();
+            //newsfeed.UpdateMessages();
             NewsFeedMessages = newsfeed.ReturnNewsFeedMessages();
         }
 
@@ -104,7 +111,7 @@ namespace MediaSharingGuest
             int max = NewsFeedMessages.Count();
             int number = RNG.Next(0, max);
             lblNewsMessage.Text = NewsFeedMessages[number];
-            newsfeed.UpdateMessages();
+            //newsfeed.UpdateMessages();
         }
     }
 }
