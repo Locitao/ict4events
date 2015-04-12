@@ -35,20 +35,5 @@ namespace MediaSharingGuest
             ParentCategoryId = parentcategoryid;
             Rfidcode = Rfidcode;
         }
-
-        public void AddMedia()
-        {
-
-        }
-
-        public void AddCategory()
-        {
-
-        }
-
-        public void DeleteCategory()
-        {
-
-        }
     }
 }
