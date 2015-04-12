@@ -11,12 +11,14 @@ namespace MediaSharingGuest
         public string Content { get; set; }
         public int MediaID { get; set; }
         public int ReactionID { get; set; }
+        public Guest Creator { get; set; }
         public List<Like> Likes { get; set; }
 
-        public Reaction(string content, int mediaid)
+        public Reaction(string content, int mediaid, Guest creator)
         {
             Content = content;
             MediaID = mediaid;
+            Creator = creator;
 
             //INSERT reaction into db, RETURNS reactionID.
             ReactionID = 0;
