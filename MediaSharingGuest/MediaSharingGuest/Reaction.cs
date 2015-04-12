@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaSharingGuest
 {
-    class Reaction
+    public class Reaction
     {
         public string Content { get; set; }
         public int MediaID

@@ -14,30 +14,38 @@ namespace MediaSharingGuest
     {
         MediaSharingSystem medias;
         Media mediaitem;
-        string reportOf;
+        Reaction reaction;
+        Category category;
+        
 
-        public SendReport(MediaSharingSystem medias, Media mediaitem, string reportOf)
+        public SendReport(MediaSharingSystem medias, Media mediaitem, Reaction reaction, Category category)
         {
             InitializeComponent();
             this.medias = medias;
             this.mediaitem = mediaitem;
-            this.reportOf = reportOf;
+            this.category = category;
+            this.reaction = reaction;
         }
 
         private void btnSendReport_Click(object sender, EventArgs e)
         {
-            if (reportOf == "File")
+            if (mediaitem != null)
             {
                 Report report = new Report(tbDescription.Text, 0, mediaitem.MediaID, 0, medias.MediaUser.RFIDcode);
             }
-            else if (reportOf == "Reaction")
+            else if (reaction != null)
             {
-
+                Report report = new Report(tbDescription.Text, 0, 0, reaction.ReactionID, medias.MediaUser.RFIDcode);
             }
-            else if (reportOf == "Category")
+            else if (category != null)
             {
-
+                Report report = new Report(tbDescription.Text, category.CategoryId, 0, 0, medias.MediaUser.RFIDcode);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

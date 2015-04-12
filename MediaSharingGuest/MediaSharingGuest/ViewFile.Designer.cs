@@ -46,6 +46,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblTakenAt = new System.Windows.Forms.Label();
             this.lblLocation = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@
             this.btnReportComment.TabIndex = 26;
             this.btnReportComment.Text = "Report selected comment";
             this.btnReportComment.UseVisualStyleBackColor = true;
+            this.btnReportComment.Click += new System.EventHandler(this.btnReportComment_Click);
             // 
             // btnLikeComment
             // 
@@ -76,6 +78,7 @@
             this.btnLikeComment.TabIndex = 25;
             this.btnLikeComment.Text = "Like selected comment!";
             this.btnLikeComment.UseVisualStyleBackColor = true;
+            this.btnLikeComment.Click += new System.EventHandler(this.btnLikeComment_Click);
             // 
             // btnCancel
             // 
@@ -213,11 +216,22 @@
             this.lblLocation.TabIndex = 32;
             this.lblLocation.Text = "Location";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(7, 38);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(76, 40);
+            this.btnBack.TabIndex = 33;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // ViewFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 778);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.lblTakenAt);
             this.Controls.Add(this.lblName);
@@ -264,5 +278,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblTakenAt;
         private System.Windows.Forms.Label lblLocation;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -64,15 +64,33 @@ namespace MediaSharingGuest
 
         private void btnLikeThisFile_Click(object sender, EventArgs e)
         {
-            object selectedobject = lbComments.SelectedItem;
-            Reaction selectedReaction = selectedobject as Reaction;
             Like like = new Like(medias.MediaUser.RFIDcode, 0, mediaitem.MediaID);
         }
 
         private void btnReportFile_Click(object sender, EventArgs e)
         {
-            SendReport sendreport = new SendReport(medias, mediaitem, "File");
+            SendReport sendreport = new SendReport(medias, mediaitem, null, null);
             sendreport.Show();
+        }
+
+        private void btnLikeComment_Click(object sender, EventArgs e)
+        {
+            object selectedobject = lbComments.SelectedItem;
+            Reaction selectedReaction = selectedobject as Reaction;
+            Like like = new Like(medias.MediaUser.RFIDcode, selectedReaction.ReactionID, 0);
+        }
+
+        private void btnReportComment_Click(object sender, EventArgs e)
+        {
+            object selectedobject = lbComments.SelectedItem;
+            Reaction selectedReaction = selectedobject as Reaction;
+            SendReport sendreport = new SendReport(medias, null, selectedReaction, null);
+            sendreport.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
