@@ -89,15 +89,13 @@ namespace ReservationApp
             string query = sql;
 
 
-            if (NewConnection())
-            {
-                // Command opzetten voor het uitvoeren van de query
-                OracleCommand cmd = new OracleCommand(query, conn);
+            if (!NewConnection()) return;
+            // Command opzetten voor het uitvoeren van de query
+            OracleCommand cmd = new OracleCommand(query, conn);
 
-                // Query uitvoeren, er wordt geen waarde terug gegeven
-                cmd.ExecuteNonQuery();
-                conn.Close();
-            }
+            // Query uitvoeren, er wordt geen waarde terug gegeven
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

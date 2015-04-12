@@ -16,7 +16,7 @@ namespace ReservationApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ReservationForm());
+            Application.Run(new Create_Account());
         }
     }
 }

@@ -19,10 +19,11 @@ namespace ReservationApp
         Select select = new Select();
         Insert insert = new Insert();
         
-        public ReservationForm()
+        public ReservationForm(string Name, string Phone)
         {
             InitializeComponent();
-            
+            string name = Name;
+            string phone = Phone;
 
         }
 
@@ -46,14 +47,9 @@ namespace ReservationApp
             connect.CloseConnection();
         }
 
-        private void Refresh()
+        public override void Refresh()
         {
             lbLocations.Items.Clear();
-            tbAddress.Clear();
-            tbCity.Clear();
-            tbName.Clear();
-            tbPhone.Clear();
-            tbPostal.Clear();
             nmLocId.Value = 0;
 
             try
@@ -92,25 +88,26 @@ namespace ReservationApp
         /// <param name="e"></param>
         private void btnCreateRes_Click(object sender, EventArgs e)
         {
-            if (tbAddress.Text == null || tbCity.Text == null || tbName.Text == null || tbPhone.Text == null ||
-                tbPostal.Text == null)
+            try
             {
-                MessageBox.Show("You did not fill in all the required information!");
-            }
-
-            else
-            {
-                string paid = "0";
+                var paid = "0";
                 if (cbPay.Checked)
                 {
                     paid = "1";
                 }
-                
-                MessageBox.Show(insert.Insert_Reservation("auto_inc_acc.nextval", "1", Convert.ToString(cbEvent.SelectedIndex + 2), Convert.ToString(nmPeople), paid));
-                
+
+                MessageBox.Show(insert.Insert_Reservation("auto_inc_acc.nextval", "1", Convert.ToString(nmPeople), paid));
+
 
                 Refresh();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+       
+                
+            
             
         }
 
@@ -123,5 +120,7 @@ namespace ReservationApp
         {
             System.Diagnostics.Process.Start(@"http://i.imgur.com/fN9DGFz.jpg");
         }
+
+        
     }
 }

@@ -17,12 +17,13 @@ namespace ReservationApp
                 string query = "UPDATE PT_EVENT_LOCATION SET reservation_ID = '" + reservation_ID +
                                "' WHERE location_ID = '" + locationId + "'";
 
-                
+                conn.Execute(query);
+                const string succes = "Great succes, location has been updated!";
+                return succes;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                return ex.Message;
             }
         }
     }
