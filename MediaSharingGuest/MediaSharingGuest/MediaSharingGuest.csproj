@@ -60,6 +60,7 @@
     <Compile Include="GuestForm.Designer.cs">
       <DependentUpon>GuestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Insert.cs" />
     <Compile Include="Like.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>

@@ -12,12 +12,14 @@ namespace MediaSharingGuest
 {
     public partial class ViewFile : Form
     {
+        //FIELDS------------------------------------------------------------------------------------------------------------------------------
         MediaSharingSystem medias;
         Media mediaitem;
         bool isLiked = false;
         bool isLikedComment = false;
         object selectedobject;
 
+        //CONSTRUCTOR-------------------------------------------------------------------------------------------------------------------------
         public ViewFile(MediaSharingSystem medias, Media mediaitem)
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace MediaSharingGuest
             IsLiked();
         }
 
+        //METHODS-----------------------------------------------------------------------------------------------------------------------------
         public void IsLiked()
         {
             string rfidCode = medias.MediaUser.RFIDcode;
@@ -45,7 +48,6 @@ namespace MediaSharingGuest
             }
         }
 
-        //METHODS-----------------------------------------------------------------------------------------------------------------------------
 
         public void IsLikedComment()
         {
