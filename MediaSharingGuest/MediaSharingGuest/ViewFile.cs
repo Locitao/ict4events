@@ -15,6 +15,8 @@ namespace MediaSharingGuest
         MediaSharingSystem medias;
         Media mediaitem;
         bool isLiked = false;
+        bool isLikedComment = false;
+        object selectedobject;
 
         public ViewFile(MediaSharingSystem medias, Media mediaitem)
         {
@@ -40,6 +42,24 @@ namespace MediaSharingGuest
             else if (isLiked == false)
             {
                 btnLikeThisFile.Text = "Like this File!";
+            }
+        }
+
+        public void IsLikedComment()
+        {
+            string rfidCode = medias.MediaUser.RFIDcode;
+            Reaction comment = selectedobject as Reaction;
+            int ReactionItemId = comment.ReactionID;
+            //SELECT ReactionID FROM Reaction WHERE RFIDCODE = RFIDCODE & reactionid = reactionid;
+            //IF this query returns a value, isLikedComment becomes true;
+
+            if (isLikedComment == true)
+            {
+                btnLikeComment.Text = "Unlike this Comment!";
+            }
+            else if (isLiked == false)
+            {
+                btnLikeComment.Text = "Like this Comment!";
             }
         }
 
@@ -134,14 +154,21 @@ namespace MediaSharingGuest
 
         private void btnLikeComment_Click(object sender, EventArgs e)
         {
-            object selectedobject = lbComments.SelectedItem;
+            if (isLikedComment == false)
+            {
             Reaction selectedReaction = selectedobject as Reaction;
             Like like = new Like(medias.MediaUser.RFIDcode, selectedReaction.ReactionID, 0);
+            }
+            else if (isLikedComment == true)
+            {
+                Reaction message = selectedobject as Reaction;
+                message.DeleteLike(message, medias.MediaUser);
+                isLikedComment = false;
+            }
         }
 
         private void btnReportComment_Click(object sender, EventArgs e)
         {
-            object selectedobject = lbComments.SelectedItem;
             Reaction selectedReaction = selectedobject as Reaction;
             SendReport sendreport = new SendReport(medias, null, selectedReaction, null);
             sendreport.Show();
@@ -150,6 +177,16 @@ namespace MediaSharingGuest
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lbComments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedobject = lbComments.SelectedItem;
+            if (selectedobject != null)
+            {
+                btnLikeComment.Enabled = true;
+                btnReportComment.Enabled = true;
+            }
         }
     }
 }

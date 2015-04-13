@@ -63,6 +63,7 @@
             // 
             // btnReportComment
             // 
+            this.btnReportComment.Enabled = false;
             this.btnReportComment.Location = new System.Drawing.Point(662, 715);
             this.btnReportComment.Name = "btnReportComment";
             this.btnReportComment.Size = new System.Drawing.Size(146, 40);
@@ -73,6 +74,7 @@
             // 
             // btnLikeComment
             // 
+            this.btnLikeComment.Enabled = false;
             this.btnLikeComment.Location = new System.Drawing.Point(469, 715);
             this.btnLikeComment.Name = "btnLikeComment";
             this.btnLikeComment.Size = new System.Drawing.Size(146, 40);
@@ -180,6 +182,7 @@
             this.lbComments.Name = "lbComments";
             this.lbComments.Size = new System.Drawing.Size(339, 615);
             this.lbComments.TabIndex = 28;
+            this.lbComments.SelectedIndexChanged += new System.EventHandler(this.lbComments_SelectedIndexChanged);
             // 
             // lblUploadedBy
             // 

@@ -31,12 +31,12 @@ namespace MediaSharingGuest
 
         public void AddLike(Reaction reaction)
         {
-
+            //INSERT like
         }
 
         public void DeleteLike(Reaction reaction, Guest user)
         {
-
+            //Query to remove like
         }
 
         public override string ToString()
