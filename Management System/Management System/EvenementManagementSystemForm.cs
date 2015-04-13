@@ -12,25 +12,42 @@ namespace Management_System
 {
     public partial class EvenementManagementSystemForm : Form
     {
+        private DatabaseConnection connection = new DatabaseConnection();
+        private List<Camping> campingList = new List<Camping>();
+
         public EvenementManagementSystemForm()
         {
             InitializeComponent();
+            getCampingsData();
         }
 
-        private void lblLocations_Click(object sender, EventArgs e)
+        private void getCampingsData()
         {
-
+            List<List<string>> output;
+            Exception exception;
+            if (connection.SQLQueryWithOutput("SELECT CAMPING_NAME, CAMPING_MAP FROM PT_CAMPING", out output, out exception))
+            {
+                foreach(List<string> list in output)
+                {
+                    Camping tempCamping = new Camping(list[0], list[1]);
+                    campingList.Add(tempCamping);
+                    lbCampings.Items.Add(tempCamping);
+                }
+            }
+            else
+            {
+                MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
+            }
         }
 
-        private void lbLocations_SelectedIndexChanged(object sender, EventArgs e)
+        
+
+        private void lbCampings_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void btnNewLocation_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         
     }

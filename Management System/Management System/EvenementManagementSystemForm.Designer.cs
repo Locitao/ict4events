@@ -57,6 +57,10 @@
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblmap = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbEventName = new System.Windows.Forms.TextBox();
+            this.lblEventName = new System.Windows.Forms.Label();
+            this.lblDesctiption = new System.Windows.Forms.Label();
+            this.tbDescription = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMaxGuests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).BeginInit();
@@ -70,7 +74,6 @@
             this.btnNewCamping.TabIndex = 2;
             this.btnNewCamping.Text = "Add new camping";
             this.btnNewCamping.UseVisualStyleBackColor = true;
-            this.btnNewCamping.Click += new System.EventHandler(this.btnNewLocation_Click);
             // 
             // lblMaxVisitors
             // 
@@ -88,7 +91,7 @@
             this.lbCampings.Name = "lbCampings";
             this.lbCampings.Size = new System.Drawing.Size(215, 82);
             this.lbCampings.TabIndex = 0;
-            this.lbCampings.SelectedIndexChanged += new System.EventHandler(this.lbLocations_SelectedIndexChanged);
+            this.lbCampings.SelectedIndexChanged += new System.EventHandler(this.lbCampings_SelectedIndexChanged);
             // 
             // lblCampingName
             // 
@@ -197,7 +200,7 @@
             this.lbEvents.FormattingEnabled = true;
             this.lbEvents.Location = new System.Drawing.Point(12, 266);
             this.lbEvents.Name = "lbEvents";
-            this.lbEvents.Size = new System.Drawing.Size(215, 160);
+            this.lbEvents.Size = new System.Drawing.Size(215, 212);
             this.lbEvents.TabIndex = 16;
             // 
             // lblCamping
@@ -270,7 +273,7 @@
             // 
             // btnCreateEvent
             // 
-            this.btnCreateEvent.Location = new System.Drawing.Point(255, 345);
+            this.btnCreateEvent.Location = new System.Drawing.Point(258, 423);
             this.btnCreateEvent.Name = "btnCreateEvent";
             this.btnCreateEvent.Size = new System.Drawing.Size(200, 60);
             this.btnCreateEvent.TabIndex = 25;
@@ -347,11 +350,47 @@
             this.textBox1.Size = new System.Drawing.Size(130, 20);
             this.textBox1.TabIndex = 32;
             // 
+            // tbEventName
+            // 
+            this.tbEventName.Location = new System.Drawing.Point(258, 358);
+            this.tbEventName.Name = "tbEventName";
+            this.tbEventName.Size = new System.Drawing.Size(197, 20);
+            this.tbEventName.TabIndex = 33;
+            // 
+            // lblEventName
+            // 
+            this.lblEventName.AutoSize = true;
+            this.lblEventName.Location = new System.Drawing.Point(255, 342);
+            this.lblEventName.Name = "lblEventName";
+            this.lblEventName.Size = new System.Drawing.Size(69, 13);
+            this.lblEventName.TabIndex = 34;
+            this.lblEventName.Text = "Event Name:";
+            // 
+            // lblDesctiption
+            // 
+            this.lblDesctiption.AutoSize = true;
+            this.lblDesctiption.Location = new System.Drawing.Point(257, 381);
+            this.lblDesctiption.Name = "lblDesctiption";
+            this.lblDesctiption.Size = new System.Drawing.Size(63, 13);
+            this.lblDesctiption.TabIndex = 35;
+            this.lblDesctiption.Text = "Description:";
+            // 
+            // tbDescription
+            // 
+            this.tbDescription.Location = new System.Drawing.Point(258, 397);
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(197, 20);
+            this.tbDescription.TabIndex = 36;
+            // 
             // EvenementManagementSystemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 441);
+            this.ClientSize = new System.Drawing.Size(467, 502);
+            this.Controls.Add(this.tbDescription);
+            this.Controls.Add(this.lblDesctiption);
+            this.Controls.Add(this.lblEventName);
+            this.Controls.Add(this.tbEventName);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblmap);
             this.Controls.Add(this.lblPrice);
@@ -422,6 +461,10 @@
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblmap;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbEventName;
+        private System.Windows.Forms.Label lblEventName;
+        private System.Windows.Forms.Label lblDesctiption;
+        private System.Windows.Forms.TextBox tbDescription;
 
     }
 }
