@@ -41,13 +41,13 @@ namespace ReservationApp
             try
             {
                 string query =
-                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone) VALUES ('auto_inc_acc.nextval', '" +
+                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone) VALUES (auto_inc_acc.nextval, '" +
                     user_name + "', '" + user_address + "', '" + user_phone + "' )";
 
                 conn.Execute(query);
-                const string succes = "Account created!";
+                const string success = "Account created!";
                 conn.CloseConnection();
-                return succes;
+                return success;
 
             }
             catch (Exception ex)
@@ -58,6 +58,25 @@ namespace ReservationApp
 
             
            
+        }
+
+        public string Insert_Acc_Res(string user_name, string user_address, string user_phone, string reservation)
+        {
+            try
+            {
+                string query =
+                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone, reservation_ID) VALUES (auto_inc_acc.nextval, '" +
+                    user_name + "', '" + user_phone + "', '" + reservation + "')";
+                conn.Execute(query);
+                const string success = "Account created and coupled with your friends reservation!";
+                conn.CloseConnection();
+                return success;
+            }
+            catch (Exception ex)
+            {
+                conn.CloseConnection();
+                return ex.Message;
+            }
         }
     }
 }

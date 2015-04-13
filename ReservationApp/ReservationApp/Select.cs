@@ -70,6 +70,28 @@ namespace ReservationApp
             
         }
 
+        public string Find_ReservationId(string phone)
+        {
+            try
+            {
+                string sql =
+                    "SELECT res.reservation_ID FROM PT_RESERVATION res, PT_USER_ACC us WHERE res.rfid_CODE = us.rfid_CODE AND us.user_phone = '" +
+                    phone + "'";
+                string rfid = "Operation failed!";
+
+                var data = Connection.ExecuteQuery(sql);
+                foreach (Dictionary<string, object> row in data)
+                {
+                    rfid = Convert.ToString(row["RESERVATION_ID"]);
+                }
+                return rfid;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
     }
  
 }
