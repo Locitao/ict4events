@@ -92,6 +92,37 @@ namespace ReservationApp
             }
         }
 
+        public List<Dictionary<string, object>> Find_Materials()
+        {
+            const string sql =
+                "SELECT * FROM PT_MATERIAL mat, PT_MAT_CATEGORY cat WHERE mat.mat_category = cat.mat_category_ID AND mat.RFID_CODE IS NULL";
+
+            var data = Connection.ExecuteQuery(sql);
+            return data;
+        }
+
+        public string Find_Res_Id(string rfid)
+        {
+            try
+            {
+                string sql = "SELECT res.reservation_ID FROM PT_RESERVATION res WHERE res.rfid_CODE = '" + rfid + "'";
+                string res = "Operation failed!";
+
+                var data = Connection.ExecuteQuery(sql);
+
+                foreach (Dictionary<string, object> row in data)
+                {
+                    res = Convert.ToString(row["RESERVATION_ID"]);
+                }
+                return res;
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
     }
  
 }

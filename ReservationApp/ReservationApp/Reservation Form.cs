@@ -18,6 +18,7 @@ namespace ReservationApp
         Connection connect = new Connection();
         Select select = new Select();
         Insert insert = new Insert();
+        Update update = new Update();
 
         private string name;
         private string phone;
@@ -94,10 +95,17 @@ namespace ReservationApp
                     var rfid = select.Select_User(phone);
 
                     MessageBox.Show(insert.Insert_Reservation(rfid, "2", nmPeople.Text, paid));
-                    Close();
+
+                    var res = select.Find_Res_Id(rfid);
+                    var loc = nmLocId.Text;
+
+                    MessageBox.Show(update.Update_Location(loc, res));
+                    connect.CloseConnection();
+
                 }
                 catch (Exception ex)
                 {
+                    connect.CloseConnection();
                     MessageBox.Show(ex.Message);
                 }
                 
@@ -107,6 +115,7 @@ namespace ReservationApp
             }
             catch (Exception ex)
             {
+                connect.CloseConnection();
                 MessageBox.Show(ex.Message);
             }
        

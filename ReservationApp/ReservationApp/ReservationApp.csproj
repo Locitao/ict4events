@@ -94,6 +94,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="ReservationSystem.cs" />
+    <Compile Include="ReserveMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReserveMaterials.Designer.cs">
+      <DependentUpon>ReserveMaterials.cs</DependentUpon>
+    </Compile>
     <Compile Include="Select.cs" />
     <Compile Include="Startup.cs">
       <SubType>Form</SubType>
@@ -120,6 +126,9 @@
     </Compile>
     <EmbeddedResource Include="Reservation Form.resx">
       <DependentUpon>Reservation Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReserveMaterials.resx">
+      <DependentUpon>ReserveMaterials.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Startup.resx">
       <DependentUpon>Startup.cs</DependentUpon>
