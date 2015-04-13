@@ -24,17 +24,17 @@ namespace MediaSharingGuest
             ReactionID = 0;
         }
 
-        public void EditReaction()
+        public void EditReaction(Reaction reaction)
         {
 
         }
 
-        public void AddLike()
+        public void AddLike(Reaction reaction)
         {
 
         }
 
-        public void DeleteLike()
+        public void DeleteLike(Reaction reaction, Guest user)
         {
 
         }

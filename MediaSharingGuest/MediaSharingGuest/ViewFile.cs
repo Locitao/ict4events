@@ -14,12 +14,32 @@ namespace MediaSharingGuest
     {
         MediaSharingSystem medias;
         Media mediaitem;
+        bool isLiked = false;
 
         public ViewFile(MediaSharingSystem medias, Media mediaitem)
         {
             InitializeComponent();
             this.medias = medias;
             this.mediaitem = mediaitem;
+            IsLiked();
+        }
+
+        public void IsLiked()
+        {
+            string rfidCode = medias.MediaUser.RFIDcode;
+            int mediaItemId = mediaitem.MediaID;
+            //SELECT LikeID FROM LIKE WHERE RFIDCODE = RFIDCODE & mediaitemid = mediaitemid;
+            //IF this query returns a value, isLiked becomes true;
+
+
+            if (isLiked == true)
+            {
+                btnLikeThisFile.Text = "Unlike this File!";
+            }
+            else if (isLiked == false)
+            {
+                btnLikeThisFile.Text = "Like this File!";
+            }
         }
 
         public void ShowAllInformation()
@@ -65,6 +85,7 @@ namespace MediaSharingGuest
         private void btnLikeThisFile_Click(object sender, EventArgs e)
         {
             Like like = new Like(medias.MediaUser.RFIDcode, 0, mediaitem.MediaID);
+            IsLiked();
         }
 
         private void btnReportFile_Click(object sender, EventArgs e)
