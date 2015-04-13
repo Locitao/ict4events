@@ -54,7 +54,7 @@ namespace MediaSharingGuest
         private void btnAddComment_Click(object sender, EventArgs e)
         {
             string content = tbYourComment.Text;
-            Reaction comment = new Reaction(content, mediaitem.MediaID);
+            Reaction comment = new Reaction(content, mediaitem.MediaID, medias.MediaUser);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

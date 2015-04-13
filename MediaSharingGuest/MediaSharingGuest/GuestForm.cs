@@ -13,13 +13,28 @@ namespace MediaSharingGuest
 {
     public partial class GuestForm : Form
     {
-        MediaSharingSystem medias;
+        //TESTDATA INSERT
         Category currentCategory = new Category("Test:", 1, 0, "1111");
+        Guest guest1 = new Guest("jaap", "1111");
+        //
+
+
+        MediaSharingSystem medias;
+        NewsFeed newsfeed = new NewsFeed();
+        List<string> NewsFeedMessages = new List<string>();
+        Random RNG = new Random();
 
         public GuestForm(MediaSharingSystem medias)
         {
+            //TEST DATA
+            Reaction message = new Reaction("hallo", 0, guest1);
+            newsfeed.UpdateMessages(message);
+            LoadNewsFeedMessages();
+            //
+
             InitializeComponent();
             this.medias = medias;
+            timerNewsFeed.Start();
 
             if (currentCategory.ParentCategoryId == 0)
             {
@@ -29,19 +44,15 @@ namespace MediaSharingGuest
 
         List<Category> Categories = new List<Category>();
 
-        public void AddMessageToNewsFeed(string message, Guest mediauser)
-        {
-            string rfidcode = mediauser.RFIDcode;
-            //INSERT query to insert a newsfeedmessage.
-        }
-
         public void LoadNewsFeedMessages()
         {
-            //SELECT query to select all messages without mediaID and display each of them.
+            //newsfeed.UpdateMessages();
+            NewsFeedMessages = newsfeed.ReturnNewsFeedMessages();
         }
 
         public void LoadCategorys()
         {
+            lbFolders.Items.Clear();
             //SELECT query to select the starting folder and it's content.
         }
 
@@ -61,7 +72,8 @@ namespace MediaSharingGuest
 
         private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
         {
-            AddMessageToNewsFeed(tbNewsFeed.Text, medias.MediaUser);
+            Reaction message = new Reaction(tbNewsFeed.Text, 0, medias.MediaUser);
+            newsfeed.AddMessage(message);
         }
 
         private void btnAddFolder_Click(object sender, EventArgs e)
@@ -91,6 +103,15 @@ namespace MediaSharingGuest
             {
                 btnBack.Enabled = false;
             }
+        }
+
+        private void timerNewsFeed_Tick(object sender, EventArgs e)
+        {
+            //Puts a random message in the NewsFeed
+            int max = NewsFeedMessages.Count();
+            int number = RNG.Next(0, max);
+            lblNewsMessage.Text = NewsFeedMessages[number];
+            //newsfeed.UpdateMessages();
         }
     }
 }

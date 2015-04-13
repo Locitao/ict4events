@@ -32,7 +32,7 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.timerNewsFeed = new System.Windows.Forms.Timer(this.components);
             this.gbNewsfeed = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNewsMessage = new System.Windows.Forms.Label();
             this.tbNewsFeed = new System.Windows.Forms.TextBox();
             this.lblNewsFeedMessage = new System.Windows.Forms.Label();
             this.btnAddNewsFeedMessage = new System.Windows.Forms.Button();
@@ -42,10 +42,11 @@
             this.btnAddFolder = new System.Windows.Forms.Button();
             this.btnAddFile = new System.Windows.Forms.Button();
             this.gbFolders = new System.Windows.Forms.GroupBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnReportCategory = new System.Windows.Forms.Button();
             this.gbNewsfeed.SuspendLayout();
             this.gbFolders.SuspendLayout();
             this.SuspendLayout();
@@ -59,9 +60,14 @@
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
             // 
+            // timerNewsFeed
+            // 
+            this.timerNewsFeed.Interval = 1000;
+            this.timerNewsFeed.Tick += new System.EventHandler(this.timerNewsFeed_Tick);
+            // 
             // gbNewsfeed
             // 
-            this.gbNewsfeed.Controls.Add(this.label1);
+            this.gbNewsfeed.Controls.Add(this.lblNewsMessage);
             this.gbNewsfeed.Location = new System.Drawing.Point(121, 12);
             this.gbNewsfeed.Name = "gbNewsfeed";
             this.gbNewsfeed.Size = new System.Drawing.Size(948, 135);
@@ -69,15 +75,15 @@
             this.gbNewsfeed.TabStop = false;
             this.gbNewsfeed.Text = "Newsfeed";
             // 
-            // label1
+            // lblNewsMessage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(222, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(442, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Jan: Newsfeed bericht!!!";
+            this.lblNewsMessage.AutoSize = true;
+            this.lblNewsMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewsMessage.Location = new System.Drawing.Point(235, 49);
+            this.lblNewsMessage.Name = "lblNewsMessage";
+            this.lblNewsMessage.Size = new System.Drawing.Size(442, 42);
+            this.lblNewsMessage.TabIndex = 0;
+            this.lblNewsMessage.Text = "Jan: Newsfeed bericht!!!";
             // 
             // tbNewsFeed
             // 
@@ -166,11 +172,21 @@
             this.gbFolders.TabStop = false;
             this.gbFolders.Text = "Folders";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(191, 22);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "<<";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // btnLogOut
             // 
             this.btnLogOut.Location = new System.Drawing.Point(1087, 679);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(75, 23);
+            this.btnLogOut.Size = new System.Drawing.Size(125, 23);
             this.btnLogOut.TabIndex = 10;
             this.btnLogOut.Text = "Log out";
             this.btnLogOut.UseVisualStyleBackColor = true;
@@ -193,21 +209,21 @@
             this.lblName.TabIndex = 12;
             this.lblName.Text = "Name";
             // 
-            // btnBack
+            // btnReportCategory
             // 
-            this.btnBack.Location = new System.Drawing.Point(191, 22);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 9;
-            this.btnBack.Text = "<<";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnReportCategory.Location = new System.Drawing.Point(1087, 654);
+            this.btnReportCategory.Name = "btnReportCategory";
+            this.btnReportCategory.Size = new System.Drawing.Size(125, 23);
+            this.btnReportCategory.TabIndex = 13;
+            this.btnReportCategory.Text = "Report Category";
+            this.btnReportCategory.UseVisualStyleBackColor = true;
             // 
             // GuestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 806);
+            this.Controls.Add(this.btnReportCategory);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnLogOut);
@@ -234,7 +250,7 @@
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Timer timerNewsFeed;
         private System.Windows.Forms.GroupBox gbNewsfeed;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNewsMessage;
         private System.Windows.Forms.TextBox tbNewsFeed;
         private System.Windows.Forms.Label lblNewsFeedMessage;
         private System.Windows.Forms.Button btnAddNewsFeedMessage;
@@ -248,6 +264,7 @@
         private System.Windows.Forms.Label lblLoggedInAs;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnReportCategory;
     }
 }
 
