@@ -51,5 +51,12 @@ namespace MediaSharingGuest
 
             //Foreach loop to add likes to the comment list.
         }
+
+        public void RemoveLike(Like like)
+        {
+            //REMOVE query to remove the like.
+            Likes.Remove(like);
+        }
+
     }
 }

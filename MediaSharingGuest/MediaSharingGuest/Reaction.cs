@@ -38,5 +38,16 @@ namespace MediaSharingGuest
         {
 
         }
+
+        public override string ToString()
+        {
+            string postername = Creator.Name;
+            string content = Content;
+            string likes = Convert.ToString(Likes.Count);
+
+            string reaction = postername + ": - " + content + "+ " + likes;
+
+            return reaction;
+        }
     }
 }

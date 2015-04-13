@@ -21,6 +21,7 @@ namespace MediaSharingGuest
             InitializeComponent();
             this.medias = medias;
             this.mediaitem = mediaitem;
+            mediaitem.Update();
             IsLiked();
         }
 
@@ -42,6 +43,34 @@ namespace MediaSharingGuest
             }
         }
 
+        public void GetAllItemLikes()
+        {
+            int itemLikes = mediaitem.Likes.Count();
+            lblLikesNumber.Text = Convert.ToString(itemLikes);
+        }
+
+        public void GetAllCommentLikes()
+        {
+
+        }
+
+        public void RemoveItemLike()
+        {
+            mediaitem.Update();
+            foreach (Like like in mediaitem.Likes)
+            {
+                if (like.RfidCode == medias.MediaUser.RFIDcode)
+                {
+                    mediaitem.RemoveLike(like);
+                }
+            }
+        }
+
+        public void RemoveCommentLike()
+        {
+            
+        }
+
         public void ShowAllInformation()
         {
             //Shows the image.
@@ -54,6 +83,7 @@ namespace MediaSharingGuest
             foreach (Reaction comment in mediaitem.Comments)
             {
                 lbComments.Items.Add(comment);
+                lbComments.DisplayMember = ToString();
             }
 
             //shows the name of the uploader.
@@ -84,8 +114,16 @@ namespace MediaSharingGuest
 
         private void btnLikeThisFile_Click(object sender, EventArgs e)
         {
-            Like like = new Like(medias.MediaUser.RFIDcode, 0, mediaitem.MediaID);
-            IsLiked();
+            if (isLiked == false)
+            {
+                Like like = new Like(medias.MediaUser.RFIDcode, 0, mediaitem.MediaID);
+                IsLiked();
+            }
+            else if (isLiked == true)
+            {
+                RemoveItemLike();
+                isLiked = false;
+            }
         }
 
         private void btnReportFile_Click(object sender, EventArgs e)
