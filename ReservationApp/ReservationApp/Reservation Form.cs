@@ -96,10 +96,16 @@ namespace ReservationApp
 
                     MessageBox.Show(insert.Insert_Reservation(rfid, "2", nmPeople.Text, paid));
 
-                    
+                    var res = select.Find_Res_Id(rfid);
+                    var loc = nmLocId.Text;
+
+                    MessageBox.Show(update.Update_Location(loc, res));
+                    connect.CloseConnection();
+
                 }
                 catch (Exception ex)
                 {
+                    connect.CloseConnection();
                     MessageBox.Show(ex.Message);
                 }
                 
@@ -109,6 +115,7 @@ namespace ReservationApp
             }
             catch (Exception ex)
             {
+                connect.CloseConnection();
                 MessageBox.Show(ex.Message);
             }
        
