@@ -45,6 +45,8 @@ namespace MediaSharingGuest
             }
         }
 
+        //METHODS-----------------------------------------------------------------------------------------------------------------------------
+
         public void IsLikedComment()
         {
             string rfidCode = medias.MediaUser.RFIDcode;
@@ -69,11 +71,6 @@ namespace MediaSharingGuest
             lblLikesNumber.Text = Convert.ToString(itemLikes);
         }
 
-        public void GetAllCommentLikes()
-        {
-
-        }
-
         public void RemoveItemLike()
         {
             mediaitem.Update();
@@ -84,11 +81,7 @@ namespace MediaSharingGuest
                     mediaitem.RemoveLike(like);
                 }
             }
-        }
-
-        public void RemoveCommentLike()
-        {
-            
+            ShowAllInformation();
         }
 
         public void ShowAllInformation()
@@ -121,10 +114,13 @@ namespace MediaSharingGuest
             lblLocation.Text = mediaitem.Location;
         }
 
+        //EVENTS-----------------------------------------------------------------------------------------------------------------------------
+
         private void btnAddComment_Click(object sender, EventArgs e)
         {
             string content = tbYourComment.Text;
             Reaction comment = new Reaction(content, mediaitem.MediaID, medias.MediaUser);
+            ShowAllInformation();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -144,6 +140,7 @@ namespace MediaSharingGuest
                 RemoveItemLike();
                 isLiked = false;
             }
+            ShowAllInformation();
         }
 
         private void btnReportFile_Click(object sender, EventArgs e)
@@ -165,6 +162,7 @@ namespace MediaSharingGuest
                 message.DeleteLike(message, medias.MediaUser);
                 isLikedComment = false;
             }
+            ShowAllInformation();
         }
 
         private void btnReportComment_Click(object sender, EventArgs e)
@@ -181,11 +179,14 @@ namespace MediaSharingGuest
 
         private void lbComments_SelectedIndexChanged(object sender, EventArgs e)
         {
+            IsLikedComment();
+
             selectedobject = lbComments.SelectedItem;
             if (selectedobject != null)
             {
                 btnLikeComment.Enabled = true;
                 btnReportComment.Enabled = true;
+
             }
         }
     }
