@@ -18,12 +18,15 @@ namespace ReservationApp
         Connection connect = new Connection();
         Select select = new Select();
         Insert insert = new Insert();
+
+        private string name;
+        private string phone;
         
         public ReservationForm(string Name, string Phone)
         {
             InitializeComponent();
-            string name = Name;
-            string phone = Phone;
+            name = Name;
+            phone = Phone;
 
         }
 
@@ -86,6 +89,17 @@ namespace ReservationApp
                     paid = "1";
                 }
 
+                try
+                {
+                    var rfid = select.Select_User(phone);
+
+                    MessageBox.Show(insert.Insert_Reservation(rfid, "2", nmPeople.Text, paid));
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 
 
 

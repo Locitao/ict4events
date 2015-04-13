@@ -27,3 +27,4 @@ C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\Reservation
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.ReservationForm.resources
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.csproj.GenerateResource.Cache
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.Create_Account.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.OnlyAcc.resources

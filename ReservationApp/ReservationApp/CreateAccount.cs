@@ -53,5 +53,10 @@ namespace ReservationApp
             
 
         }
+
+        private void Create_Account_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
