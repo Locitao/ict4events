@@ -19,6 +19,15 @@ namespace ReservationApp
             InitializeComponent();
         }
 
+        public void Refresh()
+        {
+            tbAddress.Clear();
+            tbCity.Clear();
+            tbPhone.Clear();
+            tbCountry.Clear();
+            tbName.Clear();
+            tbReservePhone.Clear();
+        }
         private void btnCreate_Click(object sender, EventArgs e)
         {
 
@@ -30,11 +39,13 @@ namespace ReservationApp
 
             else
             {
-                string reservation = select.Find_ReservationId(tbReservePhone.Text);
+                var reservation = select.Find_ReservationId(tbReservePhone.Text);
                 var name = tbName.Text;
                 var address = tbAddress.Text + ", " + tbCity.Text + ", " + tbCountry.Text;
+                var phone = tbPhone.Text;
 
-                MessageBox.Show(insert.Insert_Account(name, address, ))
+                MessageBox.Show(insert.Insert_Acc_Res(name, address, phone, reservation));
+                Refresh();
             }
         }
 
