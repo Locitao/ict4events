@@ -95,6 +95,12 @@
     <Compile Include="Reservation.cs" />
     <Compile Include="ReservationSystem.cs" />
     <Compile Include="Select.cs" />
+    <Compile Include="Startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startup.Designer.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Update.cs" />
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
@@ -114,6 +120,9 @@
     </Compile>
     <EmbeddedResource Include="Reservation Form.resx">
       <DependentUpon>Reservation Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Startup.resx">
+      <DependentUpon>Startup.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
