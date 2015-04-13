@@ -24,5 +24,13 @@ namespace ReservationApp
             createAccount.Closed += (s, args) => Close();
             createAccount.Show();
         }
+
+        private void btnAccReserve_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Create_Account createAcc = new Create_Account();
+            createAcc.Closed += (s, args) => Close();
+            createAcc.Show();
+        }
     }
 }

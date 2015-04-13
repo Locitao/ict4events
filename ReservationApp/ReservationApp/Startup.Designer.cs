@@ -52,6 +52,7 @@
             this.btnAccReserve.TabIndex = 1;
             this.btnAccReserve.Text = "Create an account and a reservation.";
             this.btnAccReserve.UseVisualStyleBackColor = true;
+            this.btnAccReserve.Click += new System.EventHandler(this.btnAccReserve_Click);
             // 
             // Startup
             // 
