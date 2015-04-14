@@ -13,7 +13,10 @@ namespace ReservationApp
     public class Select
     {
 
-        //Now a method that returns a list of locations that are not reserved yet
+        /// <summary>
+        /// Select_Locations returns a List of every location on the camping which isn't reserved yet
+        /// </summary>
+        /// <returns></returns>
 
         public List<Dictionary<string, object>> Select_locations()
         {
@@ -23,7 +26,10 @@ namespace ReservationApp
             return data;
         }
 
-        //A method that returns a list of events.
+        /// <summary>
+        /// This method returns a list of possible events.
+        /// </summary>
+        /// <returns></returns>
         public List<Dictionary<string, object>> Select_Events()
         {
             const string sql = "SELECT * FROM PT_EVENT";
@@ -69,7 +75,13 @@ namespace ReservationApp
             
             
         }
-
+        /// <summary>
+        /// Users can create accounts when a friend for them has already reserved for them,
+        /// they still need to be coupled to the correct reservation, which is found
+        /// by their friends phone number.
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <returns></returns>
         public string Find_ReservationId(string phone)
         {
             try
@@ -91,7 +103,8 @@ namespace ReservationApp
                 return ex.Message;
             }
         }
-
+        /*
+         * Accidentally made two methods for finding materials apparently...
         public List<Dictionary<string, object>> Find_Materials()
         {
             const string sql =
@@ -100,7 +113,13 @@ namespace ReservationApp
             var data = Connection.ExecuteQuery(sql);
             return data;
         }
+        */
 
+        /// <summary>
+        /// Method below returns the correct reservation ID, to be coupled with an account.
+        /// </summary>
+        /// <param name="rfid"></param>
+        /// <returns></returns>
         public string Find_Res_Id(string rfid)
         {
             try

@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace ReservationApp
 {
+    /// <summary>
+    /// This class is for every function that updates someting in the database.
+    /// </summary>
     class Update
     {
         Connection conn = new Connection();
-
+        /// <summary>
+        /// Update_Location updates the correct location with a reservation ID, so it's clear
+        /// it's reserved.
+        /// </summary>
+        /// <param name="locationId"></param>
+        /// <param name="reservation_ID"></param>
+        /// <returns></returns>
         public string Update_Location(string locationId, string reservation_ID)
         {
             try
