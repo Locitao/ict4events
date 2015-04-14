@@ -53,6 +53,7 @@
     <Compile Include="CreateFolder.Designer.cs">
       <DependentUpon>CreateFolder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Delete.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="GuestForm.cs">
       <SubType>Form</SubType>

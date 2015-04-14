@@ -86,8 +86,8 @@ namespace MediaSharingGuest
             if (Name != null)
             {
                 //Query that returns the warnlv 
-                Guest user = new Guest (name, rfidcode);
-                MediaSharingSystem ms = new MediaSharingSystem(user);
+                string rfidCode = "";
+                MediaSharingSystem ms = new MediaSharingSystem(rfidCode, name);
                 GuestForm guestform = new GuestForm(ms);
                 this.Hide();
                 guestform.Show();

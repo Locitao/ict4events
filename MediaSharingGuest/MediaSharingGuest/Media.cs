@@ -46,19 +46,5 @@ namespace MediaSharingGuest
             //REMOVE statement to remove a reaction. (Only works if user placed the message himself).
         }
 
-        public void Update()
-        {
-            //SELECT statement to select all the likes on the media item.
-            select.GetLikesMediaItem(MediaID);
-
-            //SELECT statement to get all the reactions, poster, and the likes.
-            select.GetAllReactionsData(MediaID);
-
-            //Foreach loop to add this info to the comment list.
-
-
-            //Foreach loop to add likes to the image.
-        }
-
     }
 }

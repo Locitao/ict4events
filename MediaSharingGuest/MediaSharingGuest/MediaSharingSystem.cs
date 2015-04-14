@@ -8,11 +8,13 @@ namespace MediaSharingGuest
 {
     public class MediaSharingSystem
     {
-        public Guest MediaUser { get; set; }
+        public string RfidCode {get; set;}
+        public string Name {get; set;}
 
-        public MediaSharingSystem(Guest user)
+        public MediaSharingSystem(string rfidCode, string name)
         {
-            MediaUser = user;
+            RfidCode = rfidCode;
+            Name = name;
         }
         public void AddCategory()
         {
