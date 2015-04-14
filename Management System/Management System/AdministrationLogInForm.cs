@@ -12,12 +12,12 @@ using System.Windows.Forms;
 namespace Management_System
 {
     
-    public partial class Form1 : Form
+    public partial class AdministrationLogInForm : Form
     {
         private bool loggedIn = false;
         DatabaseConnection connection = new DatabaseConnection();
         
-        public Form1()
+        public AdministrationLogInForm()
         {
             InitializeComponent();
         }

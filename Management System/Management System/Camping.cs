@@ -8,13 +8,20 @@ namespace Management_System
 {
     class Camping
     {
+        public string CampingID { get; set; }
         public string Name { get; set; }
         public string MapPath { get; set; }
 
-        public Camping(string name, string mapPath)
+        public Camping(string campingID, string name, string mapPath)
         {
+            CampingID = campingID;
             Name = name;
-            mapPath = MapPath;
+            MapPath = mapPath;
+        }
+
+        public override string ToString()
+        {
+            return CampingID + Name;
         }
     }
 }

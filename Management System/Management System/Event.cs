@@ -8,17 +8,18 @@ namespace Management_System
 {
     class Event
     {
-        public int EventId { get; set; }
+        public Camping CampingEvent { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
 
-        public Event()
+        public Event(string name, string description, DateTime startDate, DateTime endDate)
         {
-            
-        }
-
-        public void Reserve()
-        {
-            
+            Name = name;
+            Description = description;
+            StartDate = startDate;
+            EndDate = endDate;
         }
     }
 }

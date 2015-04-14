@@ -1,6 +1,6 @@
 ﻿namespace Management_System
 {
-    partial class Form1
+    partial class AdministrationLogInForm
     {
         /// <summary>
         /// Required designer variable.

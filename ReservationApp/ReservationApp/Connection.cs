@@ -10,10 +10,16 @@ using Oracle.DataAccess;
 
 namespace ReservationApp
 {
+    /// <summary>
+    /// This class does everything regarding the connection; creates it, opens it and closes it.
+    /// </summary>
     public class Connection
     {
         OracleConnection conn = new OracleConnection();
-
+        /// <summary>
+        /// Tries to open a connection with the database, returns true if succeeded, false if failed.
+        /// </summary>
+        /// <returns></returns>
         public bool NewConnection()
         {
             
@@ -34,12 +40,19 @@ namespace ReservationApp
 
             
         }
-
+        /// <summary>
+        /// CloseConnection() does what it says.
+        /// </summary>
         public void CloseConnection()
         {
             conn.Close();
         }
-
+        /// <summary>
+        /// Sends the given query to the database, returns it's result as a List of dictionary objects.
+        /// Most commonly used with SELECT statements
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public static List<Dictionary<string, object>> ExecuteQuery(string query)
         {
             List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
@@ -83,7 +96,11 @@ namespace ReservationApp
             connection.conn.Close();
             return result;
         }
-
+        /// <summary>
+        /// Execute is for every query that shouldn't return something, so insert and update statements go
+        /// through this method.
+        /// </summary>
+        /// <param name="sql"></param>
         public void Execute(string sql)
         {
             string query = sql;
