@@ -60,5 +60,14 @@ namespace MediaSharingGuest
             string query = "SELECT REACTION_ID FROM PT_REACTION WHERE RFID_CODE = " + "'" + rfidCode + "'" + "AND REACTION_ID = " + "'" + reactionId;
         }
 
+        public void GetReactor(int reactionId)
+        {
+            string query = "SELECT u.USER_NAME FROM PT_USER_ACC u JOIN PT_REACTION r ON u.RFID_CODE = r.RFID_CODE WHERE r.REACTION_ID = " + "'" + reactionId + "'";
+        }
+
+        public void GetParentCategoryId(int categoryID)
+        {
+            string query = "SELECT PARENT_CATEGORY_ID FROM PT_MED_CATEGORY WHERE CATEGORY_ID = " + "'" + categoryID + "'";
+        }
     }
 }

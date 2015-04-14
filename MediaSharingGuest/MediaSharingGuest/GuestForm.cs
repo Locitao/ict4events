@@ -15,7 +15,6 @@ namespace MediaSharingGuest
     {
         //TESTDATA INSERT
         Category currentCategory = new Category("Test:", 1, 0, "1111");
-        Guest guest1 = new Guest("jaap", "1111");
         //
 
 
@@ -26,10 +25,13 @@ namespace MediaSharingGuest
         Select select = new Select();
         int startingCategoryId = 0;
 
+        public int CurrentCategoryId { get; set; }
+        public string rfidCodeUser { get; set; }
+
         public GuestForm(MediaSharingSystem medias)
         {
             //TEST DATA
-            Reaction message = new Reaction("hallo", 0, guest1);
+            Reaction message = new Reaction("hallo", 0, "1111");
             newsfeed.UpdateMessages(message);
             LoadNewsFeedMessages();
             //
@@ -37,6 +39,7 @@ namespace MediaSharingGuest
             InitializeComponent();
             this.medias = medias;
             timerNewsFeed.Start();
+            rfidCodeUser = medias.RfidCode;
             
             LoadCategories(startingCategoryId);
 
@@ -46,7 +49,6 @@ namespace MediaSharingGuest
             }
         }
 
-        List<Category> Categories = new List<Category>();
 
         public void LoadNewsFeedMessages()
         {
@@ -60,13 +62,15 @@ namespace MediaSharingGuest
             //SELECT query to select the folder content from the database.
             select.GetCategories(categoryID);
             
-            //foreach code to update the listbox.
+            //CODE TO UPDATE LISTBOX
         }
 
-        public void LoadMediaItems(int categoryID)
+        public void LoadMediaItems(int categoryId)
         {
             //SELECT query to select all media items in given category.
+            select.GetAllMediaItems(categoryId);
 
+            //CODE TO UPDATE LISTBOX
         }
           
 
@@ -78,7 +82,7 @@ namespace MediaSharingGuest
 
         private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
         {
-            Reaction message = new Reaction(tbNewsFeed.Text, 0, medias.MediaUser);
+            Reaction message = new Reaction(tbNewsFeed.Text, 0, rfidCodeUser);
             newsfeed.AddMessage(message);
         }
 
@@ -90,9 +94,8 @@ namespace MediaSharingGuest
 
         private void lbFolders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            object selectedobject = lbFolders.SelectedItem;
-            currentCategory = selectedobject as Category;
-            LoadCategories(currentCategory.CategoryId);
+            CurrentCategoryId = Convert.ToInt32(lbFolders.ValueMember);
+            LoadCategories(CurrentCategoryId);
 
             if (currentCategory.ParentCategoryId == startingCategoryId)
             {
@@ -102,13 +105,9 @@ namespace MediaSharingGuest
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            int parentCategoryID = currentCategory.ParentCategoryId;
-            LoadCategories(parentCategoryID);
-
-            if (currentCategory.ParentCategoryId == startingCategoryId)
-            {
-                btnBack.Enabled = false;
-            }
+            select.GetParentCategoryId(CurrentCategoryId);
+            int parentCategoryId = 0;
+            LoadCategories(parentCategoryId);
         }
 
         private void timerNewsFeed_Tick(object sender, EventArgs e)
