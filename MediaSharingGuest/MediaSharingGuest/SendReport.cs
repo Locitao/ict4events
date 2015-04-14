@@ -13,33 +13,34 @@ namespace MediaSharingGuest
     public partial class SendReport : Form
     {
         MediaSharingSystem medias;
-        Media mediaitem;
-        Reaction reaction;
-        Category category;
+
+        public int MediaId { get; set; }
+        public int CategoryId { get; set; }
+        public int ReactionId { get; set; }
         
 
-        public SendReport(MediaSharingSystem medias, Media mediaitem, Reaction reaction, Category category)
+        public SendReport(MediaSharingSystem medias, int mediaId, int categoryId, int reactionId)
         {
             InitializeComponent();
             this.medias = medias;
-            this.mediaitem = mediaitem;
-            this.category = category;
-            this.reaction = reaction;
+            MediaId = mediaId;
+            CategoryId = categoryId;
+            ReactionId = reactionId;
         }
 
         private void btnSendReport_Click(object sender, EventArgs e)
         {
-            if (mediaitem != null)
+            if (MediaId != 0)
             {
-                Report report = new Report(tbDescription.Text, 0, mediaitem.MediaID, 0, medias.MediaUser.RFIDcode);
+                Report report = new Report(tbDescription.Text, 0, MediaId, 0, medias.RfidCode);
             }
-            else if (reaction != null)
+            else if (ReactionId != 0)
             {
-                Report report = new Report(tbDescription.Text, 0, 0, reaction.ReactionID, medias.MediaUser.RFIDcode);
+                Report report = new Report(tbDescription.Text, 0, 0, ReactionId, medias.RfidCode);
             }
-            else if (category != null)
+            else if (CategoryId!= 0)
             {
-                Report report = new Report(tbDescription.Text, category.CategoryId, 0, 0, medias.MediaUser.RFIDcode);
+                Report report = new Report(tbDescription.Text, CategoryId, 0, 0, medias.RfidCode);
             }
         }
 

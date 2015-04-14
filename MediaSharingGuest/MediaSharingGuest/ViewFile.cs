@@ -16,7 +16,6 @@ namespace MediaSharingGuest
         MediaSharingSystem medias;
         Media mediaitem;
         int mediaId;
-        int selectedReactionId;
         string rfidCode;
         bool isLiked = false;
         bool isLikedComment = false;
@@ -24,25 +23,26 @@ namespace MediaSharingGuest
         Select select = new Select();
         Delete delete = new Delete();
 
+        public int MediaId { get; set; }
+        public int SelectedReactionId { get; set; }
+
         //CONSTRUCTOR-------------------------------------------------------------------------------------------------------------------------
-        public ViewFile(MediaSharingSystem medias, Media mediaitem)
+        public ViewFile(MediaSharingSystem medias, int mediaId)
         {
             InitializeComponent();
             this.medias = medias;
-            this.mediaitem = mediaitem;
-            mediaitem.Update();
-            IsLiked();
+            MediaId = mediaId;
+            IsLikedMedia();
         }
 
         //METHODS-----------------------------------------------------------------------------------------------------------------------------
         public bool IsLikedMedia()
         {
-            string rfidCode = medias.MediaUser.RFIDcode;
-            int mediaItemId = mediaitem.MediaID;
+            string rfidCode = medias.RfidCode;
 
             //Query that checks if the file is liked by the current user.
             //IF this query returns a value, isLiked becomes true;
-            select.GetFileLikedByUser(rfidCode, mediaItemId);
+            select.GetFileLikedByUser(rfidCode, MediaId);
 
 
             if (isLiked == true)
@@ -60,13 +60,12 @@ namespace MediaSharingGuest
 
         public bool IsLikedComment()
         {
-            string rfidCode = medias.MediaUser.RFIDcode;
-            Reaction comment = selectedobject as Reaction;
-            int reactionItemId = comment.ReactionID;
+            string rfidCode = medias.RfidCode;
+            int reactionItemId = 0;
 
             //Query that checks if the selected reaction is liked by the current user.
             //IF this query returns a value, isLikedComment becomes true;
-            select.GetReactionLikedByUser(rfidCode, reactionItemId);
+            select.GetReactionLikedByUser(rfidCode, SelectedReactionId);
 
             if (isLikedComment == true)
             {
@@ -80,12 +79,6 @@ namespace MediaSharingGuest
             }
         }
 
-        public void GetAllItemLikes()
-        {
-            int itemLikes = mediaitem.Likes.Count();
-            lblLikesNumber.Text = Convert.ToString(itemLikes);
-        }
-
         public void DeleteLike(int reactionId, int mediaId, string rfidCode)
         {
             //Query that deletes the users like.
@@ -96,7 +89,7 @@ namespace MediaSharingGuest
         {
             int mediaId = mediaitem.MediaID;
 
-            //Queries that get all the information about the mediafile, and the reactions on this file plus additional information.
+            //Queries that get all the information on the mediafile, and the reactions on this file plus additional information.
             select.GetMediaItemInfo(mediaId);
             select.GetAllReactionsData(mediaId);
         }
@@ -106,7 +99,7 @@ namespace MediaSharingGuest
         private void btnAddComment_Click(object sender, EventArgs e)
         {
             string content = tbYourComment.Text;
-            Reaction comment = new Reaction(content, mediaitem.MediaID, medias.MediaUser);
+            Reaction comment = new Reaction(content, mediaitem.MediaID, medias.RfidCode);
             ShowAllInformation();
         }
 
@@ -119,11 +112,11 @@ namespace MediaSharingGuest
         {
             if (IsLikedMedia() == false)
             {
-                Like like = new Like(medias.MediaUser.RFIDcode, 0, mediaitem.MediaID);
+                Like like = new Like(medias.RfidCode, 0, mediaitem.MediaID);
             }
             else
             {
-                DeleteLike(selectedReactionId, mediaId, rfidCode);
+                DeleteLike(SelectedReactionId, mediaId, rfidCode);
             }
             ShowAllInformation();
         }
@@ -139,12 +132,11 @@ namespace MediaSharingGuest
             if (IsLikedComment() == false)
             {
             Reaction selectedReaction = selectedobject as Reaction;
-            Like like = new Like(medias.MediaUser.RFIDcode, selectedReaction.ReactionID, 0);
+            Like like = new Like(medias.RfidCode, selectedReaction.ReactionID, 0);
             }
             else
             {
-                Reaction message = selectedobject as Reaction;
-                message.DeleteLike(message, medias.MediaUser);
+                delete.DeleteLike(mediaId, SelectedReactionId, medias.RfidCode);
             }
             ShowAllInformation();
         }
@@ -152,7 +144,7 @@ namespace MediaSharingGuest
         private void btnReportComment_Click(object sender, EventArgs e)
         {
             Reaction selectedReaction = selectedobject as Reaction;
-            SendReport sendreport = new SendReport(medias, null, selectedReaction, null);
+            SendReport sendreport = new SendReport(medias, null, SelectedReactionId, null);
             sendreport.Show();
         }
 

@@ -60,10 +60,6 @@ namespace MediaSharingGuest
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            filePath = "";
-            title = "";
-            description = "";
-            location = "";
             this.Close();
         }
     }

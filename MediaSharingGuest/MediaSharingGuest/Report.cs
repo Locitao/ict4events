@@ -14,12 +14,12 @@ namespace MediaSharingGuest
         public int MediaID {get; set;}
         public int ReactionID { get; set; }
         public string RFIDCodeReporter { get; set; }
-        public Report(string content, int categoryid, int mediaid, int reactionid, string rfidCodeReporter)
+        public Report(string content, int categoryId, int mediaId, int reactionId, string rfidCodeReporter)
         {
             Content = content;
-            CategoryID = categoryid;
-            MediaID = mediaid;
-            ReactionID = reactionid;
+            CategoryID = categoryId;
+            MediaID = mediaId;
+            ReactionID = reactionId;
             RFIDCodeReporter = rfidCodeReporter;
 
             //INSERT een report in de database, RETURNED ReportID.

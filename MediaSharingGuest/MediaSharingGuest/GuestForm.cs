@@ -13,11 +13,6 @@ namespace MediaSharingGuest
 {
     public partial class GuestForm : Form
     {
-        //TESTDATA INSERT
-        Category currentCategory = new Category("Test:", 1, 0, "1111");
-        //
-
-
         MediaSharingSystem medias;
         NewsFeed newsfeed = new NewsFeed();
         List<string> NewsFeedMessages = new List<string>();
@@ -34,6 +29,7 @@ namespace MediaSharingGuest
             Reaction message = new Reaction("hallo", 0, "1111");
             newsfeed.UpdateMessages(message);
             LoadNewsFeedMessages();
+
             //
 
             InitializeComponent();
@@ -42,11 +38,8 @@ namespace MediaSharingGuest
             rfidCodeUser = medias.RfidCode;
             
             LoadCategories(startingCategoryId);
+            btnBack.Enabled = false;
 
-            if (currentCategory.ParentCategoryId == 0)
-            {
-                btnBack.Enabled = false;
-            }
         }
 
 
@@ -76,7 +69,7 @@ namespace MediaSharingGuest
 
         private void btnAddFile_Click_1(object sender, EventArgs e)
         {
-            UploadFile uploadfile = new UploadFile(medias, currentCategory);
+            UploadFile uploadfile = new UploadFile(medias, CurrentCategoryId);
             uploadfile.Show();
         }
 
@@ -88,7 +81,7 @@ namespace MediaSharingGuest
 
         private void btnAddFolder_Click(object sender, EventArgs e)
         {
-            CreateFolder createfolder = new CreateFolder(medias, currentCategory);
+            CreateFolder createfolder = new CreateFolder(medias, CurrentCategoryId);
             createfolder.Show();
         }
 
@@ -97,7 +90,7 @@ namespace MediaSharingGuest
             CurrentCategoryId = Convert.ToInt32(lbFolders.ValueMember);
             LoadCategories(CurrentCategoryId);
 
-            if (currentCategory.ParentCategoryId == startingCategoryId)
+            if (CurrentCategoryId == startingCategoryId)
             {
                 btnBack.Enabled = false;
             }

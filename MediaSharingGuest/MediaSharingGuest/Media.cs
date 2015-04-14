@@ -12,8 +12,6 @@ namespace MediaSharingGuest
         public int MediaID { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }
-        public List<Reaction> Comments { get; set; }
-        public List<Like> Likes { get; set; }
 
         public string RfidCreator { get; set; }
         public string Location { get; set; }
