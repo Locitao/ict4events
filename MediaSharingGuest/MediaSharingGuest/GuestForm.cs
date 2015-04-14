@@ -23,6 +23,8 @@ namespace MediaSharingGuest
         NewsFeed newsfeed = new NewsFeed();
         List<string> NewsFeedMessages = new List<string>();
         Random RNG = new Random();
+        Select select = new Select();
+        int startingCategoryId = 0;
 
         public GuestForm(MediaSharingSystem medias)
         {
@@ -35,6 +37,8 @@ namespace MediaSharingGuest
             InitializeComponent();
             this.medias = medias;
             timerNewsFeed.Start();
+            
+            LoadCategories(startingCategoryId);
 
             if (currentCategory.ParentCategoryId == 0)
             {
@@ -50,16 +54,11 @@ namespace MediaSharingGuest
             NewsFeedMessages = newsfeed.ReturnNewsFeedMessages();
         }
 
-        public void LoadCategorys()
-        {
-            lbFolders.Items.Clear();
-            //SELECT query to select the starting folder and it's content.
-        }
-
-        public void LoadClickedCategory(int categoryID)
+        public void LoadCategories(int categoryID)
         {
             lbFolders.Items.Clear();
             //SELECT query to select the folder content from the database.
+            select.GetCategories(categoryID);
             
             //foreach code to update the listbox.
         }
@@ -86,9 +85,9 @@ namespace MediaSharingGuest
         {
             object selectedobject = lbFolders.SelectedItem;
             currentCategory = selectedobject as Category;
-            LoadClickedCategory(currentCategory.CategoryId);
+            LoadCategories(currentCategory.CategoryId);
 
-            if (currentCategory.ParentCategoryId == 0)
+            if (currentCategory.ParentCategoryId == startingCategoryId)
             {
                 btnBack.Enabled = false;
             }
@@ -97,9 +96,9 @@ namespace MediaSharingGuest
         private void btnBack_Click(object sender, EventArgs e)
         {
             int parentCategoryID = currentCategory.ParentCategoryId;
-            LoadClickedCategory(parentCategoryID);
+            LoadCategories(parentCategoryID);
 
-            if (currentCategory.ParentCategoryId == 0)
+            if (currentCategory.ParentCategoryId == startingCategoryId)
             {
                 btnBack.Enabled = false;
             }

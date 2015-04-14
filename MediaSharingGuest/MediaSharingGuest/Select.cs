@@ -10,7 +10,7 @@ namespace MediaSharingGuest
     {
         Connection connect = new Connection();
 
-        public void GetRFID(string Rfidcode)
+        public void GetName(string Rfidcode)
         {
             string query = "SELECT Name FROM PT_USER_ACC WHERE RFID_CODE = " + Rfidcode;
         }
@@ -33,6 +33,16 @@ namespace MediaSharingGuest
         public void GetNewsFeedMessages()
         {
             string query = "SELECT u.USER_NAME, r.REA_CONTENT FROM PT_REACTION r JOIN PT_USER_ACC u ON r.RFID_CODE = u.RFID_CODE WHERE MEDIA_ID = '0'";
+        }
+
+        public void GetPassword(string Username)
+        {
+            string query = "SELECT LOGIN_PASSWORD FROM PT_EMPLOYEE_ACC WHERE EMPLOYEE_ID = " + "'" + Username + "'";
+        }
+
+        public void GetCategories(int parentCategoryId)
+        {
+            string query = "SELECT CATEGORY_ID, CATEGORY_NAME FROM PT_MED_CATEGORY WHERE PARENT_CATEGORY_ID = " + "'" + parentCategoryId + "'";
         }
     }
 }
