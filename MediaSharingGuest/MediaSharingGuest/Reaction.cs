@@ -47,7 +47,7 @@ namespace MediaSharingGuest
             //Query to get the name of the reactor.
 
 
-            string postername = Creator.Name;
+            string postername = "";
             string content = Content;
             string likes = Convert.ToString(Likes.Count);
 

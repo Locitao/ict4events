@@ -45,8 +45,8 @@ namespace MediaSharingGuest
 
         public void LoadNewsFeedMessages()
         {
-            //newsfeed.UpdateMessages();
-            NewsFeedMessages = newsfeed.ReturnNewsFeedMessages();
+            //Query that returns all newsfeedmessages plus the creator of the message.
+            select.GetNewsFeedMessages();
         }
 
         public void LoadCategories(int categoryID)

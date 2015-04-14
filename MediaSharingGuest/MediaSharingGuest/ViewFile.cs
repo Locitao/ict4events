@@ -15,8 +15,6 @@ namespace MediaSharingGuest
         //FIELDS------------------------------------------------------------------------------------------------------------------------------
         MediaSharingSystem medias;
         Media mediaitem;
-        int mediaId;
-        string rfidCode;
         bool isLiked = false;
         bool isLikedComment = false;
         object selectedobject;
@@ -25,6 +23,7 @@ namespace MediaSharingGuest
 
         public int MediaId { get; set; }
         public int SelectedReactionId { get; set; }
+        public int SelectedCommentId { get; set; }
 
         //CONSTRUCTOR-------------------------------------------------------------------------------------------------------------------------
         public ViewFile(MediaSharingSystem medias, int mediaId)
@@ -116,14 +115,14 @@ namespace MediaSharingGuest
             }
             else
             {
-                DeleteLike(SelectedReactionId, mediaId, rfidCode);
+                DeleteLike(SelectedReactionId, MediaId, medias.RfidCode);
             }
             ShowAllInformation();
         }
 
         private void btnReportFile_Click(object sender, EventArgs e)
         {
-            SendReport sendreport = new SendReport(medias, mediaitem, null, null);
+            SendReport sendreport = new SendReport(medias, MediaId, 0, 0);
             sendreport.Show();
         }
 
@@ -136,7 +135,7 @@ namespace MediaSharingGuest
             }
             else
             {
-                delete.DeleteLike(mediaId, SelectedReactionId, medias.RfidCode);
+                delete.DeleteLike(MediaId, SelectedReactionId, medias.RfidCode);
             }
             ShowAllInformation();
         }
@@ -144,7 +143,7 @@ namespace MediaSharingGuest
         private void btnReportComment_Click(object sender, EventArgs e)
         {
             Reaction selectedReaction = selectedobject as Reaction;
-            SendReport sendreport = new SendReport(medias, null, SelectedReactionId, null);
+            SendReport sendreport = new SendReport(medias, 0, SelectedReactionId, 0);
             sendreport.Show();
         }
 
@@ -157,6 +156,7 @@ namespace MediaSharingGuest
         {
             IsLikedComment();
 
+            SelectedReactionId = Convert.ToInt32(lbComments.ValueMember);
             selectedobject = lbComments.SelectedItem;
             if (selectedobject != null)
             {
