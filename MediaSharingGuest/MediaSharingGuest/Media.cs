@@ -51,16 +51,13 @@ namespace MediaSharingGuest
             //SELECT statement to select all the likes on the media item.
             select.GetLikesMediaItem(MediaID);
 
+            //SELECT statement to get all the reactions, poster, and the likes.
+            select.GetAllReactionsData(MediaID);
+
             //Foreach loop to add this info to the comment list.
 
 
-            //Foreach loop to add likes to the comment list.
-        }
-
-        public void RemoveLike(Like like)
-        {
-            //REMOVE query to remove the like.
-            Likes.Remove(like);
+            //Foreach loop to add likes to the image.
         }
 
     }

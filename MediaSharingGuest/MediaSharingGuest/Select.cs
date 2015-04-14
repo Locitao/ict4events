@@ -29,5 +29,10 @@ namespace MediaSharingGuest
         {
             string query = "SELECT u.USER_NAME, r.REA_CONTENT, (SELECT COUNT(LIKE_ID) FROM PT_USER_LIKE WHERE MEDIA_ID = " + "'" + mediaID + "')" + " AS LIKES FROM PT_USER_ACC u JOIN PT_REACTION r ON u.RFID_CODE = r.RFID_CODE WHERE r.MEDIA_ID = " + "'" + mediaID + "'";
         }
+
+        public void GetNewsFeedMessages()
+        {
+            string query = "SELECT u.USER_NAME, r.REA_CONTENT FROM PT_REACTION r JOIN PT_USER_ACC u ON r.RFID_CODE = u.RFID_CODE WHERE MEDIA_ID = '0'";
+        }
     }
 }

@@ -80,7 +80,7 @@ namespace MediaSharingGuest
             {
                 if (like.RfidCode == medias.MediaUser.RFIDcode)
                 {
-                    mediaitem.RemoveLike(like);
+                    like.RemoveLike(like.LikeID);
                 }
             }
             ShowAllInformation();

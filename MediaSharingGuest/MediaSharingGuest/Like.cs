@@ -24,5 +24,9 @@ namespace MediaSharingGuest
             LikeID = 0;
         }
 
+        public void RemoveLike(int Likeid)
+        {
+            //REMOVE LIKE FROM DB QUERY
+        }
     }
 }
