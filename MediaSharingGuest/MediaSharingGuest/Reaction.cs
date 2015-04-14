@@ -14,6 +14,9 @@ namespace MediaSharingGuest
         public Guest Creator { get; set; }
         public List<Like> Likes { get; set; }
 
+        Insert insert = new Insert();
+        Select select = new Select();
+
         public Reaction(string content, int mediaid, Guest creator)
         {
             Content = content;
@@ -21,7 +24,7 @@ namespace MediaSharingGuest
             Creator = creator;
 
             //INSERT reaction into db, RETURNS reactionID.
-            ReactionID = 0;
+            insert.AddReaction(MediaID, Creator.RFIDcode, Content);
         }
 
         public void EditReaction(Reaction reaction)

@@ -19,6 +19,9 @@ namespace MediaSharingGuest
         public string Location { get; set; }
         public int CategoryID { get; set; }
 
+        Insert insert = new Insert();
+        Select select = new Select();
+
         public Media(string name, string path, string description, string rfidcreator, string location, int categoryid)
         {
             Name = name;
@@ -28,14 +31,14 @@ namespace MediaSharingGuest
             Location = location;
             CategoryID = categoryid;
 
-            //INSERT statement to add new media item to the database. RETURNS MediaID!
+            //INSERT statement to add new media item to the database.
+            insert.InsertImage(CategoryID, Name, Location, Description, RfidCreator);
 
-            MediaID = 0;
-        }
+            //SELECT statement to return the mediaID of the item. //RELOAD ALL MEDIAITEM SO NO ID IS NEEDED?
+            select.SelectImageNoMediaID(CategoryID, Name, Location, Description, RfidCreator);
 
-        public void AddReaction()
-        {
-            //INSERT statement to add a reaction to this media item.
+            //CODE that sets the mediaId.
+
         }
 
         public void DeleteReaction()
@@ -45,9 +48,11 @@ namespace MediaSharingGuest
 
         public void Update()
         {
-            //SELECT statement to select all the comments on the media item and the likes on the media item.
+            //SELECT statement to select all the likes on the media item.
+            select.GetLikesMediaItem(MediaID);
 
             //Foreach loop to add this info to the comment list.
+
 
             //Foreach loop to add likes to the comment list.
         }
