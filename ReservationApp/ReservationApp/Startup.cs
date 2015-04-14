@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace ReservationApp
 {
+    /// <summary>
+    /// This is the first form that shows when users start the application. They can either create an
+    /// account, when one of their friends has already reserved, or they can create an account
+    /// and a reservation at the same time.
+    /// </summary>
     public partial class Startup : Form
     {
         public Startup()

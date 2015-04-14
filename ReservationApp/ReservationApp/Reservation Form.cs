@@ -13,6 +13,9 @@ using Oracle.DataAccess.Types;
 
 namespace ReservationApp
 {
+    /// <summary>
+    /// This form is used when a user wants to create a reservation. 
+    /// </summary>
     public partial class ReservationForm : Form
     {
         Connection connect = new Connection();
@@ -40,7 +43,10 @@ namespace ReservationApp
         {
             connect.CloseConnection();
         }
-
+        /// <summary>
+        /// Refresh is used to get a list of all locations that haven't been reserved yet, puts
+        /// them in the listbox. It also shows for which events you can currently place a reservation.
+        /// </summary>
         public override void Refresh()
         {
             lbLocations.Items.Clear();
@@ -99,6 +105,16 @@ namespace ReservationApp
                     var res = select.Find_Res_Id(rfid);
                     var loc = nmLocId.Text;
 
+                    if (nmLoc2.Text == null || nmLoc2.Text == "0")
+                    {
+                        update.Update_Location(nmLoc2.Text, res);
+                    }
+
+                    if (nmLoc3.Text == null || nmLoc3.Text == "0")
+                    {
+                        update.Update_Location(nmLoc3.Text, res);
+                    }
+
                     MessageBox.Show(update.Update_Location(loc, res));
                     connect.CloseConnection();
 
@@ -124,10 +140,6 @@ namespace ReservationApp
             
         }
 
-        private void nmLocId_ValueChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void pbLocations_MouseDoubleClick(object sender, MouseEventArgs e)
         {

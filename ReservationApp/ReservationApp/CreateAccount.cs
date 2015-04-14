@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace ReservationApp
 {
+    /// <summary>
+    /// This form will be used to create an account for users which also want to place a reservation immediately afterwards.
+    /// </summary>
     public partial class Create_Account : Form
     {
         Insert insert = new Insert();
