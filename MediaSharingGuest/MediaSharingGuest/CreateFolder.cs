@@ -14,6 +14,7 @@ namespace MediaSharingGuest
     {
         MediaSharingSystem medias;
         Category parentCategory;
+        Insert insert = new Insert();
 
         public CreateFolder(MediaSharingSystem medias, Category parentCategory)
         {
@@ -28,7 +29,9 @@ namespace MediaSharingGuest
             int parentCategoryID = parentCategory.CategoryId;
             string RFIDcreator = medias.MediaUser.RFIDcode;
 
-            //INSERT new folder foldername, parentID, creator. AUTO folderID
+            //Query that inserts the new folder.
+            insert.InsertCategory(foldername, parentCategoryID, RFIDcreator);
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -21,5 +21,11 @@ namespace MediaSharingGuest
                     "INSERT INTO PT_REACTION (REACTION_ID, MEDIA_ID, RFID_CODE, REA_CONTENT) VALUES (auto_inc_rec.nextval, " + "', '" + mediaId + "', '" + rfidCode + "' , '" + content + "')";
         }
 
+        public void InsertCategory(string categoryName, int parentCategoryId, string Rfidcode)
+        {
+            string query =
+                    "INSERT INTO PT_MED_CATEGORY (CATEGORY_ID, RFID_CODE, PARENT_CATEGORY_ID) VALUES (auto_inc_med.nextval, " + "', '" + Rfidcode + "', '" + parentCategoryId + "')";
+        }
+
     }
 }

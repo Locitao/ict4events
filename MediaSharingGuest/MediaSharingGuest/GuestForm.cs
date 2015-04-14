@@ -63,6 +63,13 @@ namespace MediaSharingGuest
             //foreach code to update the listbox.
         }
 
+        public void LoadMediaItems(int categoryID)
+        {
+            //SELECT query to select all media items in given category.
+
+        }
+          
+
         private void btnAddFile_Click_1(object sender, EventArgs e)
         {
             UploadFile uploadfile = new UploadFile(medias, currentCategory);

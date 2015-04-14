@@ -27,7 +27,7 @@ namespace MediaSharingGuest
 
         public void GetAllReactionsData (int mediaID)
         {
-            string query = "SELECT u.USER_NAME, r.REA_CONTENT, (SELECT COUNT(LIKE_ID) FROM PT_USER_LIKE WHERE MEDIA_ID = " + "'" + mediaID + "')" + " AS LIKES FROM PT_USER_ACC u JOIN PT_REACTION r ON u.RFID_CODE = r.RFID_CODE WHERE r.MEDIA_ID = " + "'" + mediaID + "'";
+            string query = "SELECT r.REACTION_ID, u.USER_NAME, r.REA_CONTENT, (SELECT COUNT(LIKE_ID) FROM PT_USER_LIKE WHERE REACTION_ID IN (SELECT REACTION_ID FROM PT_REACTION WHERE MEDIA_ID = " + "'" + mediaID + "')) AS LIKES FROM PT_USER_ACC u JOIN PT_REACTION r ON u.RFID_CODE = r.RFID_CODE WHERE r.MEDIA_ID = " + "'" + mediaID + "'";
         }
 
         public void GetNewsFeedMessages()
@@ -44,5 +44,16 @@ namespace MediaSharingGuest
         {
             string query = "SELECT CATEGORY_ID, CATEGORY_NAME FROM PT_MED_CATEGORY WHERE PARENT_CATEGORY_ID = " + "'" + parentCategoryId + "'";
         }
+
+        public void GetAllMediaItems(int CategoryId)
+        {
+            string query = "SELECT m.MED_NAME, m.MEDIA_ID,  u.USER_NAME FROM PT_MEDIA m JOIN PT_USER_ACC u ON m.RFID_CODE = u.RFID_CODE WHERE m.CATEGORY_ID = " + "'" + CategoryId + "'";
+        }
+
+        public void GetMediaItemInfo(int mediaId)
+        {
+            string query = "SELECT m.MED_NAME, m.MED_LOCATION, m.MED_DESCRIPTION, m.MED_PATH, u.USER_NAME, (SELECT COUNT(LIKE_ID) FROM PT_USER_LIKE WHERE MEDIA_ID = " + "'" + mediaId + "'" + ") AS LIKES FROM PT_MEDIA m JOIN PT_USER_ACC u ON m.RFID_CODE = u.RFID_CODE WHERE MEDIA_ID = " + "'" + mediaId + "'";
+        }
+
     }
 }
