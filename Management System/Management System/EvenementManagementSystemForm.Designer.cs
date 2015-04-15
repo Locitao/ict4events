@@ -74,6 +74,7 @@
             this.btnNewCamping.TabIndex = 2;
             this.btnNewCamping.Text = "Add new camping";
             this.btnNewCamping.UseVisualStyleBackColor = true;
+            this.btnNewCamping.Click += new System.EventHandler(this.btnNewCamping_Click);
             // 
             // lblMaxVisitors
             // 

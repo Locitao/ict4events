@@ -25,19 +25,23 @@ namespace Management_System
         {
             List<List<string>> output;
             Exception exception;
-            if (connection.SQLQueryWithOutput("SELECT CAMPING_NAME, CAMPING_MAP FROM PT_CAMPING", out output, out exception))
+            if (connection.SQLQueryWithOutput("SELECT CAMPING_ID, CAMPING_NAME, CAMPING_MAP FROM PT_CAMPING", out output, out exception))
             {
+                MessageBox.Show(output.Count.ToString());
                 foreach(List<string> list in output)
                 {
-                    Camping tempCamping = new Camping(list[0], list[1]);
+                    Camping tempCamping = new Camping(Convert.ToInt32(list[0]), list[1], list[2]);
                     campingList.Add(tempCamping);
                     lbCampings.Items.Add(tempCamping);
+                    MessageBox.Show(list[0] + list[1] + list[2]);
                 }
             }
             else
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
+            
+            
         }
 
         
@@ -45,6 +49,12 @@ namespace Management_System
         private void lbCampings_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnNewCamping_Click(object sender, EventArgs e)
+        {
+            //string query = "Insert into PT_CAMPING(camping_ID, camping_name, camping_map) VALUES(auto_inc_cam.nextval, 'camping name', 'imgur link')";
+
         }
 
         

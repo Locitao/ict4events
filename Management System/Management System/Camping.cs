@@ -8,11 +8,11 @@ namespace Management_System
 {
     class Camping
     {
-        public string CampingID { get; set; }
+        public int CampingID { get; set; }
         public string Name { get; set; }
         public string MapPath { get; set; }
 
-        public Camping(string campingID, string name, string mapPath)
+        public Camping(int campingID, string name, string mapPath)
         {
             CampingID = campingID;
             Name = name;
@@ -21,7 +21,7 @@ namespace Management_System
 
         public override string ToString()
         {
-            return CampingID + Name;
+            return "Camping: " + Name + ", ID: " + CampingID.ToString();
         }
     }
 }
