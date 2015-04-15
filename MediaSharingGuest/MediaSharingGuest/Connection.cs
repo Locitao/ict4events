@@ -11,10 +11,9 @@ namespace MediaSharingGuest
 {
     public class Connection
     {
-        //KIJK MIJN COMMENT
         OracleConnection conn = new OracleConnection();
 
-        public bool NewConnection()
+        public bool OpenConnection()
         {
 
             const string user = "dbi320839";
@@ -40,41 +39,82 @@ namespace MediaSharingGuest
             conn.Close();
         }
 
-        public static List<Dictionary<string, object>> ExecuteQuery(string query)
+        /// <summary>
+        /// This method uses a query to receive data from the oracle database
+        /// </summary>
+        /// <param name="query">The SQL query that specifies what you want to receive from the database</param>
+        /// <param name="output">outputs an 2D list with all received data</param>
+        /// <returns>true if the query is succesfull, false if an error has occured</returns>
+        public bool SQLQueryWithOutput(string query, out List<List<string>> output)
         {
-            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
-
-            Connection connection = new Connection();
-            connection.CloseConnection();
-
-
-            if (connection.NewConnection())
+            try
             {
-                try
-                {
-                    OracleDataReader resultReader = new OracleCommand(query, connection.conn).ExecuteReader();
+                OpenConnection();
+                OracleDataReader rdr = new OracleCommand(query, conn).ExecuteReader();
+                output = new List<List<string>>();
 
-                    while (resultReader.Read())
+                while (rdr.Read())
+                {
+                    List<string> temp = new List<string>();
+                    for (int i = 0; i < rdr.FieldCount; i++)
                     {
-                        Dictionary<string, object> row = new Dictionary<string, object>();
-
-                        //Loop through fields, add them to the row
-
-                        for (int fieldId = 0; fieldId < resultReader.FieldCount; fieldId++)
-                            row.Add(resultReader.GetName(fieldId), resultReader.GetValue(fieldId));
-
-                        result.Add(row);
-
+                        object o = rdr.GetValue(i);
+                        if (o is string)
+                        {
+                            temp.Add((string)rdr.GetValue(i));
+                        }
+                        else if (rdr.GetValue(i) is long)
+                        {
+                            long tempInt = (long)rdr.GetValue(i);
+                            temp.Add(tempInt.ToString());
+                        }
+                        else if (rdr.GetValue(i) is DateTime)
+                        {
+                            DateTime tempDateTime = (DateTime)rdr.GetValue(i);
+                            temp.Add(tempDateTime.ToString());
+                        }
+                        else if (rdr.GetValue(i) is DBNull)
+                        {
+                            temp.Add("");
+                        }
                     }
-                    return result;
+                    output.Add(temp);
                 }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-                //Loop through files, add them to result
+                return true;
             }
-            return result;
+            catch
+            {
+                output = null;
+                return false;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        /// <summary>
+        /// This method uses a query to submit data to the oracle database
+        /// </summary>
+        /// <param name="query">the SQL query that contais what you want to submit to the database</param>
+        /// <returns>true if the query is succesfull, false if an error has occured</returns>
+        public bool SQLQueryNoOutput(string query)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand(query);
+                OpenConnection();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
     }
 }

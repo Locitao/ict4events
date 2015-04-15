@@ -8,3 +8,6 @@ C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.pdb
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.EvenementManagementSystemForm.resources
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.AdministrationLogInForm.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Management System\Management System\bin\x86\Debug\Management System.exe.config
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.exe
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.pdb

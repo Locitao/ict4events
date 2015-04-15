@@ -17,8 +17,12 @@ namespace MediaSharingGuest
         NewsFeed newsfeed = new NewsFeed();
         List<string> NewsFeedMessages = new List<string>();
         Random RNG = new Random();
-        Select select = new Select();
         int startingCategoryId = 0;
+
+        Select select = new Select();
+        Connection connection = new Connection();
+
+        List<List<string>> output = new List<List<string>>();
 
         public int CurrentCategoryId { get; set; }
         public string rfidCodeUser { get; set; }
@@ -46,24 +50,48 @@ namespace MediaSharingGuest
         public void LoadNewsFeedMessages()
         {
             //Query that returns all newsfeedmessages plus the creator of the message.
-            select.GetNewsFeedMessages();
+            connection.SQLQueryWithOutput(select.GetNewsFeedMessages(), out output);
+
+            NewsFeedMessages.Clear();
+
+            string newsFeedMessage ="";
+
+            foreach (List<string> stringList in output)
+            {
+                foreach (string message in stringList)
+                {
+                    newsFeedMessage = message + newsFeedMessage;
+                }
+                NewsFeedMessages.Add(newsFeedMessage);
+            }
         }
 
         public void LoadCategories(int categoryID)
         {
             lbFolders.Items.Clear();
             //SELECT query to select the folder content from the database.
-            select.GetCategories(categoryID);
+            connection.SQLQueryWithOutput(select.GetCategories(categoryID), out output);
             
             //CODE TO UPDATE LISTBOX
+            foreach (List<string> stringList in output)
+            {
+                string categoryId = stringList[1];
+                string categoryName = stringList[2];
+                lbFolders.DisplayMember = categoryName;
+                lbFolders.ValueMember = categoryId;
+            }
         }
 
         public void LoadMediaItems(int categoryId)
         {
             //SELECT query to select all media items in given category.
-            select.GetAllMediaItems(categoryId);
+            connection.SQLQueryWithOutput(select.GetAllMediaItems(categoryId), out output);
 
             //CODE TO UPDATE LISTBOX
+            foreach (List<string> stringList in output)
+            {
+                //
+            }
         }
           
 

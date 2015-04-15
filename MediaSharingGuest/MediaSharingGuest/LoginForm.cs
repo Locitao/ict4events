@@ -12,14 +12,16 @@ namespace MediaSharingGuest
 {
     public partial class LoginForm : Form
     {
+        Connection connect = new Connection();
+        Select select = new Select();
+        List<List<string>> output = new List<List<string>>();
+
         public LoginForm()
         {
             InitializeComponent();
             rbUser.Checked = true;
             
         }
-
-        Select select = new Select();
 
         public string Rfidcode { get; set; }
         public string Username { get; set; }
@@ -79,15 +81,14 @@ namespace MediaSharingGuest
         public void LogIn(string rfidcode)
         {
             //Query that returns Name of the user, if no name then no login.
-            select.GetName(rfidcode);
+            connect.SQLQueryWithOutput(select.GetName(rfidcode), out output);
+            Username = output[0][0];
 
-            string name = "jaap";
-
-            if (Name != null)
+            if (Username != "")
             {
                 //Query that returns the warnlv 
                 string rfidCode = "";
-                MediaSharingSystem ms = new MediaSharingSystem(rfidCode, name);
+                MediaSharingSystem ms = new MediaSharingSystem(rfidCode, Username);
                 GuestForm guestform = new GuestForm(ms);
                 this.Hide();
                 guestform.Show();
