@@ -56,7 +56,7 @@
             this.numericPrice = new System.Windows.Forms.NumericUpDown();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblmap = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbMapPath = new System.Windows.Forms.TextBox();
             this.tbEventName = new System.Windows.Forms.TextBox();
             this.lblEventName = new System.Windows.Forms.Label();
             this.lblDesctiption = new System.Windows.Forms.Label();
@@ -195,6 +195,7 @@
             this.btnDeleteCamping.TabIndex = 15;
             this.btnDeleteCamping.Text = "Delete selected";
             this.btnDeleteCamping.UseVisualStyleBackColor = true;
+            this.btnDeleteCamping.Click += new System.EventHandler(this.btnDeleteCamping_Click);
             // 
             // lbEvents
             // 
@@ -344,12 +345,12 @@
             this.lblmap.TabIndex = 30;
             this.lblmap.Text = "Map path:";
             // 
-            // textBox1
+            // tbMapPath
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 173);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 32;
+            this.tbMapPath.Location = new System.Drawing.Point(97, 173);
+            this.tbMapPath.Name = "tbMapPath";
+            this.tbMapPath.Size = new System.Drawing.Size(130, 20);
+            this.tbMapPath.TabIndex = 32;
             // 
             // tbEventName
             // 
@@ -392,7 +393,7 @@
             this.Controls.Add(this.lblDesctiption);
             this.Controls.Add(this.lblEventName);
             this.Controls.Add(this.tbEventName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbMapPath);
             this.Controls.Add(this.lblmap);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.numericPrice);
@@ -461,7 +462,7 @@
         private System.Windows.Forms.NumericUpDown numericPrice;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblmap;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbMapPath;
         private System.Windows.Forms.TextBox tbEventName;
         private System.Windows.Forms.Label lblEventName;
         private System.Windows.Forms.Label lblDesctiption;

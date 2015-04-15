@@ -18,22 +18,22 @@ namespace Management_System
         public EvenementManagementSystemForm()
         {
             InitializeComponent();
-            getCampingsData();
+            refreshCampingsData();
         }
 
-        private void getCampingsData()
+        private void refreshCampingsData()
         {
+            campingList.Clear();
+            lbCampings.Items.Clear();
             List<List<string>> output;
             Exception exception;
             if (connection.SQLQueryWithOutput("SELECT CAMPING_ID, CAMPING_NAME, CAMPING_MAP FROM PT_CAMPING", out output, out exception))
             {
-                MessageBox.Show(output.Count.ToString());
                 foreach(List<string> list in output)
                 {
                     Camping tempCamping = new Camping(Convert.ToInt32(list[0]), list[1], list[2]);
                     campingList.Add(tempCamping);
                     lbCampings.Items.Add(tempCamping);
-                    MessageBox.Show(list[0] + list[1] + list[2]);
                 }
             }
             else
@@ -53,7 +53,37 @@ namespace Management_System
 
         private void btnNewCamping_Click(object sender, EventArgs e)
         {
-            //string query = "Insert into PT_CAMPING(camping_ID, camping_name, camping_map) VALUES(auto_inc_cam.nextval, 'camping name', 'imgur link')";
+            string campingName = tbCampingName.Text;
+            string mapPath = tbMapPath.Text;
+            string query = "Insert into PT_CAMPING(camping_ID, camping_name, camping_map) VALUES(auto_inc_cam.nextval,'" + campingName + "', '" + mapPath + "')";
+            Exception ex;
+            if (connection.SQLQueryNoOutput(query, out ex))
+            {
+                MessageBox.Show("New camping is succesfully added to our system.");
+                refreshCampingsData();
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+            }
+
+        }
+
+        private void btnDeleteCamping_Click(object sender, EventArgs e)
+        {
+            Camping selectedCamping = (Camping)lbCampings.SelectedItem;
+            string query = "DELETE FROM PT_CAMPING WHERE camping_ID = " + selectedCamping.CampingID.ToString();
+
+            Exception ex;
+            if (connection.SQLQueryNoOutput(query, out ex))
+            {
+                MessageBox.Show("Selected camping is succesfully removed from our  system.");
+                refreshCampingsData();
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + Environment.NewLine + ex.ToString());
+            }
 
         }
 
