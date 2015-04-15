@@ -69,6 +69,24 @@ namespace Management_System
 
         }
 
+        private void btnDeleteCamping_Click(object sender, EventArgs e)
+        {
+            Camping selectedCamping = (Camping)lbCampings.SelectedItem;
+            string query = "DELETE FROM PT_CAMPING WHERE camping_ID = " + selectedCamping.CampingID.ToString();
+
+            Exception ex;
+            if (connection.SQLQueryNoOutput(query, out ex))
+            {
+                MessageBox.Show("Selected camping is succesfully removed from our  system.");
+                refreshCampingsData();
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + Environment.NewLine + ex.ToString());
+            }
+
+        }
+
         
 
         

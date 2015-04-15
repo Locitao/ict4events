@@ -195,6 +195,7 @@
             this.btnDeleteCamping.TabIndex = 15;
             this.btnDeleteCamping.Text = "Delete selected";
             this.btnDeleteCamping.UseVisualStyleBackColor = true;
+            this.btnDeleteCamping.Click += new System.EventHandler(this.btnDeleteCamping_Click);
             // 
             // lbEvents
             // 
