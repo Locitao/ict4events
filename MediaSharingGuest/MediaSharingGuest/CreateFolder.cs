@@ -13,22 +13,26 @@ namespace MediaSharingGuest
     public partial class CreateFolder : Form
     {
         MediaSharingSystem medias;
-        Category parentCategory;
+        public int ParentCategory {get; set;}
 
-        public CreateFolder(MediaSharingSystem medias, Category parentCategory)
+        Insert insert = new Insert();
+
+        public CreateFolder(MediaSharingSystem medias, int parentCategory)
         {
             InitializeComponent();
             this.medias = medias;
-            this.parentCategory = parentCategory;
+            ParentCategory = parentCategory;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
             string foldername = tbFolderName.Text;
-            int parentCategoryID = parentCategory.CategoryId;
-            string RFIDcreator = medias.MediaUser.RFIDcode;
+            int parentCategoryID = ParentCategory;
+            string RFIDcreator = medias.RfidCode;
 
-            //INSERT new folder foldername, parentID, creator. AUTO folderID
+            //Query that inserts the new folder.
+            insert.InsertCategory(foldername, parentCategoryID, RFIDcreator);
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

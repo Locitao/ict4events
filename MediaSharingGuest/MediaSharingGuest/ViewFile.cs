@@ -18,102 +18,79 @@ namespace MediaSharingGuest
         bool isLiked = false;
         bool isLikedComment = false;
         object selectedobject;
+        Select select = new Select();
+        Delete delete = new Delete();
+
+        public int MediaId { get; set; }
+        public int SelectedReactionId { get; set; }
+        public int SelectedCommentId { get; set; }
 
         //CONSTRUCTOR-------------------------------------------------------------------------------------------------------------------------
-        public ViewFile(MediaSharingSystem medias, Media mediaitem)
+        public ViewFile(MediaSharingSystem medias, int mediaId)
         {
             InitializeComponent();
             this.medias = medias;
-            this.mediaitem = mediaitem;
-            mediaitem.Update();
-            IsLiked();
+            MediaId = mediaId;
+            IsLikedMedia();
         }
 
         //METHODS-----------------------------------------------------------------------------------------------------------------------------
-        public void IsLiked()
+        public bool IsLikedMedia()
         {
-            string rfidCode = medias.MediaUser.RFIDcode;
-            int mediaItemId = mediaitem.MediaID;
-            //SELECT LikeID FROM LIKE WHERE RFIDCODE = RFIDCODE & mediaitemid = mediaitemid;
+            string rfidCode = medias.RfidCode;
+
+            //Query that checks if the file is liked by the current user.
             //IF this query returns a value, isLiked becomes true;
+            select.GetFileLikedByUser(rfidCode, MediaId);
 
 
             if (isLiked == true)
             {
                 btnLikeThisFile.Text = "Unlike this File!";
+                return true;
             }
-            else if (isLiked == false)
+            else
             {
                 btnLikeThisFile.Text = "Like this File!";
+                return false;
             }
         }
 
 
-        public void IsLikedComment()
+        public bool IsLikedComment()
         {
-            string rfidCode = medias.MediaUser.RFIDcode;
-            Reaction comment = selectedobject as Reaction;
-            int ReactionItemId = comment.ReactionID;
-            //SELECT ReactionID FROM Reaction WHERE RFIDCODE = RFIDCODE & reactionid = reactionid;
+            string rfidCode = medias.RfidCode;
+            int reactionItemId = 0;
+
+            //Query that checks if the selected reaction is liked by the current user.
             //IF this query returns a value, isLikedComment becomes true;
+            select.GetReactionLikedByUser(rfidCode, SelectedReactionId);
 
             if (isLikedComment == true)
             {
                 btnLikeComment.Text = "Unlike this Comment!";
+                return true;
             }
-            else if (isLiked == false)
+            else 
             {
                 btnLikeComment.Text = "Like this Comment!";
+                return false;
             }
         }
 
-        public void GetAllItemLikes()
+        public void DeleteLike(int reactionId, int mediaId, string rfidCode)
         {
-            int itemLikes = mediaitem.Likes.Count();
-            lblLikesNumber.Text = Convert.ToString(itemLikes);
-        }
-
-        public void RemoveItemLike()
-        {
-            mediaitem.Update();
-            foreach (Like like in mediaitem.Likes)
-            {
-                if (like.RfidCode == medias.MediaUser.RFIDcode)
-                {
-                    mediaitem.RemoveLike(like);
-                }
-            }
-            ShowAllInformation();
+            //Query that deletes the users like.
+            delete.DeleteLike(reactionId, mediaId, rfidCode);
         }
 
         public void ShowAllInformation()
         {
-            //Shows the image.
-            pbImage.ImageLocation = @mediaitem.Path;
-            pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            int mediaId = mediaitem.MediaID;
 
-            //Shows the comments.
-            mediaitem.Update();
-            
-            foreach (Reaction comment in mediaitem.Comments)
-            {
-                lbComments.Items.Add(comment);
-                lbComments.DisplayMember = ToString();
-            }
-
-            //shows the name of the uploader.
-
-            //SELECT statement to select the name of the creator.
-            string rfidCreator = mediaitem.RfidCreator;
-            string creator;
-
-            lblName.Text = "";
-
-            //Shows the desciption.
-            tbDescription.Text = mediaitem.Description;
-
-            //Shows the Location where the image was taken.
-            lblLocation.Text = mediaitem.Location;
+            //Queries that get all the information on the mediafile, and the reactions on this file plus additional information.
+            select.GetMediaItemInfo(mediaId);
+            select.GetAllReactionsData(mediaId);
         }
 
         //EVENTS-----------------------------------------------------------------------------------------------------------------------------
@@ -121,7 +98,7 @@ namespace MediaSharingGuest
         private void btnAddComment_Click(object sender, EventArgs e)
         {
             string content = tbYourComment.Text;
-            Reaction comment = new Reaction(content, mediaitem.MediaID, medias.MediaUser);
+            Reaction comment = new Reaction(content, mediaitem.MediaID, medias.RfidCode);
             ShowAllInformation();
         }
 
@@ -132,37 +109,33 @@ namespace MediaSharingGuest
 
         private void btnLikeThisFile_Click(object sender, EventArgs e)
         {
-            if (isLiked == false)
+            if (IsLikedMedia() == false)
             {
-                Like like = new Like(medias.MediaUser.RFIDcode, 0, mediaitem.MediaID);
-                IsLiked();
+                Like like = new Like(medias.RfidCode, 0, mediaitem.MediaID);
             }
-            else if (isLiked == true)
+            else
             {
-                RemoveItemLike();
-                isLiked = false;
+                DeleteLike(SelectedReactionId, MediaId, medias.RfidCode);
             }
             ShowAllInformation();
         }
 
         private void btnReportFile_Click(object sender, EventArgs e)
         {
-            SendReport sendreport = new SendReport(medias, mediaitem, null, null);
+            SendReport sendreport = new SendReport(medias, MediaId, 0, 0);
             sendreport.Show();
         }
 
         private void btnLikeComment_Click(object sender, EventArgs e)
         {
-            if (isLikedComment == false)
+            if (IsLikedComment() == false)
             {
             Reaction selectedReaction = selectedobject as Reaction;
-            Like like = new Like(medias.MediaUser.RFIDcode, selectedReaction.ReactionID, 0);
+            Like like = new Like(medias.RfidCode, selectedReaction.ReactionID, 0);
             }
-            else if (isLikedComment == true)
+            else
             {
-                Reaction message = selectedobject as Reaction;
-                message.DeleteLike(message, medias.MediaUser);
-                isLikedComment = false;
+                delete.DeleteLike(MediaId, SelectedReactionId, medias.RfidCode);
             }
             ShowAllInformation();
         }
@@ -170,7 +143,7 @@ namespace MediaSharingGuest
         private void btnReportComment_Click(object sender, EventArgs e)
         {
             Reaction selectedReaction = selectedobject as Reaction;
-            SendReport sendreport = new SendReport(medias, null, selectedReaction, null);
+            SendReport sendreport = new SendReport(medias, 0, SelectedReactionId, 0);
             sendreport.Show();
         }
 
@@ -183,6 +156,7 @@ namespace MediaSharingGuest
         {
             IsLikedComment();
 
+            SelectedReactionId = Convert.ToInt32(lbComments.ValueMember);
             selectedobject = lbComments.SelectedItem;
             if (selectedobject != null)
             {

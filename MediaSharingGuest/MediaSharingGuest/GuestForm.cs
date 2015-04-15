@@ -13,82 +13,84 @@ namespace MediaSharingGuest
 {
     public partial class GuestForm : Form
     {
-        //TESTDATA INSERT
-        Category currentCategory = new Category("Test:", 1, 0, "1111");
-        Guest guest1 = new Guest("jaap", "1111");
-        //
-
-
         MediaSharingSystem medias;
         NewsFeed newsfeed = new NewsFeed();
         List<string> NewsFeedMessages = new List<string>();
         Random RNG = new Random();
+        Select select = new Select();
+        int startingCategoryId = 0;
+
+        public int CurrentCategoryId { get; set; }
+        public string rfidCodeUser { get; set; }
 
         public GuestForm(MediaSharingSystem medias)
         {
             //TEST DATA
-            Reaction message = new Reaction("hallo", 0, guest1);
+            Reaction message = new Reaction("hallo", 0, "1111");
             newsfeed.UpdateMessages(message);
             LoadNewsFeedMessages();
+
             //
 
             InitializeComponent();
             this.medias = medias;
             timerNewsFeed.Start();
+            rfidCodeUser = medias.RfidCode;
+            
+            LoadCategories(startingCategoryId);
+            btnBack.Enabled = false;
 
-            if (currentCategory.ParentCategoryId == 0)
-            {
-                btnBack.Enabled = false;
-            }
         }
 
-        List<Category> Categories = new List<Category>();
 
         public void LoadNewsFeedMessages()
         {
-            //newsfeed.UpdateMessages();
-            NewsFeedMessages = newsfeed.ReturnNewsFeedMessages();
+            //Query that returns all newsfeedmessages plus the creator of the message.
+            select.GetNewsFeedMessages();
         }
 
-        public void LoadCategorys()
-        {
-            lbFolders.Items.Clear();
-            //SELECT query to select the starting folder and it's content.
-        }
-
-        public void LoadClickedCategory(int categoryID)
+        public void LoadCategories(int categoryID)
         {
             lbFolders.Items.Clear();
             //SELECT query to select the folder content from the database.
+            select.GetCategories(categoryID);
             
-            //foreach code to update the listbox.
+            //CODE TO UPDATE LISTBOX
         }
+
+        public void LoadMediaItems(int categoryId)
+        {
+            //SELECT query to select all media items in given category.
+            select.GetAllMediaItems(categoryId);
+
+            //CODE TO UPDATE LISTBOX
+        }
+          
 
         private void btnAddFile_Click_1(object sender, EventArgs e)
         {
-            UploadFile uploadfile = new UploadFile(medias, currentCategory);
+            UploadFile uploadfile = new UploadFile(medias, CurrentCategoryId);
             uploadfile.Show();
         }
 
         private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
         {
-            Reaction message = new Reaction(tbNewsFeed.Text, 0, medias.MediaUser);
+            Reaction message = new Reaction(tbNewsFeed.Text, 0, rfidCodeUser);
             newsfeed.AddMessage(message);
         }
 
         private void btnAddFolder_Click(object sender, EventArgs e)
         {
-            CreateFolder createfolder = new CreateFolder(medias, currentCategory);
+            CreateFolder createfolder = new CreateFolder(medias, CurrentCategoryId);
             createfolder.Show();
         }
 
         private void lbFolders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            object selectedobject = lbFolders.SelectedItem;
-            currentCategory = selectedobject as Category;
-            LoadClickedCategory(currentCategory.CategoryId);
+            CurrentCategoryId = Convert.ToInt32(lbFolders.ValueMember);
+            LoadCategories(CurrentCategoryId);
 
-            if (currentCategory.ParentCategoryId == 0)
+            if (CurrentCategoryId == startingCategoryId)
             {
                 btnBack.Enabled = false;
             }
@@ -96,13 +98,9 @@ namespace MediaSharingGuest
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            int parentCategoryID = currentCategory.ParentCategoryId;
-            LoadClickedCategory(parentCategoryID);
-
-            if (currentCategory.ParentCategoryId == 0)
-            {
-                btnBack.Enabled = false;
-            }
+            select.GetParentCategoryId(CurrentCategoryId);
+            int parentCategoryId = 0;
+            LoadCategories(parentCategoryId);
         }
 
         private void timerNewsFeed_Tick(object sender, EventArgs e)

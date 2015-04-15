@@ -10,6 +10,8 @@ namespace MediaSharingGuest
     {
         List<Reaction> messages = new List<Reaction>();
         public int MessageDisplayTime { get; set; }
+
+        Select select = new Select();
         List<Reaction> Messages
         {
             get { return messages; }
@@ -33,16 +35,6 @@ namespace MediaSharingGuest
         {
             messages.Add(reaction);
             //SELECT all Reactions where mediaID = 0;
-        }
-
-        public List<string> ReturnNewsFeedMessages()
-        {
-            List<string> NewsFeedMessages = new List<string>();
-            foreach (Reaction message in messages)
-            {
-                NewsFeedMessages.Add(message.Creator.Name +": " + message.Content);
-            }
-            return NewsFeedMessages;
         }
     }
 }

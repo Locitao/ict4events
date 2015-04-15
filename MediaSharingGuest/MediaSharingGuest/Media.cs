@@ -12,12 +12,13 @@ namespace MediaSharingGuest
         public int MediaID { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }
-        public List<Reaction> Comments { get; set; }
-        public List<Like> Likes { get; set; }
 
         public string RfidCreator { get; set; }
         public string Location { get; set; }
         public int CategoryID { get; set; }
+
+        Insert insert = new Insert();
+        Select select = new Select();
 
         public Media(string name, string path, string description, string rfidcreator, string location, int categoryid)
         {
@@ -28,34 +29,19 @@ namespace MediaSharingGuest
             Location = location;
             CategoryID = categoryid;
 
-            //INSERT statement to add new media item to the database. RETURNS MediaID!
+            //INSERT statement to add new media item to the database.
+            insert.InsertImage(CategoryID, Name, Location, Description, RfidCreator);
 
-            MediaID = 0;
-        }
+            //SELECT statement to return the mediaID of the item. //RELOAD ALL MEDIAITEM SO NO ID IS NEEDED?
+            select.SelectImageNoMediaID(CategoryID, Name, Location, Description, RfidCreator);
 
-        public void AddReaction()
-        {
-            //INSERT statement to add a reaction to this media item.
+            //CODE that sets the mediaId.
+
         }
 
         public void DeleteReaction()
         {
             //REMOVE statement to remove a reaction. (Only works if user placed the message himself).
-        }
-
-        public void Update()
-        {
-            //SELECT statement to select all the comments on the media item and the likes on the media item.
-
-            //Foreach loop to add this info to the comment list.
-
-            //Foreach loop to add likes to the comment list.
-        }
-
-        public void RemoveLike(Like like)
-        {
-            //REMOVE query to remove the like.
-            Likes.Remove(like);
         }
 
     }

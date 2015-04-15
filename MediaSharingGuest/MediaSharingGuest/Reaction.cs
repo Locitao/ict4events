@@ -11,17 +11,20 @@ namespace MediaSharingGuest
         public string Content { get; set; }
         public int MediaID { get; set; }
         public int ReactionID { get; set; }
-        public Guest Creator { get; set; }
+        public string RfidCode { get; set; }
         public List<Like> Likes { get; set; }
 
-        public Reaction(string content, int mediaid, Guest creator)
+        Insert insert = new Insert();
+        Select select = new Select();
+
+        public Reaction(string content, int mediaid, string rfidCode)
         {
             Content = content;
             MediaID = mediaid;
-            Creator = creator;
+            RfidCode = rfidCode;
 
             //INSERT reaction into db, RETURNS reactionID.
-            ReactionID = 0;
+            insert.AddReaction(MediaID, RfidCode, Content);
         }
 
         public void EditReaction(Reaction reaction)
@@ -41,7 +44,10 @@ namespace MediaSharingGuest
 
         public override string ToString()
         {
-            string postername = Creator.Name;
+            //Query to get the name of the reactor.
+
+
+            string postername = "";
             string content = Content;
             string likes = Convert.ToString(Likes.Count);
 

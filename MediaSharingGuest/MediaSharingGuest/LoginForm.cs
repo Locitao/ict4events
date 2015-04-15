@@ -19,6 +19,8 @@ namespace MediaSharingGuest
             
         }
 
+        Select select = new Select();
+
         public string Rfidcode { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -58,6 +60,7 @@ namespace MediaSharingGuest
         public void LogIn(string username, string password)
         {
             //Query that returns password of the username.
+            select.GetPassword(username);
 
             string tablePassword;
 
@@ -76,14 +79,15 @@ namespace MediaSharingGuest
         public void LogIn(string rfidcode)
         {
             //Query that returns Name of the user, if no name then no login.
+            select.GetName(rfidcode);
 
             string name = "jaap";
 
             if (Name != null)
             {
                 //Query that returns the warnlv 
-                Guest user = new Guest (name, rfidcode);
-                MediaSharingSystem ms = new MediaSharingSystem(user);
+                string rfidCode = "";
+                MediaSharingSystem ms = new MediaSharingSystem(rfidCode, name);
                 GuestForm guestform = new GuestForm(ms);
                 this.Hide();
                 guestform.Show();
