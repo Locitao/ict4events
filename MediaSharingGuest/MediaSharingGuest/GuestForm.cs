@@ -133,11 +133,14 @@ namespace MediaSharingGuest
 
         private void timerNewsFeed_Tick(object sender, EventArgs e)
         {
-            //Puts a random message in the NewsFeed
             int max = NewsFeedMessages.Count();
-            int number = RNG.Next(0, max);
-            lblNewsMessage.Text = NewsFeedMessages[number];
-            //newsfeed.UpdateMessages();
+
+            if (max > 0)
+            {
+                int number = RNG.Next(0, max);
+                lblNewsMessage.Text = NewsFeedMessages[number];
+                LoadNewsFeedMessages();
+            }
         }
     }
 }
