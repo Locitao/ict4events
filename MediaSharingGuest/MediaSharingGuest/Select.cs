@@ -11,7 +11,7 @@ namespace MediaSharingGuest
     {
         public string GetName(string Rfidcode)
         {
-            string query = "SELECT Name FROM PT_USER_ACC WHERE RFID_CODE = " + Rfidcode;
+            string query = "SELECT User_Name FROM PT_USER_ACC WHERE RFID_CODE = " + Rfidcode;
             return query;
         }
 
