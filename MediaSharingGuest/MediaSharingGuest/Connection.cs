@@ -102,7 +102,7 @@ namespace MediaSharingGuest
         {
             try
             {
-                OracleCommand cmd = new OracleCommand(query);
+                OracleCommand cmd = new OracleCommand(query, conn);
                 OpenConnection();
                 cmd.ExecuteNonQuery();
                 return true;

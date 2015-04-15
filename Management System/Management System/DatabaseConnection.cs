@@ -172,7 +172,7 @@ namespace Management_System
         {
             try
             {
-                OracleCommand cmd = new OracleCommand(query);
+                OracleCommand cmd = new OracleCommand(query, conn);
                 OpenConnection();
                 cmd.ExecuteNonQuery();
                 return true;
@@ -196,7 +196,7 @@ namespace Management_System
         {
             try
             {
-                OracleCommand cmd = new OracleCommand(query);
+                OracleCommand cmd = new OracleCommand(query, conn);
                 OpenConnection();
                 cmd.ExecuteNonQuery();
                 exception = null;
