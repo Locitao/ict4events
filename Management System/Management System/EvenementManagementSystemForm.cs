@@ -23,6 +23,8 @@ namespace Management_System
 
         private void refreshCampingsData()
         {
+            campingList.Clear();
+            lbCampings.Items.Clear();
             List<List<string>> output;
             Exception exception;
             if (connection.SQLQueryWithOutput("SELECT CAMPING_ID, CAMPING_NAME, CAMPING_MAP FROM PT_CAMPING", out output, out exception))
@@ -62,7 +64,6 @@ namespace Management_System
             }
             else
             {
-                throw ex;
                 MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
             }
 
