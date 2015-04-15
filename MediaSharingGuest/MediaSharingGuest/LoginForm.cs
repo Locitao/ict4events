@@ -20,7 +20,6 @@ namespace MediaSharingGuest
         {
             InitializeComponent();
             rbUser.Checked = true;
-           
         }
 
         public string Rfidcode { get; set; }

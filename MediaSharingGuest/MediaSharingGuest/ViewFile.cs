@@ -14,12 +14,13 @@ namespace MediaSharingGuest
     {
         //FIELDS------------------------------------------------------------------------------------------------------------------------------
         MediaSharingSystem medias;
-        Media mediaitem;
         bool isLiked = false;
         bool isLikedComment = false;
-        object selectedobject;
+        object selectedObject;
         Select select = new Select();
         Delete delete = new Delete();
+        Connection connection = new Connection();
+        List<List<string>> output = new List<List<string>>();
 
         public int MediaId { get; set; }
         public int SelectedReactionId { get; set; }
@@ -32,6 +33,7 @@ namespace MediaSharingGuest
             this.medias = medias;
             MediaId = mediaId;
             IsLikedMedia();
+            ShowAllInformation();
         }
 
         //METHODS-----------------------------------------------------------------------------------------------------------------------------
@@ -60,7 +62,6 @@ namespace MediaSharingGuest
         public bool IsLikedComment()
         {
             string rfidCode = medias.RfidCode;
-            int reactionItemId = 0;
 
             //Query that checks if the selected reaction is liked by the current user.
             //IF this query returns a value, isLikedComment becomes true;
@@ -86,11 +87,43 @@ namespace MediaSharingGuest
 
         public void ShowAllInformation()
         {
-            int mediaId = mediaitem.MediaID;
+            List<Reaction> Reactions = new List<Reaction>();
 
             //Queries that get all the information on the mediafile, and the reactions on this file plus additional information.
-            select.GetMediaItemInfo(mediaId);
-            select.GetAllReactionsData(mediaId);
+            connection.SQLQueryWithOutput(select.GetMediaItemInfo(MediaId), out output);
+
+            foreach (List<string> stringList in output)
+            {
+                //SELECT m.MED_NAME, m.MED_LOCATION, m.MED_DESCRIPTION, m.MED_PATH, u.USER_NAME, 
+                lblTitle.Text = stringList[0];
+                lblLocation.Text = stringList[1];
+                tbDescription.Text = stringList[2];
+                pbImage.ImageLocation = @stringList[3];
+                lblName.Text = stringList[4];
+                lblLikes.Text = stringList[5];
+            }
+
+            connection.SQLQueryWithOutput(select.GetAllReactionsData(MediaId), out output);
+            
+            foreach (List<string> stringList in output)
+            {
+                int reactionId = Convert.ToInt32(stringList[0]);
+                string userName = stringList[1];
+                string rfidCode = stringList[2];
+                string content = stringList[3];
+                int likes = Convert.ToInt32(stringList[4]);
+
+                Reaction reaction = new Reaction(content, MediaId, rfidCode);
+                reaction.Likes = likes;
+                reaction.Name = userName;
+
+                lbComments.Items.Add(reaction);
+                lbComments.DisplayMember = reaction.Name + reaction.Content + reaction.Likes;
+                lbComments.ValueMember = Convert.ToString(reaction.ReactionId);
+            }
+
+            
+
         }
 
         //EVENTS-----------------------------------------------------------------------------------------------------------------------------
@@ -98,7 +131,7 @@ namespace MediaSharingGuest
         private void btnAddComment_Click(object sender, EventArgs e)
         {
             string content = tbYourComment.Text;
-            Reaction comment = new Reaction(content, mediaitem.MediaID, medias.RfidCode);
+            Reaction comment = new Reaction(content, MediaId, medias.RfidCode);
             ShowAllInformation();
         }
 
@@ -111,7 +144,7 @@ namespace MediaSharingGuest
         {
             if (IsLikedMedia() == false)
             {
-                Like like = new Like(medias.RfidCode, 0, mediaitem.MediaID);
+                Like like = new Like(medias.RfidCode, 0, MediaId);
             }
             else
             {
@@ -130,8 +163,8 @@ namespace MediaSharingGuest
         {
             if (IsLikedComment() == false)
             {
-            Reaction selectedReaction = selectedobject as Reaction;
-            Like like = new Like(medias.RfidCode, selectedReaction.ReactionID, 0);
+            Reaction selectedReaction = selectedObject as Reaction;
+            Like like = new Like(medias.RfidCode, selectedReaction.ReactionId, 0);
             }
             else
             {
@@ -142,7 +175,7 @@ namespace MediaSharingGuest
 
         private void btnReportComment_Click(object sender, EventArgs e)
         {
-            Reaction selectedReaction = selectedobject as Reaction;
+            Reaction selectedReaction = selectedObject as Reaction;
             SendReport sendreport = new SendReport(medias, 0, SelectedReactionId, 0);
             sendreport.Show();
         }
@@ -157,8 +190,8 @@ namespace MediaSharingGuest
             IsLikedComment();
 
             SelectedReactionId = Convert.ToInt32(lbComments.ValueMember);
-            selectedobject = lbComments.SelectedItem;
-            if (selectedobject != null)
+            selectedObject = lbComments.SelectedItem;
+            if (selectedObject != null)
             {
                 btnLikeComment.Enabled = true;
                 btnReportComment.Enabled = true;
