@@ -36,6 +36,13 @@ namespace ReservationApp
             }
         }
 
+        /// <summary>
+        /// This method reserves the selected material and updates
+        /// the rfid_Code associated with it.
+        /// </summary>
+        /// <param name="matId"></param>
+        /// <param name="rfid"></param>
+        /// <returns></returns>
         public string Update_Material(string matId, string rfid)
         {
 
