@@ -17,7 +17,7 @@ namespace MediaSharingGuest
         NewsFeed newsfeed = new NewsFeed();
         List<string> NewsFeedMessages = new List<string>();
         Random RNG = new Random();
-        int startingCategoryId = 0;
+        int startingCategoryId = 2;
 
         Select select = new Select();
         Connection connection = new Connection();
@@ -29,18 +29,12 @@ namespace MediaSharingGuest
 
         public GuestForm(MediaSharingSystem medias)
         {
-            //TEST DATA
-            Reaction message = new Reaction("hallo", 0, "1111");
-            newsfeed.UpdateMessages(message);
             LoadNewsFeedMessages();
-
-            //
-
             InitializeComponent();
             this.medias = medias;
             timerNewsFeed.Start();
             rfidCodeUser = medias.RfidCode;
-            
+
             LoadCategories(startingCategoryId);
             btnBack.Enabled = false;
 

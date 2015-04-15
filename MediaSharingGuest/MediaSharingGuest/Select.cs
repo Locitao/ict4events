@@ -86,5 +86,11 @@ namespace MediaSharingGuest
             string query = "SELECT PARENT_CATEGORY_ID FROM PT_MED_CATEGORY WHERE CATEGORY_ID = " + "'" + categoryID + "'";
             return query;
         }
+
+        public string GetReports()
+        {
+            string query = "SELECT * FROM PT_REPORT WHERE HANDLED = '0'";
+            return query;
+        }
     }
 }

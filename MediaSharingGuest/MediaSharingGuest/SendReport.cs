@@ -17,7 +17,8 @@ namespace MediaSharingGuest
         public int MediaId { get; set; }
         public int CategoryId { get; set; }
         public int ReactionId { get; set; }
-        
+
+        Insert insert = new Insert();
 
         public SendReport(MediaSharingSystem medias, int mediaId, int categoryId, int reactionId)
         {
@@ -32,15 +33,16 @@ namespace MediaSharingGuest
         {
             if (MediaId != 0)
             {
-                Report report = new Report(tbDescription.Text, 0, MediaId, 0, medias.RfidCode);
+                insert.InsertReport(CategoryId, MediaId, ReactionId, medias.RfidCode, tbDescription.Text);
             }
             else if (ReactionId != 0)
             {
-                Report report = new Report(tbDescription.Text, 0, 0, ReactionId, medias.RfidCode);
+                insert.InsertReport(CategoryId, MediaId, ReactionId, medias.RfidCode, tbDescription.Text);
             }
             else if (CategoryId!= 0)
             {
-                Report report = new Report(tbDescription.Text, CategoryId, 0, 0, medias.RfidCode);
+
+                insert.InsertReport(CategoryId, MediaId, ReactionId, medias.RfidCode, tbDescription.Text);
             }
         }
 

@@ -23,8 +23,6 @@ namespace MediaSharingGuest
             MediaId = mediaId;
             ReactionId = reactionId;
             RFIDCodeReporter = rfidCodeReporter;
-
-            insert.InsertReport(CategoryId, MediaId, ReactionId, RFIDCodeReporter, Content);
            
         }
     }
