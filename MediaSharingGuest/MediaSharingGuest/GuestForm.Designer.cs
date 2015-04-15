@@ -47,7 +47,9 @@
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnReportCategory = new System.Windows.Forms.Button();
+            this.lbMediaItems = new System.Windows.Forms.ListBox();
             this.gbNewsfeed.SuspendLayout();
+            this.gbFiles.SuspendLayout();
             this.gbFolders.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,6 +133,7 @@
             // 
             // gbFiles
             // 
+            this.gbFiles.Controls.Add(this.lbMediaItems);
             this.gbFiles.Location = new System.Drawing.Point(435, 193);
             this.gbFiles.Name = "gbFiles";
             this.gbFiles.Size = new System.Drawing.Size(634, 509);
@@ -218,6 +221,15 @@
             this.btnReportCategory.Text = "Report Category";
             this.btnReportCategory.UseVisualStyleBackColor = true;
             // 
+            // lbMediaItems
+            // 
+            this.lbMediaItems.FormattingEnabled = true;
+            this.lbMediaItems.Location = new System.Drawing.Point(6, 48);
+            this.lbMediaItems.Name = "lbMediaItems";
+            this.lbMediaItems.Size = new System.Drawing.Size(622, 407);
+            this.lbMediaItems.TabIndex = 10;
+            this.lbMediaItems.SelectedIndexChanged += new System.EventHandler(this.lbMediaItems_SelectedIndexChanged);
+            // 
             // GuestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +250,7 @@
             this.Text = "Mediasharing";
             this.gbNewsfeed.ResumeLayout(false);
             this.gbNewsfeed.PerformLayout();
+            this.gbFiles.ResumeLayout(false);
             this.gbFolders.ResumeLayout(false);
             this.gbFolders.PerformLayout();
             this.ResumeLayout(false);
@@ -265,6 +278,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnReportCategory;
+        private System.Windows.Forms.ListBox lbMediaItems;
     }
 }
 

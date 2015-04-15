@@ -20,7 +20,7 @@ namespace MediaSharingGuest
         {
             InitializeComponent();
             rbUser.Checked = true;
-            
+           
         }
 
         public string Rfidcode { get; set; }
@@ -82,6 +82,12 @@ namespace MediaSharingGuest
         {
             //Query that returns Name of the user, if no name then no login.
             connect.SQLQueryWithOutput(select.GetName(rfidcode), out output);
+
+            if (output == null)
+            {
+                output[0][0] = "";
+            }
+
             Username = output[0][0];
 
             if (Username != "")

@@ -41,7 +41,7 @@ namespace MediaSharingGuest
 
         public string GetCategories(int parentCategoryId)
         {
-            string query = "SELECT CATEGORY_ID, CATEGORY_NAME FROM PT_MED_CATEGORY WHERE PARENT_CATEGORY_ID = " + "'" + parentCategoryId + "'";
+            string query = "SELECT CATEGORY_ID, CATEGORY_NAME, PARENT_CATEGORY_ID FROM PT_MED_CATEGORY WHERE PARENT_CATEGORY_ID = " + "'" + parentCategoryId + "'";
             return query;
         }
 

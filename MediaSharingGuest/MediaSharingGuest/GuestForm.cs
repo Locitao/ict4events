@@ -69,28 +69,49 @@ namespace MediaSharingGuest
         public void LoadCategories(int categoryID)
         {
             lbFolders.Items.Clear();
+            List<Category> Categories = new List<Category>();
+
             //SELECT query to select the folder content from the database.
             connection.SQLQueryWithOutput(select.GetCategories(categoryID), out output);
             
             //CODE TO UPDATE LISTBOX
             foreach (List<string> stringList in output)
             {
-                string categoryId = stringList[1];
-                string categoryName = stringList[2];
-                lbFolders.DisplayMember = categoryName;
-                lbFolders.ValueMember = categoryId;
+                int categoryId = Convert.ToInt32(stringList[0]);
+                string categoryName = stringList[1];
+                int parentCategoryId = Convert.ToInt32(stringList[2]);
+
+                Category category = new Category(categoryName, categoryId, parentCategoryId, rfidCodeUser);
+
+                Categories.Add(category);
+
+                lbFolders.Items.Add(category);
+                lbFolders.DisplayMember = category.Name;
+                lbFolders.ValueMember = Convert.ToString(category.CategoryId);
             }
         }
 
         public void LoadMediaItems(int categoryId)
         {
+            lbMediaItems.Items.Clear();
+            List<Media> MediaItems = new List<Media>();
+
             //SELECT query to select all media items in given category.
             connection.SQLQueryWithOutput(select.GetAllMediaItems(categoryId), out output);
 
             //CODE TO UPDATE LISTBOX
             foreach (List<string> stringList in output)
             {
-                //
+                string medName = stringList[0];
+                int medId = Convert.ToInt32(stringList[1]);
+
+                Media mediaItem = new Media(medName, "", "", "", "", medId);
+
+                MediaItems.Add(mediaItem);
+
+                lbMediaItems.Items.Add(mediaItem);
+                lbMediaItems.DisplayMember = mediaItem.Name;
+                lbMediaItems.ValueMember = Convert.ToString(mediaItem.MediaID);
             }
         }
           
@@ -126,8 +147,15 @@ namespace MediaSharingGuest
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            select.GetParentCategoryId(CurrentCategoryId);
+            connection.SQLQueryWithOutput(select.GetParentCategoryId(CurrentCategoryId), out output);
+
             int parentCategoryId = 0;
+
+            foreach (List<string> stringList in output)
+            {
+                parentCategoryId = Convert.ToInt32(stringList[0]);
+            }
+
             LoadCategories(parentCategoryId);
         }
 
@@ -141,6 +169,12 @@ namespace MediaSharingGuest
                 lblNewsMessage.Text = NewsFeedMessages[number];
                 LoadNewsFeedMessages();
             }
+        }
+
+        private void lbMediaItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int mediaId = Convert.ToInt32(lbMediaItems.ValueMember);
+            ViewFile viewFile = new ViewFile(medias, mediaId);
         }
     }
 }
