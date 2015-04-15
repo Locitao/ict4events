@@ -118,6 +118,11 @@ namespace ReservationApp
                     MessageBox.Show(update.Update_Location(loc, res));
                     connect.CloseConnection();
 
+                    Hide();
+                    ReserveMaterials reserve = new ReserveMaterials(res);
+                    reserve.Closed += (s, args) => Close();
+                    reserve.Show();
+
                 }
                 catch (Exception ex)
                 {

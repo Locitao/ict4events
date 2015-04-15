@@ -22,11 +22,12 @@ namespace ReservationApp
         
 
         private string rfid;
-        public ReserveMaterials()
+        public ReserveMaterials(string Rfid)
         {
             InitializeComponent();
             FillList();
             FillBox();
+            rfid = Rfid;
 
         }
 
