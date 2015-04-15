@@ -15,7 +15,7 @@ namespace ReservationApp
     /// </summary>
     public class Connection
     {
-        OracleConnection conn = new OracleConnection();
+        readonly OracleConnection conn = new OracleConnection();
         /// <summary>
         /// Tries to open a connection with the database, returns true if succeeded, false if failed.
         /// </summary>

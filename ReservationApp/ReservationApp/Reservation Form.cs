@@ -18,13 +18,13 @@ namespace ReservationApp
     /// </summary>
     public partial class ReservationForm : Form
     {
-        Connection connect = new Connection();
-        Select select = new Select();
-        Insert insert = new Insert();
-        Update update = new Update();
+        readonly Connection connect = new Connection();
+        readonly Select select = new Select();
+        readonly Insert insert = new Insert();
+        readonly Update update = new Update();
 
         private string name;
-        private string phone;
+        private readonly string phone;
         
         public ReservationForm(string Name, string Phone)
         {
@@ -83,6 +83,7 @@ namespace ReservationApp
         }
         /// <summary>
         /// Button below creates a new reservation in the database.
+        /// After which it opens the form to reserve materials.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -145,7 +146,11 @@ namespace ReservationApp
             
         }
 
-
+        /// <summary>
+        /// Double mouse click on the map opens the map in the browser, so users can zoom.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pbLocations_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             System.Diagnostics.Process.Start(@"http://i.imgur.com/fN9DGFz.jpg");
