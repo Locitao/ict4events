@@ -9,16 +9,26 @@ namespace ReservationApp
     class Material
     {
         public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int MaterialId { get; set; }
-        public bool Reserved { get; set; }
 
-        public Material(string name, decimal price, int materialId, bool reserved)
+        public decimal Price { get; set; }
+
+        public int MaterialId { get; set; }
+
+        public Material(string name, decimal price, int materialId)
         {
-            name = Name;
-            price = Price;
-            materialId = MaterialId;
-            reserved = Reserved;
+            Name = name;
+            Price = price;
+            MaterialId = materialId;
+        }
+
+        public override string ToString()
+        {
+            string price = Convert.ToString(Price);
+            string id = Convert.ToString(MaterialId);
+
+            string final = "Material ID: " + id + ", " + Name + ", price to rent: " + price + ".";
+            return final;
+
         }
     }
 }

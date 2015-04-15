@@ -28,13 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lbMaterials = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
+            // 
+            // lbMaterials
+            // 
+            this.lbMaterials.FormattingEnabled = true;
+            this.lbMaterials.Location = new System.Drawing.Point(232, 12);
+            this.lbMaterials.Name = "lbMaterials";
+            this.lbMaterials.Size = new System.Drawing.Size(379, 238);
+            this.lbMaterials.TabIndex = 0;
             // 
             // ReserveMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(623, 447);
+            this.Controls.Add(this.lbMaterials);
             this.Name = "ReserveMaterials";
             this.Text = "ReserveMaterials";
             this.Load += new System.EventHandler(this.ReserveMaterials_Load);
@@ -43,5 +53,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox lbMaterials;
     }
 }
