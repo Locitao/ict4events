@@ -9,21 +9,23 @@ namespace MediaSharingGuest
     class Report
     {
         public string Content { get; set; }
-        public int ReportID { get; set; }
-        public int CategoryID { get; set; }
-        public int MediaID {get; set;}
-        public int ReactionID { get; set; }
+        public int ReportId { get; set; }
+        public int CategoryId { get; set; }
+        public int MediaId {get; set;}
+        public int ReactionId { get; set; }
         public string RFIDCodeReporter { get; set; }
+
+        Insert insert = new Insert();
         public Report(string content, int categoryId, int mediaId, int reactionId, string rfidCodeReporter)
         {
             Content = content;
-            CategoryID = categoryId;
-            MediaID = mediaId;
-            ReactionID = reactionId;
+            CategoryId = categoryId;
+            MediaId = mediaId;
+            ReactionId = reactionId;
             RFIDCodeReporter = rfidCodeReporter;
 
-            //INSERT een report in de database, RETURNED ReportID.
-            ReportID = 0;
+            insert.InsertReport(CategoryId, MediaId, ReactionId, RFIDCodeReporter, Content);
+           
         }
     }
 }
