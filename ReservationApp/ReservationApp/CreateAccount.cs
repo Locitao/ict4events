@@ -15,7 +15,7 @@ namespace ReservationApp
     /// </summary>
     public partial class Create_Account : Form
     {
-        Insert insert = new Insert();
+        readonly Insert insert = new Insert();
         public Create_Account()
         {
             InitializeComponent();
@@ -31,6 +31,11 @@ namespace ReservationApp
             }
         }
 
+        /// <summary>
+        /// This button creates a new account in the database, if certain conditions have been met.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (tbAddress.Text == null || tbCity.Text == null || tbName.Text == null || tbPhone.Text == null ||
