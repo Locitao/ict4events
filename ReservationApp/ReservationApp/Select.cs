@@ -44,7 +44,7 @@ namespace ReservationApp
         public List<Dictionary<string, object>> Select_Materials()
         {
             const string sql =
-                "SELECT PT_MAT_CATEGORY.mat_name, PT_MAT_CATEGORY.price FROM PT_MAT_CATEGORY, PT_MATERIAL WHERE PT_MATERIAL.mat_category = PT_MAT_CATEGORY.mat_category_ID AND PT_MATERIAL.rfid_CODE IS NULL";
+                "SELECT PT_MAT_CATEGORY.mat_name, PT_MAT_CATEGORY.price, PT_MATERIAL.material_id FROM PT_MAT_CATEGORY, PT_MATERIAL WHERE PT_MATERIAL.mat_category = PT_MAT_CATEGORY.mat_category_ID AND PT_MATERIAL.rfid_CODE IS NULL";
 
             var data = Connection.ExecuteQuery(sql);
             return data;
@@ -103,17 +103,7 @@ namespace ReservationApp
                 return ex.Message;
             }
         }
-        /*
-         * Accidentally made two methods for finding materials apparently...
-        public List<Dictionary<string, object>> Find_Materials()
-        {
-            const string sql =
-                "SELECT * FROM PT_MATERIAL mat, PT_MAT_CATEGORY cat WHERE mat.mat_category = cat.mat_category_ID AND mat.RFID_CODE IS NULL";
-
-            var data = Connection.ExecuteQuery(sql);
-            return data;
-        }
-        */
+        
 
         /// <summary>
         /// Method below returns the correct reservation ID, to be coupled with an account.
@@ -141,6 +131,8 @@ namespace ReservationApp
                 return ex.Message;
             }
         }
+
+        
 
     }
  

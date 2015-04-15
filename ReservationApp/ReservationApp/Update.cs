@@ -35,5 +35,22 @@ namespace ReservationApp
                 return ex.Message;
             }
         }
+
+        public string Update_Material(string matId, string rfid)
+        {
+
+            try
+            {
+                string query = "UPDATE PT_MATERIAL SET rfid_CODE = '" + rfid + "' WHERE material_ID = '" + matId + "'";
+                conn.Execute(query);
+                const string succes = "Material successfully reserved!";
+                return succes;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            
+        }
     }
 }

@@ -118,6 +118,11 @@ namespace ReservationApp
                     MessageBox.Show(update.Update_Location(loc, res));
                     connect.CloseConnection();
 
+                    Hide();
+                    ReserveMaterials reserve = new ReserveMaterials(res);
+                    reserve.Closed += (s, args) => Close();
+                    reserve.Show();
+
                 }
                 catch (Exception ex)
                 {
@@ -144,6 +149,11 @@ namespace ReservationApp
         private void pbLocations_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             System.Diagnostics.Process.Start(@"http://i.imgur.com/fN9DGFz.jpg");
+        }
+
+        private void lbLocations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         

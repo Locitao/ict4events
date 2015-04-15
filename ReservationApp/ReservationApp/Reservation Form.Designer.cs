@@ -58,6 +58,7 @@
             this.lbLocations.Name = "lbLocations";
             this.lbLocations.Size = new System.Drawing.Size(481, 290);
             this.lbLocations.TabIndex = 12;
+            this.lbLocations.SelectedIndexChanged += new System.EventHandler(this.lbLocations_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -74,7 +75,6 @@
             this.nmLocId.Name = "nmLocId";
             this.nmLocId.Size = new System.Drawing.Size(86, 20);
             this.nmLocId.TabIndex = 14;
-            this.nmLocId.ValueChanged += new System.EventHandler(this.nmLocId_ValueChanged);
             // 
             // btnCreateRes
             // 
