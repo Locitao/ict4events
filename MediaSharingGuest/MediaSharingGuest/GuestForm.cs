@@ -23,6 +23,7 @@ namespace MediaSharingGuest
         Connection connection = new Connection();
 
         List<List<string>> output = new List<List<string>>();
+        List<Category> Categories = new List<Category>();
 
         public int CurrentCategoryId { get; set; }
         public string rfidCodeUser { get; set; }
@@ -63,7 +64,7 @@ namespace MediaSharingGuest
         public void LoadCategories(int categoryID)
         {
             lbFolders.Items.Clear();
-            List<Category> Categories = new List<Category>();
+            
 
             //SELECT query to select the folder content from the database.
             connection.SQLQueryWithOutput(select.GetCategories(categoryID), out output);
@@ -78,11 +79,13 @@ namespace MediaSharingGuest
                 Category category = new Category(categoryName, categoryId, parentCategoryId, rfidCodeUser);
 
                 Categories.Add(category);
-
+                lbFolders.DisplayMember = "Name";
+                lbFolders.ValueMember = "CategoryId";
                 lbFolders.Items.Add(category);
-                lbFolders.DisplayMember = category.Name;
-                lbFolders.ValueMember = Convert.ToString(category.CategoryId);
+
+
             }
+            
         }
 
         public void LoadMediaItems(int categoryId)
@@ -130,8 +133,9 @@ namespace MediaSharingGuest
 
         private void lbFolders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CurrentCategoryId = Convert.ToInt32(lbFolders.ValueMember);
-            LoadCategories(CurrentCategoryId);
+            object cat = lbFolders.SelectedItem;
+            Category catt = cat as Category;
+            LoadCategories(catt.CategoryId);
 
             if (CurrentCategoryId == startingCategoryId)
             {
