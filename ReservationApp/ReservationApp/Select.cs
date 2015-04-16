@@ -64,7 +64,7 @@ namespace ReservationApp
                 var data = Connection.ExecuteQuery(sql);
                 foreach (Dictionary<string, object> row in data)
                 {
-                    rfid = Convert.ToString(row["rfid_CODE"]);
+                    rfid = Convert.ToString(row["RFID_CODE"]);
                 }
                 return rfid;
             }

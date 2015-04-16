@@ -80,19 +80,19 @@ namespace ReservationApp
         {
             try
             {
-                if (tbMatOne.Text != null)
+                if (tbMatOne.Text != "")
                 {
-                    update.Update_Material(Convert.ToString(tbMatOne.Text), rfid);
+                    MessageBox.Show(update.Update_Material(Convert.ToString(tbMatOne.Text), rfid));
                 }
 
-                if (tbMatTwo.Text != null)
+                if (tbMatTwo.Text != "")
                 {
-                    update.Update_Material(Convert.ToString(tbMatTwo.Text), rfid);
+                    MessageBox.Show(update.Update_Material(Convert.ToString(tbMatTwo.Text), rfid));
                 }
 
-                if (tbMatThree.Text != null)
+                if (tbMatThree.Text != "")
                 {
-                    update.Update_Material(Convert.ToString(tbMatThree.Text), rfid);
+                    MessageBox.Show(update.Update_Material(Convert.ToString(tbMatThree.Text), rfid));
                 }
 
                 MessageBox.Show("Thank you for placing your reservation. You will now be returned to the start.");

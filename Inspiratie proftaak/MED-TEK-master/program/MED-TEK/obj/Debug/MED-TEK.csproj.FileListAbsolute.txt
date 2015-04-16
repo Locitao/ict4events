@@ -99,3 +99,6 @@ C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.scan.resources
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED_TEK.Properties.Resources.resources
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.csproj.GenerateResource.Cache
+C:\Users\Roy.Roy-PC\Desktop\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\bin\Debug\MED-TEK.exe.config
+C:\Users\Roy.Roy-PC\Desktop\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.exe
+C:\Users\Roy.Roy-PC\Desktop\GitHub\ict4events\Inspiratie proftaak\MED-TEK-master\program\MED-TEK\obj\Debug\MED-TEK.pdb
