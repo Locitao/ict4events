@@ -40,6 +40,7 @@ namespace MediaSharingGuest
             PreviousCategoryId = 2;
 
             LoadCategories(startingCategoryId);
+            LoadMediaItems(startingCategoryId);
         }
 
 
@@ -146,12 +147,17 @@ namespace MediaSharingGuest
             object cat = lbFolders.SelectedItem;
             Category catt = cat as Category;
             LoadCategories(catt.CategoryId);
+            LoadMediaItems(catt.ParentCategoryId);
             CurrentCategoryId = catt.CategoryId;
             PreviousCategoryId = catt.ParentCategoryId;
 
             if (CurrentCategoryId == startingCategoryId)
             {
                 btnBack.Enabled = false;
+            }
+            else if (CurrentCategoryId != startingCategoryId)
+            {
+                btnBack.Enabled = true;
             }
         }
 
@@ -183,7 +189,6 @@ namespace MediaSharingGuest
 
         private void lbMediaItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             object med = lbMediaItems.SelectedItem;
             Media medd = med as Media;
 
