@@ -232,6 +232,7 @@
             this.btnDeleteLocation.TabIndex = 19;
             this.btnDeleteLocation.Text = "Delete Location";
             this.btnDeleteLocation.UseVisualStyleBackColor = true;
+            this.btnDeleteLocation.Click += new System.EventHandler(this.btnDeleteLocation_Click);
             // 
             // lblEvents
             // 

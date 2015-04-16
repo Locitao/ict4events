@@ -56,7 +56,7 @@ namespace Management_System
             Camping selectedCamping = (Camping)lbCampings.SelectedItem;
             List<List<string>> output;
             Exception exception;
-            if (connection.SQLQueryWithOutput("SELECT LOCATION_ID, CAMPING_ID, RESERVATION_ID, LOC_TYPE, PRICE, MAX_PEOPLE FROM PT_EVENT_LOCATION WHERE CAMPING_ID = '" +  selectedCamping.CampingID.ToString() + "'", out output, out exception))
+            if (connection.SQLQueryWithOutput("SELECT LOCATION_ID, CAMPING_ID, RESERVATION_ID, LOC_TYPE, PRICE, MAX_PEOPLE FROM PT_EVENT_LOCATION WHERE CAMPING_ID = '" + selectedCamping.CampingID.ToString() +"' ORDER BY location_ID", out output, out exception))
             {
                 foreach (List<string> list in output)
                 {
@@ -168,6 +168,26 @@ namespace Management_System
                 else if (ex.Message == "No camping selected")
                 {
                     MessageBox.Show("There is no camping selected in the camping list");
+                }
+            }
+        }
+
+        private void btnDeleteLocation_Click(object sender, EventArgs e)
+        {
+            if (lbCampings.SelectedItem != null)
+            {
+                Location selectedLocation = (Location)lbLocations.SelectedItem;
+                string query = "DELETE FROM PT_EVENT_LOCATION WHERE location_ID = " + selectedLocation.LocationID.ToString();
+
+                Exception ex;
+                if (connection.SQLQueryNoOutput(query, out ex))
+                {
+                    MessageBox.Show("Selected location is succesfully removed from our  system.");
+                    refreshCampingsData();
+                }
+                else
+                {
+                    MessageBox.Show("The following error has occured:" + Environment.NewLine + Environment.NewLine + ex.ToString());
                 }
             }
         }
