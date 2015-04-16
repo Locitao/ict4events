@@ -22,5 +22,10 @@ namespace Management_System
             StartDate = startDate;
             EndDate = endDate;
         }
+
+        public override string ToString()
+        {
+            return Name + ", From: " + StartDate.ToString() + " To: " + EndDate.ToString();
+        }
     }
 }

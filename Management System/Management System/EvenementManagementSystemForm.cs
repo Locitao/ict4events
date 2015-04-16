@@ -48,6 +48,7 @@ namespace Management_System
             }
             lbCampings.SelectedIndex = 0;
             refreshLocationsData();
+            refreshEventsData();
         }
 
         private void refreshLocationsData()
@@ -80,7 +81,7 @@ namespace Management_System
             lbLocations.SelectedIndex = 0;
         }
 
-        private void refreshEvetsData()
+        private void refreshEventsData()
         {
             eventList.Clear();
             lbEvents.Items.Clear();
@@ -92,12 +93,11 @@ namespace Management_System
                 foreach (List<string> list in output)
                 {
 
-                    Event tempEvent = new Event();
+                    Event tempEvent = new Event(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), list[2], list[3], Convert.ToDateTime(list[4]), Convert.ToDateTime(list[5]));
+                    eventList.Add(tempEvent);
+                    lbEvents.Items.Add(tempEvent);
 
 
-                    Location tempLocation = new Location(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), tempInt, type, Convert.ToInt32(list[4]), Convert.ToInt32(list[5]));
-                    locationList.Add(tempLocation);
-                    lbLocations.Items.Add(tempLocation);
                 }
             }
             else
@@ -218,6 +218,47 @@ namespace Management_System
                     MessageBox.Show("The following error has occured:" + Environment.NewLine + Environment.NewLine + ex.ToString());
                 }
             }
+        }
+
+        private void btnCreateEvent_Click(object sender, EventArgs e)
+        {
+            try{
+            Camping tempCamping;
+                if (lbCampings.SelectedItem != null)
+                {
+                    tempCamping = (Camping)lbCampings.SelectedItem;
+                }
+            else
+                {
+                    throw new Exception("No camping selected");
+                }
+            DateTime startDate = dateTimePickerStartingDate.Value;
+            DateTime endDate = dateTimePickerEndingDate.Value;
+            string selectedCamping = Convert.ToString(tempCamping.CampingID);
+            string name = tbEventName.Text;
+            string description = tbDescription.Text;
+            string query = "Insert into PT_EVENT(event_ID, event_name, event_descr, camping_ID, startdate, enddate) "
+                           + "Values(auto_inc_evt.nextval, ' " + name + "', '" + description + "', '" + selectedCamping + "', "
+                 + "TO_DATE('" + startDate.ToString() + "', 'dd-mm-yyyy hh24:mi:ss')" + ", " + "TO_DATE('" + endDate.ToString() + "', 'dd-mm-yyyy hh24:mi:ss')" + ")";
+                Exception ex;
+                if (connection.SQLQueryNoOutput(query, out ex))
+                {
+                    MessageBox.Show("New event is succesfully added to our system.");
+                    refreshCampingsData();
+                }
+                else
+                {
+                    MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+                }
+            }
+            catch
+            {
+
+            }
+
+
+
+            
         }
 
         

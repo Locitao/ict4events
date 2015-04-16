@@ -115,13 +115,13 @@
             this.lbLocations.FormattingEnabled = true;
             this.lbLocations.Location = new System.Drawing.Point(270, 30);
             this.lbLocations.Name = "lbLocations";
-            this.lbLocations.Size = new System.Drawing.Size(305, 82);
+            this.lbLocations.Size = new System.Drawing.Size(341, 82);
             this.lbLocations.TabIndex = 7;
             // 
             // lblLocationNumber
             // 
             this.lblLocationNumber.AutoSize = true;
-            this.lblLocationNumber.Location = new System.Drawing.Point(328, 120);
+            this.lblLocationNumber.Location = new System.Drawing.Point(354, 121);
             this.lblLocationNumber.Name = "lblLocationNumber";
             this.lblLocationNumber.Size = new System.Drawing.Size(89, 13);
             this.lblLocationNumber.TabIndex = 11;
@@ -129,7 +129,7 @@
             // 
             // btnAddLocation
             // 
-            this.btnAddLocation.Location = new System.Drawing.Point(424, 225);
+            this.btnAddLocation.Location = new System.Drawing.Point(450, 226);
             this.btnAddLocation.Name = "btnAddLocation";
             this.btnAddLocation.Size = new System.Drawing.Size(89, 23);
             this.btnAddLocation.TabIndex = 8;
@@ -140,7 +140,7 @@
             // lblMaxGuests
             // 
             this.lblMaxGuests.AutoSize = true;
-            this.lblMaxGuests.Location = new System.Drawing.Point(328, 148);
+            this.lblMaxGuests.Location = new System.Drawing.Point(354, 149);
             this.lblMaxGuests.Name = "lblMaxGuests";
             this.lblMaxGuests.Size = new System.Drawing.Size(68, 13);
             this.lblMaxGuests.TabIndex = 10;
@@ -148,7 +148,7 @@
             // 
             // numLocation
             // 
-            this.numLocation.Location = new System.Drawing.Point(424, 120);
+            this.numLocation.Location = new System.Drawing.Point(450, 121);
             this.numLocation.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -160,7 +160,7 @@
             // 
             // numMaxGuests
             // 
-            this.numMaxGuests.Location = new System.Drawing.Point(424, 146);
+            this.numMaxGuests.Location = new System.Drawing.Point(450, 147);
             this.numMaxGuests.Maximum = new decimal(new int[] {
             10,
             0,
@@ -203,7 +203,7 @@
             this.lbEvents.FormattingEnabled = true;
             this.lbEvents.Location = new System.Drawing.Point(270, 277);
             this.lbEvents.Name = "lbEvents";
-            this.lbEvents.Size = new System.Drawing.Size(305, 212);
+            this.lbEvents.Size = new System.Drawing.Size(341, 212);
             this.lbEvents.TabIndex = 16;
             // 
             // lblCamping
@@ -226,7 +226,7 @@
             // 
             // btnDeleteLocation
             // 
-            this.btnDeleteLocation.Location = new System.Drawing.Point(331, 225);
+            this.btnDeleteLocation.Location = new System.Drawing.Point(357, 226);
             this.btnDeleteLocation.Name = "btnDeleteLocation";
             this.btnDeleteLocation.Size = new System.Drawing.Size(90, 23);
             this.btnDeleteLocation.TabIndex = 19;
@@ -283,11 +283,12 @@
             this.btnCreateEvent.TabIndex = 25;
             this.btnCreateEvent.Text = "Create event";
             this.btnCreateEvent.UseVisualStyleBackColor = true;
+            this.btnCreateEvent.Click += new System.EventHandler(this.btnCreateEvent_Click);
             // 
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(424, 172);
+            this.cbType.Location = new System.Drawing.Point(450, 173);
             this.cbType.MaxDropDownItems = 20;
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(89, 21);
@@ -296,7 +297,7 @@
             // lblLocationType
             // 
             this.lblLocationType.AutoSize = true;
-            this.lblLocationType.Location = new System.Drawing.Point(328, 175);
+            this.lblLocationType.Location = new System.Drawing.Point(354, 176);
             this.lblLocationType.Name = "lblLocationType";
             this.lblLocationType.Size = new System.Drawing.Size(74, 13);
             this.lblLocationType.TabIndex = 27;
@@ -304,7 +305,7 @@
             // 
             // numPrice
             // 
-            this.numPrice.Location = new System.Drawing.Point(424, 199);
+            this.numPrice.Location = new System.Drawing.Point(450, 200);
             this.numPrice.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -327,7 +328,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(328, 201);
+            this.lblPrice.Location = new System.Drawing.Point(354, 202);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(34, 13);
             this.lblPrice.TabIndex = 29;
@@ -385,7 +386,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 502);
+            this.ClientSize = new System.Drawing.Size(637, 502);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.lblDesctiption);
             this.Controls.Add(this.lblEventName);
