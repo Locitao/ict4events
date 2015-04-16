@@ -109,8 +109,8 @@ namespace MediaSharingGuest
             {
                 string medName = stringList[0];
                 int medId = Convert.ToInt32(stringList[1]);
-                string name = stringList[3];
-                string rfid_Code = stringList[4];
+                string name = stringList[2];
+                string rfid_Code = stringList[3];
 
                 Media mediaItem = new Media(medName, "", "", "", rfid_Code, medId);
 
@@ -192,7 +192,8 @@ namespace MediaSharingGuest
             object med = lbMediaItems.SelectedItem;
             Media medd = med as Media;
 
-            ViewFile viewFile = new ViewFile(medias, medd.MediaId);  
+            ViewFile viewFile = new ViewFile(medias, medd.MediaId);
+            viewFile.Show();
         }
     }
 }
