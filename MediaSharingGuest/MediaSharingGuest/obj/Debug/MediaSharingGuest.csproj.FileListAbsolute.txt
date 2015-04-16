@@ -44,3 +44,4 @@ C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaShari
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.UploadFile.resources
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ViewFile.resources
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ViewReports.resources
+C:\Users\Bart van Keersop\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ViewReports.resources
