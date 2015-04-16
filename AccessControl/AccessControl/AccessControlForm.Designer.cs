@@ -37,6 +37,7 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblSearsh = new System.Windows.Forms.Label();
             this.bttnSearsh = new System.Windows.Forms.Button();
+            this.bttnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbRFIDSearsh
@@ -62,10 +63,11 @@
             this.BttnPayed.TabIndex = 2;
             this.BttnPayed.Text = "Toggle payed";
             this.BttnPayed.UseVisualStyleBackColor = true;
+            this.BttnPayed.Click += new System.EventHandler(this.BttnPayed_Click);
             // 
             // bttnPresence
             // 
-            this.bttnPresence.Location = new System.Drawing.Point(403, 240);
+            this.bttnPresence.Location = new System.Drawing.Point(278, 240);
             this.bttnPresence.Name = "bttnPresence";
             this.bttnPresence.Size = new System.Drawing.Size(119, 23);
             this.bttnPresence.TabIndex = 3;
@@ -74,12 +76,13 @@
             // 
             // bttnCancel
             // 
-            this.bttnCancel.Location = new System.Drawing.Point(200, 240);
+            this.bttnCancel.Location = new System.Drawing.Point(138, 240);
             this.bttnCancel.Name = "bttnCancel";
             this.bttnCancel.Size = new System.Drawing.Size(119, 23);
             this.bttnCancel.TabIndex = 4;
             this.bttnCancel.Text = "Cancel reserve";
             this.bttnCancel.UseVisualStyleBackColor = true;
+            this.bttnCancel.Click += new System.EventHandler(this.bttnCancel_Click);
             // 
             // dateTimePicker1
             // 
@@ -114,12 +117,24 @@
             this.bttnSearsh.TabIndex = 8;
             this.bttnSearsh.Text = "Searsh";
             this.bttnSearsh.UseVisualStyleBackColor = true;
+            this.bttnSearsh.Click += new System.EventHandler(this.bttnSearsh_Click);
+            // 
+            // bttnRefresh
+            // 
+            this.bttnRefresh.Location = new System.Drawing.Point(403, 240);
+            this.bttnRefresh.Name = "bttnRefresh";
+            this.bttnRefresh.Size = new System.Drawing.Size(119, 23);
+            this.bttnRefresh.TabIndex = 9;
+            this.bttnRefresh.Text = "Refresh";
+            this.bttnRefresh.UseVisualStyleBackColor = true;
+            this.bttnRefresh.Click += new System.EventHandler(this.bttnRefresh_Click);
             // 
             // AccessControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 330);
+            this.Controls.Add(this.bttnRefresh);
             this.Controls.Add(this.bttnSearsh);
             this.Controls.Add(this.lblSearsh);
             this.Controls.Add(this.lblDate);
@@ -147,6 +162,7 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblSearsh;
         private System.Windows.Forms.Button bttnSearsh;
+        private System.Windows.Forms.Button bttnRefresh;
     }
 }
 
