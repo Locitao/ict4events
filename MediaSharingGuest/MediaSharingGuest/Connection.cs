@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 using Oracle.DataAccess;
+using System.Windows.Forms;
 
 namespace MediaSharingGuest
 {
@@ -80,10 +81,12 @@ namespace MediaSharingGuest
                     }
                     output.Add(temp);
                 }
+           
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 output = null;
                 return false;
             }
