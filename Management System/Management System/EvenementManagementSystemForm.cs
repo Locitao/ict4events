@@ -15,6 +15,7 @@ namespace Management_System
         private DatabaseConnection connection = new DatabaseConnection();
         private List<Camping> campingList = new List<Camping>();
         private List<Location> locationList = new List<Location>();
+        private List<Event> eventList = new List<Event>();
 
         public EvenementManagementSystemForm()
         {
@@ -67,6 +68,33 @@ namespace Management_System
                     {
                         tempInt = Convert.ToInt32(list[2]);
                     }
+                    Location tempLocation = new Location(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), tempInt, type, Convert.ToInt32(list[4]), Convert.ToInt32(list[5]));
+                    locationList.Add(tempLocation);
+                    lbLocations.Items.Add(tempLocation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
+            }
+            lbLocations.SelectedIndex = 0;
+        }
+
+        private void refreshEvetsData()
+        {
+            eventList.Clear();
+            lbEvents.Items.Clear();
+            Camping selectedCamping = (Camping)lbCampings.SelectedItem;
+            List<List<string>> output;
+            Exception exception;
+            if (connection.SQLQueryWithOutput("SELECT event_id, camping_id, event_name, event_descr, startdate, enddate FROM PT_EVENT WHERE camping_id = '" + selectedCamping.CampingID.ToString() + "' ORDER BY event_id", out output, out exception))
+            {
+                foreach (List<string> list in output)
+                {
+
+                    Event tempEvent = new Event();
+
+
                     Location tempLocation = new Location(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), tempInt, type, Convert.ToInt32(list[4]), Convert.ToInt32(list[5]));
                     locationList.Add(tempLocation);
                     lbLocations.Items.Add(tempLocation);

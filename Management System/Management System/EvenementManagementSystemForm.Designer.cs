@@ -201,9 +201,9 @@
             // lbEvents
             // 
             this.lbEvents.FormattingEnabled = true;
-            this.lbEvents.Location = new System.Drawing.Point(12, 266);
+            this.lbEvents.Location = new System.Drawing.Point(270, 277);
             this.lbEvents.Name = "lbEvents";
-            this.lbEvents.Size = new System.Drawing.Size(215, 212);
+            this.lbEvents.Size = new System.Drawing.Size(305, 212);
             this.lbEvents.TabIndex = 16;
             // 
             // lblCamping
@@ -237,7 +237,7 @@
             // lblEvents
             // 
             this.lblEvents.AutoSize = true;
-            this.lblEvents.Location = new System.Drawing.Point(14, 247);
+            this.lblEvents.Location = new System.Drawing.Point(270, 261);
             this.lblEvents.Name = "lblEvents";
             this.lblEvents.Size = new System.Drawing.Size(43, 13);
             this.lblEvents.TabIndex = 20;
@@ -245,7 +245,7 @@
             // 
             // dateTimePickerStartingDate
             // 
-            this.dateTimePickerStartingDate.Location = new System.Drawing.Point(313, 279);
+            this.dateTimePickerStartingDate.Location = new System.Drawing.Point(9, 277);
             this.dateTimePickerStartingDate.Name = "dateTimePickerStartingDate";
             this.dateTimePickerStartingDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerStartingDate.TabIndex = 21;
@@ -253,7 +253,7 @@
             // lblStartingDate
             // 
             this.lblStartingDate.AutoSize = true;
-            this.lblStartingDate.Location = new System.Drawing.Point(310, 263);
+            this.lblStartingDate.Location = new System.Drawing.Point(6, 261);
             this.lblStartingDate.Name = "lblStartingDate";
             this.lblStartingDate.Size = new System.Drawing.Size(72, 13);
             this.lblStartingDate.TabIndex = 22;
@@ -262,7 +262,7 @@
             // lblEndDate
             // 
             this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Location = new System.Drawing.Point(310, 302);
+            this.lblEndDate.Location = new System.Drawing.Point(6, 300);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(69, 13);
             this.lblEndDate.TabIndex = 24;
@@ -270,14 +270,14 @@
             // 
             // dateTimePickerEndingDate
             // 
-            this.dateTimePickerEndingDate.Location = new System.Drawing.Point(313, 318);
+            this.dateTimePickerEndingDate.Location = new System.Drawing.Point(9, 316);
             this.dateTimePickerEndingDate.Name = "dateTimePickerEndingDate";
             this.dateTimePickerEndingDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerEndingDate.TabIndex = 23;
             // 
             // btnCreateEvent
             // 
-            this.btnCreateEvent.Location = new System.Drawing.Point(316, 422);
+            this.btnCreateEvent.Location = new System.Drawing.Point(12, 420);
             this.btnCreateEvent.Name = "btnCreateEvent";
             this.btnCreateEvent.Size = new System.Drawing.Size(200, 60);
             this.btnCreateEvent.TabIndex = 25;
@@ -351,7 +351,7 @@
             // 
             // tbEventName
             // 
-            this.tbEventName.Location = new System.Drawing.Point(316, 357);
+            this.tbEventName.Location = new System.Drawing.Point(12, 355);
             this.tbEventName.Name = "tbEventName";
             this.tbEventName.Size = new System.Drawing.Size(197, 20);
             this.tbEventName.TabIndex = 33;
@@ -359,7 +359,7 @@
             // lblEventName
             // 
             this.lblEventName.AutoSize = true;
-            this.lblEventName.Location = new System.Drawing.Point(313, 341);
+            this.lblEventName.Location = new System.Drawing.Point(9, 339);
             this.lblEventName.Name = "lblEventName";
             this.lblEventName.Size = new System.Drawing.Size(69, 13);
             this.lblEventName.TabIndex = 34;
@@ -368,7 +368,7 @@
             // lblDesctiption
             // 
             this.lblDesctiption.AutoSize = true;
-            this.lblDesctiption.Location = new System.Drawing.Point(315, 380);
+            this.lblDesctiption.Location = new System.Drawing.Point(11, 378);
             this.lblDesctiption.Name = "lblDesctiption";
             this.lblDesctiption.Size = new System.Drawing.Size(63, 13);
             this.lblDesctiption.TabIndex = 35;
@@ -376,7 +376,7 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(316, 396);
+            this.tbDescription.Location = new System.Drawing.Point(12, 394);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(197, 20);
             this.tbDescription.TabIndex = 36;
@@ -385,7 +385,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 502);
+            this.ClientSize = new System.Drawing.Size(587, 502);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.lblDesctiption);
             this.Controls.Add(this.lblEventName);
