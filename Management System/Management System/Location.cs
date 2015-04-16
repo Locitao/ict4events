@@ -15,19 +15,19 @@ namespace Management_System
         public int Price { get; set; }
         public int MaxPeople { get; set; }
 
-        public Location(int locationID, int campingID, int reservationID/*, LocationType locationType*/, int price, int maxPeople)
+        public Location(int locationID, int campingID, int reservationID, LocationType locationType, int price, int maxPeople)
         {
             LocationID = locationID;
             CampingID = campingID;
             ReservationID = reservationID;
-            //Type = locationType;
+            Type = locationType;
             Price = price;
-
+            MaxPeople = maxPeople;
         }
 
         public override string ToString()
         {
-            return "LocationID: " + LocationID.ToString() + ", Price: " + Price.ToString() + ", Max People: " + MaxPeople.ToString();
+            return "LocationID: " + LocationID.ToString() + ", Price: " + Price.ToString() + ", Max People: " + MaxPeople.ToString() + ", Type: " +Type.ToString();
         }
     }
 }

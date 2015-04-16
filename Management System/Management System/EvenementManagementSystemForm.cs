@@ -20,7 +20,10 @@ namespace Management_System
         {
             InitializeComponent();
             refreshCampingsData();
-            refreshLocationsData();
+            cbType.Items.Add(LocationType.bungalow);
+            cbType.Items.Add(LocationType.tent);
+            cbType.Items.Add(LocationType.preplacedtent);
+            cbType.Items.Add(LocationType.caravan);
         }
 
         private void refreshCampingsData()
@@ -43,21 +46,28 @@ namespace Management_System
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
             lbCampings.SelectedIndex = 0;
+            refreshLocationsData();
         }
 
         private void refreshLocationsData()
         {
             locationList.Clear();
             lbLocations.Items.Clear();
+            Camping selectedCamping = (Camping)lbCampings.SelectedItem;
             List<List<string>> output;
             Exception exception;
-            if (connection.SQLQueryWithOutput("SELECT LOCATION_ID, CAMPING_ID, RESERVATION_ID, LOC_TYPE, PRICE, MAX_PEOPLE FROM PT_EVENT_LOCATION", out output, out exception))
+            if (connection.SQLQueryWithOutput("SELECT LOCATION_ID, CAMPING_ID, RESERVATION_ID, LOC_TYPE, PRICE, MAX_PEOPLE FROM PT_EVENT_LOCATION WHERE CAMPING_ID = '" +  selectedCamping.CampingID.ToString() + "'", out output, out exception))
             {
                 foreach (List<string> list in output)
                 {
                     LocationType type;
                     Enum.TryParse(list[3], out type);
-                    Location tempLocation = new Location(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), Convert.ToInt32(list[2])/*, type*/, Convert.ToInt32(list[4]), Convert.ToInt32(list[5]));
+                    int tempInt = 0;
+                    if (list[2] != "")
+                    {
+                        tempInt = Convert.ToInt32(list[2]);
+                    }
+                    Location tempLocation = new Location(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), tempInt, type, Convert.ToInt32(list[4]), Convert.ToInt32(list[5]));
                     locationList.Add(tempLocation);
                     lbLocations.Items.Add(tempLocation);
                 }
@@ -66,6 +76,7 @@ namespace Management_System
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
+            lbLocations.SelectedIndex = 0;
         }
 
         
@@ -111,6 +122,52 @@ namespace Management_System
                 else
                 {
                     MessageBox.Show("The following error has occured:" + Environment.NewLine + Environment.NewLine + ex.ToString());
+                }
+            }
+        }
+
+        private void btnAddLocation_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Location l in locationList)
+                {
+                    if (numLocation.Value == l.CampingID)
+                    {
+                        throw new Exception("Location ID is already in use");
+                    }
+                }
+                Camping tempCamping;
+                if (lbCampings.SelectedItem != null)
+                {
+                    tempCamping = (Camping)lbCampings.SelectedItem;
+                }
+                else
+                {
+                    throw new Exception("No camping selected");
+                }
+                Location tempLocation = new Location(Convert.ToInt32(numLocation.Value), tempCamping.CampingID, 0, (LocationType)cbType.SelectedItem, Convert.ToInt32(numPrice.Value), Convert.ToInt32(numMaxGuests.Value));
+                string query = "Insert into PT_EVENT_LOCATION(location_ID, camping_id, loc_type, price, max_people) Values(auto_inc_loc.nextval, '" + tempLocation.CampingID + "', '" + tempLocation.Type.ToString() + "', '" + tempLocation.Price.ToString() + "', '" + tempLocation.MaxPeople.ToString() + "')";
+                Exception ex;
+                if (connection.SQLQueryNoOutput(query, out ex))
+                {
+                    MessageBox.Show("New location is succesfully added to our system.");
+                    refreshCampingsData();
+                }
+                else
+                {
+                    MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+                } 
+            }
+            catch(Exception ex)
+            {
+                if (ex.Message == "Location ID is already in use")
+                {
+                    MessageBox.Show("The location ID you selected is already in use.");
+                }
+                else if (ex.Message == "No camping selected")
+                {
+                    MessageBox.Show("There is no camping selected in the camping list");
                 }
             }
         }
