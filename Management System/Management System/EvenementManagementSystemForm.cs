@@ -78,7 +78,11 @@ namespace Management_System
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
-            lbLocations.SelectedIndex = 0;
+            if (lbLocations.Items.Count > 0)
+            {
+                lbLocations.SelectedIndex = 0;
+            }
+            
         }
 
         private void refreshEventsData()
@@ -104,14 +108,18 @@ namespace Management_System
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
-            lbLocations.SelectedIndex = 0;
+            if (lbEvents.Items.Count > 0)
+            {
+                lbEvents.SelectedIndex = 0;
+            }
         }
 
         
 
         private void lbCampings_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            refreshLocationsData();
+            refreshEventsData();
         }
 
         private void btnNewCamping_Click(object sender, EventArgs e)
