@@ -20,7 +20,6 @@ namespace MediaSharingGuest
         {
             InitializeComponent();
             rbUser.Checked = true;
-           
         }
 
         public string Rfidcode { get; set; }
@@ -62,14 +61,19 @@ namespace MediaSharingGuest
         public void LogIn(string username, string password)
         {
             //Query that returns password of the username.
-            select.GetPassword(username);
+            connect.SQLQueryWithOutput(select.GetPassword(username), out output);
 
-            string tablePassword;
-
-            if (password == Password)
+            if (output != null)
             {
-                //MediaSharingSystem ms = new MediaSharingSystem(username);
-                //GuestForm guestform = new GuestForm(ms);
+
+                string tablePassword = output[0][0];
+
+                if (password == tablePassword)
+                {
+                    ViewReports viewReports = new ViewReports();
+                    this.Hide();
+                    viewReports.Show();
+                }
             }
 
             else

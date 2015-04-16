@@ -21,9 +21,15 @@ namespace MediaSharingGuest
             return query;
         }
 
+        public string SelectReactionNoReactionID(int mediaId, string rfidCode, string content)
+        {
+            string query = "SELECT REACTION_ID FROM PT_REACTION WHERE RFID_CODE = " + "'" + rfidCode + "'" + "AND MEDIA_ID = " + "'" + mediaId + "'" + "AND REA_CONTENT = " + "'" + content + "'";
+            return query;
+        }
+
         public string GetAllReactionsData (int mediaID)
         {
-            string query = "SELECT r.REACTION_ID, u.USER_NAME, r.REA_CONTENT, (SELECT COUNT(LIKE_ID) FROM PT_USER_LIKE WHERE REACTION_ID IN (SELECT REACTION_ID FROM PT_REACTION WHERE MEDIA_ID = " + "'" + mediaID + "')) AS LIKES FROM PT_USER_ACC u JOIN PT_REACTION r ON u.RFID_CODE = r.RFID_CODE WHERE r.MEDIA_ID = " + "'" + mediaID + "'";
+            string query = "SELECT r.REACTION_ID, u.USER_NAME, u.RFID_CODE, r.REA_CONTENT, (SELECT COUNT(LIKE_ID) FROM PT_USER_LIKE WHERE REACTION_ID IN (SELECT REACTION_ID FROM PT_REACTION WHERE MEDIA_ID = " + "'" + mediaID + "')) AS LIKES FROM PT_USER_ACC u JOIN PT_REACTION r ON u.RFID_CODE = r.RFID_CODE WHERE r.MEDIA_ID = " + "'" + mediaID + "'";
             return query;
         }
 
@@ -81,5 +87,10 @@ namespace MediaSharingGuest
             return query;
         }
 
+        public string GetReports()
+        {
+            string query = "SELECT * FROM PT_REPORT WHERE HANDLED = '0'";
+            return query;
+        }
     }
 }
