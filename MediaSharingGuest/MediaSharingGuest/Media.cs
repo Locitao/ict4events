@@ -9,13 +9,13 @@ namespace MediaSharingGuest
     public class Media
     {
         public string Name { get; set; }
-        public int MediaID { get; set; }
+        public int MediaId { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }
 
         public string RfidCreator { get; set; }
         public string Location { get; set; }
-        public int CategoryID { get; set; }
+        public int CategoryId { get; set; }
 
         Insert insert = new Insert();
         Select select = new Select();
@@ -27,13 +27,13 @@ namespace MediaSharingGuest
             Description = description;
             RfidCreator = rfidcreator;
             Location = location;
-            CategoryID = categoryid;
+            CategoryId = categoryid;
 
             //INSERT statement to add new media item to the database.
-            insert.InsertImage(CategoryID, Name, Location, Description, RfidCreator);
+            insert.InsertImage(CategoryId, Name, Location, Description, RfidCreator);
 
             //SELECT statement to return the mediaID of the item. //RELOAD ALL MEDIAITEM SO NO ID IS NEEDED?
-            select.SelectImageNoMediaID(CategoryID, Name, Location, Description, RfidCreator);
+            select.SelectImageNoMediaID(CategoryId, Name, Location, Description, RfidCreator);
 
             //CODE that sets the mediaId.
 

@@ -24,6 +24,7 @@ namespace MediaSharingGuest
 
         List<List<string>> output = new List<List<string>>();
         List<Category> Categories = new List<Category>();
+        List<Media> MediaItems = new List<Media>();
 
         public int CurrentCategoryId { get; set; }
         public string rfidCodeUser { get; set; }
@@ -37,8 +38,6 @@ namespace MediaSharingGuest
             rfidCodeUser = medias.RfidCode;
 
             LoadCategories(startingCategoryId);
-            btnBack.Enabled = false;
-
         }
 
 
@@ -83,7 +82,14 @@ namespace MediaSharingGuest
                 lbFolders.ValueMember = "CategoryId";
                 lbFolders.Items.Add(category);
 
-
+                if (category.ParentCategoryId == startingCategoryId)
+                {
+                    btnBack.Enabled = false;
+                }
+                else if (category.ParentCategoryId != startingCategoryId)
+                {
+                    btnBack.Enabled = true;
+                }
             }
             
         }
@@ -91,7 +97,7 @@ namespace MediaSharingGuest
         public void LoadMediaItems(int categoryId)
         {
             lbMediaItems.Items.Clear();
-            List<Media> MediaItems = new List<Media>();
+            
 
             //SELECT query to select all media items in given category.
             connection.SQLQueryWithOutput(select.GetAllMediaItems(categoryId), out output);
@@ -106,9 +112,10 @@ namespace MediaSharingGuest
 
                 MediaItems.Add(mediaItem);
 
+                MediaItems.Add(mediaItem);
+                lbMediaItems.DisplayMember = "Name";
+                lbMediaItems.ValueMember = "MediaId";
                 lbMediaItems.Items.Add(mediaItem);
-                lbMediaItems.DisplayMember = mediaItem.Name;
-                lbMediaItems.ValueMember = Convert.ToString(mediaItem.MediaID);
             }
         }
           
