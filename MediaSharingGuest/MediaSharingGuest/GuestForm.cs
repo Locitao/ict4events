@@ -100,7 +100,6 @@ namespace MediaSharingGuest
         {
             lbMediaItems.Items.Clear();
             
-
             //SELECT query to select all media items in given category.
             connection.SQLQueryWithOutput(select.GetAllMediaItems(categoryId), out output);
 
@@ -109,8 +108,10 @@ namespace MediaSharingGuest
             {
                 string medName = stringList[0];
                 int medId = Convert.ToInt32(stringList[1]);
+                string name = stringList[3];
+                string rfid_Code = stringList[4];
 
-                Media mediaItem = new Media(medName, "", "", "", "", medId);
+                Media mediaItem = new Media(medName, "", "", "", rfid_Code, medId);
 
                 MediaItems.Add(mediaItem);
 
