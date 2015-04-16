@@ -38,3 +38,9 @@ C:\Users\martijn\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest
 C:\Users\martijn\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.UploadFile.resources
 C:\Users\martijn\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ViewFile.resources
 C:\Users\martijn\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.csproj.GenerateResource.Cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.CreateFolder.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.LoginForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.SendReport.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.UploadFile.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ViewFile.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ViewReports.resources
