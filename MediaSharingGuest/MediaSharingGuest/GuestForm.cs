@@ -78,11 +78,11 @@ namespace MediaSharingGuest
                 Category category = new Category(categoryName, categoryId, parentCategoryId, rfidCodeUser);
 
                 Categories.Add(category);
-
-                lbFolders.Items.Add(category);
-                lbFolders.DisplayMember = category.Name;
-                lbFolders.ValueMember = Convert.ToString(category.CategoryId);
             }
+
+            lbFolders.DataSource = Categories;
+            lbFolders.DisplayMember = "Name";
+            lbFolders.ValueMember = "CategoryId";
         }
 
         public void LoadMediaItems(int categoryId)
