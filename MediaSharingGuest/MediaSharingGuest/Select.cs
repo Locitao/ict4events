@@ -53,7 +53,7 @@ namespace MediaSharingGuest
 
         public string GetAllMediaItems(int CategoryId)
         {
-            string query = "SELECT m.MED_NAME, m.MEDIA_ID,  u.USER_NAME FROM PT_MEDIA m JOIN PT_USER_ACC u ON m.RFID_CODE = u.RFID_CODE WHERE m.CATEGORY_ID = " + "'" + CategoryId + "'";
+            string query = "SELECT m.MED_NAME, m.MEDIA_ID,  u.USER_NAME, u.RFID_CODE FROM PT_MEDIA m JOIN PT_USER_ACC u ON m.RFID_CODE = u.RFID_CODE WHERE m.CATEGORY_ID = " + "'" + CategoryId + "'";
             return query;
         }
 

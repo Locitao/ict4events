@@ -27,6 +27,7 @@ namespace MediaSharingGuest
         List<Media> MediaItems = new List<Media>();
 
         public int CurrentCategoryId { get; set; }
+        public int PreviousCategoryId { get; set; }
         public string rfidCodeUser { get; set; }
 
         public GuestForm(MediaSharingSystem medias)
@@ -36,6 +37,7 @@ namespace MediaSharingGuest
             this.medias = medias;
             timerNewsFeed.Start();
             rfidCodeUser = medias.RfidCode;
+            PreviousCategoryId = 2;
 
             LoadCategories(startingCategoryId);
         }
@@ -98,7 +100,6 @@ namespace MediaSharingGuest
         {
             lbMediaItems.Items.Clear();
             
-
             //SELECT query to select all media items in given category.
             connection.SQLQueryWithOutput(select.GetAllMediaItems(categoryId), out output);
 
@@ -107,8 +108,10 @@ namespace MediaSharingGuest
             {
                 string medName = stringList[0];
                 int medId = Convert.ToInt32(stringList[1]);
+                string name = stringList[3];
+                string rfid_Code = stringList[4];
 
-                Media mediaItem = new Media(medName, "", "", "", "", medId);
+                Media mediaItem = new Media(medName, "", "", "", rfid_Code, medId);
 
                 MediaItems.Add(mediaItem);
 
@@ -143,6 +146,8 @@ namespace MediaSharingGuest
             object cat = lbFolders.SelectedItem;
             Category catt = cat as Category;
             LoadCategories(catt.CategoryId);
+            CurrentCategoryId = catt.CategoryId;
+            PreviousCategoryId = catt.ParentCategoryId;
 
             if (CurrentCategoryId == startingCategoryId)
             {
@@ -178,8 +183,11 @@ namespace MediaSharingGuest
 
         private void lbMediaItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int mediaId = Convert.ToInt32(lbMediaItems.ValueMember);
-            ViewFile viewFile = new ViewFile(medias, mediaId);
+
+            object med = lbMediaItems.SelectedItem;
+            Media medd = med as Media;
+
+            ViewFile viewFile = new ViewFile(medias, medd.MediaId);  
         }
     }
 }
