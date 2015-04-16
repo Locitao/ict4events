@@ -285,11 +285,6 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Items.AddRange(new object[] {
-            "Bungalow",
-            "Pre placed tent",
-            "Tent",
-            "Caravan"});
             this.cbType.Location = new System.Drawing.Point(366, 173);
             this.cbType.MaxDropDownItems = 20;
             this.cbType.Name = "cbType";
