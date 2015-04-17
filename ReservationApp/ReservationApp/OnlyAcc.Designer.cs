@@ -51,7 +51,7 @@
             this.tbCountry.Location = new System.Drawing.Point(143, 68);
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.Size = new System.Drawing.Size(135, 20);
-            this.tbCountry.TabIndex = 36;
+            this.tbCountry.TabIndex = 2;
             // 
             // label6
             // 
@@ -67,7 +67,7 @@
             this.btnCreate.Location = new System.Drawing.Point(83, 213);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(116, 34);
-            this.btnCreate.TabIndex = 34;
+            this.btnCreate.TabIndex = 7;
             this.btnCreate.Text = "Create your account!";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -79,7 +79,7 @@
             this.tbPhone.MaxLength = 15;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(135, 20);
-            this.tbPhone.TabIndex = 33;
+            this.tbPhone.TabIndex = 5;
             this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             // 
             // tbCity
@@ -87,21 +87,21 @@
             this.tbCity.Location = new System.Drawing.Point(143, 120);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(135, 20);
-            this.tbCity.TabIndex = 32;
+            this.tbCity.TabIndex = 4;
             // 
             // tbPostal
             // 
             this.tbPostal.Location = new System.Drawing.Point(143, 94);
             this.tbPostal.Name = "tbPostal";
             this.tbPostal.Size = new System.Drawing.Size(135, 20);
-            this.tbPostal.TabIndex = 31;
+            this.tbPostal.TabIndex = 3;
             // 
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(143, 39);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(135, 20);
-            this.tbAddress.TabIndex = 30;
+            this.tbAddress.TabIndex = 1;
             // 
             // label5
             // 
@@ -153,7 +153,7 @@
             this.tbName.Location = new System.Drawing.Point(143, 13);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(135, 20);
-            this.tbName.TabIndex = 24;
+            this.tbName.TabIndex = 0;
             // 
             // label7
             // 
@@ -169,7 +169,7 @@
             this.tbReservePhone.Location = new System.Drawing.Point(143, 176);
             this.tbReservePhone.Name = "tbReservePhone";
             this.tbReservePhone.Size = new System.Drawing.Size(135, 20);
-            this.tbReservePhone.TabIndex = 38;
+            this.tbReservePhone.TabIndex = 6;
             this.tbReservePhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbReservePhone_KeyPress);
             // 
             // label8

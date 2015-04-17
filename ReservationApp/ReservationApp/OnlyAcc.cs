@@ -16,36 +16,48 @@ namespace ReservationApp
     /// </summary>
     public partial class OnlyAcc : Form
     {
-        Select select = new Select();
-        Insert insert = new Insert();
+        readonly Select select = new Select();
+        readonly Insert insert = new Insert();
         public OnlyAcc()
         {
             InitializeComponent();
         }
 
-        
+        /// <summary>
+        /// Users click on this button, their account will be created for them.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
 
-            if (tbAddress.Text == null || tbCity.Text == null || tbName.Text == null || tbPhone.Text == null ||
-               tbPostal.Text == null || tbReservePhone.Text == null || tbAddress.TextLength < 6 || tbCity.TextLength < 4 || tbPhone.TextLength < 8 || tbPostal.TextLength < 4)
+            if (tbAddress.Text == "" || tbCity.Text == "" || tbName.Text == "" || tbPhone.Text == "" ||
+               tbPostal.Text == "" || tbReservePhone.Text == "" || tbAddress.TextLength < 6 || tbCity.TextLength < 4 || tbPhone.TextLength < 8 || tbPostal.TextLength < 4)
             {
                 MessageBox.Show("You did not fill in all the required information!");
             }
 
             else 
             {
-                var reservation = select.Find_ReservationId(tbReservePhone.Text);
-                var name = tbName.Text;
-                var address = tbAddress.Text + ", " + tbCity.Text + ", " + tbCountry.Text;
-                var phone = tbPhone.Text;
+                try
+                {
+                    var reservation = select.Find_ReservationId(tbReservePhone.Text);
+                    var name = tbName.Text;
+                    var address = tbAddress.Text + ", " + tbCity.Text + ", " + tbCountry.Text;
+                    var phone = tbPhone.Text;
 
-                MessageBox.Show(insert.Insert_Acc_Res(name, address, phone, reservation));
+                    MessageBox.Show(insert.Insert_Acc_Res(name, address, phone, reservation));
 
-                Hide();
-                Startup start = new Startup();
-                start.Closed += (s, args) => Close();
-                start.Show();
+                    Hide();
+                    Startup start = new Startup();
+                    start.Closed += (s, args) => Close();
+                    start.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
         }
 
