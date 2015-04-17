@@ -8,9 +8,6 @@ namespace Management_System
 {
     class Guest
     {
-        /// <summary>
-        /// First some properties, to show who/what this guest is. Then the constructor.
-        /// </summary>
         public string Name { get; set; }
         public string RfidCode { get; set; }
         public string PostalCode { get; set; }

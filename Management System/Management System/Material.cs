@@ -8,9 +8,10 @@ namespace Management_System
 {
     class Material
     {
+        public int MaterialID { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public int Deposit { get; set; }
+        public MaterialStatus Status { get; set; }
+        public int guarantor { get; set; }
         public DateTime LendTime { get; set; }
         public DateTime ReturnTime { get; set; }
 

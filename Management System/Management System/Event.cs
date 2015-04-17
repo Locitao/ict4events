@@ -8,18 +8,24 @@ namespace Management_System
 {
     class Event
     {
-        public Camping CampingEvent { get; set; }
+        public int CampingID { get; set; }
+        public int EventID {get; set;}
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public Event(string name, string description, DateTime startDate, DateTime endDate)
+        public Event(int campingID, int eventID, string name, string description, DateTime startDate, DateTime endDate)
         {
             Name = name;
             Description = description;
             StartDate = startDate;
             EndDate = endDate;
+        }
+
+        public override string ToString()
+        {
+            return Name + ", From: " + StartDate.ToString() + " To: " + EndDate.ToString();
         }
     }
 }

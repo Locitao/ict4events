@@ -15,6 +15,7 @@ namespace Management_System
         private DatabaseConnection connection = new DatabaseConnection();
         private List<Camping> campingList = new List<Camping>();
         private List<Location> locationList = new List<Location>();
+        private List<Event> eventList = new List<Event>();
 
         public EvenementManagementSystemForm()
         {
@@ -47,6 +48,7 @@ namespace Management_System
             }
             lbCampings.SelectedIndex = 0;
             refreshLocationsData();
+            refreshEventsData();
         }
 
         private void refreshLocationsData()
@@ -76,14 +78,48 @@ namespace Management_System
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
-            lbLocations.SelectedIndex = 0;
+            if (lbLocations.Items.Count > 0)
+            {
+                lbLocations.SelectedIndex = 0;
+            }
+            
+        }
+
+        private void refreshEventsData()
+        {
+            eventList.Clear();
+            lbEvents.Items.Clear();
+            Camping selectedCamping = (Camping)lbCampings.SelectedItem;
+            List<List<string>> output;
+            Exception exception;
+            if (connection.SQLQueryWithOutput("SELECT event_id, camping_id, event_name, event_descr, startdate, enddate FROM PT_EVENT WHERE camping_id = '" + selectedCamping.CampingID.ToString() + "' ORDER BY event_id", out output, out exception))
+            {
+                foreach (List<string> list in output)
+                {
+
+                    Event tempEvent = new Event(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), list[2], list[3], Convert.ToDateTime(list[4]), Convert.ToDateTime(list[5]));
+                    eventList.Add(tempEvent);
+                    lbEvents.Items.Add(tempEvent);
+
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
+            }
+            if (lbEvents.Items.Count > 0)
+            {
+                lbEvents.SelectedIndex = 0;
+            }
         }
 
         
 
         private void lbCampings_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            refreshLocationsData();
+            refreshEventsData();
         }
 
         private void btnNewCamping_Click(object sender, EventArgs e)
@@ -190,6 +226,47 @@ namespace Management_System
                     MessageBox.Show("The following error has occured:" + Environment.NewLine + Environment.NewLine + ex.ToString());
                 }
             }
+        }
+
+        private void btnCreateEvent_Click(object sender, EventArgs e)
+        {
+            try{
+            Camping tempCamping;
+                if (lbCampings.SelectedItem != null)
+                {
+                    tempCamping = (Camping)lbCampings.SelectedItem;
+                }
+            else
+                {
+                    throw new Exception("No camping selected");
+                }
+            DateTime startDate = dateTimePickerStartingDate.Value;
+            DateTime endDate = dateTimePickerEndingDate.Value;
+            string selectedCamping = Convert.ToString(tempCamping.CampingID);
+            string name = tbEventName.Text;
+            string description = tbDescription.Text;
+            string query = "Insert into PT_EVENT(event_ID, event_name, event_descr, camping_ID, startdate, enddate) "
+                           + "Values(auto_inc_evt.nextval, ' " + name + "', '" + description + "', '" + selectedCamping + "', "
+                 + "TO_DATE('" + startDate.ToString() + "', 'dd-mm-yyyy hh24:mi:ss')" + ", " + "TO_DATE('" + endDate.ToString() + "', 'dd-mm-yyyy hh24:mi:ss')" + ")";
+                Exception ex;
+                if (connection.SQLQueryNoOutput(query, out ex))
+                {
+                    MessageBox.Show("New event is succesfully added to our system.");
+                    refreshCampingsData();
+                }
+                else
+                {
+                    MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+                }
+            }
+            catch
+            {
+
+            }
+
+
+
+            
         }
 
         
