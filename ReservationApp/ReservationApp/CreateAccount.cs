@@ -66,5 +66,49 @@ namespace ReservationApp
         {
 
         }
+
+        private void tbName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbCountry_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbPostal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbCity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

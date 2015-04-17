@@ -115,7 +115,7 @@ namespace ReservationApp
         private void tbMatOne_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
+        (e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -124,7 +124,7 @@ namespace ReservationApp
         private void tbMatTwo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
+        (e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -133,7 +133,7 @@ namespace ReservationApp
         private void tbMatThree_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
+        (e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
             {
                 e.Handled = true;
             }
