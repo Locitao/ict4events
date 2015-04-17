@@ -30,14 +30,18 @@
         {
             this.lbMaterials = new System.Windows.Forms.ListBox();
             this.lblMaterials = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblMaterialNameConstant = new System.Windows.Forms.Label();
+            this.lblStatusConstant = new System.Windows.Forms.Label();
+            this.lblPriceConstant = new System.Windows.Forms.Label();
+            this.btnLendItem = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblMaterialName = new System.Windows.Forms.Label();
+            this.btnReturnItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.btnReserveItem = new System.Windows.Forms.Button();
+            this.btnChangeItem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbMaterials
@@ -45,7 +49,7 @@
             this.lbMaterials.FormattingEnabled = true;
             this.lbMaterials.Location = new System.Drawing.Point(12, 29);
             this.lbMaterials.Name = "lbMaterials";
-            this.lbMaterials.Size = new System.Drawing.Size(132, 329);
+            this.lbMaterials.Size = new System.Drawing.Size(208, 329);
             this.lbMaterials.TabIndex = 0;
             // 
             // lblMaterials
@@ -57,91 +61,131 @@
             this.lblMaterials.TabIndex = 1;
             this.lblMaterials.Text = "Materials:";
             // 
-            // label1
+            // lblMaterialNameConstant
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblMaterialNameConstant.AutoSize = true;
+            this.lblMaterialNameConstant.Location = new System.Drawing.Point(226, 29);
+            this.lblMaterialNameConstant.Name = "lblMaterialNameConstant";
+            this.lblMaterialNameConstant.Size = new System.Drawing.Size(38, 13);
+            this.lblMaterialNameConstant.TabIndex = 2;
+            this.lblMaterialNameConstant.Text = "Name:";
             // 
-            // label2
+            // lblStatusConstant
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(296, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.lblStatusConstant.AutoSize = true;
+            this.lblStatusConstant.Location = new System.Drawing.Point(226, 55);
+            this.lblStatusConstant.Name = "lblStatusConstant";
+            this.lblStatusConstant.Size = new System.Drawing.Size(40, 13);
+            this.lblStatusConstant.TabIndex = 7;
+            this.lblStatusConstant.Text = "Status:";
             // 
-            // label3
+            // lblPriceConstant
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(296, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
+            this.lblPriceConstant.AutoSize = true;
+            this.lblPriceConstant.Location = new System.Drawing.Point(226, 42);
+            this.lblPriceConstant.Name = "lblPriceConstant";
+            this.lblPriceConstant.Size = new System.Drawing.Size(34, 13);
+            this.lblPriceConstant.TabIndex = 8;
+            this.lblPriceConstant.Text = "Price:";
             // 
-            // label4
+            // btnLendItem
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(296, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
+            this.btnLendItem.Location = new System.Drawing.Point(226, 71);
+            this.btnLendItem.Name = "btnLendItem";
+            this.btnLendItem.Size = new System.Drawing.Size(143, 23);
+            this.btnLendItem.TabIndex = 9;
+            this.btnLendItem.Text = "Lend item";
+            this.btnLendItem.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // lblStatus
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(182, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "label5";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(286, 55);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.TabIndex = 3;
+            this.lblStatus.Text = "label2";
             // 
-            // label6
+            // lblPrice
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(182, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "label6";
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(286, 42);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(35, 13);
+            this.lblPrice.TabIndex = 4;
+            this.lblPrice.Text = "label3";
             // 
-            // label7
+            // lblMaterialName
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(182, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "label7";
+            this.lblMaterialName.AutoSize = true;
+            this.lblMaterialName.Location = new System.Drawing.Point(286, 29);
+            this.lblMaterialName.Name = "lblMaterialName";
+            this.lblMaterialName.Size = new System.Drawing.Size(35, 13);
+            this.lblMaterialName.TabIndex = 5;
+            this.lblMaterialName.Text = "label4";
             // 
-            // label8
+            // btnReturnItem
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(296, 68);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "label8";
+            this.btnReturnItem.Location = new System.Drawing.Point(226, 129);
+            this.btnReturnItem.Name = "btnReturnItem";
+            this.btnReturnItem.Size = new System.Drawing.Size(143, 23);
+            this.btnReturnItem.TabIndex = 10;
+            this.btnReturnItem.Text = "Return item";
+            this.btnReturnItem.UseVisualStyleBackColor = true;
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Location = new System.Drawing.Point(226, 187);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(143, 23);
+            this.btnAddItem.TabIndex = 11;
+            this.btnAddItem.Text = "Add new item";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.Location = new System.Drawing.Point(226, 216);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(143, 23);
+            this.btnAddCategory.TabIndex = 12;
+            this.btnAddCategory.Text = "Add new category";
+            this.btnAddCategory.UseVisualStyleBackColor = true;
+            // 
+            // btnReserveItem
+            // 
+            this.btnReserveItem.Location = new System.Drawing.Point(226, 100);
+            this.btnReserveItem.Name = "btnReserveItem";
+            this.btnReserveItem.Size = new System.Drawing.Size(143, 23);
+            this.btnReserveItem.TabIndex = 13;
+            this.btnReserveItem.Text = "Reserve item";
+            this.btnReserveItem.UseVisualStyleBackColor = true;
+            // 
+            // btnChangeItem
+            // 
+            this.btnChangeItem.Location = new System.Drawing.Point(226, 158);
+            this.btnChangeItem.Name = "btnChangeItem";
+            this.btnChangeItem.Size = new System.Drawing.Size(143, 23);
+            this.btnChangeItem.TabIndex = 14;
+            this.btnChangeItem.Text = "Change Item";
+            this.btnChangeItem.UseVisualStyleBackColor = true;
             // 
             // MaterialRentingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 380);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(380, 380);
+            this.Controls.Add(this.btnChangeItem);
+            this.Controls.Add(this.btnReserveItem);
+            this.Controls.Add(this.btnAddCategory);
+            this.Controls.Add(this.btnAddItem);
+            this.Controls.Add(this.btnReturnItem);
+            this.Controls.Add(this.btnLendItem);
+            this.Controls.Add(this.lblPriceConstant);
+            this.Controls.Add(this.lblStatusConstant);
+            this.Controls.Add(this.lblMaterialName);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblMaterialNameConstant);
             this.Controls.Add(this.lblMaterials);
             this.Controls.Add(this.lbMaterials);
             this.Name = "MaterialRentingForm";
@@ -155,13 +199,17 @@
 
         private System.Windows.Forms.ListBox lbMaterials;
         private System.Windows.Forms.Label lblMaterials;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblMaterialNameConstant;
+        private System.Windows.Forms.Label lblStatusConstant;
+        private System.Windows.Forms.Label lblPriceConstant;
+        private System.Windows.Forms.Button btnLendItem;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblMaterialName;
+        private System.Windows.Forms.Button btnReturnItem;
+        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Button btnAddCategory;
+        private System.Windows.Forms.Button btnReserveItem;
+        private System.Windows.Forms.Button btnChangeItem;
     }
 }
