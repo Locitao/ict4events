@@ -59,6 +59,7 @@
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(135, 20);
             this.tbCity.TabIndex = 19;
+            this.tbCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCity_KeyPress);
             // 
             // tbPostal
             // 
@@ -66,6 +67,7 @@
             this.tbPostal.Name = "tbPostal";
             this.tbPostal.Size = new System.Drawing.Size(135, 20);
             this.tbPostal.TabIndex = 18;
+            this.tbPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPostal_KeyPress);
             // 
             // tbAddress
             // 
@@ -73,6 +75,7 @@
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(135, 20);
             this.tbAddress.TabIndex = 17;
+            this.tbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAddress_KeyPress);
             // 
             // label5
             // 
@@ -125,6 +128,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(135, 20);
             this.tbName.TabIndex = 11;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // btnCreate
             // 
@@ -151,6 +155,7 @@
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.Size = new System.Drawing.Size(135, 20);
             this.tbCountry.TabIndex = 23;
+            this.tbCountry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCountry_KeyPress);
             // 
             // Create_Account
             // 
