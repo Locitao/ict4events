@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbRFIDSearsh = new System.Windows.Forms.TextBox();
             this.lbRFIDCodes = new System.Windows.Forms.ListBox();
             this.BttnPayed = new System.Windows.Forms.Button();
             this.bttnPresence = new System.Windows.Forms.Button();
             this.bttnCancel = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lblDate = new System.Windows.Forms.Label();
             this.lblSearsh = new System.Windows.Forms.Label();
-            this.bttnSearsh = new System.Windows.Forms.Button();
             this.bttnRefresh = new System.Windows.Forms.Button();
+            this.tmrRFIDCheck = new System.Windows.Forms.Timer(this.components);
+            this.lblRFID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbRFIDSearsh
             // 
             this.tbRFIDSearsh.Location = new System.Drawing.Point(12, 34);
+            this.tbRFIDSearsh.MaxLength = 10;
             this.tbRFIDSearsh.Name = "tbRFIDSearsh";
-            this.tbRFIDSearsh.Size = new System.Drawing.Size(423, 20);
+            this.tbRFIDSearsh.Size = new System.Drawing.Size(510, 20);
             this.tbRFIDSearsh.TabIndex = 0;
             // 
             // lbRFIDCodes
@@ -73,6 +74,7 @@
             this.bttnPresence.TabIndex = 3;
             this.bttnPresence.Text = "Toggle presence";
             this.bttnPresence.UseVisualStyleBackColor = true;
+            this.bttnPresence.Click += new System.EventHandler(this.bttnPresence_Click);
             // 
             // bttnCancel
             // 
@@ -84,22 +86,6 @@
             this.bttnCancel.UseVisualStyleBackColor = true;
             this.bttnCancel.Click += new System.EventHandler(this.bttnCancel_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(54, 280);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 5;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(12, 280);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(36, 13);
-            this.lblDate.TabIndex = 6;
-            this.lblDate.Text = "Date: ";
-            // 
             // lblSearsh
             // 
             this.lblSearsh.AutoSize = true;
@@ -108,16 +94,6 @@
             this.lblSearsh.Size = new System.Drawing.Size(110, 13);
             this.lblSearsh.TabIndex = 7;
             this.lblSearsh.Text = "Searsh on RFID code";
-            // 
-            // bttnSearsh
-            // 
-            this.bttnSearsh.Location = new System.Drawing.Point(441, 32);
-            this.bttnSearsh.Name = "bttnSearsh";
-            this.bttnSearsh.Size = new System.Drawing.Size(81, 23);
-            this.bttnSearsh.TabIndex = 8;
-            this.bttnSearsh.Text = "Searsh";
-            this.bttnSearsh.UseVisualStyleBackColor = true;
-            this.bttnSearsh.Click += new System.EventHandler(this.bttnSearsh_Click);
             // 
             // bttnRefresh
             // 
@@ -129,16 +105,26 @@
             this.bttnRefresh.UseVisualStyleBackColor = true;
             this.bttnRefresh.Click += new System.EventHandler(this.bttnRefresh_Click);
             // 
+            // tmrRFIDCheck
+            // 
+            this.tmrRFIDCheck.Tick += new System.EventHandler(this.tmrRFIDCheck_Tick);
+            // 
+            // lblRFID
+            // 
+            this.lblRFID.AutoSize = true;
+            this.lblRFID.Location = new System.Drawing.Point(432, 9);
+            this.lblRFID.Name = "lblRFID";
+            this.lblRFID.Size = new System.Drawing.Size(0, 13);
+            this.lblRFID.TabIndex = 11;
+            // 
             // AccessControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 330);
+            this.Controls.Add(this.lblRFID);
             this.Controls.Add(this.bttnRefresh);
-            this.Controls.Add(this.bttnSearsh);
             this.Controls.Add(this.lblSearsh);
-            this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.bttnCancel);
             this.Controls.Add(this.bttnPresence);
             this.Controls.Add(this.BttnPayed);
@@ -158,11 +144,10 @@
         private System.Windows.Forms.Button BttnPayed;
         private System.Windows.Forms.Button bttnPresence;
         private System.Windows.Forms.Button bttnCancel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblSearsh;
-        private System.Windows.Forms.Button bttnSearsh;
         private System.Windows.Forms.Button bttnRefresh;
+        private System.Windows.Forms.Timer tmrRFIDCheck;
+        private System.Windows.Forms.Label lblRFID;
     }
 }
 

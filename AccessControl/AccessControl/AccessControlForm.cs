@@ -4,39 +4,64 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
-using Oracle.DataAccess.Types;
+using Phidgets;
+using Phidgets.Events;
 
 namespace AccessControl
 {
     public partial class AccessControlForm : Form
     {
         readonly Connection connect = new Connection();
-        readonly Select select = new Select();
+        readonly Select select = new Select();        
         readonly Update update = new Update();
-        readonly Delete delete = new Delete();
+        readonly Delete delete = new Delete();       
 
         public AccessControlForm()
-        {
+        {            
             InitializeComponent();
+            Refresh();
+            tmrRFIDCheck.Start();
+        }
+        private void bttnRefresh_Click(object sender, EventArgs e)
+        {           
+            tbRFIDSearsh.Text = "";
             Refresh();
         }
 
         public override void Refresh()
         {
             lbRFIDCodes.Items.Clear();
+            lblRFID.Text = "";
 
             try
             {
-                var locations = select.Select_reserves();
+                var reserves = select.Select_Reserves();
 
-                foreach (Dictionary<string, object> row in locations)
+                foreach (Dictionary<string, object> row in reserves)
                 {
-                    lbRFIDCodes.Items.Add("Reserve_Code: " + row["RFID_CODE"] + ". RFID_Code: " + row["USER_CODE"] + ". Name: " + row["USER_NAME"] + ". Amount of people: " + row["PERSON_AMOUNT"] + ". Paid: " + row["PAID"] + ".");
+                    string present = Convert.ToString(row["EVENT_ID"]);
+                    string paid = Convert.ToString(row["PAID"]);
+                    if (present != "")
+                    {
+                        present = "Yes";
+                    }
+                    else
+                    {
+                        present = "No";
+                    }
+                    if (paid == "1")
+                    {
+                        paid = "Yes";
+                    }
+                    else
+                    {
+                        paid = "no";
+                    }
+
+                    lbRFIDCodes.Items.Add("Reserve ID: " + row["RESERVE_CODE"] + ". RFID: " + row["RFID_CODE"] + ". Name: " + row["USER_NAME"] + ". Amount of people: " + row["PERSON_AMOUNT"] + ". " + "Paid?: " + paid + ". Present?: " + present);
                 }
             }
             catch (Exception ex)
@@ -44,72 +69,118 @@ namespace AccessControl
                 MessageBox.Show(ex.Message);
             }
         }
-        public void RefreshOnRFID(string rfidCode)
+
+        public void RefreshOnRFID(string rfid)
         {
             lbRFIDCodes.Items.Clear();
+
             try
             {
-                var locations = select.Select_reservesOnRFID(rfidCode);
+                var reserves = select.Select_ReservesOnRFID(rfid);
 
-                foreach (Dictionary<string, object> row in locations)
+                foreach (Dictionary<string, object> row in reserves)
                 {
-                    lbRFIDCodes.Items.Add("Reserve_Code: " + row["RFID_CODE"] + ". RFID_Code: " + row["USER_CODE"]+ ". Name: " + row["USER_NAME"] + ". Amount of people: " + row["PERSON_AMOUNT"] + ". Paid: " + row["PAID"] + ".");
+                    string present = Convert.ToString(row["EVENT_ID"]);
+                    string paid = Convert.ToString(row["PAID"]);
+
+                    if (present != "")
+                    {
+                        present = "Yes";
+                    }
+                    else
+                    {
+                        present = "No";
+                    }
+                    if (paid == "1")
+                    {
+                        paid = "Yes";
+                    }
+                    else
+                    {
+                        paid = "no";
+                    }
+
+                    lbRFIDCodes.Items.Add("Reserve ID: " + row["RESERVE_CODE"] + ". RFID: " + row["RFID_CODE"] + ". Name: " + row["USER_NAME"] + ". Amount of people: " + row["PERSON_AMOUNT"] + ". " + "Paid?: " + paid + ". Present?: " + present);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }        
-
-        private void bttnSearsh_Click(object sender, EventArgs e)
-        {
-            string rfidCode = tbRFIDSearsh.Text;
-            RefreshOnRFID(rfidCode);
         }
-
-        private void bttnRefresh_Click(object sender, EventArgs e)
-        {
-            tbRFIDSearsh.Text = "";
-            Refresh();
-        }
-
+        
         private void BttnPayed_Click(object sender, EventArgs e)
         {
-            string selectedReserveCode = lbRFIDCodes.SelectedItem.ToString().Substring(14, 1);
-            string selectedRFIDCode = lbRFIDCodes.SelectedItem.ToString().Substring(28, 1);
+            try
+            {            
+                string ReserveID = lbRFIDCodes.SelectedItem.ToString().Substring(12, 1);
+                string RFID = lbRFIDCodes.SelectedItem.ToString().Substring(21, 1);
 
-            string updating = update.Update_Paid(selectedReserveCode);
-            
-            MessageBox.Show(updating);
-
-            RefreshOnRFID(selectedRFIDCode);
-            tbRFIDSearsh.Text = selectedRFIDCode;
+                update.Update_Paid(ReserveID);
+                RefreshOnRFID(RFID);
+            }
+            catch
+            {
+                MessageBox.Show("No user selected");
+            }
         }
 
         private void bttnCancel_Click(object sender, EventArgs e)
         {
-            string selectedReserveCode = lbRFIDCodes.SelectedItem.ToString().Substring(14, 1);
-
-            bool location = update.Update_location(selectedReserveCode);
-            bool user = update.Update_user(selectedReserveCode);
-            bool material = update.Update_Material(selectedReserveCode);
-
-            if (location == true | user == true | material == true)
+            try
             {
-                bool removeReservation = delete.Delete_Reservation(selectedReserveCode);
-                if (removeReservation == true)
+                string ReserveID = lbRFIDCodes.SelectedItem.ToString().Substring(12, 1);
+
+                bool location = update.Update_location(ReserveID);
+                bool material = update.Update_Material(ReserveID);
+                bool user = update.Update_user(ReserveID);
+
+                if (user == true)
                 {
-                    MessageBox.Show("Reservation has been deleted from the system");
+                    delete.Delete_Reservation(ReserveID);
                 }
                 else
                 {
-                    MessageBox.Show("Failed to delete reservation");
+                    MessageBox.Show("Cancel of reservation has failed. " + ReserveID + user);
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Failed to update Foreign tables");
+                MessageBox.Show("No user selected");
+            }
+        }
+
+        private void bttnPresence_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string RFID = lbRFIDCodes.SelectedItem.ToString().Substring(21, 1);
+                bool gelukt = update.Update_CheckPresent(RFID);
+                if (gelukt == true)
+                {
+                    MessageBox.Show("User can leave/enter event");
+                    RefreshOnRFID(RFID);
+                }
+                else
+                {
+                    MessageBox.Show("Action failed");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No user selected");
+            }
+        }
+
+        private void tmrRFIDCheck_Tick(object sender, EventArgs e)
+        {
+            if (tbRFIDSearsh.TextLength == 10)
+            {
+                string RFID = tbRFIDSearsh.Text;
+                RefreshOnRFID(RFID);
+                lblRFID.Text = RFID;
+                
+                tbRFIDSearsh.Text = "";
             }
         }
     }
