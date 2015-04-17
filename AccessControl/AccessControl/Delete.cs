@@ -10,11 +10,11 @@ namespace AccessControl
     {
         Connection connect = new Connection();
 
-        public bool Delete_Reservation(string rfidCode)
+        public bool Delete_Reservation(string ReserveID)
         {
             try
-            {            
-                string query = "DELETE FROM PT_RESERVATION WHERE RFID_CODE = '" + rfidCode + "'";
+            {
+                string query = "DELETE FROM PT_RESERVATION WHERE RESERVATION_ID = '" + ReserveID + "'";
                 return true;
             }
             catch

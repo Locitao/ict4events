@@ -8,33 +8,50 @@ namespace AccessControl
 {
     class Select
     {
-        public List<Dictionary<string, object>> Select_reserves()
+        public List<Dictionary<string, object>> Select_Reserves()
         {
-            string sql = "SELECT r.RFID_CODE, u.RFID_CODE AS USER_CODE, u.USER_NAME, r.PERSON_AMOUNT, r.PAID FROM PT_USER_ACC u JOIN PT_RESERVATION r ON u.RESERVATION_ID = r.RESERVATION_ID";
+            const string sql = "SELECT r.RESERVATION_ID AS RESERVE_CODE, u.RFID_CODE, u.USER_NAME, r.PERSON_AMOUNT, r.PAID, u.EVENT_ID FROM PT_RESERVATION r JOIN PT_USER_ACC u ON r.RESERVATION_ID = u.RESERVATION_ID";
 
             var data = Connection.ExecuteQuery(sql);
             return data;
         }
 
-        public List<Dictionary<string, object>> Select_reservesOnRFID(string RFID)
+        public List<Dictionary<string, object>> Select_ReservesOnRFID(string rfid)
         {
-            string sql = "SELECT r.RFID_CODE, u.RFID_CODE AS USER_CODE, u.USER_NAME, r.PERSON_AMOUNT, r.PAID FROM PT_USER_ACC u JOIN PT_RESERVATION r ON u.RESERVATION_ID = r.RESERVATION_ID WHERE u.RFID_CODE = '" + RFID + "'";
+            string sql = "SELECT r.RESERVATION_ID AS RESERVE_CODE, u.RFID_CODE, u.USER_NAME, r.PERSON_AMOUNT, r.PAID, u.EVENT_ID FROM PT_RESERVATION r JOIN PT_USER_ACC u ON r.RESERVATION_ID = u.RESERVATION_ID WHERE u.RFID_CODE = '" + rfid + "'";
 
             var data = Connection.ExecuteQuery(sql);
             return data;
         }
 
-        public string getPaid(string RFID)
+        public string GetPaid(string rfid)
         {
-            string returnValue = "";
-            string query = "SELECT PAID FROM PT_RESERVATION WHERE RFID_CODE = '" + RFID + "'";
-            var data = Connection.ExecuteQuery(query);
+            string paid = "";
 
-            foreach (var row in data)
+            string sql = "SELECT PAID FROM PT_RESERVATION WHERE RESERVATION_ID = '" + rfid + "'";
+            var data = Connection.ExecuteQuery(sql);
+
+            foreach (Dictionary<string, object> row in data)
             {
-                returnValue = Convert.ToString(row["PAID"]);
+                paid = Convert.ToString(row["PAID"]);
             }
-            return returnValue;
+
+            return paid;
+        }
+
+        public string CheckPresent(string rfid)
+        {
+            string eventId = "";
+
+            string sql = "SELECT EVENT_ID FROM PT_USER_ACC WHERE RFID_CODE = '" + rfid + "'";
+            var data = Connection.ExecuteQuery(sql);
+
+            foreach (Dictionary<string, object> row in data)
+            {
+                eventId = Convert.ToString(row["EVENT_ID"]);
+            }
+
+            return eventId;
         }
     }
 }
