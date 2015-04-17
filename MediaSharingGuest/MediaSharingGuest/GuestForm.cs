@@ -17,6 +17,8 @@ namespace MediaSharingGuest
         NewsFeed newsfeed = new NewsFeed();
         List<string> NewsFeedMessages = new List<string>();
         Random RNG = new Random();
+
+
         int startingCategoryId = 2;
 
         Select select = new Select();
@@ -36,7 +38,6 @@ namespace MediaSharingGuest
             InitializeComponent();
             this.medias = medias;
             timerNewsFeed.Start();
-            rfidCodeUser = medias.RfidCode;
             PreviousCategoryId = 2;
 
             LoadCategories(startingCategoryId);
@@ -46,6 +47,7 @@ namespace MediaSharingGuest
 
         public void LoadNewsFeedMessages()
         {
+
             //Query that returns all newsfeedmessages plus the creator of the message.
             connection.SQLQueryWithOutput(select.GetNewsFeedMessages(), out output);
 
@@ -63,39 +65,43 @@ namespace MediaSharingGuest
             }
         }
 
-        public void LoadCategories(int categoryID)
+        public void LoadCategories(int categoryId)
         {
+            CurrentCategoryId = categoryId;
             lbFolders.Items.Clear();
+            Categories.Clear();
             
-
             //SELECT query to select the folder content from the database.
-            connection.SQLQueryWithOutput(select.GetCategories(categoryID), out output);
+            connection.SQLQueryWithOutput(select.GetCategories(categoryId), out output);
             
             //CODE TO UPDATE LISTBOX
             foreach (List<string> stringList in output)
             {
-                int categoryId = Convert.ToInt32(stringList[0]);
-                string categoryName = stringList[1];
-                int parentCategoryId = Convert.ToInt32(stringList[2]);
+                int categoryIdLoad = Convert.ToInt32(stringList[0]);
+                string categoryNameLoad = stringList[1];
+                int parentCategoryIdLoad = Convert.ToInt32(stringList[2]);
 
-                Category category = new Category(categoryName, categoryId, parentCategoryId, rfidCodeUser);
+                Category category = new Category(categoryNameLoad, categoryIdLoad, parentCategoryIdLoad, rfidCodeUser);
 
                 Categories.Add(category);
                 lbFolders.DisplayMember = "Name";
                 lbFolders.ValueMember = "CategoryId";
                 lbFolders.Items.Add(category);
+            }
 
-                if (category.ParentCategoryId == startingCategoryId)
+            if (Categories.Count > 0)
+            {
+                if (Categories[0].ParentCategoryId == startingCategoryId)
                 {
                     btnBack.Enabled = false;
                 }
-                else if (category.ParentCategoryId != startingCategoryId)
+                else if (Categories[0].ParentCategoryId != startingCategoryId)
                 {
                     btnBack.Enabled = true;
                 }
             }
-            
-        }
+
+            }
 
         public void LoadMediaItems(int categoryId)
         {
@@ -110,9 +116,9 @@ namespace MediaSharingGuest
                 string medName = stringList[0];
                 int medId = Convert.ToInt32(stringList[1]);
                 string name = stringList[2];
-                string rfid_Code = stringList[3];
+                string rfidCode = stringList[3];
 
-                Media mediaItem = new Media(medName, "", "", "", rfid_Code, medId);
+                Media mediaItem = new Media(medName, "", "", "", rfidCode, medId);
 
                 MediaItems.Add(mediaItem);
 
@@ -163,9 +169,9 @@ namespace MediaSharingGuest
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            connection.SQLQueryWithOutput(select.GetParentCategoryId(CurrentCategoryId), out output);
-
             int parentCategoryId = 0;
+
+            connection.SQLQueryWithOutput(select.GetParentCategoryId(CurrentCategoryId), out output);
 
             foreach (List<string> stringList in output)
             {
