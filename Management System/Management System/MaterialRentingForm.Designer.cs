@@ -97,6 +97,7 @@
             this.btnLendItem.TabIndex = 9;
             this.btnLendItem.Text = "Lend item";
             this.btnLendItem.UseVisualStyleBackColor = true;
+            this.btnLendItem.Click += new System.EventHandler(this.btnLendItem_Click);
             // 
             // lblStatus
             // 

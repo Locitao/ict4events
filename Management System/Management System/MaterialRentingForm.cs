@@ -81,5 +81,16 @@ namespace Management_System
             lblStatus.Text = m.Status.ToString();
         }
 
+        private void btnLendItem_Click(object sender, EventArgs e)
+        {
+            LendItemForm form = new LendItemForm((Material)lbMaterials.SelectedItem);
+            form.ShowDialog();
+            if (form.saved)
+            {
+                Material material = form.Mat;
+            }
+
+        }
+
     }
 }
