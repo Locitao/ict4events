@@ -73,5 +73,13 @@ namespace Management_System
             lbMaterials.SelectedIndex = 0;
         }
 
+        private void lbMaterials_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Material m = (Material)lbMaterials.SelectedItem;
+            lblMaterialName.Text = m.Name;
+            lblPrice.Text = m.Price.ToString();
+            lblStatus.Text = m.Status.ToString();
+        }
+
     }
 }
