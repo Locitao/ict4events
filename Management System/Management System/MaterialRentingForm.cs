@@ -16,5 +16,11 @@ namespace Management_System
         {
             InitializeComponent();
         }
+
+
+        public void RefreshMaterialList()
+        {
+
+        }
     }
 }

@@ -9,15 +9,45 @@ namespace Management_System
     class Material
     {
         public int MaterialID { get; set; }
-        public string Name { get; set; }
-        public MaterialStatus Status { get; set; }
-        public int guarantor { get; set; }
+        public int ReservationID { get; set; }
+        public string RFID_CODE { get; set; }
         public DateTime LendTime { get; set; }
         public DateTime ReturnTime { get; set; }
 
-        public Material()
+        public int MaterialCategoryID { get; set; }
+        public string Name { get; set; }
+        public MaterialStatus Status { get; set; }
+        public int Price { get; set; }
+
+        public Material(int materialID, int reservationID, string rfid_code, DateTime lendTime, DateTime returnTime, int materialCategoryID, string name, int price)
         {
-            
+            MaterialID = materialID;
+            ReservationID = reservationID;
+            RFID_CODE = rfid_code;
+            LendTime = lendTime;
+            ReturnTime = returnTime;
+            MaterialCategoryID = materialCategoryID;
+            Name = name;
+            Price = price;
+
+            if (RFID_CODE == "")
+            {
+                Status = MaterialStatus.free;
+            }
+            else if (LendTime != null)
+            {
+                Status = MaterialStatus.reserved;
+            }
+            else
+            {
+                Status = MaterialStatus.lent;
+            }
+
+        }
+
+        public override string ToString()
+        {
+            return MaterialID.ToString() + ", " + Name + ", " + Status.ToString();
         }
     }
 }
