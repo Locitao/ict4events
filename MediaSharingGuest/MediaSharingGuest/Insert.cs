@@ -27,10 +27,33 @@ namespace MediaSharingGuest
                     "INSERT INTO PT_MED_CATEGORY (CATEGORY_ID, RFID_CODE, PARENT_CATEGORY_ID) VALUES (auto_inc_med.nextval, " + "', '" + Rfidcode + "', '" + parentCategoryId + "')";
         }
 
-        public void InsertReport(int categoryId, int mediaId, int reactionId, string rfidCode, string description)
+        public void InsertReportMedia(int mediaId, string rfidCode, string description)
         {
             string query =
-                    "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval,  " + "', '" + categoryId + "', '" + mediaId + "'" + "'" + reactionId + "'" + "'" + rfidCode + "'" + description + "')";
+                    "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval, NULL, '" + mediaId + "'" + "NULL" + "'" + rfidCode + "'" + description + "')";
+        }
+
+        public void InsertReportCategory(int categoryId, string rfidCode, string description)
+        {
+            string query =
+                    "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval,  " + "', '" + categoryId + "', NULL, NULL, " + "'" + rfidCode + "'" + description + "')";
+        }
+        public void InsertReportReaction(int reactionId, string rfidCode, string description)
+        {
+            string query =
+                    "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval,  " + "', NULL, NULL" + "'" + reactionId + "'" + "'" + rfidCode + "'" + description + "')";
+        }
+
+        public void InsertLikeReaction(int reactionId, string rfidCode)
+        {
+                string query =
+                    "INSERT INTO PT_USER_LIKE (LIKE_ID, MEDIA_ID, REACTION_ID, RFID_CODE) VALUES (auto_inc_lke.nextval, " + "', NULL , '" + reactionId + "'" + "', '" + rfidCode;
+        }
+
+        public void InsertLikeMedia(int mediaId, string rfidCode)
+        {
+            string query =
+                    "INSERT INTO PT_USER_LIKE (LIKE_ID, MEDIA_ID, REACTION_ID, RFID_CODE) VALUES (auto_inc_lke.nextval, " + "', '" + mediaId + ", NULL " + "', '" + rfidCode;
         }
 
     }

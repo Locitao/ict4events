@@ -34,8 +34,10 @@ namespace MediaSharingGuest
 
         public GuestForm(MediaSharingSystem medias)
         {
-            LoadNewsFeedMessages();
             InitializeComponent();
+            lblUsername.Text = medias.Username;
+
+            LoadNewsFeedMessages();
             this.medias = medias;
             timerNewsFeed.Start();
             PreviousCategoryId = 2;
@@ -47,20 +49,17 @@ namespace MediaSharingGuest
 
         public void LoadNewsFeedMessages()
         {
+            NewsFeedMessages.Clear();
 
             //Query that returns all newsfeedmessages plus the creator of the message.
             connection.SQLQueryWithOutput(select.GetNewsFeedMessages(), out output);
 
-            NewsFeedMessages.Clear();
-
-            string newsFeedMessage ="";
+            string newsFeedMessage;
 
             foreach (List<string> stringList in output)
             {
-                foreach (string message in stringList)
-                {
-                    newsFeedMessage = message + newsFeedMessage;
-                }
+                newsFeedMessage = "";
+                newsFeedMessage = stringList[0] + ": " + stringList[1];
                 NewsFeedMessages.Add(newsFeedMessage);
             }
         }
@@ -118,7 +117,7 @@ namespace MediaSharingGuest
                 string name = stringList[2];
                 string rfidCode = stringList[3];
 
-                Media mediaItem = new Media(medName, "", "", "", rfidCode, medId);
+                Media mediaItem = new Media(medName, "", "", rfidCode, "", '0', medId);
 
                 MediaItems.Add(mediaItem);
 
@@ -183,7 +182,7 @@ namespace MediaSharingGuest
 
         private void timerNewsFeed_Tick(object sender, EventArgs e)
         {
-            int max = NewsFeedMessages.Count();
+            int max = NewsFeedMessages.Count;
 
             if (max > 0)
             {
@@ -195,11 +194,13 @@ namespace MediaSharingGuest
 
         private void lbMediaItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            object med = lbMediaItems.SelectedItem;
-            Media medd = med as Media;
+            Media medd = lbMediaItems.SelectedItem as Media;
 
-            ViewFile viewFile = new ViewFile(medias, medd.MediaId);
-            viewFile.Show();
+            if (medd != null)
+            {
+                ViewFile viewFile = new ViewFile(medias, medd.MediaId);
+                viewFile.Show();
+            }
         }
     }
 }

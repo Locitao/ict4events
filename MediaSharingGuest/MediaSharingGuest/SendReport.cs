@@ -17,32 +17,43 @@ namespace MediaSharingGuest
         public int MediaId { get; set; }
         public int CategoryId { get; set; }
         public int ReactionId { get; set; }
+        public string WhatKindOfId { get; set; }
 
         Insert insert = new Insert();
 
-        public SendReport(MediaSharingSystem medias, int mediaId, int categoryId, int reactionId)
+        public SendReport(MediaSharingSystem medias, int Id, string whatKindOfId)
         {
             InitializeComponent();
             this.medias = medias;
-            MediaId = mediaId;
-            CategoryId = categoryId;
-            ReactionId = reactionId;
+            WhatKindOfId = whatKindOfId;
+
+            if (whatKindOfId == "MediaItem")
+            {
+                MediaId = Id;
+            }
+            else if (whatKindOfId == "Category")
+            {
+                CategoryId = Id;
+            }
+            else if (whatKindOfId == "Reaction")
+            {
+                ReactionId = Id;
+            }
         }
 
         private void btnSendReport_Click(object sender, EventArgs e)
         {
-            if (MediaId != 0)
+            if (WhatKindOfId == "MediaItem")
             {
-                insert.InsertReport(CategoryId, MediaId, ReactionId, medias.RfidCode, tbDescription.Text);
+                insert.InsertReportMedia(MediaId, medias.RfidCode, lblDescription.Text);
             }
-            else if (ReactionId != 0)
+            else if (WhatKindOfId == "Category")
             {
-                insert.InsertReport(CategoryId, MediaId, ReactionId, medias.RfidCode, tbDescription.Text);
+                insert.InsertReportCategory(MediaId, medias.RfidCode, lblDescription.Text);
             }
-            else if (CategoryId!= 0)
+            else if (WhatKindOfId == "Reaction")
             {
-
-                insert.InsertReport(CategoryId, MediaId, ReactionId, medias.RfidCode, tbDescription.Text);
+                insert.InsertReportReaction(MediaId, medias.RfidCode, lblDescription.Text);
             }
         }
 

@@ -22,7 +22,7 @@ namespace MediaSharingGuest
             rbUser.Checked = true;
         }
 
-        public string Rfidcode { get; set; }
+        public string RfidCode { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
 
@@ -91,12 +91,12 @@ namespace MediaSharingGuest
             {
 
                 Username = output[0][0];
+                RfidCode = output[0][1];
 
                 if (Username != "")
                 {
                     //Query that returns the warnlv 
-                    string rfidCode = "";
-                    MediaSharingSystem ms = new MediaSharingSystem(rfidCode, Username);
+                    MediaSharingSystem ms = new MediaSharingSystem(RfidCode, Username);
                     GuestForm guestform = new GuestForm(ms);
                     this.Hide();
                     guestform.Show();
@@ -111,9 +111,6 @@ namespace MediaSharingGuest
 
         public void LogOut()
         {
-            Password = null;
-            Username = null;
-            Rfidcode = null;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

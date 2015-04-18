@@ -14,7 +14,9 @@ namespace MediaSharingGuest
         public string RfidCode { get; set; }
         public string Name { get; set; }
 
-        public int Likes { get; set; }
+        public List<Like> Likes { get; set; }
+
+        public string AllInfo { get; set; }
 
         Insert insert = new Insert();
         Select select = new Select();
@@ -37,11 +39,6 @@ namespace MediaSharingGuest
             }
         }
 
-        public void EditReaction(Reaction reaction)
-        {
-
-        }
-
         public void AddLike(Reaction reaction)
         {
             //INSERT like
@@ -50,6 +47,23 @@ namespace MediaSharingGuest
         public void DeleteLike(Reaction reaction, Guest user)
         {
             //Query to remove like
+        }
+
+        public void UpdateAllInfoProperty()
+        {
+            if (Likes.Count == 0)
+            {
+                AllInfo = Name + ":  " + Content;
+            }
+            else if (Likes.Count == 1)
+            {
+                AllInfo = Name + ":  " + Content + " -> " + Likes + " like.";
+            }
+            else if (Likes.Count > 1) 
+            {
+                AllInfo = Name + ":  " + Content + " -> " + Likes + " likes.";
+            }
+
         }
     }
 }

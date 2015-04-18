@@ -53,7 +53,7 @@ namespace MediaSharingGuest
             location = tbLocation.Text;
             string creatorRfid = medias.RfidCode;
 
-            Media newMediaItem = new Media(title, filePath, description, creatorRfid, location, uploadCategoryId);
+            Media newMediaItem = new Media(title, filePath, description, creatorRfid, location, uploadCategoryId, '0');
 
             this.Close();
         }

@@ -39,15 +39,15 @@
             this.lbFolders = new System.Windows.Forms.ListBox();
             this.lblParentFolder = new System.Windows.Forms.Label();
             this.gbFiles = new System.Windows.Forms.GroupBox();
+            this.lbMediaItems = new System.Windows.Forms.ListBox();
             this.btnAddFolder = new System.Windows.Forms.Button();
             this.btnAddFile = new System.Windows.Forms.Button();
             this.gbFolders = new System.Windows.Forms.GroupBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.btnReportCategory = new System.Windows.Forms.Button();
-            this.lbMediaItems = new System.Windows.Forms.ListBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.gbNewsfeed.SuspendLayout();
             this.gbFiles.SuspendLayout();
             this.gbFolders.SuspendLayout();
@@ -56,23 +56,26 @@
             // btnConnect
             // 
             this.btnConnect.Location = new System.Drawing.Point(0, 0);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.Size = new System.Drawing.Size(100, 28);
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
             // 
             // timerNewsFeed
             // 
-            this.timerNewsFeed.Interval = 1000;
+            this.timerNewsFeed.Interval = 3000;
             this.timerNewsFeed.Tick += new System.EventHandler(this.timerNewsFeed_Tick);
             // 
             // gbNewsfeed
             // 
             this.gbNewsfeed.Controls.Add(this.lblNewsMessage);
-            this.gbNewsfeed.Location = new System.Drawing.Point(121, 12);
+            this.gbNewsfeed.Location = new System.Drawing.Point(161, 15);
+            this.gbNewsfeed.Margin = new System.Windows.Forms.Padding(4);
             this.gbNewsfeed.Name = "gbNewsfeed";
-            this.gbNewsfeed.Size = new System.Drawing.Size(948, 135);
+            this.gbNewsfeed.Padding = new System.Windows.Forms.Padding(4);
+            this.gbNewsfeed.Size = new System.Drawing.Size(1264, 166);
             this.gbNewsfeed.TabIndex = 1;
             this.gbNewsfeed.TabStop = false;
             this.gbNewsfeed.Text = "Newsfeed";
@@ -81,33 +84,38 @@
             // 
             this.lblNewsMessage.AutoSize = true;
             this.lblNewsMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewsMessage.Location = new System.Drawing.Point(235, 49);
+            this.lblNewsMessage.Location = new System.Drawing.Point(23, 67);
+            this.lblNewsMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewsMessage.Name = "lblNewsMessage";
-            this.lblNewsMessage.Size = new System.Drawing.Size(442, 42);
+            this.lblNewsMessage.Size = new System.Drawing.Size(549, 54);
             this.lblNewsMessage.TabIndex = 0;
             this.lblNewsMessage.Text = "Jan: Newsfeed bericht!!!";
             // 
             // tbNewsFeed
             // 
-            this.tbNewsFeed.Location = new System.Drawing.Point(227, 163);
+            this.tbNewsFeed.Location = new System.Drawing.Point(303, 201);
+            this.tbNewsFeed.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNewsFeed.MaxLength = 30;
             this.tbNewsFeed.Name = "tbNewsFeed";
-            this.tbNewsFeed.Size = new System.Drawing.Size(744, 20);
+            this.tbNewsFeed.Size = new System.Drawing.Size(991, 22);
             this.tbNewsFeed.TabIndex = 2;
             // 
             // lblNewsFeedMessage
             // 
             this.lblNewsFeedMessage.AutoSize = true;
-            this.lblNewsFeedMessage.Location = new System.Drawing.Point(118, 166);
+            this.lblNewsFeedMessage.Location = new System.Drawing.Point(157, 204);
+            this.lblNewsFeedMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewsFeedMessage.Name = "lblNewsFeedMessage";
-            this.lblNewsFeedMessage.Size = new System.Drawing.Size(103, 13);
+            this.lblNewsFeedMessage.Size = new System.Drawing.Size(135, 17);
             this.lblNewsFeedMessage.TabIndex = 1;
             this.lblNewsFeedMessage.Text = "Newsfeed message:";
             // 
             // btnAddNewsFeedMessage
             // 
-            this.btnAddNewsFeedMessage.Location = new System.Drawing.Point(977, 160);
+            this.btnAddNewsFeedMessage.Location = new System.Drawing.Point(1303, 197);
+            this.btnAddNewsFeedMessage.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNewsFeedMessage.Name = "btnAddNewsFeedMessage";
-            this.btnAddNewsFeedMessage.Size = new System.Drawing.Size(92, 23);
+            this.btnAddNewsFeedMessage.Size = new System.Drawing.Size(123, 28);
             this.btnAddNewsFeedMessage.TabIndex = 3;
             this.btnAddNewsFeedMessage.Text = "Add Message";
             this.btnAddNewsFeedMessage.UseVisualStyleBackColor = true;
@@ -116,36 +124,53 @@
             // lbFolders
             // 
             this.lbFolders.FormattingEnabled = true;
-            this.lbFolders.Location = new System.Drawing.Point(9, 48);
+            this.lbFolders.ItemHeight = 16;
+            this.lbFolders.Location = new System.Drawing.Point(12, 59);
+            this.lbFolders.Margin = new System.Windows.Forms.Padding(4);
             this.lbFolders.Name = "lbFolders";
-            this.lbFolders.Size = new System.Drawing.Size(257, 407);
+            this.lbFolders.Size = new System.Drawing.Size(341, 500);
             this.lbFolders.TabIndex = 4;
             this.lbFolders.SelectedIndexChanged += new System.EventHandler(this.lbFolders_SelectedIndexChanged);
             // 
             // lblParentFolder
             // 
             this.lblParentFolder.AutoSize = true;
-            this.lblParentFolder.Location = new System.Drawing.Point(6, 27);
+            this.lblParentFolder.Location = new System.Drawing.Point(8, 33);
+            this.lblParentFolder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblParentFolder.Name = "lblParentFolder";
-            this.lblParentFolder.Size = new System.Drawing.Size(64, 13);
+            this.lblParentFolder.Size = new System.Drawing.Size(86, 17);
             this.lblParentFolder.TabIndex = 5;
             this.lblParentFolder.Text = "Parentfolder";
             // 
             // gbFiles
             // 
             this.gbFiles.Controls.Add(this.lbMediaItems);
-            this.gbFiles.Location = new System.Drawing.Point(435, 193);
+            this.gbFiles.Location = new System.Drawing.Point(580, 238);
+            this.gbFiles.Margin = new System.Windows.Forms.Padding(4);
             this.gbFiles.Name = "gbFiles";
-            this.gbFiles.Size = new System.Drawing.Size(634, 509);
+            this.gbFiles.Padding = new System.Windows.Forms.Padding(4);
+            this.gbFiles.Size = new System.Drawing.Size(845, 626);
             this.gbFiles.TabIndex = 6;
             this.gbFiles.TabStop = false;
             this.gbFiles.Text = "Files";
             // 
+            // lbMediaItems
+            // 
+            this.lbMediaItems.FormattingEnabled = true;
+            this.lbMediaItems.ItemHeight = 16;
+            this.lbMediaItems.Location = new System.Drawing.Point(8, 59);
+            this.lbMediaItems.Margin = new System.Windows.Forms.Padding(4);
+            this.lbMediaItems.Name = "lbMediaItems";
+            this.lbMediaItems.Size = new System.Drawing.Size(828, 500);
+            this.lbMediaItems.TabIndex = 10;
+            this.lbMediaItems.SelectedIndexChanged += new System.EventHandler(this.lbMediaItems_SelectedIndexChanged);
+            // 
             // btnAddFolder
             // 
-            this.btnAddFolder.Location = new System.Drawing.Point(9, 461);
+            this.btnAddFolder.Location = new System.Drawing.Point(12, 567);
+            this.btnAddFolder.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFolder.Name = "btnAddFolder";
-            this.btnAddFolder.Size = new System.Drawing.Size(127, 37);
+            this.btnAddFolder.Size = new System.Drawing.Size(169, 46);
             this.btnAddFolder.TabIndex = 7;
             this.btnAddFolder.Text = "Add Folder";
             this.btnAddFolder.UseVisualStyleBackColor = true;
@@ -153,9 +178,10 @@
             // 
             // btnAddFile
             // 
-            this.btnAddFile.Location = new System.Drawing.Point(142, 461);
+            this.btnAddFile.Location = new System.Drawing.Point(189, 567);
+            this.btnAddFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFile.Name = "btnAddFile";
-            this.btnAddFile.Size = new System.Drawing.Size(124, 37);
+            this.btnAddFile.Size = new System.Drawing.Size(165, 46);
             this.btnAddFile.TabIndex = 8;
             this.btnAddFile.Text = "Add File";
             this.btnAddFile.UseVisualStyleBackColor = true;
@@ -168,18 +194,21 @@
             this.gbFolders.Controls.Add(this.btnAddFile);
             this.gbFolders.Controls.Add(this.lbFolders);
             this.gbFolders.Controls.Add(this.btnAddFolder);
-            this.gbFolders.Location = new System.Drawing.Point(121, 193);
+            this.gbFolders.Location = new System.Drawing.Point(161, 238);
+            this.gbFolders.Margin = new System.Windows.Forms.Padding(4);
             this.gbFolders.Name = "gbFolders";
-            this.gbFolders.Size = new System.Drawing.Size(297, 509);
+            this.gbFolders.Padding = new System.Windows.Forms.Padding(4);
+            this.gbFolders.Size = new System.Drawing.Size(396, 626);
             this.gbFolders.TabIndex = 9;
             this.gbFolders.TabStop = false;
             this.gbFolders.Text = "Folders";
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(191, 22);
+            this.btnBack.Location = new System.Drawing.Point(255, 27);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(100, 28);
             this.btnBack.TabIndex = 9;
             this.btnBack.Text = "<<";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -187,9 +216,10 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(1087, 679);
+            this.btnLogOut.Location = new System.Drawing.Point(1449, 836);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(125, 23);
+            this.btnLogOut.Size = new System.Drawing.Size(167, 28);
             this.btnLogOut.TabIndex = 10;
             this.btnLogOut.Text = "Log out";
             this.btnLogOut.UseVisualStyleBackColor = true;
@@ -197,46 +227,39 @@
             // lblLoggedInAs
             // 
             this.lblLoggedInAs.AutoSize = true;
-            this.lblLoggedInAs.Location = new System.Drawing.Point(1075, 22);
+            this.lblLoggedInAs.Location = new System.Drawing.Point(1433, 26);
+            this.lblLoggedInAs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(71, 13);
+            this.lblLoggedInAs.Size = new System.Drawing.Size(94, 17);
             this.lblLoggedInAs.TabIndex = 11;
             this.lblLoggedInAs.Text = "Logged in as:";
             // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(1075, 35);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
-            this.lblName.TabIndex = 12;
-            this.lblName.Text = "Name";
-            // 
             // btnReportCategory
             // 
-            this.btnReportCategory.Location = new System.Drawing.Point(1087, 654);
+            this.btnReportCategory.Location = new System.Drawing.Point(1449, 805);
+            this.btnReportCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportCategory.Name = "btnReportCategory";
-            this.btnReportCategory.Size = new System.Drawing.Size(125, 23);
+            this.btnReportCategory.Size = new System.Drawing.Size(167, 28);
             this.btnReportCategory.TabIndex = 13;
             this.btnReportCategory.Text = "Report Category";
             this.btnReportCategory.UseVisualStyleBackColor = true;
             // 
-            // lbMediaItems
+            // lblUsername
             // 
-            this.lbMediaItems.FormattingEnabled = true;
-            this.lbMediaItems.Location = new System.Drawing.Point(6, 48);
-            this.lbMediaItems.Name = "lbMediaItems";
-            this.lbMediaItems.Size = new System.Drawing.Size(622, 407);
-            this.lbMediaItems.TabIndex = 10;
-            this.lbMediaItems.SelectedIndexChanged += new System.EventHandler(this.lbMediaItems_SelectedIndexChanged);
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(1433, 43);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(73, 17);
+            this.lblUsername.TabIndex = 14;
+            this.lblUsername.Text = "Username";
             // 
             // GuestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1254, 806);
+            this.ClientSize = new System.Drawing.Size(1672, 992);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnReportCategory);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.gbFolders);
@@ -246,6 +269,7 @@
             this.Controls.Add(this.tbNewsFeed);
             this.Controls.Add(this.gbNewsfeed);
             this.Controls.Add(this.btnConnect);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GuestForm";
             this.Text = "Mediasharing";
             this.gbNewsfeed.ResumeLayout(false);
@@ -275,10 +299,10 @@
         private System.Windows.Forms.GroupBox gbFolders;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblLoggedInAs;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnReportCategory;
         private System.Windows.Forms.ListBox lbMediaItems;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
 
