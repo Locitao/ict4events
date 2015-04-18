@@ -108,6 +108,9 @@
     <EmbeddedResource Include="EvenementManagementSystemForm.resx">
       <DependentUpon>EvenementManagementSystemForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LendItemForm.resx">
+      <DependentUpon>LendItemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MaterialRentingForm.resx">
       <DependentUpon>MaterialRentingForm.cs</DependentUpon>
     </EmbeddedResource>
