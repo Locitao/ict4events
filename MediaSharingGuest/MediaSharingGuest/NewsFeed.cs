@@ -34,7 +34,6 @@ namespace MediaSharingGuest
         public void UpdateMessages(Reaction reaction)
         {
             messages.Add(reaction);
-            //SELECT all Reactions where mediaID = 0;
         }
     }
 }

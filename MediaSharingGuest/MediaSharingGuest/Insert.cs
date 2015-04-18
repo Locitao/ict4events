@@ -15,6 +15,11 @@ namespace MediaSharingGuest
 
         }
 
+        public void AddNewsFeedMessage(string rfidCode, string content)
+        {
+            string query = 
+                "INSERT INTO PT_REACTION (REACTION_ID, MEDIA_ID, RFID_CODE, REA_CONTENT) VALUES (auto_inc_rec.nextval, " + "NULL, " + rfidCode + "' , '" + content + "')";
+        }
         public void AddReaction(int mediaId, string rfidCode, string content)
         {
             string query =

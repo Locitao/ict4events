@@ -138,6 +138,7 @@ namespace MediaSharingGuest
         private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
         {
             Reaction message = new Reaction(tbNewsFeed.Text, 0, rfidCodeUser);
+
             newsfeed.AddMessage(message);
         }
 

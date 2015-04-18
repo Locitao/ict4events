@@ -30,8 +30,10 @@ namespace MediaSharingGuest
 
             //INSERT reaction into db, RETURNS reactionID.
             List<List<string>> output = new List<List<string>>();
-            insert.AddReaction(MediaId, RfidCode, Content);
-            connection.SQLQueryWithOutput(select.SelectReactionNoReactionID(MediaId, RfidCode, Content), out output);
+            
+            //WAAR IS DIT VOOR NODIG?
+            //insert.AddReaction(MediaId, RfidCode, Content);
+            //connection.SQLQueryWithOutput(select.SelectReactionNoReactionID(MediaId, RfidCode, Content), out output);
 
             foreach (List<string> stringList in output)
             {

@@ -35,6 +35,7 @@ namespace MediaSharingGuest
             MediaId = mediaId;
             ShowStaticInformation();
             ShowDynamicInformation();
+            IsLikedMedia();
         }
 
         //METHODS-----------------------------------------------------------------------------------------------------------------------------
@@ -49,9 +50,11 @@ namespace MediaSharingGuest
             {
                 if (like.RfidCode == medias.RfidCode)
                 {
+                    btnLikeThisFile.Text = "Unlike this File!";
                     return true;
                 }
             }
+            btnLikeThisFile.Text = "Like this File!";
             return false;
         }
 
@@ -81,12 +84,6 @@ namespace MediaSharingGuest
             return true;
         }
 
-        public void DeleteLike(int reactionId, int mediaId, string rfidCode)
-        {
-            //Query that deletes the users like.
-            delete.DeleteLike(reactionId, mediaId, rfidCode);
-        }
-
         public void ShowStaticInformation()
         {
             //Queries that get all the static information on the mediafile.
@@ -108,8 +105,7 @@ namespace MediaSharingGuest
 
         public void ShowDynamicInformation()
         {
-            List<Reaction> Reactions = new List<Reaction>();
-
+            //This code updates the likes for the selected Media Item.
             connection.SQLQueryWithOutput(select.GetMediaLikes(MediaId), out output);
             {
                  foreach (List<string> stringList in output)
@@ -121,8 +117,8 @@ namespace MediaSharingGuest
                 lblLikesNumber.Text = Convert.ToString(MediaItem[0].Likes.Count);
             }
 
-            connection.SQLQueryWithOutput(select.GetAllReactionsData(MediaId), out output);
-            
+            //This code gets all reactions for the selected Media Item.
+            connection.SQLQueryWithOutput(select.GetAllReactionsData(MediaId), out output);  
             foreach (List<string> stringList in output)
             {
                 int reactionId = Convert.ToInt32(stringList[0]);
@@ -132,6 +128,7 @@ namespace MediaSharingGuest
 
                 Reaction reaction = new Reaction(content, MediaId, rfidCode);
                 reaction.Name = userName;
+                MediaItem[0].Reactions.Add(reaction);
 
                 connection.SQLQueryWithOutput(select.GetReactionLikes(reactionId), out output2);
                 {
@@ -144,6 +141,10 @@ namespace MediaSharingGuest
                         reaction.UpdateAllInfoProperty();
                     }
                 }
+            }
+
+            foreach (Reaction reaction in MediaItem[0].Reactions)
+            {
                 lbComments.DisplayMember = "AllInfo";
                 lbComments.ValueMember = "MediaId";
                 lbComments.Items.Add(reaction);
@@ -174,6 +175,7 @@ namespace MediaSharingGuest
                 MediaItem[0].Likes.Add(like);
 
                 insert.InsertLikeMedia(MediaId, medias.RfidCode);
+                btnLikeThisFile.Text = "Unlike This File!";
             }
             else
             {
@@ -185,7 +187,8 @@ namespace MediaSharingGuest
                     }
                 }
                 MediaItem[0].Likes.RemoveAt(removeIndex);
-                DeleteLike(selectedReaction.ReactionId, MediaId, medias.RfidCode);
+                connection.SQLQueryNoOutput(delete.DeleteLikeMedia(MediaId));
+                btnLikeThisFile.Text = "Like This File!";
             }
 
             ShowDynamicInformation();
@@ -207,7 +210,7 @@ namespace MediaSharingGuest
             }
             else
             {
-                delete.DeleteLike(MediaId, selectedReaction.ReactionId, medias.RfidCode);
+                connection.SQLQueryNoOutput(delete.DeleteLikeReaction(selectedReaction.ReactionId));
             }
             ShowDynamicInformation();
         }

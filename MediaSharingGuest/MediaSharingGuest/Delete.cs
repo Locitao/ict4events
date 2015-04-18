@@ -8,16 +8,16 @@ namespace MediaSharingGuest
 {
     class Delete
     {
-        public void DeleteLike(int mediaId, int reactionId, string rfidCode)
+        public string DeleteLikeMedia(int mediaId)
         {
-            if (mediaId == 0)
-            {
-                string query = "DELETE FROM PT_USER_LIKE WHERE REACTION_ID = " + "'" + reactionId + "'";
-            }
-            else if (reactionId == 0)
-            {
-                string query = "DELETE FROM PT_USER_LIKE WHERE MEDIA_ID = " + "'" + mediaId + "'";
-            }
+            string query = "DELETE FROM PT_USER_LIKE WHERE MEDIA_ID = " + "'" + mediaId + "'";
+            return query;
+        }
+
+        public string DeleteLikeReaction(int reactionId)
+        {
+            string query = "DELETE FROM PT_USER_LIKE WHERE REACTION_ID = " + "'" + reactionId + "'";
+            return query;
         }
     }
 }

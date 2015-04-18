@@ -12,11 +12,11 @@ namespace MediaSharingGuest
         public int MediaId { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }
-
         public string RfidCreator { get; set; }
         public string Location { get; set; }
         public int CategoryId { get; set; }
         public List<Like> Likes { get; set; }
+        public List<Reaction> Reactions { get; set; }
 
         Insert insert = new Insert();
         Select select = new Select();
@@ -33,6 +33,7 @@ namespace MediaSharingGuest
             CategoryId = categoryid;
             MediaId = mediaId;
             Likes = new List<Like>();
+            Reactions = new List<Reaction>();
 
             //INSERT statement to add new media item to the datab
             //insert.InsertImage(CategoryId, Name, Location, Description, RfidCreator);
