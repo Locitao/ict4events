@@ -20,7 +20,9 @@ namespace Management_System
             conn = new OracleConnection();
             string user = "dbi320839";
             string pw = "ioMMVpigPp";
-            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
+            string user2 = "dbi318946";
+            string pw2 = "VZ28qg04ly";
+            conn.ConnectionString = "User Id=" + user2 + ";Password=" + pw2 + ";Data Source=" +
                                     "//192.168.15.50:1521/fhictora" + ";";
         }
 

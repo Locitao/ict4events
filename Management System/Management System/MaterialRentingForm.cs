@@ -70,7 +70,7 @@ namespace Management_System
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
-            lbMaterials.SelectedIndex = 0;
+            //lbMaterials.SelectedIndex = 0;
         }
 
         private void lbMaterials_SelectedIndexChanged(object sender, EventArgs e)
@@ -161,7 +161,6 @@ namespace Management_System
                 }
             }
             Exception exception;
-            // UPDATE PT_MAT_CATEGORY SET MAT_NAME = 'Canon 650D', PRICE = '555' WHERE MAT_CATEGORY_ID = '2'
             string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = ' " + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
             if (connection.SQLQueryNoOutput(query, out exception))
             {
@@ -172,6 +171,31 @@ namespace Management_System
                 MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
             }
             RefreshMaterialList();
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string query = "";
+            AddCategoryForm form = new AddCategoryForm();
+            form.ShowDialog();
+            if (form.saved)
+            {
+                query = "INSERT INTO PT_MAT_CATEGORY(MAT_CATEGORY_ID, MAT_NAME, PRICE) VALUES(auto_inc_mct.nextval,'" + form.Name+ "','" + form.Price +"')";
+            }
+            Exception exception;
+            if (connection.SQLQueryNoOutput(query, out exception))
+            {
+                MessageBox.Show("Category: " + form.Name + "  is succesfully returned");
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+            }
         }
 
     }

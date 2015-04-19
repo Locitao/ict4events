@@ -71,6 +71,12 @@
     <Compile Include="AdministrationLogInForm.Designer.cs">
       <DependentUpon>AdministrationLogInForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCategoryForm.Designer.cs">
+      <DependentUpon>AddCategoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeCategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="Reservation.cs" />
     <EmbeddedResource Include="AdministrationLogInForm.resx">
       <DependentUpon>AdministrationLogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCategoryForm.resx">
+      <DependentUpon>AddCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeCategoryForm.resx">
       <DependentUpon>ChangeCategoryForm.cs</DependentUpon>

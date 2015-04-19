@@ -144,6 +144,7 @@
             this.btnAddItem.TabIndex = 11;
             this.btnAddItem.Text = "Add new item";
             this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // btnAddCategory
             // 
@@ -153,6 +154,7 @@
             this.btnAddCategory.TabIndex = 12;
             this.btnAddCategory.Text = "Add new category";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // btnReserveItem
             // 
