@@ -51,14 +51,14 @@ namespace MediaSharingGuest
         public string InsertLikeReaction(int reactionId, string rfidCode)
         {
                 string query =
-                    "INSERT INTO PT_USER_LIKE (LIKE_ID, MEDIA_ID, REACTION_ID, RFID_CODE) VALUES (auto_inc_lke.nextval, " + "', NULL , '" + reactionId + "'" + "', '" + rfidCode;
+                    "INSERT INTO PT_USER_LIKE (LIKE_ID, MEDIA_ID, REACTION_ID, RFID_CODE) VALUES (auto_inc_lke.nextval, NULL, " + "'" + reactionId +"', " +  "'" + rfidCode + "')";
                 return query;
         }
 
         public string InsertLikeMedia(int mediaId, string rfidCode)
         {
             string query =
-                    "INSERT INTO PT_USER_LIKE (LIKE_ID, MEDIA_ID, REACTION_ID, RFID_CODE) VALUES (auto_inc_lke.nextval, " + "', '" + mediaId + ", NULL " + "', '" + rfidCode;
+                    "INSERT INTO PT_USER_LIKE (LIKE_ID, MEDIA_ID, REACTION_ID, RFID_CODE) VALUES (auto_inc_lke.nextval, " + "'" + mediaId + "', NULL, " + "'" + rfidCode +"')";
             return query;
         }
 

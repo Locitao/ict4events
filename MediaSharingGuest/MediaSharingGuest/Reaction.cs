@@ -13,8 +13,8 @@ namespace MediaSharingGuest
         public int ReactionId { get; set; }
         public string RfidCode { get; set; }
         public string Name { get; set; }
-
         public List<Like> Likes { get; set; }
+        public List<Report> Reports { get; set; }
 
         public string AllInfo { get; set; }
 
@@ -28,28 +28,7 @@ namespace MediaSharingGuest
             MediaId = mediaid;
             RfidCode = rfidCode;
             Likes = new List<Like>();
-
-            //INSERT reaction into db, RETURNS reactionID.
-            //List<List<string>> output = new List<List<string>>();
-            
-            //WAAR IS DIT VOOR NODIG?
-            //insert.AddReaction(MediaId, RfidCode, Content);
-            //connection.SQLQueryWithOutput(select.SelectReactionNoReactionID(MediaId, RfidCode, Content), out output);
-
-            //foreach (List<string> stringList in output)
-           // {
-             //   MediaId = Convert.ToInt32(stringList[0]);
-           // }
-        }
-
-        public void AddLike(Reaction reaction)
-        {
-            //INSERT like
-        }
-
-        public void DeleteLike(Reaction reaction, Guest user)
-        {
-            //Query to remove like
+            Reports = new List<Report>();
         }
 
         public void UpdateAllInfoProperty()
@@ -60,13 +39,12 @@ namespace MediaSharingGuest
             }
             else if (Likes.Count == 1)
             {
-                AllInfo = Name + ":  " + Content + " -> " + Likes + " like.";
+                AllInfo = Name + ":  " + Content + " -> " + Likes.Count + " like.";
             }
             else if (Likes.Count > 1) 
             {
-                AllInfo = Name + ":  " + Content + " -> " + Likes + " likes.";
+                AllInfo = Name + ":  " + Content + " -> " + Likes.Count + " likes.";
             }
-
         }
     }
 }

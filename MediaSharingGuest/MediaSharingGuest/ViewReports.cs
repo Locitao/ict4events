@@ -31,7 +31,7 @@ namespace MediaSharingGuest
             List<List<string>> output = new List<List<string>>();
             List<Report> Reports = new List<Report>();
 
-            connection.SQLQueryWithOutput(select.GetReports(), out output);
+            connection.SQLQueryWithOutput(select.GetAllReports(), out output);
 
             foreach (List<string> stringList in output)
             {

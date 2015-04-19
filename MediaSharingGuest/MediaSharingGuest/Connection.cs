@@ -110,8 +110,9 @@ namespace MediaSharingGuest
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                System.Windows.Forms.MessageBox.Show(Convert.ToString(ex));
                 return false;
             }
             finally

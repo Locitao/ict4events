@@ -36,9 +36,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(144, 179);
+            this.btnCancel.Location = new System.Drawing.Point(192, 220);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(126, 30);
+            this.btnCancel.Size = new System.Drawing.Size(168, 37);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // btnSendReport
             // 
-            this.btnSendReport.Location = new System.Drawing.Point(12, 179);
+            this.btnSendReport.Location = new System.Drawing.Point(16, 220);
+            this.btnSendReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSendReport.Name = "btnSendReport";
-            this.btnSendReport.Size = new System.Drawing.Size(126, 30);
+            this.btnSendReport.Size = new System.Drawing.Size(168, 37);
             this.btnSendReport.TabIndex = 6;
             this.btnSendReport.Text = "Send Report";
             this.btnSendReport.UseVisualStyleBackColor = true;
@@ -57,31 +59,35 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(9, 9);
+            this.lblDescription.Location = new System.Drawing.Point(12, 11);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(63, 13);
+            this.lblDescription.Size = new System.Drawing.Size(83, 17);
             this.lblDescription.TabIndex = 5;
             this.lblDescription.Text = "Description:";
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(12, 25);
+            this.tbDescription.Location = new System.Drawing.Point(16, 31);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(258, 148);
+            this.tbDescription.Size = new System.Drawing.Size(343, 181);
             this.tbDescription.TabIndex = 4;
             // 
             // SendReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 230);
+            this.ClientSize = new System.Drawing.Size(388, 283);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSendReport);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.tbDescription);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SendReport";
-            this.Text = "SendReport";
+            this.Text = "Send a Report";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SendReport_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

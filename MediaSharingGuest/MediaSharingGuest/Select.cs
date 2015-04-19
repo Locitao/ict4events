@@ -99,7 +99,13 @@ namespace MediaSharingGuest
             return query;
         }
 
-        public string GetReports()
+        public string GetReportComment(string rfidCode, int reactionId)
+        {
+            string query = "SELECT REPORT_ID FROM PT_REPORT WHERE RFID_CODE = " + "'" + rfidCode + "' AND REACTION_ID = '" + reactionId + "'";
+            return query;
+        }
+
+        public string GetAllReports()
         {
             string query = "SELECT * FROM PT_REPORT WHERE HANDLED = '0'";
             return query;

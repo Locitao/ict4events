@@ -55,11 +55,18 @@ namespace MediaSharingGuest
             {
                 insert.InsertReportReaction(MediaId, medias.RfidCode, lblDescription.Text);
             }
+
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SendReport_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }
