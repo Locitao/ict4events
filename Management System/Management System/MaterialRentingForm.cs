@@ -70,7 +70,7 @@ namespace Management_System
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
-            //lbMaterials.SelectedIndex = 0;
+            lbMaterials.SelectedIndex = 0;
         }
 
         private void lbMaterials_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,7 +175,22 @@ namespace Management_System
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-
+            List<List<string>> output;
+            Exception exception;
+            string query = "SELECT MAT_CATEGORY_ID, MAT_NAME FROM PT_MAT_CATEGORY";
+            if (connection.SQLQueryWithOutput(query, out output, out exception))
+            {
+                AddItemForm form = new AddItemForm(output);
+                form.ShowDialog();
+                if (form.saved)
+                {
+                    string queryAddItem = "INSERT INTO PT_MATERIAL(MATERIAL_ID, MAT_CATEGORY) VALUES(auto_inc_mat.nextval, '" + form.selectedItem + "')";
+                }
+            }
+            else
+            {
+                MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
+            }
         }
 
         private void btnAddCategory_Click(object sender, EventArgs e)
