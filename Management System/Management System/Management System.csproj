@@ -103,7 +103,6 @@
     </Compile>
     <Compile Include="Location.cs" />
     <Compile Include="Camping.cs" />
-    <Compile Include="Connection.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="EventManagementSystemForm.cs">
       <SubType>Form</SubType>
@@ -112,7 +111,6 @@
       <DependentUpon>EventManagementSystemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Event.cs" />
-    <Compile Include="Guest.cs" />
     <Compile Include="LocationType.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="MaterialRentingForm.cs">
@@ -125,7 +123,6 @@
     <Compile Include="MaterialStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reservation.cs" />
     <EmbeddedResource Include="AddItemForm.resx">
       <DependentUpon>AddItemForm.cs</DependentUpon>
     </EmbeddedResource>
