@@ -151,5 +151,11 @@ namespace MediaSharingGuest
             string query = "SELECT REA_CONTENT FROM PT_REACTION WHERE REACTION_ID = " + "'" + reactionId + "'";
             return query;
         }
+
+        public string SearchCategories(string categoryName)
+        {
+            string query = "SELECT CATEGORY_ID, CATEGORY_NAME FROM PT_MED_CATEGORY WHERE CATEGORY_NAME LIKE '%" + categoryName + "%'";
+            return query;
+        }
     }
 }

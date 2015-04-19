@@ -200,5 +200,28 @@ namespace MediaSharingGuest
                 viewFile.Show();
             }
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            LoadCategories(startingCategoryId);
+        }
+
+        private void btnSearchCategory_Click(object sender, EventArgs e)
+        {
+            List<Category>foundCategories = new List<Category>();
+            connection.SQLQueryWithOutput(select.SearchCategories(tbSearch.Text), out output);
+
+            foreach (List<string> stringList in output)
+            {
+                string categoryName = stringList[0];
+                int categoryId = Convert.ToInt32(stringList[1]);
+
+                Category category = new Category(categoryName, categoryId, 0, "");
+                foundCategories.Add(category);
+            }
+
+            SearchWindow searchWindow = new SearchWindow(foundCategories, "Category");
+            searchWindow.Show();
+        }
     }
 }
