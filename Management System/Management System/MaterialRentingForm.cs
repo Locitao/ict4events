@@ -132,5 +132,86 @@ namespace Management_System
             RefreshMaterialList();
         }
 
+        private void btnReturnItem_Click(object sender, EventArgs e)
+        {
+            Material material = (Material)lbMaterials.SelectedItem;
+            Exception exception;
+            string query = "UPDATE PT_MATERIAL SET RFID_CODE = null, DATE_TAKEN = null, RETURN_DATE = null WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+            if (connection.SQLQueryNoOutput(query, out exception))
+            {
+                MessageBox.Show("Item: " + material.Name + "  is succesfully returned");
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+            }
+            RefreshMaterialList();
+        }
+
+        private void btnChangeCategory_Click(object sender, EventArgs e)
+        {
+            Material material = null;
+            if (lbMaterials.SelectedItem != null)
+            {
+                ChangeCategoryForm form = new ChangeCategoryForm((Material)lbMaterials.SelectedItem);
+                form.ShowDialog();
+                if (form.saved)
+                {
+                    material = form.Mat;
+                }
+            }
+            Exception exception;
+            string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = ' " + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
+            if (connection.SQLQueryNoOutput(query, out exception))
+            {
+                MessageBox.Show("Item: " + material.Name + "  is succesfully returned");
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+            }
+            RefreshMaterialList();
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            List<List<string>> output;
+            Exception exception;
+            string query = "SELECT MAT_CATEGORY_ID, MAT_NAME FROM PT_MAT_CATEGORY";
+            if (connection.SQLQueryWithOutput(query, out output, out exception))
+            {
+                AddItemForm form = new AddItemForm(output);
+                form.ShowDialog();
+                if (form.saved)
+                {
+                    string queryAddItem = "INSERT INTO PT_MATERIAL(MATERIAL_ID, MAT_CATEGORY) VALUES(auto_inc_mat.nextval, '" + form.selectedItem + "')";
+                }
+            }
+            else
+            {
+                MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
+            }
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string query = "";
+            AddCategoryForm form = new AddCategoryForm();
+            form.ShowDialog();
+            if (form.saved)
+            {
+                query = "INSERT INTO PT_MAT_CATEGORY(MAT_CATEGORY_ID, MAT_NAME, PRICE) VALUES(auto_inc_mct.nextval,'" + form.Name+ "','" + form.Price +"')";
+            }
+            Exception exception;
+            if (connection.SQLQueryNoOutput(query, out exception))
+            {
+                MessageBox.Show("Category: " + form.Name + "  is succesfully returned");
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+            }
+        }
+
     }
 }

@@ -41,7 +41,7 @@
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.btnReserveItem = new System.Windows.Forms.Button();
-            this.btnChangeItem = new System.Windows.Forms.Button();
+            this.btnChangeCategory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbMaterials
@@ -134,6 +134,7 @@
             this.btnReturnItem.TabIndex = 10;
             this.btnReturnItem.Text = "Return item";
             this.btnReturnItem.UseVisualStyleBackColor = true;
+            this.btnReturnItem.Click += new System.EventHandler(this.btnReturnItem_Click);
             // 
             // btnAddItem
             // 
@@ -143,6 +144,7 @@
             this.btnAddItem.TabIndex = 11;
             this.btnAddItem.Text = "Add new item";
             this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // btnAddCategory
             // 
@@ -152,6 +154,7 @@
             this.btnAddCategory.TabIndex = 12;
             this.btnAddCategory.Text = "Add new category";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // btnReserveItem
             // 
@@ -163,21 +166,22 @@
             this.btnReserveItem.UseVisualStyleBackColor = true;
             this.btnReserveItem.Click += new System.EventHandler(this.btnReserveItem_Click);
             // 
-            // btnChangeItem
+            // btnChangeCategory
             // 
-            this.btnChangeItem.Location = new System.Drawing.Point(226, 158);
-            this.btnChangeItem.Name = "btnChangeItem";
-            this.btnChangeItem.Size = new System.Drawing.Size(143, 23);
-            this.btnChangeItem.TabIndex = 14;
-            this.btnChangeItem.Text = "Change Item";
-            this.btnChangeItem.UseVisualStyleBackColor = true;
+            this.btnChangeCategory.Location = new System.Drawing.Point(226, 158);
+            this.btnChangeCategory.Name = "btnChangeCategory";
+            this.btnChangeCategory.Size = new System.Drawing.Size(143, 23);
+            this.btnChangeCategory.TabIndex = 14;
+            this.btnChangeCategory.Text = "Change Category";
+            this.btnChangeCategory.UseVisualStyleBackColor = true;
+            this.btnChangeCategory.Click += new System.EventHandler(this.btnChangeCategory_Click);
             // 
             // MaterialRentingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 380);
-            this.Controls.Add(this.btnChangeItem);
+            this.Controls.Add(this.btnChangeCategory);
             this.Controls.Add(this.btnReserveItem);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.btnAddItem);
@@ -213,6 +217,6 @@
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Button btnReserveItem;
-        private System.Windows.Forms.Button btnChangeItem;
+        private System.Windows.Forms.Button btnChangeCategory;
     }
 }

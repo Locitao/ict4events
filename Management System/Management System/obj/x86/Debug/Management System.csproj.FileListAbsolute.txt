@@ -14,3 +14,5 @@ C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Management System\Manageme
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.MaterialRentingForm.resources
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.LendItemForm.resources
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ReserveItemForm.resources
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ChangeCategoryForm.resources
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.AddCategoryForm.resources
