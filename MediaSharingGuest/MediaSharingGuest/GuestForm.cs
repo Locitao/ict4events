@@ -46,7 +46,6 @@ namespace MediaSharingGuest
             LoadMediaItems(startingCategoryId);
         }
 
-
         public void LoadNewsFeedMessages()
         {
             NewsFeedMessages.Clear();
@@ -118,8 +117,6 @@ namespace MediaSharingGuest
                 string rfidCode = stringList[3];
 
                 Media mediaItem = new Media(medName, "", "", rfidCode, "", '0', medId);
-
-                MediaItems.Add(mediaItem);
 
                 MediaItems.Add(mediaItem);
                 lbMediaItems.DisplayMember = "Name";

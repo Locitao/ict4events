@@ -18,10 +18,6 @@ namespace MediaSharingGuest
             RfidCode = rfidcode;
             ReactionID = reactionid;
             MediaID = mediaid;
-
-            //INSERT to add LIKE to database, RETURNS LIKE ID
-
-            LikeID = 0;
         }
 
         public void RemoveLike(int Likeid)

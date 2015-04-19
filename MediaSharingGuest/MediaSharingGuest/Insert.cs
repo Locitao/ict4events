@@ -12,7 +12,6 @@ namespace MediaSharingGuest
         {
             string query =
                     "INSERT INTO PT_MEDIA (MEDIA_ID, RFID_CODE, CATEGORY_ID, MED_NAME, MED_LOCATION, MED_DESCRIPTION) VALUES (auto_inc_med.nextval," + "', '" + rfidCode + "', '" + categoryID + "' , '" + medName + "' , '" + medLocation + "' , '" + medDescription + "')";
-
         }
 
         public void AddNewsFeedMessage(string rfidCode, string content)
@@ -49,16 +48,18 @@ namespace MediaSharingGuest
                     "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval,  " + "', NULL, NULL" + "'" + reactionId + "'" + "'" + rfidCode + "'" + description + "')";
         }
 
-        public void InsertLikeReaction(int reactionId, string rfidCode)
+        public string InsertLikeReaction(int reactionId, string rfidCode)
         {
                 string query =
                     "INSERT INTO PT_USER_LIKE (LIKE_ID, MEDIA_ID, REACTION_ID, RFID_CODE) VALUES (auto_inc_lke.nextval, " + "', NULL , '" + reactionId + "'" + "', '" + rfidCode;
+                return query;
         }
 
-        public void InsertLikeMedia(int mediaId, string rfidCode)
+        public string InsertLikeMedia(int mediaId, string rfidCode)
         {
             string query =
                     "INSERT INTO PT_USER_LIKE (LIKE_ID, MEDIA_ID, REACTION_ID, RFID_CODE) VALUES (auto_inc_lke.nextval, " + "', '" + mediaId + ", NULL " + "', '" + rfidCode;
+            return query;
         }
 
     }

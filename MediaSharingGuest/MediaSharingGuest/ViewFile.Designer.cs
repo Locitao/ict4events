@@ -54,7 +54,7 @@
             // btnReportFile
             // 
             this.btnReportFile.Location = new System.Drawing.Point(448, 880);
-            this.btnReportFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReportFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportFile.Name = "btnReportFile";
             this.btnReportFile.Size = new System.Drawing.Size(155, 49);
             this.btnReportFile.TabIndex = 27;
@@ -64,9 +64,8 @@
             // 
             // btnReportComment
             // 
-            this.btnReportComment.Enabled = false;
             this.btnReportComment.Location = new System.Drawing.Point(883, 880);
-            this.btnReportComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReportComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportComment.Name = "btnReportComment";
             this.btnReportComment.Size = new System.Drawing.Size(195, 49);
             this.btnReportComment.TabIndex = 26;
@@ -76,9 +75,8 @@
             // 
             // btnLikeComment
             // 
-            this.btnLikeComment.Enabled = false;
             this.btnLikeComment.Location = new System.Drawing.Point(625, 880);
-            this.btnLikeComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLikeComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnLikeComment.Name = "btnLikeComment";
             this.btnLikeComment.Size = new System.Drawing.Size(195, 49);
             this.btnLikeComment.TabIndex = 25;
@@ -89,7 +87,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(179, 880);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(155, 49);
             this.btnCancel.TabIndex = 24;
@@ -100,7 +98,7 @@
             // btnAddComment
             // 
             this.btnAddComment.Location = new System.Drawing.Point(16, 880);
-            this.btnAddComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddComment.Name = "btnAddComment";
             this.btnAddComment.Size = new System.Drawing.Size(155, 49);
             this.btnAddComment.TabIndex = 23;
@@ -111,7 +109,7 @@
             // btnLikeThisFile
             // 
             this.btnLikeThisFile.Location = new System.Drawing.Point(503, 684);
-            this.btnLikeThisFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLikeThisFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnLikeThisFile.Name = "btnLikeThisFile";
             this.btnLikeThisFile.Size = new System.Drawing.Size(100, 64);
             this.btnLikeThisFile.TabIndex = 22;
@@ -142,7 +140,7 @@
             // tbYourComment
             // 
             this.tbYourComment.Location = new System.Drawing.Point(16, 756);
-            this.tbYourComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbYourComment.Margin = new System.Windows.Forms.Padding(4);
             this.tbYourComment.Multiline = true;
             this.tbYourComment.Name = "tbYourComment";
             this.tbYourComment.Size = new System.Drawing.Size(585, 116);
@@ -161,7 +159,7 @@
             // tbDescription
             // 
             this.tbDescription.Location = new System.Drawing.Point(16, 532);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
@@ -183,7 +181,7 @@
             // pbImage
             // 
             this.pbImage.Location = new System.Drawing.Point(16, 118);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(591, 406);
             this.pbImage.TabIndex = 14;
@@ -194,7 +192,7 @@
             this.lbComments.FormattingEnabled = true;
             this.lbComments.ItemHeight = 16;
             this.lbComments.Location = new System.Drawing.Point(625, 121);
-            this.lbComments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbComments.Margin = new System.Windows.Forms.Padding(4);
             this.lbComments.Name = "lbComments";
             this.lbComments.Size = new System.Drawing.Size(451, 756);
             this.lbComments.TabIndex = 28;
@@ -243,7 +241,7 @@
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(9, 47);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(101, 49);
             this.btnBack.TabIndex = 33;
@@ -286,7 +284,7 @@
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pbImage);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewFile";
             this.Text = "ViewFile";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
