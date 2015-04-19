@@ -161,6 +161,7 @@
             this.btnReserveItem.TabIndex = 13;
             this.btnReserveItem.Text = "Reserve item";
             this.btnReserveItem.UseVisualStyleBackColor = true;
+            this.btnReserveItem.Click += new System.EventHandler(this.btnReserveItem_Click);
             // 
             // btnChangeItem
             // 

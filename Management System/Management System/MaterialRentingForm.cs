@@ -83,13 +83,53 @@ namespace Management_System
 
         private void btnLendItem_Click(object sender, EventArgs e)
         {
-            LendItemForm form = new LendItemForm((Material)lbMaterials.SelectedItem);
-            form.ShowDialog();
-            if (form.saved)
+            Material material = null;
+            if (lbMaterials.SelectedItem != null)
             {
-                Material material = form.Mat;
+                LendItemForm form = new LendItemForm((Material)lbMaterials.SelectedItem);
+                form.ShowDialog();
+                if (form.saved)
+                {
+                    material = form.Mat;
+                }
             }
+            Exception exception;
+            string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+            if (connection.SQLQueryNoOutput(query, out exception))
+            {
+                MessageBox.Show("Item" + material.Name + "is succesfully lend out to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine +"until: " + material.ReturnTime.ToString());
+            }
+            else
+            {
+                 MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+            }
+            RefreshMaterialList();
 
+        }
+
+        private void btnReserveItem_Click(object sender, EventArgs e)
+        {
+            Material material = null;
+            if (lbMaterials.SelectedItem != null)
+            {
+                ReserveItemForm form = new ReserveItemForm((Material)lbMaterials.SelectedItem);
+                form.ShowDialog();
+                if (form.saved)
+                {
+                    material = form.Mat;
+                }
+            }
+            Exception exception;
+            string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+            if (connection.SQLQueryNoOutput(query, out exception))
+            {
+                MessageBox.Show("Item: " + material.Name + "  is succesfully reserved to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine + "from: " + material.LendTime.ToString() + Environment.NewLine + "until: " + material.ReturnTime.ToString());
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+            }
+            RefreshMaterialList();
         }
 
     }

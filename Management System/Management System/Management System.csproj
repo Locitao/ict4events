@@ -71,6 +71,12 @@
     <Compile Include="AdministrationLogInForm.Designer.cs">
       <DependentUpon>AdministrationLogInForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReserveItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReserveItemForm.Designer.cs">
+      <DependentUpon>ReserveItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LendItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EvenementManagementSystemForm.resx">
       <DependentUpon>EvenementManagementSystemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReserveItemForm.resx">
+      <DependentUpon>ReserveItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LendItemForm.resx">
       <DependentUpon>LendItemForm.cs</DependentUpon>
