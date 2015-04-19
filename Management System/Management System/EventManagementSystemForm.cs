@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Management_System
 {
-    public partial class EvenementManagementSystemForm : Form
+    public partial class EventManagementSystemForm : Form
     {
         private DatabaseConnection connection = new DatabaseConnection();
         private List<Camping> campingList = new List<Camping>();
         private List<Location> locationList = new List<Location>();
         private List<Event> eventList = new List<Event>();
 
-        public EvenementManagementSystemForm()
+        public EventManagementSystemForm()
         {
             InitializeComponent();
             refreshCampingsData();

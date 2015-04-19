@@ -105,11 +105,11 @@
     <Compile Include="Camping.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="DatabaseConnection.cs" />
-    <Compile Include="EvenementManagementSystemForm.cs">
+    <Compile Include="EventManagementSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EvenementManagementSystemForm.Designer.cs">
-      <DependentUpon>EvenementManagementSystemForm.cs</DependentUpon>
+    <Compile Include="EventManagementSystemForm.Designer.cs">
+      <DependentUpon>EventManagementSystemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Event.cs" />
     <Compile Include="Guest.cs" />
@@ -138,8 +138,8 @@
     <EmbeddedResource Include="ChangeCategoryForm.resx">
       <DependentUpon>ChangeCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EvenementManagementSystemForm.resx">
-      <DependentUpon>EvenementManagementSystemForm.cs</DependentUpon>
+    <EmbeddedResource Include="EventManagementSystemForm.resx">
+      <DependentUpon>EventManagementSystemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReserveItemForm.resx">
       <DependentUpon>ReserveItemForm.cs</DependentUpon>

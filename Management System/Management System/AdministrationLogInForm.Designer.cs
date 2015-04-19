@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnConnect = new System.Windows.Forms.Button();
             this.tbame = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLoginToManagementSystem = new System.Windows.Forms.Button();
@@ -36,16 +35,6 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnLogInMaterialRenting = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnConnect
-            // 
-            this.btnConnect.Location = new System.Drawing.Point(12, 12);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
-            this.btnConnect.TabIndex = 0;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // tbame
             // 
@@ -99,7 +88,7 @@
             this.btnLogInMaterialRenting.UseVisualStyleBackColor = true;
             this.btnLogInMaterialRenting.Click += new System.EventHandler(this.btnLogInMaterialRenting_Click);
             // 
-            // Form1
+            // AdministrationLogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,8 +99,7 @@
             this.Controls.Add(this.btnLoginToManagementSystem);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbame);
-            this.Controls.Add(this.btnConnect);
-            this.Name = "Form1";
+            this.Name = "AdministrationLogInForm";
             this.Text = "Administration";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -120,7 +108,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.TextBox tbame;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLoginToManagementSystem;

@@ -17,8 +17,7 @@ namespace Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new AdministrationLogInForm());
-            Application.Run(new EvenementManagementSystemForm());
-            Application.Run(new MaterialRentingForm());
+            Application.Run(new AdministrationLogInForm());
         }
     }
 }
