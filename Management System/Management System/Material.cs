@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Management_System
 {
-    class Material
+    public class Material
+
     {
         public int MaterialID { get; set; }
         public int ReservationID { get; set; }

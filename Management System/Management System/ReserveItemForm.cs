@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Management_System
 {
-    public partial class LendItemForm : Form
+    public partial class ReserveItemForm : Form
     {
         public bool saved;
         public Material Mat;
-        public LendItemForm(Material material)
+        public ReserveItemForm(Material material)
         {
 
             InitializeComponent();
@@ -27,14 +27,20 @@ namespace Management_System
 
         private void btnLendItem_Click(object sender, EventArgs e)
         {
-            if (dateTimePickerReturnDate.Value > DateTime.Now)
+            if (dateTimePickerReturnDate.Value >= dateTimePickerLendDate.Value
+                && dateTimePickerLendDate.Value >= DateTime.Now)
             {
-                Mat.LendTime = DateTime.Now;
+                Mat.LendTime = dateTimePickerLendDate.Value;
                 Mat.ReturnTime = dateTimePickerReturnDate.Value;
                 Mat.RFID_CODE = tbRFIDCode.Text;
+                saved = true;
+                this.Close();
             }
-            saved = true;
-            this.Close();
+            else 
+            {
+                MessageBox.Show("Input wasnt correct. Please fill in correct info and try again.");
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

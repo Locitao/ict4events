@@ -92,16 +92,13 @@ namespace Management_System
             Camping selectedCamping = (Camping)lbCampings.SelectedItem;
             List<List<string>> output;
             Exception exception;
-            if (connection.SQLQueryWithOutput("SELECT event_id, camping_id, event_name, event_descr, startdate, enddate FROM PT_EVENT WHERE camping_id = '" + selectedCamping.CampingID.ToString() + "' ORDER BY event_id", out output, out exception))
+            if (connection.SQLQueryWithOutput("SELECT event_id, camping_id, event_name, event_descr, startdate, enddate FROM PT_EVENT WHERE camping_id = '" + selectedCamping.CampingID.ToString() + "'", out output, out exception))
             {
                 foreach (List<string> list in output)
                 {
-
-                    Event tempEvent = new Event(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), list[2], list[3], Convert.ToDateTime(list[4]), Convert.ToDateTime(list[5]));
+                    Event tempEvent = new Event(Convert.ToInt32(list[1]), Convert.ToInt32(list[0]), list[2], list[3], Convert.ToDateTime(list[4]), Convert.ToDateTime(list[5]));
                     eventList.Add(tempEvent);
                     lbEvents.Items.Add(tempEvent);
-
-
                 }
             }
             else

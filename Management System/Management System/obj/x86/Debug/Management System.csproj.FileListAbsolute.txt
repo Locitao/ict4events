@@ -12,3 +12,5 @@ C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Management System\Manageme
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.exe
 C:\Users\Bart van Keersop\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.pdb
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.MaterialRentingForm.resources
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.LendItemForm.resources
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ReserveItemForm.resources
