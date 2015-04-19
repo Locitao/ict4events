@@ -208,20 +208,53 @@ namespace MediaSharingGuest
 
         private void btnSearchCategory_Click(object sender, EventArgs e)
         {
-            List<Category>foundCategories = new List<Category>();
+
+            List<Category> foundCategories = new List<Category>();
+            List<Media> foundMediaItems = new List<Media>();
             connection.SQLQueryWithOutput(select.SearchCategories(tbSearch.Text), out output);
 
-            foreach (List<string> stringList in output)
+            if (output.Count == 0)
             {
-                string categoryName = stringList[0];
-                int categoryId = Convert.ToInt32(stringList[1]);
-
-                Category category = new Category(categoryName, categoryId, 0, "");
-                foundCategories.Add(category);
+                MessageBox.Show("No matching results.");
             }
+            else
+            {
+                foreach (List<string> stringList in output)
+                {
+                    int categoryId = Convert.ToInt32(stringList[0]);
+                    string categoryName = stringList[1];
 
-            SearchWindow searchWindow = new SearchWindow(foundCategories, "Category");
-            searchWindow.Show();
+                    Category category = new Category(categoryName, categoryId, 0, "");
+                    foundCategories.Add(category);
+                }
+                SearchWindow searchWindow = new SearchWindow(medias, foundCategories, "Category", foundMediaItems);
+                searchWindow.Show();
+            }
+        }
+
+        private void btnSearchMedia_Click(object sender, EventArgs e)
+        {
+            List<Category> foundCategories = new List<Category>();
+            List<Media> foundMediaItems = new List<Media>();
+            connection.SQLQueryWithOutput(select.SearchMediaItems(tbSearch.Text), out output);
+
+            if (output.Count == 0)
+            {
+                MessageBox.Show("No matching results.");
+            }
+            else
+            {
+                foreach (List<string> stringList in output)
+                {
+                    int mediaId = Convert.ToInt32(stringList[0]);
+                    string mediaName = stringList[1];
+
+                    Media media = new Media(mediaName, "", "", medias.RfidCode, "", 0, mediaId);
+                    foundMediaItems.Add(media);
+                }
+                SearchWindow searchWindow = new SearchWindow(medias, foundCategories, "Media", foundMediaItems);
+                searchWindow.Show();
+            }
         }
     }
 }

@@ -47,7 +47,6 @@
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnReportCategory = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -139,8 +138,11 @@
             // 
             // gbFiles
             // 
-            this.gbFiles.Controls.Add(this.btnSearch);
+            this.gbFiles.Controls.Add(this.btnSearchMedia);
+            this.gbFiles.Controls.Add(this.btnSearchCategory);
             this.gbFiles.Controls.Add(this.lbMediaItems);
+            this.gbFiles.Controls.Add(this.tbSearch);
+            this.gbFiles.Controls.Add(this.lblSearch);
             this.gbFiles.Controls.Add(this.btnReportCategory);
             this.gbFiles.Controls.Add(this.btnLogOut);
             this.gbFiles.Location = new System.Drawing.Point(432, 236);
@@ -252,16 +254,6 @@
             this.lblUsername.TabIndex = 14;
             this.lblUsername.Text = "Username";
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(325, 567);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(167, 46);
-            this.btnSearch.TabIndex = 14;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // btnStart
             // 
             this.btnStart.Location = new System.Drawing.Point(142, 27);
@@ -275,7 +267,7 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(500, 869);
+            this.tbSearch.Location = new System.Drawing.Point(68, 33);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(443, 22);
             this.tbSearch.TabIndex = 15;
@@ -283,7 +275,7 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(437, 869);
+            this.lblSearch.Location = new System.Drawing.Point(7, 38);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(57, 17);
             this.lblSearch.TabIndex = 16;
@@ -291,9 +283,9 @@
             // 
             // btnSearchCategory
             // 
-            this.btnSearchCategory.Location = new System.Drawing.Point(500, 897);
+            this.btnSearchCategory.Location = new System.Drawing.Point(517, 22);
             this.btnSearchCategory.Name = "btnSearchCategory";
-            this.btnSearchCategory.Size = new System.Drawing.Size(171, 35);
+            this.btnSearchCategory.Size = new System.Drawing.Size(132, 35);
             this.btnSearchCategory.TabIndex = 17;
             this.btnSearchCategory.Text = "Search Category";
             this.btnSearchCategory.UseVisualStyleBackColor = true;
@@ -301,22 +293,19 @@
             // 
             // btnSearchMedia
             // 
-            this.btnSearchMedia.Location = new System.Drawing.Point(677, 897);
+            this.btnSearchMedia.Location = new System.Drawing.Point(655, 22);
             this.btnSearchMedia.Name = "btnSearchMedia";
-            this.btnSearchMedia.Size = new System.Drawing.Size(171, 35);
+            this.btnSearchMedia.Size = new System.Drawing.Size(132, 35);
             this.btnSearchMedia.TabIndex = 19;
-            this.btnSearchMedia.Text = "Search Media Item";
+            this.btnSearchMedia.Text = "Search Media";
             this.btnSearchMedia.UseVisualStyleBackColor = true;
+            this.btnSearchMedia.Click += new System.EventHandler(this.btnSearchMedia_Click);
             // 
             // GuestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 967);
-            this.Controls.Add(this.btnSearchMedia);
-            this.Controls.Add(this.btnSearchCategory);
-            this.Controls.Add(this.lblSearch);
-            this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.gbFolders);
@@ -331,6 +320,7 @@
             this.gbNewsfeed.ResumeLayout(false);
             this.gbNewsfeed.PerformLayout();
             this.gbFiles.ResumeLayout(false);
+            this.gbFiles.PerformLayout();
             this.gbFolders.ResumeLayout(false);
             this.gbFolders.PerformLayout();
             this.ResumeLayout(false);
@@ -358,7 +348,6 @@
         private System.Windows.Forms.Button btnReportCategory;
         private System.Windows.Forms.ListBox lbMediaItems;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label lblSearch;

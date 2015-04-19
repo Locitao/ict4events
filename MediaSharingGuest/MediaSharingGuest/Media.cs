@@ -35,19 +35,7 @@ namespace MediaSharingGuest
             MediaId = mediaId;
             Likes = new List<Like>();
             Reactions = new List<Reaction>();
-
-            //INSERT statement to add new media item to the datab
-            //insert.InsertImage(CategoryId, Name, Location, Description, RfidCreator);
-
-            //SELECT statement to return the mediaID of the item. //RELOAD ALL MEDIAITEM SO NO ID IS NEEDED?
-
-            //CODE that sets the mediaId.
+            Reports = new List<Report>();
         }
-
-        public void DeleteReaction()
-        {
-            //REMOVE statement to remove a reaction. (Only works if user placed the message himself).
-        }
-
     }
 }

@@ -63,3 +63,4 @@ C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\ob
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.pdb
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.ReportData.resources
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.EditCategoryName.resources
+C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.SearchWindow.resources

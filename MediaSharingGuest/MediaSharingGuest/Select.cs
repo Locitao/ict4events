@@ -157,5 +157,11 @@ namespace MediaSharingGuest
             string query = "SELECT CATEGORY_ID, CATEGORY_NAME FROM PT_MED_CATEGORY WHERE CATEGORY_NAME LIKE '%" + categoryName + "%'";
             return query;
         }
+
+        public string SearchMediaItems(string mediaName)
+        {
+            string query = "SELECT MEDIA_ID, MED_NAME FROM PT_MEDIA WHERE MED_NAME LIKE '%" + mediaName+ "%'";
+            return query;
+        }
     }
 }

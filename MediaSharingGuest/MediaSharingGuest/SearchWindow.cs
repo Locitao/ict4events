@@ -13,12 +13,20 @@ namespace MediaSharingGuest
     public partial class SearchWindow : Form
     {
         List<Category> foundCategories;
+        List<Media> foundMediaItems;
         string type = "";
+        Category selectedCategory;
+        Media selectedMedia;
+        MediaSharingSystem medias;
 
-        public SearchWindow(List<Category> foundCategories, string type)
+        public SearchWindow(MediaSharingSystem medias, List<Category> foundCategories, string type, List<Media> foundMediaItems)
         {
             InitializeComponent();
             this.foundCategories = foundCategories;
+            this.foundMediaItems = foundMediaItems;
+            this.type = type;
+            this.medias = medias;
+            ShowStaticInformation();
         }
 
         public void ShowStaticInformation()
@@ -35,18 +43,38 @@ namespace MediaSharingGuest
 
             else if (type == "Media")
             {
+                foreach (Media media in foundMediaItems)
+                {
+                    lbResults.ValueMember = "MediaId";
+                    lbResults.DisplayMember = "Name";
+                    lbResults.Items.Add(media);
+                }
 
             }
         }
 
         private void lblOpen_Click(object sender, EventArgs e)
         {
-      
+            if (type == "Category")
+            {
+                //code
+            }
+            else if (type == "Media")
+            {
+                //code
+            }
         }
 
         private void lbResults_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (type == "Category")
+            {
+                selectedCategory = lbResults.SelectedItem as Category;
+            }
+            else if (type == "Media")
+            {
+                selectedMedia = lbResults.SelectedItem as Media;
+            }
         }
     }
 }
