@@ -12,9 +12,35 @@ namespace Management_System
 {
     public partial class ChangeCategoryForm : Form
     {
-        public ChangeCategoryForm()
+        public Material Mat { get; set; }
+        public bool saved;
+        public ChangeCategoryForm(Material material)
         {
             InitializeComponent();
+            tbName.Text = material.Name;
+            nudPrice.Value = material.Price;
+            Mat = material;
+            saved = false;
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            if (tbName.Text != "")
+            {
+                Mat.Name = tbName.Text;
+                Mat.Price = Convert.ToInt32(nudPrice.Value);
+                saved = true;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("the name can't be empty");
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

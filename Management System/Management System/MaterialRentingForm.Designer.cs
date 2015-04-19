@@ -172,6 +172,7 @@
             this.btnChangeCategory.TabIndex = 14;
             this.btnChangeCategory.Text = "Change Category";
             this.btnChangeCategory.UseVisualStyleBackColor = true;
+            this.btnChangeCategory.Click += new System.EventHandler(this.btnChangeCategory_Click);
             // 
             // MaterialRentingForm
             // 

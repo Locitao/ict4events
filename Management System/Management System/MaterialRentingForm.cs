@@ -148,5 +148,31 @@ namespace Management_System
             RefreshMaterialList();
         }
 
+        private void btnChangeCategory_Click(object sender, EventArgs e)
+        {
+            Material material = null;
+            if (lbMaterials.SelectedItem != null)
+            {
+                ChangeCategoryForm form = new ChangeCategoryForm((Material)lbMaterials.SelectedItem);
+                form.ShowDialog();
+                if (form.saved)
+                {
+                    material = form.Mat;
+                }
+            }
+            Exception exception;
+            // UPDATE PT_MAT_CATEGORY SET MAT_NAME = 'Canon 650D', PRICE = '555' WHERE MAT_CATEGORY_ID = '2'
+            string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = ' " + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
+            if (connection.SQLQueryNoOutput(query, out exception))
+            {
+                MessageBox.Show("Item: " + material.Name + "  is succesfully returned");
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+            }
+            RefreshMaterialList();
+        }
+
     }
 }

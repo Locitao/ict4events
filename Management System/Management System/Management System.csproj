@@ -117,6 +117,9 @@
     <EmbeddedResource Include="AdministrationLogInForm.resx">
       <DependentUpon>AdministrationLogInForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangeCategoryForm.resx">
+      <DependentUpon>ChangeCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EvenementManagementSystemForm.resx">
       <DependentUpon>EvenementManagementSystemForm.cs</DependentUpon>
     </EmbeddedResource>
