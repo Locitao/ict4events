@@ -22,6 +22,7 @@ namespace MediaSharingGuest
         Connection connection = new Connection();
         List<List<string>> output = new List<List<string>>();
         Select select = new Select();
+        Report selectedReport;
 
         int reportId = 0;
         int categoryId = 0;
@@ -33,13 +34,15 @@ namespace MediaSharingGuest
 
         private void lbReports_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Report report = lbReports.SelectedItem as Report;
+            selectedReport = lbReports.SelectedItem as Report;
 
-            if (report != null)
+            if (selectedReport != null)
             {
-                ReportData reportData = new ReportData(report);
+                ReportData reportData = new ReportData(selectedReport);
                 reportData.Show();
             }
+
+            lbReports.SelectedIndex = -1;
         }
 
         public void UpdateListBox()

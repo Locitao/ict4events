@@ -40,7 +40,8 @@ namespace MediaSharingGuest
 
         public string DeleteLikesWithReactionId (int reactionId)
         {
-            return "";
+            string query = "DELETE FROM PT_USER_LIKES WHERE REACTION_ID = " + "'" + reactionId + "'";
+            return query;
         }
     }
 }
