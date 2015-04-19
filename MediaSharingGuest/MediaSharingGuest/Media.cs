@@ -17,6 +17,7 @@ namespace MediaSharingGuest
         public int CategoryId { get; set; }
         public List<Like> Likes { get; set; }
         public List<Reaction> Reactions { get; set; }
+        public List<Report> Reports { get; set; }
 
         Insert insert = new Insert();
         Select select = new Select();

@@ -53,10 +53,10 @@
             // 
             // btnReportFile
             // 
-            this.btnReportFile.Location = new System.Drawing.Point(440, 810);
+            this.btnReportFile.Location = new System.Drawing.Point(316, 729);
             this.btnReportFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportFile.Name = "btnReportFile";
-            this.btnReportFile.Size = new System.Drawing.Size(155, 49);
+            this.btnReportFile.Size = new System.Drawing.Size(148, 49);
             this.btnReportFile.TabIndex = 27;
             this.btnReportFile.Text = "Report this file";
             this.btnReportFile.UseVisualStyleBackColor = true;
@@ -64,7 +64,7 @@
             // 
             // btnReportComment
             // 
-            this.btnReportComment.Location = new System.Drawing.Point(875, 810);
+            this.btnReportComment.Location = new System.Drawing.Point(751, 729);
             this.btnReportComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportComment.Name = "btnReportComment";
             this.btnReportComment.Size = new System.Drawing.Size(195, 49);
@@ -75,7 +75,7 @@
             // 
             // btnLikeComment
             // 
-            this.btnLikeComment.Location = new System.Drawing.Point(617, 810);
+            this.btnLikeComment.Location = new System.Drawing.Point(548, 729);
             this.btnLikeComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnLikeComment.Name = "btnLikeComment";
             this.btnLikeComment.Size = new System.Drawing.Size(195, 49);
@@ -86,10 +86,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(171, 810);
+            this.btnCancel.Location = new System.Drawing.Point(160, 729);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(155, 49);
+            this.btnCancel.Size = new System.Drawing.Size(148, 49);
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -97,10 +97,10 @@
             // 
             // btnAddComment
             // 
-            this.btnAddComment.Location = new System.Drawing.Point(8, 810);
+            this.btnAddComment.Location = new System.Drawing.Point(4, 729);
             this.btnAddComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddComment.Name = "btnAddComment";
-            this.btnAddComment.Size = new System.Drawing.Size(155, 49);
+            this.btnAddComment.Size = new System.Drawing.Size(148, 49);
             this.btnAddComment.TabIndex = 23;
             this.btnAddComment.Text = "Add Comment";
             this.btnAddComment.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             // lblLikes
             // 
             this.lblLikes.AutoSize = true;
-            this.lblLikes.Location = new System.Drawing.Point(8, 627);
+            this.lblLikes.Location = new System.Drawing.Point(8, 397);
             this.lblLikes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLikes.Name = "lblLikes";
             this.lblLikes.Size = new System.Drawing.Size(45, 17);
@@ -130,7 +130,7 @@
             // lblYourComment
             // 
             this.lblYourComment.AutoSize = true;
-            this.lblYourComment.Location = new System.Drawing.Point(8, 666);
+            this.lblYourComment.Location = new System.Drawing.Point(5, 584);
             this.lblYourComment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblYourComment.Name = "lblYourComment";
             this.lblYourComment.Size = new System.Drawing.Size(103, 17);
@@ -139,11 +139,11 @@
             // 
             // tbYourComment
             // 
-            this.tbYourComment.Location = new System.Drawing.Point(8, 686);
+            this.tbYourComment.Location = new System.Drawing.Point(8, 605);
             this.tbYourComment.Margin = new System.Windows.Forms.Padding(4);
             this.tbYourComment.Multiline = true;
             this.tbYourComment.Name = "tbYourComment";
-            this.tbYourComment.Size = new System.Drawing.Size(585, 116);
+            this.tbYourComment.Size = new System.Drawing.Size(466, 116);
             this.tbYourComment.TabIndex = 19;
             // 
             // lblComments
@@ -158,12 +158,12 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(8, 462);
+            this.tbDescription.Location = new System.Drawing.Point(4, 418);
             this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(589, 149);
+            this.tbDescription.Size = new System.Drawing.Size(466, 149);
             this.tbDescription.TabIndex = 16;
             this.tbDescription.TabStop = false;
             this.tbDescription.Text = "Description";
@@ -171,7 +171,7 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(16, 98);
+            this.lblTitle.Location = new System.Drawing.Point(8, 52);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(35, 17);
@@ -180,10 +180,10 @@
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(8, 48);
+            this.pbImage.Location = new System.Drawing.Point(8, 73);
             this.pbImage.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(591, 406);
+            this.pbImage.Size = new System.Drawing.Size(462, 320);
             this.pbImage.TabIndex = 14;
             this.pbImage.TabStop = false;
             // 
@@ -191,17 +191,17 @@
             // 
             this.lbComments.FormattingEnabled = true;
             this.lbComments.ItemHeight = 16;
-            this.lbComments.Location = new System.Drawing.Point(617, 51);
+            this.lbComments.Location = new System.Drawing.Point(495, 77);
             this.lbComments.Margin = new System.Windows.Forms.Padding(4);
             this.lbComments.Name = "lbComments";
-            this.lbComments.Size = new System.Drawing.Size(451, 756);
+            this.lbComments.Size = new System.Drawing.Size(451, 644);
             this.lbComments.TabIndex = 28;
             this.lbComments.SelectedIndexChanged += new System.EventHandler(this.lbComments_SelectedIndexChanged);
             // 
             // lblUploadedBy
             // 
             this.lblUploadedBy.AutoSize = true;
-            this.lblUploadedBy.Location = new System.Drawing.Point(5, 11);
+            this.lblUploadedBy.Location = new System.Drawing.Point(5, 10);
             this.lblUploadedBy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUploadedBy.Name = "lblUploadedBy";
             this.lblUploadedBy.Size = new System.Drawing.Size(92, 17);
@@ -211,7 +211,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(107, 11);
+            this.lblName.Location = new System.Drawing.Point(107, 10);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 17);
@@ -221,7 +221,7 @@
             // lblTakenAt
             // 
             this.lblTakenAt.AutoSize = true;
-            this.lblTakenAt.Location = new System.Drawing.Point(5, 27);
+            this.lblTakenAt.Location = new System.Drawing.Point(5, 26);
             this.lblTakenAt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTakenAt.Name = "lblTakenAt";
             this.lblTakenAt.Size = new System.Drawing.Size(68, 17);
@@ -231,7 +231,7 @@
             // lblLocation
             // 
             this.lblLocation.AutoSize = true;
-            this.lblLocation.Location = new System.Drawing.Point(107, 27);
+            this.lblLocation.Location = new System.Drawing.Point(107, 26);
             this.lblLocation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(62, 17);
@@ -240,7 +240,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(983, 10);
+            this.btnBack.Location = new System.Drawing.Point(859, 18);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(87, 33);
@@ -252,7 +252,7 @@
             // lblLikesNumber
             // 
             this.lblLikesNumber.AutoSize = true;
-            this.lblLikesNumber.Location = new System.Drawing.Point(56, 627);
+            this.lblLikesNumber.Location = new System.Drawing.Point(53, 397);
             this.lblLikesNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLikesNumber.Name = "lblLikesNumber";
             this.lblLikesNumber.Size = new System.Drawing.Size(20, 17);
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 872);
+            this.ClientSize = new System.Drawing.Size(971, 795);
             this.Controls.Add(this.lblLikesNumber);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblLocation);

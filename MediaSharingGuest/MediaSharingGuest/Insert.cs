@@ -31,21 +31,24 @@ namespace MediaSharingGuest
                     "INSERT INTO PT_MED_CATEGORY (CATEGORY_ID, RFID_CODE, PARENT_CATEGORY_ID) VALUES (auto_inc_med.nextval, " + "', '" + Rfidcode + "', '" + parentCategoryId + "')";
         }
 
-        public void InsertReportMedia(int mediaId, string rfidCode, string description)
+        public string InsertReportMedia(int mediaId, string rfidCode, string description)
         {
-            string query =
-                    "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval, NULL, '" + mediaId + "'" + "NULL" + "'" + rfidCode + "'" + description + "')";
+            string query = "";
+                    
+            return query;
         }
 
-        public void InsertReportCategory(int categoryId, string rfidCode, string description)
+        public string InsertReportCategory(int categoryId, string rfidCode, string description)
         {
-            string query =
-                    "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval,  " + "', '" + categoryId + "', NULL, NULL, " + "'" + rfidCode + "'" + description + "')";
+            string query = "";
+
+            return query;
         }
-        public void InsertReportReaction(int reactionId, string rfidCode, string description)
+        public string InsertReportReaction(int reactionId, string rfidCode, string description)
         {
             string query =
-                    "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval,  " + "', NULL, NULL" + "'" + reactionId + "'" + "'" + rfidCode + "'" + description + "')";
+                    "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval, " + "NULL, NULL, " + "'" + reactionId + "', '" + rfidCode + "', '" + description + "')";
+            return query;
         }
 
         public string InsertLikeReaction(int reactionId, string rfidCode)

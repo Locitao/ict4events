@@ -37,7 +37,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(192, 220);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(168, 37);
             this.btnCancel.TabIndex = 7;
@@ -47,8 +47,9 @@
             // 
             // btnSendReport
             // 
+            this.btnSendReport.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSendReport.Location = new System.Drawing.Point(16, 220);
-            this.btnSendReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSendReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnSendReport.Name = "btnSendReport";
             this.btnSendReport.Size = new System.Drawing.Size(168, 37);
             this.btnSendReport.TabIndex = 6;
@@ -69,7 +70,7 @@
             // tbDescription
             // 
             this.tbDescription.Location = new System.Drawing.Point(16, 31);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(343, 181);
@@ -84,7 +85,7 @@
             this.Controls.Add(this.btnSendReport);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.tbDescription);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SendReport";
             this.Text = "Send a Report";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SendReport_FormClosed);

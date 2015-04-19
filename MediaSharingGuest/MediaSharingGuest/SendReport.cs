@@ -20,6 +20,7 @@ namespace MediaSharingGuest
         public string WhatKindOfId { get; set; }
 
         Insert insert = new Insert();
+        Connection connection = new Connection();
 
         public SendReport(MediaSharingSystem medias, int Id, string whatKindOfId)
         {
@@ -45,15 +46,15 @@ namespace MediaSharingGuest
         {
             if (WhatKindOfId == "MediaItem")
             {
-                insert.InsertReportMedia(MediaId, medias.RfidCode, lblDescription.Text);
+                connection.SQLQueryNoOutput(insert.InsertReportMedia(MediaId, medias.RfidCode, tbDescription.Text));
             }
             else if (WhatKindOfId == "Category")
             {
-                insert.InsertReportCategory(MediaId, medias.RfidCode, lblDescription.Text);
+                connection.SQLQueryNoOutput(insert.InsertReportCategory(CategoryId, medias.RfidCode, tbDescription.Text));
             }
             else if (WhatKindOfId == "Reaction")
             {
-                insert.InsertReportReaction(MediaId, medias.RfidCode, lblDescription.Text);
+                connection.SQLQueryNoOutput(insert.InsertReportReaction(ReactionId, medias.RfidCode, tbDescription.Text));
             }
 
             this.Close();

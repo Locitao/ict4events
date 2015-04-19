@@ -112,6 +112,17 @@ namespace MediaSharingGuest
             return false;
         }
 
+        public bool ReportedByUserMediaItem()
+        {
+            foreach (Report report in MediaItem[0].Reports)
+            {
+                if (report.RFIDCodeReporter == medias.RfidCode)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public void ShowDynamicInformation()
         {
             //This code updates the likes for the selected Media Item.
@@ -136,6 +147,17 @@ namespace MediaSharingGuest
                 {
                     btnLikeThisFile.Text = "Like this File!";
                     isLikedMedia = false;
+                }
+            }
+
+            //this code gets the report of the Media Item.
+            connection.SQLQueryWithOutput(select.GetReportMediaItem(medias.RfidCode, MediaId), out output);
+            {
+                foreach (List<string> stringList in output)
+                {
+                    string reporterRfidCode = stringList[0];
+                    Report report = new Report("", 0, MediaId, 0, reporterRfidCode);
+                    MediaItem[0].Reports.Add(report);
                 }
             }
 
@@ -170,11 +192,17 @@ namespace MediaSharingGuest
                 connection.SQLQueryWithOutput(select.GetReportComment(medias.RfidCode, reactionId), out output2);
                 foreach (List<string> stringList2 in output2)
                 {
-                    string reporterRfidCode = stringList2[0];
+                    string rfidCodeReporter = stringList2[0];
 
-                    Report report = new Report("", 0, 0, reactionId, reporterRfidCode);
+                    Report report = new Report("", 0, 0, reactionId, rfidCodeReporter);
                     reaction.Reports.Add(report);
                 }
+
+                if (ReportedByUserMediaItem())
+                {
+                    btnReportFile.Enabled = false;
+                }
+                else btnReportFile.Enabled = true;
 
                     MediaItem[0].Reactions.Add(reaction);
                     lbComments.DisplayMember = "AllInfo";
@@ -214,7 +242,12 @@ namespace MediaSharingGuest
         {
             SendReport sendreport = new SendReport(medias, MediaId, "MediaItem");
 
-            sendreport.Show();
+            DialogResult dialogresult = sendreport.ShowDialog();
+
+            if (dialogresult == DialogResult.OK)
+            {
+                ShowDynamicInformation();
+            }
         }
 
         private void btnLikeComment_Click(object sender, EventArgs e)
