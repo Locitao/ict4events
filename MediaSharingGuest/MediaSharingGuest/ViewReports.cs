@@ -15,43 +15,80 @@ namespace MediaSharingGuest
         public ViewReports()
         {
             InitializeComponent();
+            UpdateListBox();
         }
 
         List<Report> Reports = new List<Report>();
         Connection connection = new Connection();
+        List<List<string>> output = new List<List<string>>();
         Select select = new Select();
+
+        int reportId = 0;
+        int categoryId = 0;
+        int mediaId = 0;
+        int reactionId = 0;
+        string rfidCode = "";
+        string description = "";
+        string kindOfReport = "";
 
         private void lbReports_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Report report = lbReports.SelectedItem as Report;
 
+            if (report != null)
+            {
+                ReportData reportData = new ReportData(report);
+                reportData.Show();
+            }
         }
 
         public void UpdateListBox()
         {
-            List<List<string>> output = new List<List<string>>();
-            List<Report> Reports = new List<Report>();
+            Reports.Clear();
+            lbReports.Items.Clear();
 
             connection.SQLQueryWithOutput(select.GetAllReports(), out output);
 
             foreach (List<string> stringList in output)
             {
-                int reportId = Convert.ToInt32(stringList[0]);
-                int categoryId = Convert.ToInt32(stringList[1]);
-                int mediaId = Convert.ToInt32(stringList[2]);
-                int reactionId = Convert.ToInt32(stringList[3]);
-                string rfidCode = stringList[4];
-                string description = stringList[5];
-                int handled = Convert.ToInt32(stringList[6]);
+                reportId = Convert.ToInt32(stringList[0]);
 
-                Report report = new Report(description, categoryId, mediaId, reactionId, rfidCode);
-
-                foreach (Report reportt in Reports)
+                if (stringList[1] == "")
                 {
-                    lbReports.Items.Add(reportt);
-                    lbReports.ValueMember = Convert.ToString(reportt.ReportId);
-                    lbReports.DisplayMember = reportt.Content;
+                    categoryId = 0;
                 }
+                else categoryId = Convert.ToInt32(stringList[1]);
+
+                if (stringList[2] == "")
+                {
+                    mediaId = 0;
+                }
+                else mediaId = Convert.ToInt32(stringList[2]);
+
+                if (stringList[3] == "")
+                {
+                    reactionId = 0;
+                }
+                else reactionId = Convert.ToInt32(stringList[3]);
+
+                rfidCode = stringList[4];
+                description = stringList[5];
+
+                Report report = new Report(reportId, description, categoryId, mediaId, reactionId, rfidCode);
+
+                Reports.Add(report);
             }
+
+            foreach (Report reportt in Reports)
+            {
+                lbReports.ValueMember = "ReportId";
+                lbReports.DisplayMember = "Content";
+                lbReports.Items.Add(reportt);
+            }
+
+        }
+        private void lbHotReports_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 

@@ -16,8 +16,9 @@ namespace MediaSharingGuest
         public string RFIDCodeReporter { get; set; }
 
         Insert insert = new Insert();
-        public Report(string content, int categoryId, int mediaId, int reactionId, string rfidCodeReporter)
+        public Report(int reportId, string content, int categoryId, int mediaId, int reactionId, string rfidCodeReporter)
         {
+            ReportId = reportId;
             Content = content;
             CategoryId = categoryId;
             MediaId = mediaId;

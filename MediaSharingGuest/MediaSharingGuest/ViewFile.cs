@@ -156,7 +156,8 @@ namespace MediaSharingGuest
                 foreach (List<string> stringList in output)
                 {
                     string reporterRfidCode = stringList[0];
-                    Report report = new Report("", 0, MediaId, 0, reporterRfidCode);
+                    int reportId = Convert.ToInt32(stringList[1]);
+                    Report report = new Report(reportId, "", 0, MediaId, 0, reporterRfidCode);
                     MediaItem[0].Reports.Add(report);
                 }
             }
@@ -193,8 +194,9 @@ namespace MediaSharingGuest
                 foreach (List<string> stringList2 in output2)
                 {
                     string rfidCodeReporter = stringList2[0];
+                    int reportId = Convert.ToInt32(stringList2[1]);
 
-                    Report report = new Report("", 0, 0, reactionId, rfidCodeReporter);
+                    Report report = new Report(reportId, "", 0, 0, reactionId, rfidCodeReporter);
                     reaction.Reports.Add(report);
                 }
 

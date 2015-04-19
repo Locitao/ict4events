@@ -15,6 +15,23 @@ namespace MediaSharingGuest
             return query;
         }
 
+        public string GetNameWithCategoryId(int categoryId)
+        {
+            string query = "SELECT u.USER_NAME FROM PT_USER_ACC u JOIN PT_MED_CATEGORY c ON u.RFID_CODE = c.RFID_CODE WHERE CATEGORY_ID = '" + categoryId + "'";
+            return query;
+        }
+
+        public string GetNameWithMediaId(int mediaId)
+        {
+            string query = "SELECT u.USER_NAME FROM PT_USER_ACC u JOIN PT_MEDIA c ON u.RFID_CODE = c.RFID_CODE WHERE MEDIA_ID = '" + mediaId + "'";
+            return query;
+        }
+
+        public string GetNameWithReactionId(int reactionId)
+        {
+            string query = "SELECT u.USER_NAME FROM PT_USER_ACC u JOIN PT_REACTION c ON u.RFID_CODE = c.RFID_CODE WHERE REACTION_ID = '" + reactionId + "'";
+            return query;
+        }
         public string SelectImageNoMediaID(int categoryID, string medName, string medLocation, string medDescription, string rfidCode)
         {
             string query = "SELECT MEDIA_ID FROM MEDIA WHERE RFID_CODE = " + rfidCode + "AND CATEGORY_ID = " + categoryID + "MED_NAME = " + medName + "AND MED_LOCATION = " + medLocation + "AND MED_DESCRIPTION = " + medDescription;
@@ -47,7 +64,7 @@ namespace MediaSharingGuest
 
         public string GetPassword(string Username)
         {
-            string query = "SELECT LOGIN_PASSWORD FROM PT_EMPLOYEE_ACC WHERE EMPLOYEE_ID = " + "'" + Username + "'";
+            string query = "SELECT LOGIN_PASSWORD FROM PT_EMPLOYEE_ACC WHERE LOGIN_NAME = " + "'" + Username + "'";
             return query;
         }
 
@@ -101,19 +118,37 @@ namespace MediaSharingGuest
 
         public string GetReportComment(string rfidCode, int reactionId)
         {
-            string query = "SELECT RFID_CODE FROM PT_REPORT WHERE RFID_CODE = " + "'" + rfidCode + "' AND REACTION_ID = '" + reactionId + "'";
+            string query = "SELECT RFID_CODE, REPORT_ID FROM PT_REPORT WHERE RFID_CODE = " + "'" + rfidCode + "' AND REACTION_ID = '" + reactionId + "'";
             return query;
         }
 
         public string GetReportMediaItem(string rfidCode, int mediaId)
         {
-            string query = "SELECT RFID_CODE FROM PT_REPORT WHERE RFID_CODE = " + "'" + rfidCode + "' AND MEDIA_ID = '" + mediaId + "'";
+            string query = "SELECT RFID_CODE, REPORT_ID FROM PT_REPORT WHERE RFID_CODE = " + "'" + rfidCode + "' AND MEDIA_ID = '" + mediaId + "'";
             return query;
         }
 
         public string GetAllReports()
         {
             string query = "SELECT * FROM PT_REPORT WHERE HANDLED = '0'";
+            return query;
+        }
+
+        public string GetReporter(int reportId)
+        {
+            string query = "SELECT u.RFID_CODE, u.USER_NAME FROM PT_USER_ACC u JOIN PT_REPORT r ON r.RFID_CODE = u.RFID_CODE WHERE REPORT_ID = ' " + reportId + "'";
+            return query;
+        }
+
+        public string GetMediaPath(int mediaId)
+        {
+            string query = "SELECT MED_PATH FROM PT_MEDIA WHERE MEDIA_ID = " + "'" + mediaId + "'";
+            return query;
+        }
+
+        public string GetReactionContent(int reactionId)
+        {
+            string query = "SELECT REA_CONTENT FROM PT_REACTION WHERE REACTION_ID = " + "'" + reactionId + "'";
             return query;
         }
     }
