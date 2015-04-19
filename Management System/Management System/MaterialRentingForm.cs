@@ -132,5 +132,21 @@ namespace Management_System
             RefreshMaterialList();
         }
 
+        private void btnReturnItem_Click(object sender, EventArgs e)
+        {
+            Material material = (Material)lbMaterials.SelectedItem;
+            Exception exception;
+            string query = "UPDATE PT_MATERIAL SET RFID_CODE = null, DATE_TAKEN = null, RETURN_DATE = null WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+            if (connection.SQLQueryNoOutput(query, out exception))
+            {
+                MessageBox.Show("Item: " + material.Name + "  is succesfully returned");
+            }
+            else
+            {
+                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+            }
+            RefreshMaterialList();
+        }
+
     }
 }
