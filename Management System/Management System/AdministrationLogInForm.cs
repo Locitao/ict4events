@@ -14,7 +14,6 @@ namespace Management_System
     
     public partial class AdministrationLogInForm : Form
     {
-        private bool loggedIn = false;
         DatabaseConnection connection = new DatabaseConnection();
         
         public AdministrationLogInForm()
@@ -23,41 +22,16 @@ namespace Management_System
         }
 
 
-        private bool Login(string username, string password)
-        {
-            return false;
-        }
-
-        private void LogOut()
-        {
-            loggedIn = false;
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            /*MessageBox.Show(connection.OpenConnection()
-                ? "Connection with database succeeded."
-                : "Check your settings, connection to database failed!");
-            connection.CloseConnection();*/
-            List<List<string>> listtest;
-            connection.SQLQueryWithOutput("", out listtest);
-        }
-
-        
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            Login(tbame.Text, tbPassword.Text);
-        }
-
         private void btnLoginToManagementSystem_Click(object sender, EventArgs e)
         {
-
+            EventManagementSystemForm form = new EventManagementSystemForm();
+            form.ShowDialog();
         }
 
         private void btnLogInMaterialRenting_Click(object sender, EventArgs e)
         {
-
+            MaterialRentingForm form = new MaterialRentingForm();
+            form.ShowDialog();
         }
     }
 }

@@ -49,9 +49,11 @@
             // tbCountry
             // 
             this.tbCountry.Location = new System.Drawing.Point(143, 68);
+            this.tbCountry.MaxLength = 40;
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.Size = new System.Drawing.Size(135, 20);
             this.tbCountry.TabIndex = 2;
+            this.tbCountry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCountry_KeyPress);
             // 
             // label6
             // 
@@ -85,23 +87,29 @@
             // tbCity
             // 
             this.tbCity.Location = new System.Drawing.Point(143, 120);
+            this.tbCity.MaxLength = 40;
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(135, 20);
             this.tbCity.TabIndex = 4;
+            this.tbCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCity_KeyPress);
             // 
             // tbPostal
             // 
             this.tbPostal.Location = new System.Drawing.Point(143, 94);
+            this.tbPostal.MaxLength = 15;
             this.tbPostal.Name = "tbPostal";
             this.tbPostal.Size = new System.Drawing.Size(135, 20);
             this.tbPostal.TabIndex = 3;
+            this.tbPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPostal_KeyPress);
             // 
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(143, 39);
+            this.tbAddress.MaxLength = 50;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(135, 20);
             this.tbAddress.TabIndex = 1;
+            this.tbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAddress_KeyPress);
             // 
             // label5
             // 
@@ -151,10 +159,11 @@
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(143, 13);
-            this.tbName.MaxLength = 35;
+            this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(135, 20);
             this.tbName.TabIndex = 0;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label7
             // 
@@ -168,6 +177,7 @@
             // tbReservePhone
             // 
             this.tbReservePhone.Location = new System.Drawing.Point(143, 176);
+            this.tbReservePhone.MaxLength = 15;
             this.tbReservePhone.Name = "tbReservePhone";
             this.tbReservePhone.Size = new System.Drawing.Size(135, 20);
             this.tbReservePhone.TabIndex = 6;

@@ -1,6 +1,6 @@
 ﻿namespace Management_System
 {
-    partial class EvenementManagementSystemForm
+    partial class EventManagementSystemForm
     {
         /// <summary>
         /// Required designer variable.

@@ -95,7 +95,7 @@ namespace ReservationApp
                     MessageBox.Show(update.Update_Material(Convert.ToString(tbMatThree.Text), rfid));
                 }
 
-                MessageBox.Show("Thank you for placing your reservation. You will now be returned to the start.");
+                MessageBox.Show("Thank you for placing your reservation. You will now be returned to the start. Remember that your friends have to register their account as well, to receive their RFID tag!");
                 Hide();
                 Startup start = new Startup();
                 start.Closed += (s, args) => Close();
@@ -109,12 +109,13 @@ namespace ReservationApp
 
         /// <summary>
         /// Below I make sure users can only enter numbers in the text boxes.
+        /// One KeyPress handlers for every textbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tbMatOne_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -122,7 +123,7 @@ namespace ReservationApp
 
         private void tbMatTwo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -130,7 +131,7 @@ namespace ReservationApp
 
         private void tbMatThree_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

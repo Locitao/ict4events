@@ -56,6 +56,7 @@
             // tbCity
             // 
             this.tbCity.Location = new System.Drawing.Point(148, 127);
+            this.tbCity.MaxLength = 50;
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(135, 20);
             this.tbCity.TabIndex = 19;
@@ -64,6 +65,7 @@
             // tbPostal
             // 
             this.tbPostal.Location = new System.Drawing.Point(148, 93);
+            this.tbPostal.MaxLength = 20;
             this.tbPostal.Name = "tbPostal";
             this.tbPostal.Size = new System.Drawing.Size(135, 20);
             this.tbPostal.TabIndex = 18;
@@ -72,6 +74,7 @@
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(148, 38);
+            this.tbAddress.MaxLength = 50;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(135, 20);
             this.tbAddress.TabIndex = 17;
@@ -125,6 +128,7 @@
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(148, 12);
+            this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(135, 20);
             this.tbName.TabIndex = 11;
@@ -152,6 +156,7 @@
             // tbCountry
             // 
             this.tbCountry.Location = new System.Drawing.Point(148, 67);
+            this.tbCountry.MaxLength = 50;
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.Size = new System.Drawing.Size(135, 20);
             this.tbCountry.TabIndex = 23;
