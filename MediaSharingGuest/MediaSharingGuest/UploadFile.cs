@@ -10,23 +10,35 @@ using System.Windows.Forms;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// This Form handles the uploading of Files.
+    /// </summary>
     public partial class UploadFile : Form
     {
+        //Fields----------------------------------------------
         MediaSharingSystem medias;
-        public int uploadCategoryId { get; set; }
         Protection protection = new Protection();
+        Connection connection = new Connection();
+        Insert insert = new Insert();
+        private string filePath = "";
+        private string title = "";
+        private string description = "";
+        private string location = "";
 
+        //Properties------------------------------------------
+        public int uploadCategoryId { get; set; }
+
+        //Constructor-----------------------------------------
         public UploadFile(MediaSharingSystem medias, int category)
         {
             InitializeComponent();
             this.medias = medias;
             uploadCategoryId = category;
         }
-        private string filePath = "";
-        private string title = "";
-        private string description = "";
-        private string location = "";
 
+        //Events---------------------------------------------
+
+        //Opens filebrowser and sets some values.
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog fDialog = new OpenFileDialog();
@@ -42,6 +54,7 @@ namespace MediaSharingGuest
             }
         }
 
+        //Uploads a file to the database.
         private void btnUpload_Click(object sender, EventArgs e)
         {
             if (filePath == "")
@@ -55,10 +68,12 @@ namespace MediaSharingGuest
             string creatorRfid = medias.RfidCode;
 
             Media newMediaItem = new Media(title, filePath, description, creatorRfid, location, uploadCategoryId, '0');
+            connection.SQLQueryNoOutput(insert.InsertImage(uploadCategoryId, title, location, description, medias.RfidCode));
 
             this.Close();
         }
 
+        //Closes the window.
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

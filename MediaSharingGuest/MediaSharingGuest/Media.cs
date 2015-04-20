@@ -8,6 +8,7 @@ namespace MediaSharingGuest
 {
     public class Media
     {
+        //Properties-------------------------------
         public string Name { get; set; }
         public int MediaId { get; set; }
         public string Path { get; set; }
@@ -19,11 +20,7 @@ namespace MediaSharingGuest
         public List<Reaction> Reactions { get; set; }
         public List<Report> Reports { get; set; }
 
-        Insert insert = new Insert();
-        Select select = new Select();
-        Connection connection = new Connection();
-        List<List<string>> output = new List<List<string>>();
-
+        //Constructor-----------------------------------------
         public Media(string name, string path, string description, string rfidcreator, string location, int categoryid, int mediaId)
         {
             Name = name;

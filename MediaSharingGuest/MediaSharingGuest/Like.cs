@@ -8,21 +8,17 @@ namespace MediaSharingGuest
 {
     public class Like
     {
+        //Properties---------------------------
         public string RfidCode { get; set; }
-        public int LikeID { get; set; }
         public int ReactionID { get; set; }
         public int MediaID { get; set; }
 
+        //Contructor---------------------------
         public Like (string rfidcode, int reactionid, int mediaid)
         {
             RfidCode = rfidcode;
             ReactionID = reactionid;
             MediaID = mediaid;
-        }
-
-        public void RemoveLike(int Likeid)
-        {
-            //REMOVE LIKE FROM DB QUERY
         }
     }
 }

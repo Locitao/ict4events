@@ -11,41 +11,54 @@ using System.Windows.Forms;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// This form is the main interface for users. It shows data about folders, media items, the newsfeed, and has a search option.
+    /// </summary>
     public partial class GuestForm : Form
     {
+        //Fields------------------------------------
         MediaSharingSystem medias;
-        NewsFeed newsfeed = new NewsFeed();
-        List<string> NewsFeedMessages = new List<string>();
-        Random RNG = new Random();
         int startingCategoryId = 2;
 
         Select select = new Select();
         Connection connection = new Connection();
+        Insert insert = new Insert();
         Protection protection = new Protection();
+        NewsFeed newsfeed = new NewsFeed();
+        Random RNG = new Random();
 
+        List<string> NewsFeedMessages = new List<string>();
         List<List<string>> output = new List<List<string>>();
         List<Category> Categories = new List<Category>();
         List<Media> MediaItems = new List<Media>();
 
+        //Properties--------------------------------
         public int CurrentCategoryId { get; set; }
         public int PreviousCategoryId { get; set; }
         public string rfidCodeUser { get; set; }
 
+        //Contructor--------------------------------
         public GuestForm(MediaSharingSystem medias, int startingCategoryId)
         {
             InitializeComponent();
             lblUsername.Text = medias.Username;
+            PreviousCategoryId = 2;
 
-            LoadNewsFeedMessages();
             this.medias = medias;
             this.startingCategoryId = startingCategoryId;
             timerNewsFeed.Start();
-            PreviousCategoryId = 2;
-
+            
+            timerNewsFeed.Start();
+            LoadNewsFeedMessages();
             LoadCategories(startingCategoryId);
             LoadMediaItems(startingCategoryId);
         }
 
+        //Methods-----------------------------------------------
+
+        /// <summary>
+        /// Loads the messages that get displayed in the newsfeed.
+        /// </summary>
         public void LoadNewsFeedMessages()
         {
             NewsFeedMessages.Clear();
@@ -54,6 +67,10 @@ namespace MediaSharingGuest
             connection.SQLQueryWithOutput(select.GetNewsFeedMessages(), out output);
 
             string newsFeedMessage;
+            if (output == null)
+            {
+                return;
+            }
 
             foreach (List<string> stringList in output)
             {
@@ -63,6 +80,10 @@ namespace MediaSharingGuest
             }
         }
 
+        /// <summary>
+        /// Loads all the categories displayed in the category listbox.
+        /// </summary>
+        /// <param name="categoryId"></param>
         public void LoadCategories(int categoryId)
         {
             CurrentCategoryId = categoryId;
@@ -101,6 +122,11 @@ namespace MediaSharingGuest
 
             }
 
+        /// <summary>
+        /// Loads all media items and displays them in the media listbox.
+        /// </summary>
+        /// <param name="categoryId"></param>
+
         public void LoadMediaItems(int categoryId)
         {
             lbMediaItems.Items.Clear();
@@ -125,30 +151,35 @@ namespace MediaSharingGuest
             }
         }
           
+        //Events-----------------------------------------
 
+        //This buttonopens the upload file window.
         private void btnAddFile_Click_1(object sender, EventArgs e)
         {
             UploadFile uploadfile = new UploadFile(medias, CurrentCategoryId);
             uploadfile.Show();
         }
 
+        //This button adds a newsfeedmessage.
         private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
         {
-            Reaction message = new Reaction(protection.ProtectAgainstSQLInjection(tbNewsFeed.Text), 0, rfidCodeUser);
-
-            newsfeed.AddMessage(message);
+            connection.SQLQueryNoOutput(insert.AddNewsFeedMessage(medias.RfidCode, protection.ProtectAgainstSQLInjection(tbNewsFeed.Text)));
+            LoadNewsFeedMessages();
         }
 
+        //This button opens the create category window.
         private void btnAddFolder_Click(object sender, EventArgs e)
         {
-            CreateFolder createfolder = new CreateFolder(medias, CurrentCategoryId);
-            createfolder.Show();
+            CreateFolder createFolder = new CreateFolder(medias, CurrentCategoryId);
+            createFolder.Show();
         }
 
+        //This event loads the new folders inside the selected folder.
         private void lbFolders_SelectedIndexChanged(object sender, EventArgs e)
         {
             object cat = lbFolders.SelectedItem;
             Category catt = cat as Category;
+
             LoadCategories(catt.CategoryId);
             LoadMediaItems(catt.ParentCategoryId);
             CurrentCategoryId = catt.CategoryId;
@@ -164,6 +195,7 @@ namespace MediaSharingGuest
             }
         }
 
+        //this button returns you to the parentfolder of the current folder.
         private void btnBack_Click(object sender, EventArgs e)
         {
             int parentCategoryId = 0;
@@ -178,6 +210,7 @@ namespace MediaSharingGuest
             LoadCategories(parentCategoryId);
         }
 
+        //this timer updates the shown newsfeed message.
         private void timerNewsFeed_Tick(object sender, EventArgs e)
         {
             int max = NewsFeedMessages.Count;
@@ -190,6 +223,7 @@ namespace MediaSharingGuest
             }
         }
 
+        //this event opens the selected media item in a new window.
         private void lbMediaItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             Media medd = lbMediaItems.SelectedItem as Media;
@@ -201,11 +235,13 @@ namespace MediaSharingGuest
             }
         }
 
+        //this event returns you to the root folder.
         private void btnStart_Click(object sender, EventArgs e)
         {
             LoadCategories(startingCategoryId);
         }
 
+        //this button shows you the found search results for matching categories.
         private void btnSearchCategory_Click(object sender, EventArgs e)
         {
 
@@ -232,6 +268,7 @@ namespace MediaSharingGuest
             }
         }
 
+        //this button shows you the found search results for matching media items.
         private void btnSearchMedia_Click(object sender, EventArgs e)
         {
             List<Category> foundCategories = new List<Category>();

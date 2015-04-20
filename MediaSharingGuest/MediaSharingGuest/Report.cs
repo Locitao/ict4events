@@ -8,6 +8,7 @@ namespace MediaSharingGuest
 {
     public class Report
     {
+        //Properties-----------------------------
         public string Content { get; set; }
         public int ReportId { get; set; }
         public int CategoryId { get; set; }
@@ -15,7 +16,7 @@ namespace MediaSharingGuest
         public int ReactionId { get; set; }
         public string RFIDCodeReporter { get; set; }
 
-        Insert insert = new Insert();
+        //Contructor-----------------------------
         public Report(int reportId, string content, int categoryId, int mediaId, int reactionId, string rfidCodeReporter)
         {
             ReportId = reportId;
@@ -24,7 +25,6 @@ namespace MediaSharingGuest
             MediaId = mediaId;
             ReactionId = reactionId;
             RFIDCodeReporter = rfidCodeReporter;
-           
         }
     }
 }

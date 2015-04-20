@@ -88,7 +88,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SendReport";
             this.Text = "Send a Report";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SendReport_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
