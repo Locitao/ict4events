@@ -120,7 +120,7 @@ namespace ReservationApp
                     connect.CloseConnection();
 
                     Hide();
-                    ReserveMaterials reserve = new ReserveMaterials(res);
+                    ReserveMaterials reserve = new ReserveMaterials(rfid);
                     reserve.Closed += (s, args) => Close();
                     reserve.Show();
 
