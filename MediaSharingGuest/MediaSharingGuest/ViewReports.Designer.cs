@@ -102,7 +102,7 @@
             // lblThreshold
             // 
             this.lblThreshold.AutoSize = true;
-            this.lblThreshold.Location = new System.Drawing.Point(245, 300);
+            this.lblThreshold.Location = new System.Drawing.Point(279, 300);
             this.lblThreshold.Name = "lblThreshold";
             this.lblThreshold.Size = new System.Drawing.Size(76, 17);
             this.lblThreshold.TabIndex = 5;
@@ -111,7 +111,7 @@
             // chbAutoClean
             // 
             this.chbAutoClean.AutoSize = true;
-            this.chbAutoClean.Location = new System.Drawing.Point(248, 320);
+            this.chbAutoClean.Location = new System.Drawing.Point(282, 320);
             this.chbAutoClean.Name = "chbAutoClean";
             this.chbAutoClean.Size = new System.Drawing.Size(95, 21);
             this.chbAutoClean.TabIndex = 7;

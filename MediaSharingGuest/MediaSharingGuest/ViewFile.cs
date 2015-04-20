@@ -219,6 +219,7 @@ namespace MediaSharingGuest
         {
             string content = protection.ProtectAgainstSQLInjection(tbYourComment.Text);
             connection.SQLQueryNoOutput(insert.InsertReaction(MediaId, medias.RfidCode, content));
+            tbYourComment.Clear();
             ShowDynamicInformation();
         }
 

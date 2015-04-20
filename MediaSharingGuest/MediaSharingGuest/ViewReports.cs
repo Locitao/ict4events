@@ -10,23 +10,21 @@ using System.Windows.Forms;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// This Form gives an overview of all reports.
+    /// </summary>
     public partial class ViewReports : Form
     {
-        public ViewReports()
-        {
-            InitializeComponent();
-            UpdateListBoxHotReports();
-            UpdateListBoxReports();
-            timerUpdate.Start();
-        }
-
+        //Fields------------------------------------------------------
+        List<List<string>> output = new List<List<string>>();
         List<Report> Reports = new List<Report>();
         List<Report> HotReports = new List<Report>();
+
         Connection connection = new Connection();
         Update update = new Update();
         Delete delete = new Delete();
-        List<List<string>> output = new List<List<string>>();
         Select select = new Select();
+
         Report selectedReport;
 
         int reportId = 0;
@@ -35,22 +33,21 @@ namespace MediaSharingGuest
         int reactionId = 0;
         string rfidCode = "";
         string description = "";
-        string kindOfReport = "";
 
-        private void lbReports_SelectedIndexChanged(object sender, EventArgs e)
+        //Constructor--------------------------------------
+        public ViewReports()
         {
-            selectedReport = lbReports.SelectedItem as Report;
-
-            if (selectedReport != null)
-            {
-                ReportData reportData = new ReportData(selectedReport);
-                reportData.Show();
-            }
-
-            lbHotReports.SelectedIndex = -1;
-            lbReports.SelectedIndex = -1;
+            InitializeComponent();
+            UpdateListBoxHotReports();
+            UpdateListBoxReports();
+            timerUpdate.Start();
         }
 
+        //Methods
+
+        /// <summary>
+        /// Updates the reports listbox
+        /// </summary>
         public void UpdateListBoxReports()
         {
             Reports.Clear();
@@ -97,6 +94,9 @@ namespace MediaSharingGuest
 
         }
 
+        /// <summary>
+        /// Updates the Hot report listbox.
+        /// </summary>
         public void UpdateListBoxHotReports()
         {
             HotReports.Clear();
@@ -143,26 +143,74 @@ namespace MediaSharingGuest
 
         }
 
+        //Events--------------------------------------------
+
+        /// <summary>
+        /// Opens the reportdata form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbReports_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedReport = lbReports.SelectedItem as Report;
+
+            if (selectedReport != null)
+            {
+                DialogResult dialogresult = new DialogResult();
+                ReportData reportData = new ReportData(selectedReport);
+                dialogresult = reportData.ShowDialog();
+
+                if (dialogresult == DialogResult.OK)
+                {
+                    UpdateListBoxReports();
+                    UpdateListBoxHotReports();
+                }
+            }
+            lbHotReports.SelectedIndex = -1;
+            lbReports.SelectedIndex = -1;
+        }
+
+        /// <summary>
+        /// Opens the reportdata form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbHotReports_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedReport = lbHotReports.SelectedItem as Report;
 
             if (selectedReport != null)
             {
+                DialogResult dialogresult = new DialogResult();
                 ReportData reportData = new ReportData(selectedReport);
-                reportData.Show();
-            }
+                dialogresult = reportData.ShowDialog();
 
+                if (dialogresult == DialogResult.OK)
+                {
+                    UpdateListBoxReports();
+                    UpdateListBoxHotReports();
+                } 
+            }
             lbHotReports.SelectedIndex = -1;
             lbReports.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Sets the threshold for when reports should be automatically deleted.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nudThreshold_ValueChanged(object sender, EventArgs e)
         {
             UpdateListBoxReports();
             UpdateListBoxHotReports();
         }
 
+        /// <summary>
+        /// Activates, or deactivates the AutoClean function.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chbAutoClean_CheckedChanged(object sender, EventArgs e)
         {
             if (chbAutoClean.Checked == true)
@@ -172,6 +220,11 @@ namespace MediaSharingGuest
             else timerDeleteReports.Stop();
         }
 
+        /// <summary>
+        /// Timer for autodelete function.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerDeleteReports_Tick(object sender, EventArgs e)
         {
             if (HotReports.Count > 0)
@@ -196,6 +249,11 @@ namespace MediaSharingGuest
             }
         }
 
+        /// <summary>
+        /// Update timer for both the report listboxes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
             UpdateListBoxHotReports();

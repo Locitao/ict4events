@@ -37,8 +37,7 @@ namespace MediaSharingGuest
         //Inserts a media report into the database, uses media id, rfidcode, description.
         public string InsertReportMedia(int mediaId, string rfidCode, string description)
         {
-            string query = "";
-                    
+            string query = "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval, " + "NULL, " + "'" + mediaId + "'," + "NULL," + "'" + rfidCode + "', '" + description + "')";        
             return query;
         }
 
@@ -52,7 +51,7 @@ namespace MediaSharingGuest
         //Inserts a category report into the database, uses categoryid, rfidcode, description.
         public string InsertReportCategory(int categoryId, string rfidCode, string description)
         {
-            string query = "";
+            string query = "INSERT INTO PT_REPORT (REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION) VALUES (auto_inc_rep.nextval, " + categoryId + ", NULL, " + "NULL, '" + rfidCode + "', '" + description + "')"; ;
 
             return query;
         }
