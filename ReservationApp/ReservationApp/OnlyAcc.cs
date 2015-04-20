@@ -61,14 +61,15 @@ namespace ReservationApp
             }
         }
 
+        /// <summary>
+        /// Keypress events make sure that no unwanted text is entered in the textboxes.
+        /// No letters in the phone number textbox, for example.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbReservePhone_KeyPress(object sender, KeyPressEventArgs e)
         {
-           /* if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.') && !char.IsPunctuation(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = true;
-            }*/
-
+           
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
@@ -121,6 +122,11 @@ namespace ReservationApp
             {
                 e.Handled = true;
             }
+        }
+
+        private void OnlyAcc_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

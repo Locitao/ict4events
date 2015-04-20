@@ -29,7 +29,7 @@ namespace Management_System
             lbMaterials.Items.Clear();
             List<List<string>> output;
             Exception exception;
-            if (connection.SQLQueryWithOutput("SELECT MATERIAL_ID, RESERVATION_ID, RFID_CODE, DATE_TAKEN, RETURN_DATE, MAT_CATEGORY_ID, MAT_NAME, PRICE FROM PT_MATERIAL m, PT_MAT_CATEGORY ca WHERE m.MAT_CATEGORY = ca.MAT_CATEGORY_ID", out output, out exception))
+            if (connection.SQLQueryWithOutput("SELECT MATERIAL_ID, RESERVATION_ID, RFID_CODE, DATE_TAKEN, RETURN_DATE, MAT_CATEGORY_ID, MAT_NAME, PRICE FROM PT_MATERIAL m, PT_MAT_CATEGORY ca WHERE m.MAT_CATEGORY = ca.MAT_CATEGORY_ID ORDER BY m.MATERIAL_ID", out output, out exception))
             {
                 
                 foreach (List<string> list in output)
@@ -185,12 +185,21 @@ namespace Management_System
                 if (form.saved)
                 {
                     string queryAddItem = "INSERT INTO PT_MATERIAL(MATERIAL_ID, MAT_CATEGORY) VALUES(auto_inc_mat.nextval, '" + form.selectedItem + "')";
+                    if (connection.SQLQueryNoOutput(queryAddItem, out exception))
+                    {
+                        MessageBox.Show("Item is succesfully added");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
+            RefreshMaterialList();
         }
 
         private void btnAddCategory_Click(object sender, EventArgs e)
@@ -211,6 +220,7 @@ namespace Management_System
             {
                 MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
             }
+            RefreshMaterialList();
         }
 
     }

@@ -119,7 +119,6 @@
     <Compile Include="MaterialRentingForm.Designer.cs">
       <DependentUpon>MaterialRentingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaterialReservation.cs" />
     <Compile Include="MaterialStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
