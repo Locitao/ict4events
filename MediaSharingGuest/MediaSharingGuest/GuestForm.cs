@@ -181,7 +181,7 @@ namespace MediaSharingGuest
             Category catt = cat as Category;
 
             LoadCategories(catt.CategoryId);
-            LoadMediaItems(catt.ParentCategoryId);
+            LoadMediaItems(catt.CategoryId);
             CurrentCategoryId = catt.CategoryId;
             PreviousCategoryId = catt.ParentCategoryId;
 
@@ -208,6 +208,7 @@ namespace MediaSharingGuest
             }
 
             LoadCategories(parentCategoryId);
+            LoadMediaItems(parentCategoryId);
         }
 
         //this timer updates the shown newsfeed message.
@@ -239,6 +240,7 @@ namespace MediaSharingGuest
         private void btnStart_Click(object sender, EventArgs e)
         {
             LoadCategories(startingCategoryId);
+            LoadMediaItems(startingCategoryId);
         }
 
         //this button shows you the found search results for matching categories.
