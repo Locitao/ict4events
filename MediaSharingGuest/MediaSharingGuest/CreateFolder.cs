@@ -37,12 +37,16 @@ namespace MediaSharingGuest
         //Create a folder with inserted data.
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string foldername = protection.ProtectAgainstSQLInjection(tbFolderName.Text);
-            int parentCategoryID = ParentCategory;
-            string RFIDcreator = medias.RfidCode;
+            if (tbFolderName.Text != "")
+            {
+                string foldername = protection.ProtectAgainstSQLInjection(tbFolderName.Text);
+                int parentCategoryID = ParentCategory;
+                string RFIDcreator = medias.RfidCode;
 
-            //Query that inserts the new folder.
-            connection.SQLQueryNoOutput(insert.InsertCategory(foldername, parentCategoryID, RFIDcreator));
+                //Query that inserts the new folder.
+                connection.SQLQueryNoOutput(insert.InsertCategory(foldername, parentCategoryID, RFIDcreator));
+            }
+            else MessageBox.Show("Please enter a name!");
         }
 
         //Closes this window.

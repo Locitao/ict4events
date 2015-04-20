@@ -36,6 +36,12 @@ namespace MediaSharingGuest
             MediaId = mediaId;
             ShowStaticInformation();
             ShowDynamicInformation();
+
+            if (ReportedByUserMediaItem())
+            {
+                btnReportFile.Enabled = false;
+            }
+
             btnReportComment.Enabled = false;
             btnLikeComment.Enabled = false;
         }
@@ -153,6 +159,8 @@ namespace MediaSharingGuest
             //this code gets the report of the Media Item.
             connection.SQLQueryWithOutput(select.GetReportMediaItem(medias.RfidCode, MediaId), out output);
             {
+                MediaItem[0].Reports.Clear();
+
                 foreach (List<string> stringList in output)
                 {
                     string reporterRfidCode = stringList[0];
@@ -250,6 +258,10 @@ namespace MediaSharingGuest
             if (dialogresult == DialogResult.OK)
             {
                 ShowDynamicInformation();
+                if (ReportedByUserMediaItem())
+                {
+                    btnReportFile.Enabled = false;
+                }
             }
         }
 

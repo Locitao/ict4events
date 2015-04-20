@@ -84,30 +84,21 @@ namespace MediaSharingGuest
             //Query that returns Name of the user, if no name then no login.
             connect.SQLQueryWithOutput(select.GetName(rfidcode), out output);
 
-            if (output != null)
+            if (output.Count > 0)
             {
-
-                Username = output[0][0];
-                RfidCode = output[0][1];
-
-                if (Username != "")
-                {
-                    //Query that returns the warnlv 
+                string Username = output[0][0];
+                string RfidCode = output[0][1];
+                
                     MediaSharingSystem ms = new MediaSharingSystem(RfidCode, Username);
                     GuestForm guestform = new GuestForm(ms, 2);
                     this.Hide();
                     guestform.Show();
-                }
             }
 
             else
             {
-                MessageBox.Show("Wrong RFID code!");
+                MessageBox.Show("Wrong RFID Code!");
             }
-        }
-
-        public void LogOut()
-        {
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

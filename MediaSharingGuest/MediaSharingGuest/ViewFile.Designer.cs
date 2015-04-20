@@ -46,7 +46,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblTakenAt = new System.Windows.Forms.Label();
             this.lblLocation = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
             this.lblLikesNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -239,17 +238,6 @@
             this.lblLocation.TabIndex = 32;
             this.lblLocation.Text = "Location";
             // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(859, 18);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(87, 33);
-            this.btnBack.TabIndex = 33;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // lblLikesNumber
             // 
             this.lblLikesNumber.AutoSize = true;
@@ -264,9 +252,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 795);
+            this.ClientSize = new System.Drawing.Size(1284, 795);
             this.Controls.Add(this.lblLikesNumber);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.lblTakenAt);
             this.Controls.Add(this.lblName);
@@ -314,7 +301,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblTakenAt;
         private System.Windows.Forms.Label lblLocation;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblLikesNumber;
     }
 }

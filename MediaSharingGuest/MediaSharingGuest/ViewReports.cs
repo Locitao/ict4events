@@ -85,11 +85,11 @@ namespace MediaSharingGuest
                 Reports.Add(report);
             }
 
-            foreach (Report reportt in Reports)
+            foreach (Report report in Reports)
             {
                 lbReports.ValueMember = "ReportId";
                 lbReports.DisplayMember = "Content";
-                lbReports.Items.Add(reportt);
+                lbReports.Items.Add(report);
             }
 
         }
@@ -134,11 +134,11 @@ namespace MediaSharingGuest
                 HotReports.Add(report);
             }
 
-            foreach (Report reportt in HotReports)
+            foreach (Report report in HotReports)
             {
-                lbReports.ValueMember = "ReportId";
-                lbReports.DisplayMember = "Content";
-                lbHotReports.Items.Add(reportt);
+                lbHotReports.ValueMember = "ReportId";
+                lbHotReports.DisplayMember = "Content";
+                lbHotReports.Items.Add(report);
             }
 
         }
@@ -196,6 +196,28 @@ namespace MediaSharingGuest
         }
 
         /// <summary>
+        /// Deletes all reports that are ''Hot'' and their respective media item or reaction.
+        /// </summary>
+        private void DeleteHotReportsAndTheirConnection()
+        {
+            foreach (Report report in HotReports)
+            {
+                if (report.MediaId != 0)
+                {
+                    connection.SQLQueryNoOutput(delete.DeleteMediaItem(report.MediaId));
+                }
+                else if (report.ReactionId != 0)
+                {
+                    connection.SQLQueryNoOutput(delete.DeleteReaction(report.ReactionId));
+                }
+                else if (report.CategoryId != 0)
+                {
+                    connection.SQLQueryNoOutput(update.EditCategoryName(report.CategoryId, "Category" + Convert.ToString(report.CategoryId)));
+                }
+                connection.SQLQueryNoOutput(delete.DeleteReportWithReportId(report.ReportId));
+            }
+        }
+        /// <summary>
         /// Sets the threshold for when reports should be automatically deleted.
         /// </summary>
         /// <param name="sender"></param>
@@ -213,6 +235,9 @@ namespace MediaSharingGuest
         /// <param name="e"></param>
         private void chbAutoClean_CheckedChanged(object sender, EventArgs e)
         {
+            DeleteHotReportsAndTheirConnection();
+            UpdateListBoxHotReports();
+
             if (chbAutoClean.Checked == true)
             {
                 timerDeleteReports.Start();
@@ -229,23 +254,7 @@ namespace MediaSharingGuest
         {
             if (HotReports.Count > 0)
             {
-                foreach (Report report in HotReports)
-                {
-                    if (report.MediaId != 0)
-                    {
-                        //code to delete media item.
-                    }
-                    else if (report.ReactionId !=0)
-                    {
-                        //code to delete reaction.
-                    }
-                    else if (report.CategoryId !=0)
-                    {
-                        //get likes from category id
-                        connection.SQLQueryNoOutput(update.EditCategoryName(report.CategoryId, "Category" + Convert.ToString(report.CategoryId)));
-                    }
-                    connection.SQLQueryNoOutput(delete.DeleteReportWithReportId(report.ReportId));
-                }
+                DeleteHotReportsAndTheirConnection();
             }
         }
 

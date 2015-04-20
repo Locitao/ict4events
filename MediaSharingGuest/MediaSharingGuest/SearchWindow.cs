@@ -69,12 +69,13 @@ namespace MediaSharingGuest
             if (type == "Category")
             {
                 GuestForm guestForm = new GuestForm(medias, selectedCategory.CategoryId);
-                this.Close();
                 guestForm.Show();
+                this.Close();
             }
             else if (type == "Media")
             {
                 ViewFile viewFile = new ViewFile(medias, selectedMedia.MediaId);
+                viewFile.Show();
                 this.Close();
             }
         }

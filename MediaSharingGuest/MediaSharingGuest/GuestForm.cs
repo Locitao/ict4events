@@ -307,5 +307,11 @@ namespace MediaSharingGuest
                 searchWindow.Show();
             }
         }
+
+        //Closes the form
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
