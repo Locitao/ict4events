@@ -15,9 +15,15 @@ namespace ReservationApp
     /// </summary>
     public partial class ReserveMaterials : Form
     {
+        /// <summary>
+        /// Select and update classes, because both are needed here.
+        /// </summary>
         readonly Select select = new Select();
         readonly Update update = new Update();
 
+        /// <summary>
+        /// List of materials which can be reserved.
+        /// </summary>
         readonly List<Material> allMaterials = new List<Material>(); 
         
 

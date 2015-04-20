@@ -215,6 +215,7 @@
             this.Controls.Add(this.tbName);
             this.Name = "OnlyAcc";
             this.Text = "Only Account";
+            this.Load += new System.EventHandler(this.OnlyAcc_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
