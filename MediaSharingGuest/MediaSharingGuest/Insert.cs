@@ -23,7 +23,7 @@ namespace MediaSharingGuest
         public string AddNewsFeedMessage(string rfidCode, string content)
         {
             string query = 
-                "INSERT INTO PT_REACTION (REACTION_ID, MEDIA_ID, RFID_CODE, REA_CONTENT) VALUES (auto_inc_rec.nextval, " + "NULL, " + rfidCode + "' , '" + content + "')";
+                "INSERT INTO PT_REACTION (REACTION_ID, MEDIA_ID, RFID_CODE, REA_CONTENT) VALUES (auto_inc_rec.nextval, " + "NULL, '" + rfidCode + "' , '" + content + "')";
             return query;
         }
 
