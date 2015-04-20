@@ -14,6 +14,9 @@ namespace MediaSharingGuest
     {
         Connection connection = new Connection();
         Update update = new Update();
+        Delete delete = new Delete();
+        Protection protection = new Protection();
+
         int categoryId = 0;
         public EditCategoryName(int categoryId)
         {
@@ -28,7 +31,9 @@ namespace MediaSharingGuest
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            connection.SQLQueryNoOutput(update.EditCategoryName(categoryId, tbName.Text));
+            connection.SQLQueryNoOutput(update.EditCategoryName(categoryId, protection.ProtectAgainstSQLInjection(tbName.Text)));
+            connection.SQLQueryNoOutput(delete.DeleteReportsWithCategoryId(categoryId));
+            MessageBox.Show("Category name changed.");
             this.Close();
         }
     }

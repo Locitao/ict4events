@@ -23,6 +23,7 @@ namespace MediaSharingGuest
         List<Report> Reports = new List<Report>();
         List<Report> HotReports = new List<Report>();
         Connection connection = new Connection();
+        Update update = new Update();
         Delete delete = new Delete();
         List<List<string>> output = new List<List<string>>();
         Select select = new Select();
@@ -177,6 +178,19 @@ namespace MediaSharingGuest
             {
                 foreach (Report report in HotReports)
                 {
+                    if (report.MediaId != 0)
+                    {
+                        //code to delete media item.
+                    }
+                    else if (report.ReactionId !=0)
+                    {
+                        //code to delete reaction.
+                    }
+                    else if (report.CategoryId !=0)
+                    {
+                        //get likes from category id
+                        connection.SQLQueryNoOutput(update.EditCategoryName(report.CategoryId, "Category" + Convert.ToString(report.CategoryId)));
+                    }
                     connection.SQLQueryNoOutput(delete.DeleteReportWithReportId(report.ReportId));
                 }
             }

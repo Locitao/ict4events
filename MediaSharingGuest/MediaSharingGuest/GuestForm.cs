@@ -21,6 +21,7 @@ namespace MediaSharingGuest
 
         Select select = new Select();
         Connection connection = new Connection();
+        Protection protection = new Protection();
 
         List<List<string>> output = new List<List<string>>();
         List<Category> Categories = new List<Category>();
@@ -133,7 +134,7 @@ namespace MediaSharingGuest
 
         private void btnAddNewsFeedMessage_Click(object sender, EventArgs e)
         {
-            Reaction message = new Reaction(tbNewsFeed.Text, 0, rfidCodeUser);
+            Reaction message = new Reaction(protection.ProtectAgainstSQLInjection(tbNewsFeed.Text), 0, rfidCodeUser);
 
             newsfeed.AddMessage(message);
         }
@@ -210,7 +211,7 @@ namespace MediaSharingGuest
 
             List<Category> foundCategories = new List<Category>();
             List<Media> foundMediaItems = new List<Media>();
-            connection.SQLQueryWithOutput(select.SearchCategories(tbSearch.Text), out output);
+            connection.SQLQueryWithOutput(select.SearchCategories(protection.ProtectAgainstSQLInjection(tbSearch.Text)), out output);
 
             if (output.Count == 0)
             {
@@ -235,7 +236,7 @@ namespace MediaSharingGuest
         {
             List<Category> foundCategories = new List<Category>();
             List<Media> foundMediaItems = new List<Media>();
-            connection.SQLQueryWithOutput(select.SearchMediaItems(tbSearch.Text), out output);
+            connection.SQLQueryWithOutput(select.SearchMediaItems(protection.ProtectAgainstSQLInjection(tbSearch.Text)), out output);
 
             if (output.Count == 0)
             {

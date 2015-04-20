@@ -13,6 +13,7 @@ namespace MediaSharingGuest
     public partial class SendReport : Form
     {
         MediaSharingSystem medias;
+        Protection protection = new Protection();
 
         public int MediaId { get; set; }
         public int CategoryId { get; set; }
@@ -48,15 +49,15 @@ namespace MediaSharingGuest
             {
                 if (WhatKindOfId == "MediaItem")
                 {
-                    connection.SQLQueryNoOutput(insert.InsertReportMedia(MediaId, medias.RfidCode, "-" + tbDescription.Text));
+                    connection.SQLQueryNoOutput(insert.InsertReportMedia(MediaId, medias.RfidCode, "-" + protection.ProtectAgainstSQLInjection(tbDescription.Text)));
                 }
                 else if (WhatKindOfId == "Category")
                 {
-                    connection.SQLQueryNoOutput(insert.InsertReportCategory(CategoryId, medias.RfidCode, "-" + tbDescription.Text));
+                    connection.SQLQueryNoOutput(insert.InsertReportCategory(CategoryId, medias.RfidCode, "-" + protection.ProtectAgainstSQLInjection(tbDescription.Text)));
                 }
                 else if (WhatKindOfId == "Reaction")
                 {
-                    connection.SQLQueryNoOutput(insert.InsertReportReaction(ReactionId, medias.RfidCode, "-" + tbDescription.Text));
+                    connection.SQLQueryNoOutput(insert.InsertReportReaction(ReactionId, medias.RfidCode, "-" + protection.ProtectAgainstSQLInjection(tbDescription.Text)));
                 }
             }
             else MessageBox.Show("Please enter a message!");

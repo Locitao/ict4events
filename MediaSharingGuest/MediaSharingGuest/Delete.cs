@@ -44,6 +44,17 @@ namespace MediaSharingGuest
             return query;
         }
 
+        public string DeleteLikesWithMediaId(int mediaId)
+        {
+            string query = "DELETE FROM PT_USER_LIKES WHERE MEDIA_ID = " + "'" + mediaId + "'";
+            return query;
+        }
+        public string DeleteReactionsWithMediaId(int mediaId)
+        {
+            string query = "DELETE FROM PT_REACTION WHERE MEDIA_ID = " + "'" + mediaId + "'";
+            return query;
+        }
+
         public string DeleteReportsWithCategoryId(int categoryId)
         {
             string query = "DELETE FROM PT_REPORT WHERE REACTION_ID = " + "'" + categoryId + "'";

@@ -21,6 +21,7 @@ namespace MediaSharingGuest
         Select select = new Select();
         Delete delete = new Delete();
         Insert insert = new Insert();
+        Protection protection = new Protection();
         Connection connection = new Connection();
         List<List<string>> output = new List<List<string>>();
         List<List<string>> output2 = new List<List<string>>();
@@ -216,7 +217,7 @@ namespace MediaSharingGuest
 
         private void btnAddComment_Click(object sender, EventArgs e)
         {
-            string content = tbYourComment.Text;
+            string content = protection.ProtectAgainstSQLInjection(tbYourComment.Text);
             connection.SQLQueryNoOutput(insert.InsertReaction(MediaId, medias.RfidCode, content));
             ShowDynamicInformation();
         }

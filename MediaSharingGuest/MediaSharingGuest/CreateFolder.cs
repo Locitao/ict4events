@@ -13,6 +13,7 @@ namespace MediaSharingGuest
     public partial class CreateFolder : Form
     {
         MediaSharingSystem medias;
+        Protection protection = new Protection();
         public int ParentCategory {get; set;}
 
         Insert insert = new Insert();
@@ -26,7 +27,7 @@ namespace MediaSharingGuest
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string foldername = tbFolderName.Text;
+            string foldername = protection.ProtectAgainstSQLInjection(tbFolderName.Text);
             int parentCategoryID = ParentCategory;
             string RFIDcreator = medias.RfidCode;
 

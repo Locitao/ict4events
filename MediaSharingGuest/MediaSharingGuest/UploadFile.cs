@@ -14,6 +14,7 @@ namespace MediaSharingGuest
     {
         MediaSharingSystem medias;
         public int uploadCategoryId { get; set; }
+        Protection protection = new Protection();
 
         public UploadFile(MediaSharingSystem medias, int category)
         {
@@ -48,9 +49,9 @@ namespace MediaSharingGuest
                 MessageBox.Show("No file selected!");
             }
 
-            title = tbTitel.Text;
-            description = tbDesciption.Text;
-            location = tbLocation.Text;
+            title = protection.ProtectAgainstSQLInjection(tbTitel.Text);
+            description = protection.ProtectAgainstSQLInjection(tbDesciption.Text);
+            location = protection.ProtectAgainstSQLInjection(tbLocation.Text);
             string creatorRfid = medias.RfidCode;
 
             Media newMediaItem = new Media(title, filePath, description, creatorRfid, location, uploadCategoryId, '0');

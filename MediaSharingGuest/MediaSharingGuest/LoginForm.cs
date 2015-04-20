@@ -14,6 +14,7 @@ namespace MediaSharingGuest
     {
         Connection connect = new Connection();
         Select select = new Select();
+        Protection protection = new Protection();
         List<List<string>> output = new List<List<string>>();
 
         public LoginForm()
@@ -113,11 +114,11 @@ namespace MediaSharingGuest
         {
             if (rbUser.Checked == true)
             {
-                LogIn(tbUserOrRFID.Text);
+                LogIn(protection.ProtectAgainstSQLInjection(tbUserOrRFID.Text));
             }
             else if (rbAdmin.Checked == true)
             {
-                LogIn(tbUserOrRFID.Text, tbPassword.Text);
+                LogIn(protection.ProtectAgainstSQLInjection(tbUserOrRFID.Text), protection.ProtectAgainstSQLInjection(tbPassword.Text));
             }
         }
 
