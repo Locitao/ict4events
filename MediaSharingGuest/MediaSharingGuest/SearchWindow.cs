@@ -19,6 +19,7 @@ namespace MediaSharingGuest
         Media selectedMedia;
         MediaSharingSystem medias;
 
+        public int ReturningCategoryId { get; set; }
         public SearchWindow(MediaSharingSystem medias, List<Category> foundCategories, string type, List<Media> foundMediaItems)
         {
             InitializeComponent();
@@ -57,11 +58,14 @@ namespace MediaSharingGuest
         {
             if (type == "Category")
             {
-                //code
+                GuestForm guestForm = new GuestForm(medias, selectedCategory.CategoryId);
+                this.Close();
+                guestForm.Show();
             }
             else if (type == "Media")
             {
-                //code
+                ViewFile viewFile = new ViewFile(medias, selectedMedia.MediaId);
+                this.Close();
             }
         }
 

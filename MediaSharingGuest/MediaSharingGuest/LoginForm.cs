@@ -97,7 +97,7 @@ namespace MediaSharingGuest
                 {
                     //Query that returns the warnlv 
                     MediaSharingSystem ms = new MediaSharingSystem(RfidCode, Username);
-                    GuestForm guestform = new GuestForm(ms);
+                    GuestForm guestform = new GuestForm(ms, 2);
                     this.Hide();
                     guestform.Show();
                 }

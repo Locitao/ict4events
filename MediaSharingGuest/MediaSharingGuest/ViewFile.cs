@@ -17,7 +17,6 @@ namespace MediaSharingGuest
         Media[] MediaItem = new Media[1];
         bool isLikedMedia = false;
         bool isLikedReaction = false;
-        //List<Reaction> mediaReactions = new List<Reaction>();
         Reaction selectedReaction;
         Select select = new Select();
         Delete delete = new Delete();

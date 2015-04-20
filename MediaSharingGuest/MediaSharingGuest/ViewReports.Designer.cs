@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbReports = new System.Windows.Forms.ListBox();
             this.lbHotReports = new System.Windows.Forms.ListBox();
             this.lblHotReports = new System.Windows.Forms.Label();
             this.lblReports = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudThreshold = new System.Windows.Forms.NumericUpDown();
             this.lblThreshold = new System.Windows.Forms.Label();
             this.chbAutoClean = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.timerDeleteReports = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.nudThreshold)).BeginInit();
             this.SuspendLayout();
             // 
             // lbReports
@@ -43,7 +45,7 @@
             this.lbReports.FormattingEnabled = true;
             this.lbReports.ItemHeight = 16;
             this.lbReports.Location = new System.Drawing.Point(601, 30);
-            this.lbReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbReports.Margin = new System.Windows.Forms.Padding(4);
             this.lbReports.Name = "lbReports";
             this.lbReports.Size = new System.Drawing.Size(232, 260);
             this.lbReports.TabIndex = 0;
@@ -78,12 +80,23 @@
             this.lblReports.TabIndex = 3;
             this.lblReports.Text = "Reports";
             // 
-            // numericUpDown1
+            // nudThreshold
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(954, 297);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 4;
+            this.nudThreshold.Location = new System.Drawing.Point(954, 297);
+            this.nudThreshold.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudThreshold.Name = "nudThreshold";
+            this.nudThreshold.Size = new System.Drawing.Size(120, 22);
+            this.nudThreshold.TabIndex = 4;
+            this.nudThreshold.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudThreshold.ValueChanged += new System.EventHandler(this.nudThreshold_ValueChanged);
             // 
             // lblThreshold
             // 
@@ -103,6 +116,12 @@
             this.chbAutoClean.TabIndex = 7;
             this.chbAutoClean.Text = "AutoClean";
             this.chbAutoClean.UseVisualStyleBackColor = true;
+            this.chbAutoClean.CheckedChanged += new System.EventHandler(this.chbAutoClean_CheckedChanged);
+            // 
+            // timerDeleteReports
+            // 
+            this.timerDeleteReports.Interval = 10000;
+            this.timerDeleteReports.Tick += new System.EventHandler(this.timerDeleteReports_Tick);
             // 
             // ViewReports
             // 
@@ -111,15 +130,15 @@
             this.ClientSize = new System.Drawing.Size(1086, 580);
             this.Controls.Add(this.chbAutoClean);
             this.Controls.Add(this.lblThreshold);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nudThreshold);
             this.Controls.Add(this.lblReports);
             this.Controls.Add(this.lblHotReports);
             this.Controls.Add(this.lbHotReports);
             this.Controls.Add(this.lbReports);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewReports";
             this.Text = "ViewReports";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThreshold)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,8 +150,9 @@
         private System.Windows.Forms.ListBox lbHotReports;
         private System.Windows.Forms.Label lblHotReports;
         private System.Windows.Forms.Label lblReports;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudThreshold;
         private System.Windows.Forms.Label lblThreshold;
         private System.Windows.Forms.CheckBox chbAutoClean;
+        private System.Windows.Forms.Timer timerDeleteReports;
     }
 }

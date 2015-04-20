@@ -17,8 +17,6 @@ namespace MediaSharingGuest
         NewsFeed newsfeed = new NewsFeed();
         List<string> NewsFeedMessages = new List<string>();
         Random RNG = new Random();
-
-
         int startingCategoryId = 2;
 
         Select select = new Select();
@@ -32,13 +30,14 @@ namespace MediaSharingGuest
         public int PreviousCategoryId { get; set; }
         public string rfidCodeUser { get; set; }
 
-        public GuestForm(MediaSharingSystem medias)
+        public GuestForm(MediaSharingSystem medias, int startingCategoryId)
         {
             InitializeComponent();
             lblUsername.Text = medias.Username;
 
             LoadNewsFeedMessages();
             this.medias = medias;
+            this.startingCategoryId = startingCategoryId;
             timerNewsFeed.Start();
             PreviousCategoryId = 2;
 

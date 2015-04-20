@@ -15,10 +15,11 @@ namespace MediaSharingGuest
         public ViewReports()
         {
             InitializeComponent();
-            UpdateListBox();
+            UpdateListBoxReports();
         }
 
         List<Report> Reports = new List<Report>();
+        List<Report> HotReports = new List<Report>();
         Connection connection = new Connection();
         List<List<string>> output = new List<List<string>>();
         Select select = new Select();
@@ -45,12 +46,12 @@ namespace MediaSharingGuest
             lbReports.SelectedIndex = -1;
         }
 
-        public void UpdateListBox()
+        public void UpdateListBoxReports()
         {
             Reports.Clear();
             lbReports.Items.Clear();
 
-            connection.SQLQueryWithOutput(select.GetAllReports(), out output);
+            connection.SQLQueryWithOutput(select.GetAllReportsUnderThreshHold(Convert.ToInt32(nudThreshold.Value)), out output);
 
             foreach (List<string> stringList in output)
             {
@@ -90,9 +91,77 @@ namespace MediaSharingGuest
             }
 
         }
+
+        public void UpdateListBoxHotReports()
+        {
+            HotReports.Clear();
+            lbHotReports.Items.Clear();
+
+            connection.SQLQueryWithOutput(select.GetAllReportsAboveThreshHold(Convert.ToInt32(nudThreshold.Value)), out output);
+
+            foreach (List<string> stringList in output)
+            {
+                reportId = Convert.ToInt32(stringList[0]);
+
+                if (stringList[1] == "")
+                {
+                    categoryId = 0;
+                }
+                else categoryId = Convert.ToInt32(stringList[1]);
+
+                if (stringList[2] == "")
+                {
+                    mediaId = 0;
+                }
+                else mediaId = Convert.ToInt32(stringList[2]);
+
+                if (stringList[3] == "")
+                {
+                    reactionId = 0;
+                }
+                else reactionId = Convert.ToInt32(stringList[3]);
+
+                rfidCode = stringList[4];
+                description = stringList[5];
+
+                Report report = new Report(reportId, description, categoryId, mediaId, reactionId, rfidCode);
+
+                HotReports.Add(report);
+            }
+
+            foreach (Report reportt in HotReports)
+            {
+                lbReports.ValueMember = "ReportId";
+                lbReports.DisplayMember = "Content";
+                lbHotReports.Items.Add(reportt);
+            }
+        }
+
         private void lbHotReports_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void nudThreshold_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chbAutoClean_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbAutoClean.Checked == true)
+            {
+                timerDeleteReports.Start();
+            }
+            else timerDeleteReports.Stop();
+        }
+
+        private void timerDeleteReports_Tick(object sender, EventArgs e)
+        {
+            foreach (Report report in HotReports)
+            {
+                
+            }
         }
 
         
