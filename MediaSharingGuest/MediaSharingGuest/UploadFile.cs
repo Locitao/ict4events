@@ -61,16 +61,16 @@ namespace MediaSharingGuest
             {
                 MessageBox.Show("No file selected!");
             }
+            else if (filePath != "")
+            {
+                title = protection.ProtectAgainstSQLInjection(tbTitel.Text);
+                description = protection.ProtectAgainstSQLInjection(tbDesciption.Text);
+                location = protection.ProtectAgainstSQLInjection(tbLocation.Text);
+                string creatorRfid = medias.RfidCode;
 
-            title = protection.ProtectAgainstSQLInjection(tbTitel.Text);
-            description = protection.ProtectAgainstSQLInjection(tbDesciption.Text);
-            location = protection.ProtectAgainstSQLInjection(tbLocation.Text);
-            string creatorRfid = medias.RfidCode;
-
-            Media newMediaItem = new Media(title, filePath, description, creatorRfid, location, uploadCategoryId, '0');
-            connection.SQLQueryNoOutput(insert.InsertImage(uploadCategoryId, title, location, description, medias.RfidCode));
-
-            this.Close();
+                connection.SQLQueryNoOutput(insert.InsertImage(uploadCategoryId, title, location, description, medias.RfidCode, filePath));
+                this.Close();
+            }
         }
 
         //Closes the window.

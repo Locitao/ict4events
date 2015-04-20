@@ -43,7 +43,7 @@ namespace MediaSharingGuest
             timerUpdate.Start();
         }
 
-        //Methods
+        //Methods------------------------------------------
 
         /// <summary>
         /// Updates the reports listbox
@@ -258,6 +258,16 @@ namespace MediaSharingGuest
         {
             UpdateListBoxHotReports();
             UpdateListBoxReports();
+        }
+
+        /// <summary>
+        /// closes the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }   
     }
 }

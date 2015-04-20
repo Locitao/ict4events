@@ -264,7 +264,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 795);
+            this.ClientSize = new System.Drawing.Size(1202, 795);
             this.Controls.Add(this.lblLikesNumber);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblLocation);

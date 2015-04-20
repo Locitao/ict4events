@@ -17,6 +17,7 @@ namespace MediaSharingGuest
     {
         //Fields------------------------------------
         MediaSharingSystem medias;
+        Connection connection = new Connection();
         Protection protection = new Protection();
         Insert insert = new Insert();
 
@@ -41,7 +42,7 @@ namespace MediaSharingGuest
             string RFIDcreator = medias.RfidCode;
 
             //Query that inserts the new folder.
-            insert.InsertCategory(foldername, parentCategoryID, RFIDcreator);
+            connection.SQLQueryNoOutput(insert.InsertCategory(foldername, parentCategoryID, RFIDcreator));
         }
 
         //Closes this window.

@@ -44,6 +44,7 @@
             this.lblContentCreator = new System.Windows.Forms.Label();
             this.btnBanReporter = new System.Windows.Forms.Button();
             this.gbReporterData = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.gbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMedia)).BeginInit();
             this.gbReporterData.SuspendLayout();
@@ -200,6 +201,7 @@
             // 
             // gbReporterData
             // 
+            this.gbReporterData.Controls.Add(this.btnCancel);
             this.gbReporterData.Controls.Add(this.lblReporter);
             this.gbReporterData.Controls.Add(this.btnBanReporter);
             this.gbReporterData.Controls.Add(this.tbReportContent);
@@ -210,6 +212,16 @@
             this.gbReporterData.TabIndex = 4;
             this.gbReporterData.TabStop = false;
             this.gbReporterData.Text = "Reporter Data";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(248, 229);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(144, 32);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ReportData
             // 
@@ -247,5 +259,6 @@
         private System.Windows.Forms.Button btnBanReporter;
         private System.Windows.Forms.GroupBox gbReporterData;
         private System.Windows.Forms.PictureBox pbMedia;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

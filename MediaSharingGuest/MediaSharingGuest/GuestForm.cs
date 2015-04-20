@@ -156,8 +156,13 @@ namespace MediaSharingGuest
         //This buttonopens the upload file window.
         private void btnAddFile_Click_1(object sender, EventArgs e)
         {
+            DialogResult dialogresult = new DialogResult();
             UploadFile uploadfile = new UploadFile(medias, CurrentCategoryId);
-            uploadfile.Show();
+            dialogresult = uploadfile.ShowDialog();
+            {
+                LoadCategories(CurrentCategoryId);
+                LoadMediaItems(CurrentCategoryId);
+            }
         }
 
         //This button adds a newsfeedmessage.
@@ -170,8 +175,15 @@ namespace MediaSharingGuest
         //This button opens the create category window.
         private void btnAddFolder_Click(object sender, EventArgs e)
         {
-            CreateFolder createFolder = new CreateFolder(medias, CurrentCategoryId);
-            createFolder.Show();
+            DialogResult dialogresult = new DialogResult();
+            CreateFolder createFolder = new CreateFolder(medias, CurrentCategoryId);       
+            dialogresult = createFolder.ShowDialog();
+
+            if (dialogresult == DialogResult.OK)
+            {
+                LoadCategories(CurrentCategoryId);
+                LoadMediaItems(CurrentCategoryId);
+            }
         }
 
         //This event loads the new folders inside the selected folder.

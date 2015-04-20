@@ -38,6 +38,7 @@
             this.chbAutoClean = new System.Windows.Forms.CheckBox();
             this.timerDeleteReports = new System.Windows.Forms.Timer(this.components);
             this.timerUpdate = new System.Windows.Forms.Timer(this.components);
+            this.btnLogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudThreshold)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,11 +130,22 @@
             this.timerUpdate.Interval = 10000;
             this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(426, 400);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(75, 23);
+            this.btnLogOut.TabIndex = 8;
+            this.btnLogOut.Text = "Logout";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // ViewReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 435);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.chbAutoClean);
             this.Controls.Add(this.lblThreshold);
             this.Controls.Add(this.nudThreshold);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.CheckBox chbAutoClean;
         private System.Windows.Forms.Timer timerDeleteReports;
         private System.Windows.Forms.Timer timerUpdate;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }
