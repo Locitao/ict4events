@@ -31,7 +31,7 @@
             this.cbItem = new System.Windows.Forms.ComboBox();
             this.lbItem = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbItem
@@ -61,15 +61,15 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnAddCategory
+            // btnAddItem
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(28, 65);
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(106, 23);
-            this.btnAddCategory.TabIndex = 6;
-            this.btnAddCategory.Text = "Add Category";
-            this.btnAddCategory.UseVisualStyleBackColor = true;
-            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            this.btnAddItem.Location = new System.Drawing.Point(28, 65);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(106, 23);
+            this.btnAddItem.TabIndex = 6;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // AddItemForm
             // 
@@ -77,7 +77,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 140);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAddCategory);
+            this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.lbItem);
             this.Controls.Add(this.cbItem);
             this.Name = "AddItemForm";
@@ -92,6 +92,6 @@
         private System.Windows.Forms.ComboBox cbItem;
         private System.Windows.Forms.Label lbItem;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAddCategory;
+        private System.Windows.Forms.Button btnAddItem;
     }
 }

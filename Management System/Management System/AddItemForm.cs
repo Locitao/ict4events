@@ -26,30 +26,30 @@ namespace Management_System
             saved = false;
         }
 
-        private void btnAddCategory_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
         {
             if (cbItem.SelectedItem != null)
             {
-                foreach(List<string> list in List)
+                foreach (List<string> list in List)
                 {
-                    if (cbItem.SelectedItem == list[1])
+                    if ((string)cbItem.SelectedItem == list[1])
                     {
                         this.selectedItem = Convert.ToInt32(list[0]);
                         saved = true;
                         this.Close();
                     }
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("Please select an Item.");
             }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
