@@ -130,13 +130,13 @@ namespace MediaSharingGuest
 
         public string GetAllReportsUnderThreshHold(int threshold)
         {
-            string query = "SELECT REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION FROM PT_REPORT HAVING COUNT(media_id) <= " + "'" + threshold + "'" + " AND COUNT(REACTION_ID) <= " + "'" + threshold + "'" + " AND COUNT (CATEGORY_ID) <= " + "'" + threshold + "'" + " GROUP BY MEDIA_ID, REPORT_ID, REP_DESCRIPTION, MEDIA_ID, REPORT_ID, REACTION_ID";
+            string query = "SELECT REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION FROM PT_REPORT HAVING COUNT(media_id) <= " + "'" + threshold + "'" + " AND COUNT(REACTION_ID) <= " + "'" + threshold + "'" + " AND COUNT (CATEGORY_ID) <= " + "'" + threshold + "'" + " GROUP BY REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION";
             return query;
         }
 
         public string GetAllReportsAboveThreshHold(int threshold)
         {
-            string query = "SELECT REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION  FROM PT_REPORT HAVING COUNT(media_id) >= " + "'" + threshold + "'" + " OR COUNT(REACTION_ID) >= " + "'" + threshold + "'" + " OR COUNT (CATEGORY_ID) >= " + "'" + threshold + "'" + " GROUP BY MEDIA_ID, REPORT_ID, REP_DESCRIPTION, MEDIA_ID, REPORT_ID, REACTION_ID";
+            string query = "SELECT REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION  FROM PT_REPORT HAVING COUNT(media_id) >= " + "'" + threshold + "'" + " OR COUNT(REACTION_ID) >= " + "'" + threshold + "'" + " OR COUNT (CATEGORY_ID) >= " + "'" + threshold + "'" + " GROUP BY REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION";
             return query;
         }
 

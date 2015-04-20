@@ -63,9 +63,8 @@ namespace MediaSharingGuest
             //Query that returns password of the username.
             connect.SQLQueryWithOutput(select.GetPassword(username), out output);
 
-            if (output != null)
+            if (output.Count > 0)
             {
-
                 string tablePassword = output[0][0];
 
                 if (password == tablePassword)
@@ -74,12 +73,9 @@ namespace MediaSharingGuest
                     this.Hide();
                     viewReports.Show();
                 }
+                else MessageBox.Show("Wrong password!");
             }
-
-            else
-            {
-                MessageBox.Show("Wrong password or username");
-            }
+            else MessageBox.Show("Wrong username!");
         }
 
         public void LogIn(string rfidcode)
@@ -105,7 +101,7 @@ namespace MediaSharingGuest
 
             else
             {
-                MessageBox.Show("Wrong password or username");
+                MessageBox.Show("Wrong RFID code!");
             }
         }
 

@@ -108,10 +108,10 @@
             // 
             // btnLikeThisFile
             // 
-            this.btnLikeThisFile.Location = new System.Drawing.Point(495, 614);
+            this.btnLikeThisFile.Location = new System.Drawing.Point(315, 401);
             this.btnLikeThisFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnLikeThisFile.Name = "btnLikeThisFile";
-            this.btnLikeThisFile.Size = new System.Drawing.Size(100, 64);
+            this.btnLikeThisFile.Size = new System.Drawing.Size(155, 26);
             this.btnLikeThisFile.TabIndex = 22;
             this.btnLikeThisFile.Text = "Like this file!";
             this.btnLikeThisFile.UseVisualStyleBackColor = true;
@@ -158,12 +158,12 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(4, 418);
+            this.tbDescription.Location = new System.Drawing.Point(8, 431);
             this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(466, 149);
+            this.tbDescription.Size = new System.Drawing.Size(462, 149);
             this.tbDescription.TabIndex = 16;
             this.tbDescription.TabStop = false;
             this.tbDescription.Text = "Description";
@@ -192,7 +192,7 @@
             // 
             this.lbComments.FormattingEnabled = true;
             this.lbComments.ItemHeight = 16;
-            this.lbComments.Location = new System.Drawing.Point(495, 77);
+            this.lbComments.Location = new System.Drawing.Point(548, 59);
             this.lbComments.Margin = new System.Windows.Forms.Padding(4);
             this.lbComments.Name = "lbComments";
             this.lbComments.Size = new System.Drawing.Size(451, 644);

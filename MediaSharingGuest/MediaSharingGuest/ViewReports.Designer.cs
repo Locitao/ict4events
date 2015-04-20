@@ -37,6 +37,7 @@
             this.lblThreshold = new System.Windows.Forms.Label();
             this.chbAutoClean = new System.Windows.Forms.CheckBox();
             this.timerDeleteReports = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdate = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudThreshold)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             this.nudThreshold.Size = new System.Drawing.Size(120, 22);
             this.nudThreshold.TabIndex = 4;
             this.nudThreshold.Value = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
             0});
@@ -122,6 +123,11 @@
             // 
             this.timerDeleteReports.Interval = 10000;
             this.timerDeleteReports.Tick += new System.EventHandler(this.timerDeleteReports_Tick);
+            // 
+            // timerUpdate
+            // 
+            this.timerUpdate.Interval = 10000;
+            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
             // 
             // ViewReports
             // 
@@ -154,5 +160,6 @@
         private System.Windows.Forms.Label lblThreshold;
         private System.Windows.Forms.CheckBox chbAutoClean;
         private System.Windows.Forms.Timer timerDeleteReports;
+        private System.Windows.Forms.Timer timerUpdate;
     }
 }

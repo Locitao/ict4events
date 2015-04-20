@@ -15,12 +15,15 @@ namespace MediaSharingGuest
         public ViewReports()
         {
             InitializeComponent();
+            UpdateListBoxHotReports();
             UpdateListBoxReports();
+            timerUpdate.Start();
         }
 
         List<Report> Reports = new List<Report>();
         List<Report> HotReports = new List<Report>();
         Connection connection = new Connection();
+        Delete delete = new Delete();
         List<List<string>> output = new List<List<string>>();
         Select select = new Select();
         Report selectedReport;
@@ -43,6 +46,7 @@ namespace MediaSharingGuest
                 reportData.Show();
             }
 
+            lbHotReports.SelectedIndex = -1;
             lbReports.SelectedIndex = -1;
         }
 
@@ -135,16 +139,27 @@ namespace MediaSharingGuest
                 lbReports.DisplayMember = "Content";
                 lbHotReports.Items.Add(reportt);
             }
+
         }
 
         private void lbHotReports_SelectedIndexChanged(object sender, EventArgs e)
         {
+            selectedReport = lbHotReports.SelectedItem as Report;
 
+            if (selectedReport != null)
+            {
+                ReportData reportData = new ReportData(selectedReport);
+                reportData.Show();
+            }
+
+            lbHotReports.SelectedIndex = -1;
+            lbReports.SelectedIndex = -1;
         }
 
         private void nudThreshold_ValueChanged(object sender, EventArgs e)
         {
-
+            UpdateListBoxReports();
+            UpdateListBoxHotReports();
         }
 
         private void chbAutoClean_CheckedChanged(object sender, EventArgs e)
@@ -158,12 +173,19 @@ namespace MediaSharingGuest
 
         private void timerDeleteReports_Tick(object sender, EventArgs e)
         {
-            foreach (Report report in HotReports)
+            if (HotReports.Count > 0)
             {
-                
+                foreach (Report report in HotReports)
+                {
+                    connection.SQLQueryNoOutput(delete.DeleteReportWithReportId(report.ReportId));
+                }
             }
         }
 
-        
+        private void timerUpdate_Tick(object sender, EventArgs e)
+        {
+            UpdateListBoxHotReports();
+            UpdateListBoxReports();
+        }   
     }
 }

@@ -217,7 +217,7 @@ namespace MediaSharingGuest
         private void btnAddComment_Click(object sender, EventArgs e)
         {
             string content = tbYourComment.Text;
-            Reaction comment = new Reaction(content, MediaId, medias.RfidCode);
+            connection.SQLQueryNoOutput(insert.InsertReaction(MediaId, medias.RfidCode, content));
             ShowDynamicInformation();
         }
 

@@ -44,18 +44,22 @@ namespace MediaSharingGuest
 
         private void btnSendReport_Click(object sender, EventArgs e)
         {
-            if (WhatKindOfId == "MediaItem")
+            if (tbDescription.Text != "")
             {
-                connection.SQLQueryNoOutput(insert.InsertReportMedia(MediaId, medias.RfidCode, tbDescription.Text));
+                if (WhatKindOfId == "MediaItem")
+                {
+                    connection.SQLQueryNoOutput(insert.InsertReportMedia(MediaId, medias.RfidCode, "-" + tbDescription.Text));
+                }
+                else if (WhatKindOfId == "Category")
+                {
+                    connection.SQLQueryNoOutput(insert.InsertReportCategory(CategoryId, medias.RfidCode, "-" + tbDescription.Text));
+                }
+                else if (WhatKindOfId == "Reaction")
+                {
+                    connection.SQLQueryNoOutput(insert.InsertReportReaction(ReactionId, medias.RfidCode, "-" + tbDescription.Text));
+                }
             }
-            else if (WhatKindOfId == "Category")
-            {
-                connection.SQLQueryNoOutput(insert.InsertReportCategory(CategoryId, medias.RfidCode, tbDescription.Text));
-            }
-            else if (WhatKindOfId == "Reaction")
-            {
-                connection.SQLQueryNoOutput(insert.InsertReportReaction(ReactionId, medias.RfidCode, tbDescription.Text));
-            }
+            else MessageBox.Show("Please enter a message!");
 
             this.Close();
         }

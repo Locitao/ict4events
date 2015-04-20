@@ -29,7 +29,6 @@ namespace MediaSharingGuest
         private void btnChange_Click(object sender, EventArgs e)
         {
             connection.SQLQueryNoOutput(update.EditCategoryName(categoryId, tbName.Text));
-            connection.
             this.Close();
         }
     }

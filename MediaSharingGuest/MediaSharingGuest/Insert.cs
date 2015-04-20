@@ -38,6 +38,12 @@ namespace MediaSharingGuest
             return query;
         }
 
+        public string InsertReaction(int mediaId, string rfidCode, string content)
+        {
+            string query = "Insert into PT_REACTION (reaction_ID, media_ID, rfid_CODE, rea_content) Values (auto_inc_rec.nextval, '" + mediaId + "', '" + rfidCode + "', '" + content + "')";
+            return query;
+        }
+
         public string InsertReportCategory(int categoryId, string rfidCode, string description)
         {
             string query = "";
