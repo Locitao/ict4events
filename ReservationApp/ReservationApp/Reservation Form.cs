@@ -106,12 +106,12 @@ namespace ReservationApp
                     var res = select.Find_Res_Id(rfid);
                     var loc = nmLocId.Text;
 
-                    if (nmLoc2.Text == null || nmLoc2.Text == "0")
+                    if (nmLoc2.Text != "0")
                     {
                         update.Update_Location(nmLoc2.Text, res);
                     }
 
-                    if (nmLoc3.Text == null || nmLoc3.Text == "0")
+                    if (nmLoc3.Text != "0")
                     {
                         update.Update_Location(nmLoc3.Text, res);
                     }
