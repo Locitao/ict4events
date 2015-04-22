@@ -10,7 +10,7 @@ namespace AccessControl
     {
         public List<Dictionary<string, object>> Select_Reserves()
         {
-            const string sql = "SELECT r.RESERVATION_ID AS RESERVE_CODE, u.RFID_CODE, u.USER_NAME, r.PERSON_AMOUNT, r.PAID, u.EVENT_ID FROM PT_RESERVATION r JOIN PT_USER_ACC u ON r.RESERVATION_ID = u.RESERVATION_ID";
+            const string sql = "SELECT r.RESERVATION_ID AS RESERVE_CODE, u.RFID_CODE, u.USER_NAME, r.PAID, u.EVENT_ID FROM PT_RESERVATION r JOIN PT_USER_ACC u ON r.RESERVATION_ID = u.RESERVATION_ID";
 
             var data = Connection.ExecuteQuery(sql);
             return data;
@@ -18,7 +18,7 @@ namespace AccessControl
 
         public List<Dictionary<string, object>> Select_ReservesOnRFID(string rfid)
         {
-            string sql = "SELECT r.RESERVATION_ID AS RESERVE_CODE, u.RFID_CODE, u.USER_NAME, r.PERSON_AMOUNT, r.PAID, u.EVENT_ID FROM PT_RESERVATION r JOIN PT_USER_ACC u ON r.RESERVATION_ID = u.RESERVATION_ID WHERE u.RFID_CODE = '" + rfid + "'";
+            string sql = "SELECT r.RESERVATION_ID AS RESERVE_CODE, u.RFID_CODE, u.USER_NAME, r.PAID, u.EVENT_ID FROM PT_RESERVATION r JOIN PT_USER_ACC u ON r.RESERVATION_ID = u.RESERVATION_ID WHERE u.RFID_CODE = '" + rfid + "'";
 
             var data = Connection.ExecuteQuery(sql);
             return data;

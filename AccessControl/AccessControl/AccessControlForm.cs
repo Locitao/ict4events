@@ -22,17 +22,18 @@ namespace AccessControl
         public AccessControlForm()
         {            
             InitializeComponent();
-            Refresh();
+            Refresh("");
             tmrRFIDCheck.Start();
         }
         private void bttnRefresh_Click(object sender, EventArgs e)
-        {           
+        {              
             tbRFIDSearsh.Text = "";
-            Refresh();
+            Refresh("");
         }
 
-        public override void Refresh()
+        public void Refresh(string RFID)
         {
+            // Puts all the data in the listbox.
             lbRFIDCodes.Items.Clear();
             lblRFID.Text = "";
 
@@ -40,48 +41,17 @@ namespace AccessControl
             {
                 var reserves = select.Select_Reserves();
 
-                foreach (Dictionary<string, object> row in reserves)
+                if (RFID != "")
                 {
-                    string present = Convert.ToString(row["EVENT_ID"]);
-                    string paid = Convert.ToString(row["PAID"]);
-                    if (present != "")
-                    {
-                        present = "Yes";
-                    }
-                    else
-                    {
-                        present = "No";
-                    }
-                    if (paid == "1")
-                    {
-                        paid = "Yes";
-                    }
-                    else
-                    {
-                        paid = "no";
-                    }
-
-                    lbRFIDCodes.Items.Add("Reserve ID: " + row["RESERVE_CODE"] + ". RFID: " + row["RFID_CODE"] + ". Name: " + row["USER_NAME"] + ". Amount of people: " + row["PERSON_AMOUNT"] + ". " + "Paid?: " + paid + ". Present?: " + present);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        public void RefreshOnRFID(string rfid)
-        {
-            lbRFIDCodes.Items.Clear();
-
-            try
-            {
-                var reserves = select.Select_ReservesOnRFID(rfid);
+                    reserves = select.Select_ReservesOnRFID(RFID);
+                }                
 
                 foreach (Dictionary<string, object> row in reserves)
                 {
                     string present = Convert.ToString(row["EVENT_ID"]);
                     string paid = Convert.ToString(row["PAID"]);
+                    int reserveID = Convert.ToInt32(row["RESERVE_CODE"]);
+                    string reservationID = reserveID.ToString();
 
                     if (present != "")
                     {
@@ -100,7 +70,16 @@ namespace AccessControl
                         paid = "no";
                     }
 
-                    lbRFIDCodes.Items.Add("Reserve ID: " + row["RESERVE_CODE"] + ". RFID: " + row["RFID_CODE"] + ". Name: " + row["USER_NAME"] + ". Amount of people: " + row["PERSON_AMOUNT"] + ". " + "Paid?: " + paid + ". Present?: " + present);
+                    if (reserveID < 10)
+                    {
+                        reservationID = "00" + reserveID;
+                    }
+                    else if (reserveID < 100)
+                    {
+                        reservationID = "0" + reserveID;
+                    }
+
+                    lbRFIDCodes.Items.Add("Reserve ID: " + reservationID + ". RFID: " + row["RFID_CODE"] + ". Name: " + row["USER_NAME"] + ". Paid?: " + paid + ". Present?: " + present);
                 }
             }
             catch (Exception ex)
@@ -109,15 +88,17 @@ namespace AccessControl
             }
         }
         
+        
         private void BttnPayed_Click(object sender, EventArgs e)
         {
             try
-            {            
-                string ReserveID = lbRFIDCodes.SelectedItem.ToString().Substring(12, 1);
-                string RFID = lbRFIDCodes.SelectedItem.ToString().Substring(21, 1);
+            {  
+                // Changes paid into 1 or 0, depending on the old status.
+                string ReserveID = lbRFIDCodes.SelectedItem.ToString().Substring(12, 3);
+                string RFID = lbRFIDCodes.SelectedItem.ToString().Substring(23, 10);
 
                 update.Update_Paid(ReserveID);
-                RefreshOnRFID(RFID);
+                Refresh(RFID);
             }
             catch
             {
@@ -129,7 +110,9 @@ namespace AccessControl
         {
             try
             {
-                string ReserveID = lbRFIDCodes.SelectedItem.ToString().Substring(12, 1);
+                // Updates foreign key tables and deletes the reserve_ID in those.
+                // Then deletes the main reservation table.
+                string ReserveID = lbRFIDCodes.SelectedItem.ToString().Substring(12, 3);
 
                 bool location = update.Update_location(ReserveID);
                 bool material = update.Update_Material(ReserveID);
@@ -138,10 +121,11 @@ namespace AccessControl
                 if (user == true)
                 {
                     delete.Delete_Reservation(ReserveID);
+                    MessageBox.Show("Reservation has been cancelled.");
                 }
                 else
                 {
-                    MessageBox.Show("Cancel of reservation has failed. " + ReserveID + user);
+                    MessageBox.Show("Cancel of reservation has failed. ");
                 }
             }
             catch
@@ -154,12 +138,13 @@ namespace AccessControl
         {
             try
             {
-                string RFID = lbRFIDCodes.SelectedItem.ToString().Substring(21, 1);
+                // Updates the Event_ID, 0 if the user leaves and 1 if the user enters.
+                string RFID = lbRFIDCodes.SelectedItem.ToString().Substring(23, 10);
                 bool gelukt = update.Update_CheckPresent(RFID);
                 if (gelukt == true)
                 {
                     MessageBox.Show("User can leave/enter event");
-                    RefreshOnRFID(RFID);
+                    Refresh(RFID);
                 }
                 else
                 {
@@ -174,10 +159,11 @@ namespace AccessControl
 
         private void tmrRFIDCheck_Tick(object sender, EventArgs e)
         {
+            // Checks if tbRFIDSearsh has 10 textLength, if so, it will read the rfid code and calls the method refreshOnRFID.
             if (tbRFIDSearsh.TextLength == 10)
             {
                 string RFID = tbRFIDSearsh.Text;
-                RefreshOnRFID(RFID);
+                Refresh(RFID);
                 lblRFID.Text = RFID;
                 
                 tbRFIDSearsh.Text = "";

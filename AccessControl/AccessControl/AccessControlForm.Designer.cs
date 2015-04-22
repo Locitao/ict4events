@@ -121,6 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(534, 330);
             this.Controls.Add(this.lblRFID);
             this.Controls.Add(this.bttnRefresh);
@@ -131,6 +132,7 @@
             this.Controls.Add(this.lbRFIDCodes);
             this.Controls.Add(this.tbRFIDSearsh);
             this.Name = "AccessControlForm";
+            this.ShowIcon = false;
             this.Text = "Access Control";
             this.ResumeLayout(false);
             this.PerformLayout();
