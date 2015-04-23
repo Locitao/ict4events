@@ -24,6 +24,7 @@ namespace MediaSharingGuest
         Update update = new Update();
         Delete delete = new Delete();
         Select select = new Select();
+        Protection protection = new Protection();
 
         Report selectedReport;
 
@@ -277,6 +278,17 @@ namespace MediaSharingGuest
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //Bans the user
+        private void btnBan_Click(object sender, EventArgs e)
+        {
+            connection.SQLQueryNoOutput(update.BanUser(protection.ProtectAgainstSQLInjection(tbRfid.Text)));
+        }
+
+        private void btnUnban_Click(object sender, EventArgs e)
+        {
+            connection.SQLQueryNoOutput(update.UnbanUser(protection.ProtectAgainstSQLInjection(tbRfid.Text)));
         }   
     }
 }

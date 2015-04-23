@@ -39,6 +39,10 @@
             this.timerDeleteReports = new System.Windows.Forms.Timer(this.components);
             this.timerUpdate = new System.Windows.Forms.Timer(this.components);
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.tbRfid = new System.Windows.Forms.TextBox();
+            this.lblRfidCode = new System.Windows.Forms.Label();
+            this.btnUnban = new System.Windows.Forms.Button();
+            this.btnBan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudThreshold)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,7 +136,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(415, 389);
+            this.btnLogOut.Location = new System.Drawing.Point(751, 389);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(86, 34);
             this.btnLogOut.TabIndex = 8;
@@ -140,11 +144,53 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // tbRfid
+            // 
+            this.tbRfid.Location = new System.Drawing.Point(645, 28);
+            this.tbRfid.Name = "tbRfid";
+            this.tbRfid.Size = new System.Drawing.Size(167, 22);
+            this.tbRfid.TabIndex = 9;
+            // 
+            // lblRfidCode
+            // 
+            this.lblRfidCode.AutoSize = true;
+            this.lblRfidCode.Location = new System.Drawing.Point(553, 31);
+            this.lblRfidCode.Name = "lblRfidCode";
+            this.lblRfidCode.Size = new System.Drawing.Size(86, 17);
+            this.lblRfidCode.TabIndex = 10;
+            this.lblRfidCode.Text = "RFID CODE:";
+            // 
+            // btnUnban
+            // 
+            this.btnUnban.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnUnban.Location = new System.Drawing.Point(645, 85);
+            this.btnUnban.Name = "btnUnban";
+            this.btnUnban.Size = new System.Drawing.Size(167, 23);
+            this.btnUnban.TabIndex = 11;
+            this.btnUnban.Text = "UNBAN USER";
+            this.btnUnban.UseVisualStyleBackColor = true;
+            this.btnUnban.Click += new System.EventHandler(this.btnUnban_Click);
+            // 
+            // btnBan
+            // 
+            this.btnBan.ForeColor = System.Drawing.Color.Maroon;
+            this.btnBan.Location = new System.Drawing.Point(645, 56);
+            this.btnBan.Name = "btnBan";
+            this.btnBan.Size = new System.Drawing.Size(167, 23);
+            this.btnBan.TabIndex = 12;
+            this.btnBan.Text = "BAN USER";
+            this.btnBan.UseVisualStyleBackColor = true;
+            this.btnBan.Click += new System.EventHandler(this.btnBan_Click);
+            // 
             // ViewReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 435);
+            this.ClientSize = new System.Drawing.Size(849, 435);
+            this.Controls.Add(this.btnBan);
+            this.Controls.Add(this.btnUnban);
+            this.Controls.Add(this.lblRfidCode);
+            this.Controls.Add(this.tbRfid);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.chbAutoClean);
             this.Controls.Add(this.lblThreshold);
@@ -174,5 +220,9 @@
         private System.Windows.Forms.Timer timerDeleteReports;
         private System.Windows.Forms.Timer timerUpdate;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.TextBox tbRfid;
+        private System.Windows.Forms.Label lblRfidCode;
+        private System.Windows.Forms.Button btnUnban;
+        private System.Windows.Forms.Button btnBan;
     }
 }

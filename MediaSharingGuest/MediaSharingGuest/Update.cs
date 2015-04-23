@@ -17,5 +17,17 @@ namespace MediaSharingGuest
             string query = "UPDATE PT_MED_CATEGORY SET CATEGORY_NAME = " + "'" + newName + "'" + "WHERE CATEGORY_ID = " + "'" + CategoryId + "'";
             return query;
         }
+
+        public string BanUser (string rfidCode)
+        {
+            string query = "UPDATE PT_USER_ACC SET USER_BAN_STATE = '1' WHERE RFID_CODE = '" + rfidCode + "'";
+            return query;
+        }
+
+        public string UnbanUser(string rfidCode)
+        {
+            string query = "UPDATE PT_USER_ACC SET USER_BAN_STATE = '0' WHERE RFID_CODE = '" + rfidCode + "'";
+            return query;
+        }
     }
 }

@@ -43,6 +43,8 @@
             this.lblContentCreator = new System.Windows.Forms.Label();
             this.gbReporterData = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnBanReporter = new System.Windows.Forms.Button();
+            this.btnBanCreator = new System.Windows.Forms.Button();
             this.gbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMedia)).BeginInit();
             this.gbReporterData.SuspendLayout();
@@ -76,6 +78,7 @@
             // 
             // gbData
             // 
+            this.gbData.Controls.Add(this.btnBanCreator);
             this.gbData.Controls.Add(this.pbMedia);
             this.gbData.Controls.Add(this.lblTypeContent);
             this.gbData.Controls.Add(this.btnDeleteReaction);
@@ -180,6 +183,7 @@
             // 
             // gbReporterData
             // 
+            this.gbReporterData.Controls.Add(this.btnBanReporter);
             this.gbReporterData.Controls.Add(this.btnCancel);
             this.gbReporterData.Controls.Add(this.lblReporter);
             this.gbReporterData.Controls.Add(this.tbReportContent);
@@ -200,6 +204,28 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnBanReporter
+            // 
+            this.btnBanReporter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBanReporter.Location = new System.Drawing.Point(279, 216);
+            this.btnBanReporter.Name = "btnBanReporter";
+            this.btnBanReporter.Size = new System.Drawing.Size(119, 45);
+            this.btnBanReporter.TabIndex = 4;
+            this.btnBanReporter.Text = "BAN REPORTER";
+            this.btnBanReporter.UseVisualStyleBackColor = true;
+            this.btnBanReporter.Click += new System.EventHandler(this.btnBanReporter_Click);
+            // 
+            // btnBanCreator
+            // 
+            this.btnBanCreator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBanCreator.Location = new System.Drawing.Point(338, 219);
+            this.btnBanCreator.Name = "btnBanCreator";
+            this.btnBanCreator.Size = new System.Drawing.Size(116, 45);
+            this.btnBanCreator.TabIndex = 5;
+            this.btnBanCreator.Text = "BAN CREATOR";
+            this.btnBanCreator.UseVisualStyleBackColor = true;
+            this.btnBanCreator.Click += new System.EventHandler(this.btnBanCreator_Click);
             // 
             // ReportData
             // 
@@ -236,5 +262,7 @@
         private System.Windows.Forms.GroupBox gbReporterData;
         private System.Windows.Forms.PictureBox pbMedia;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnBanCreator;
+        private System.Windows.Forms.Button btnBanReporter;
     }
 }

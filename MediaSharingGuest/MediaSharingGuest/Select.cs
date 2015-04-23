@@ -17,19 +17,19 @@ namespace MediaSharingGuest
 
         public string GetNameWithCategoryId(int categoryId)
         {
-            string query = "SELECT u.USER_NAME FROM PT_USER_ACC u JOIN PT_MED_CATEGORY c ON u.RFID_CODE = c.RFID_CODE WHERE CATEGORY_ID = '" + categoryId + "'";
+            string query = "SELECT u.USER_NAME, u.RFID_CODE FROM PT_USER_ACC u JOIN PT_MED_CATEGORY c ON u.RFID_CODE = c.RFID_CODE WHERE CATEGORY_ID = '" + categoryId + "'";
             return query;
         }
 
         public string GetNameWithMediaId(int mediaId)
         {
-            string query = "SELECT u.USER_NAME FROM PT_USER_ACC u JOIN PT_MEDIA c ON u.RFID_CODE = c.RFID_CODE WHERE MEDIA_ID = '" + mediaId + "'";
+            string query = "SELECT u.USER_NAME, u.RFID_CODE FROM PT_USER_ACC u JOIN PT_MEDIA c ON u.RFID_CODE = c.RFID_CODE WHERE MEDIA_ID = '" + mediaId + "'";
             return query;
         }
 
         public string GetNameWithReactionId(int reactionId)
         {
-            string query = "SELECT u.USER_NAME FROM PT_USER_ACC u JOIN PT_REACTION c ON u.RFID_CODE = c.RFID_CODE WHERE REACTION_ID = '" + reactionId + "'";
+            string query = "SELECT u.USER_NAME, u.RFID_CODE FROM PT_USER_ACC u JOIN PT_REACTION c ON u.RFID_CODE = c.RFID_CODE WHERE REACTION_ID = '" + reactionId + "'";
             return query;
         }
         public string SelectImageNoMediaID(int categoryID, string medName, string medLocation, string medDescription, string rfidCode)
