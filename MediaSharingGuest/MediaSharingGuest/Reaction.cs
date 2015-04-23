@@ -8,6 +8,7 @@ namespace MediaSharingGuest
 {
     public class Reaction
     {
+        //Properties--------------------------
         public string Content { get; set; }
         public int MediaId { get; set; }
         public int ReactionId { get; set; }
@@ -15,13 +16,9 @@ namespace MediaSharingGuest
         public string Name { get; set; }
         public List<Like> Likes { get; set; }
         public List<Report> Reports { get; set; }
-
         public string AllInfo { get; set; }
 
-        Insert insert = new Insert();
-        Select select = new Select();
-        Connection connection = new Connection();
-
+        //Constructor-------------------------
         public Reaction(string content, int mediaid, string rfidCode)
         {
             Content = content;
@@ -31,6 +28,9 @@ namespace MediaSharingGuest
             Reports = new List<Report>();
         }
 
+        /// <summary>
+        /// This method updates the AllInfo property of the reaction class.
+        /// </summary>
         public void UpdateAllInfoProperty()
         {
             if (Likes.Count == 0)

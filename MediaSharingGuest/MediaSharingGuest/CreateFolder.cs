@@ -10,13 +10,21 @@ using System.Windows.Forms;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// This form creates a folder and adds it to a certain category.
+    /// </summary>
     public partial class CreateFolder : Form
     {
+        //Fields------------------------------------
         MediaSharingSystem medias;
-        public int ParentCategory {get; set;}
-
+        Connection connection = new Connection();
+        Protection protection = new Protection();
         Insert insert = new Insert();
 
+        //Properties--------------------------------
+        public int ParentCategory {get; set;}
+
+        //Constructor---------------------------------
         public CreateFolder(MediaSharingSystem medias, int parentCategory)
         {
             InitializeComponent();
@@ -24,17 +32,24 @@ namespace MediaSharingGuest
             ParentCategory = parentCategory;
         }
 
+        //Events--------------------------------------
+
+        //Create a folder with inserted data.
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string foldername = tbFolderName.Text;
-            int parentCategoryID = ParentCategory;
-            string RFIDcreator = medias.RfidCode;
+            if (tbFolderName.Text != "")
+            {
+                string foldername = protection.ProtectAgainstSQLInjection(tbFolderName.Text);
+                int parentCategoryID = ParentCategory;
+                string RFIDcreator = medias.RfidCode;
 
-            //Query that inserts the new folder.
-            insert.InsertCategory(foldername, parentCategoryID, RFIDcreator);
-
+                //Query that inserts the new folder.
+                connection.SQLQueryNoOutput(insert.InsertCategory(foldername, parentCategoryID, RFIDcreator));
+            }
+            else MessageBox.Show("Please enter a name!");
         }
 
+        //Closes this window.
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

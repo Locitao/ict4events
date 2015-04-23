@@ -6,26 +6,15 @@ using System.Threading.Tasks;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// This class contains all the update statements to send to the database.
+    /// </summary>
     class Update
     {
-        public void BanUser(string rfidCode)
-        {
-
-        }
-        public void UnbanUser(string rfidCode)
-        {
-
-        }
-
+        //Edits category name, uses category Id and new category name.
         public string EditCategoryName (int CategoryId, string newName)
         {
             string query = "UPDATE PT_MED_CATEGORY SET CATEGORY_NAME = " + "'" + newName + "'" + "WHERE CATEGORY_ID = " + "'" + CategoryId + "'";
-            return query;
-        }
-
-        public string ReportHandled(int reportId)
-        {
-            string query = "UPDATE PT_REPORT SET HANDLED = 1 WHERE REPORT_ID = " +"'" + reportId + "'";
             return query;
         }
     }

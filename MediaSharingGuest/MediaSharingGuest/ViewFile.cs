@@ -21,6 +21,7 @@ namespace MediaSharingGuest
         Select select = new Select();
         Delete delete = new Delete();
         Insert insert = new Insert();
+        Protection protection = new Protection();
         Connection connection = new Connection();
         List<List<string>> output = new List<List<string>>();
         List<List<string>> output2 = new List<List<string>>();
@@ -35,6 +36,12 @@ namespace MediaSharingGuest
             MediaId = mediaId;
             ShowStaticInformation();
             ShowDynamicInformation();
+
+            if (ReportedByUserMediaItem())
+            {
+                btnReportFile.Enabled = false;
+            }
+
             btnReportComment.Enabled = false;
             btnLikeComment.Enabled = false;
         }
@@ -152,6 +159,8 @@ namespace MediaSharingGuest
             //this code gets the report of the Media Item.
             connection.SQLQueryWithOutput(select.GetReportMediaItem(medias.RfidCode, MediaId), out output);
             {
+                MediaItem[0].Reports.Clear();
+
                 foreach (List<string> stringList in output)
                 {
                     string reporterRfidCode = stringList[0];
@@ -216,8 +225,9 @@ namespace MediaSharingGuest
 
         private void btnAddComment_Click(object sender, EventArgs e)
         {
-            string content = tbYourComment.Text;
-            Reaction comment = new Reaction(content, MediaId, medias.RfidCode);
+            string content = protection.ProtectAgainstSQLInjection(tbYourComment.Text);
+            connection.SQLQueryNoOutput(insert.InsertReaction(MediaId, medias.RfidCode, content));
+            tbYourComment.Clear();
             ShowDynamicInformation();
         }
 
@@ -248,6 +258,10 @@ namespace MediaSharingGuest
             if (dialogresult == DialogResult.OK)
             {
                 ShowDynamicInformation();
+                if (ReportedByUserMediaItem())
+                {
+                    btnReportFile.Enabled = false;
+                }
             }
         }
 

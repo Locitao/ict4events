@@ -46,7 +46,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblTakenAt = new System.Windows.Forms.Label();
             this.lblLocation = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
             this.lblLikesNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -108,10 +107,10 @@
             // 
             // btnLikeThisFile
             // 
-            this.btnLikeThisFile.Location = new System.Drawing.Point(495, 614);
+            this.btnLikeThisFile.Location = new System.Drawing.Point(315, 401);
             this.btnLikeThisFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnLikeThisFile.Name = "btnLikeThisFile";
-            this.btnLikeThisFile.Size = new System.Drawing.Size(100, 64);
+            this.btnLikeThisFile.Size = new System.Drawing.Size(155, 26);
             this.btnLikeThisFile.TabIndex = 22;
             this.btnLikeThisFile.Text = "Like this file!";
             this.btnLikeThisFile.UseVisualStyleBackColor = true;
@@ -158,12 +157,12 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(4, 418);
+            this.tbDescription.Location = new System.Drawing.Point(8, 431);
             this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(466, 149);
+            this.tbDescription.Size = new System.Drawing.Size(462, 149);
             this.tbDescription.TabIndex = 16;
             this.tbDescription.TabStop = false;
             this.tbDescription.Text = "Description";
@@ -192,7 +191,7 @@
             // 
             this.lbComments.FormattingEnabled = true;
             this.lbComments.ItemHeight = 16;
-            this.lbComments.Location = new System.Drawing.Point(495, 77);
+            this.lbComments.Location = new System.Drawing.Point(548, 59);
             this.lbComments.Margin = new System.Windows.Forms.Padding(4);
             this.lbComments.Name = "lbComments";
             this.lbComments.Size = new System.Drawing.Size(451, 644);
@@ -239,17 +238,6 @@
             this.lblLocation.TabIndex = 32;
             this.lblLocation.Text = "Location";
             // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(859, 18);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(87, 33);
-            this.btnBack.TabIndex = 33;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // lblLikesNumber
             // 
             this.lblLikesNumber.AutoSize = true;
@@ -264,9 +252,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 795);
+            this.ClientSize = new System.Drawing.Size(1284, 795);
             this.Controls.Add(this.lblLikesNumber);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.lblTakenAt);
             this.Controls.Add(this.lblName);
@@ -314,7 +301,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblTakenAt;
         private System.Windows.Forms.Label lblLocation;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblLikesNumber;
     }
 }

@@ -14,6 +14,7 @@ namespace MediaSharingGuest
     {
         Connection connect = new Connection();
         Select select = new Select();
+        Protection protection = new Protection();
         List<List<string>> output = new List<List<string>>();
 
         public LoginForm()
@@ -63,9 +64,8 @@ namespace MediaSharingGuest
             //Query that returns password of the username.
             connect.SQLQueryWithOutput(select.GetPassword(username), out output);
 
-            if (output != null)
+            if (output.Count > 0)
             {
-
                 string tablePassword = output[0][0];
 
                 if (password == tablePassword)
@@ -74,12 +74,9 @@ namespace MediaSharingGuest
                     this.Hide();
                     viewReports.Show();
                 }
+                else MessageBox.Show("Wrong password!");
             }
-
-            else
-            {
-                MessageBox.Show("Wrong password or username");
-            }
+            else MessageBox.Show("Wrong username!");
         }
 
         public void LogIn(string rfidcode)
@@ -87,41 +84,32 @@ namespace MediaSharingGuest
             //Query that returns Name of the user, if no name then no login.
             connect.SQLQueryWithOutput(select.GetName(rfidcode), out output);
 
-            if (output != null)
+            if (output.Count > 0)
             {
-
-                Username = output[0][0];
-                RfidCode = output[0][1];
-
-                if (Username != "")
-                {
-                    //Query that returns the warnlv 
+                string Username = output[0][0];
+                string RfidCode = output[0][1];
+                
                     MediaSharingSystem ms = new MediaSharingSystem(RfidCode, Username);
                     GuestForm guestform = new GuestForm(ms, 2);
                     this.Hide();
                     guestform.Show();
-                }
             }
 
             else
             {
-                MessageBox.Show("Wrong password or username");
+                MessageBox.Show("Wrong RFID Code!");
             }
-        }
-
-        public void LogOut()
-        {
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (rbUser.Checked == true)
             {
-                LogIn(tbUserOrRFID.Text);
+                LogIn(protection.ProtectAgainstSQLInjection(tbUserOrRFID.Text));
             }
             else if (rbAdmin.Checked == true)
             {
-                LogIn(tbUserOrRFID.Text, tbPassword.Text);
+                LogIn(protection.ProtectAgainstSQLInjection(tbUserOrRFID.Text), protection.ProtectAgainstSQLInjection(tbPassword.Text));
             }
         }
 

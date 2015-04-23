@@ -8,32 +8,20 @@ namespace MediaSharingGuest
 {
     public class NewsFeed
     {
+        //Fields----------------------------
         List<Reaction> messages = new List<Reaction>();
-        public int MessageDisplayTime { get; set; }
 
-        Select select = new Select();
+        //Properties------------------------
         List<Reaction> Messages
         {
             get { return messages; }
             set { messages = value; }
         }
+
+        //Constructor----------------------
         public NewsFeed()
         {
 
-        }
-
-        public void AddMessage(Reaction message)
-        {
-            Messages.Add(message);
-        }
-
-        public void DeleteMessage()
-        {
-
-        }
-        public void UpdateMessages(Reaction reaction)
-        {
-            messages.Add(reaction);
         }
     }
 }

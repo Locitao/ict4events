@@ -10,19 +10,21 @@ using System.Windows.Forms;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// This Form gives an overview of all reports.
+    /// </summary>
     public partial class ViewReports : Form
     {
-        public ViewReports()
-        {
-            InitializeComponent();
-            UpdateListBoxReports();
-        }
-
+        //Fields------------------------------------------------------
+        List<List<string>> output = new List<List<string>>();
         List<Report> Reports = new List<Report>();
         List<Report> HotReports = new List<Report>();
+
         Connection connection = new Connection();
-        List<List<string>> output = new List<List<string>>();
+        Update update = new Update();
+        Delete delete = new Delete();
         Select select = new Select();
+
         Report selectedReport;
 
         int reportId = 0;
@@ -31,21 +33,21 @@ namespace MediaSharingGuest
         int reactionId = 0;
         string rfidCode = "";
         string description = "";
-        string kindOfReport = "";
 
-        private void lbReports_SelectedIndexChanged(object sender, EventArgs e)
+        //Constructor--------------------------------------
+        public ViewReports()
         {
-            selectedReport = lbReports.SelectedItem as Report;
-
-            if (selectedReport != null)
-            {
-                ReportData reportData = new ReportData(selectedReport);
-                reportData.Show();
-            }
-
-            lbReports.SelectedIndex = -1;
+            InitializeComponent();
+            UpdateListBoxHotReports();
+            UpdateListBoxReports();
+            timerUpdate.Start();
         }
 
+        //Methods------------------------------------------
+
+        /// <summary>
+        /// Updates the reports listbox
+        /// </summary>
         public void UpdateListBoxReports()
         {
             Reports.Clear();
@@ -83,15 +85,18 @@ namespace MediaSharingGuest
                 Reports.Add(report);
             }
 
-            foreach (Report reportt in Reports)
+            foreach (Report report in Reports)
             {
                 lbReports.ValueMember = "ReportId";
                 lbReports.DisplayMember = "Content";
-                lbReports.Items.Add(reportt);
+                lbReports.Items.Add(report);
             }
 
         }
 
+        /// <summary>
+        /// Updates the Hot report listbox.
+        /// </summary>
         public void UpdateListBoxHotReports()
         {
             HotReports.Clear();
@@ -129,26 +134,110 @@ namespace MediaSharingGuest
                 HotReports.Add(report);
             }
 
-            foreach (Report reportt in HotReports)
+            foreach (Report report in HotReports)
             {
-                lbReports.ValueMember = "ReportId";
-                lbReports.DisplayMember = "Content";
-                lbHotReports.Items.Add(reportt);
+                lbHotReports.ValueMember = "ReportId";
+                lbHotReports.DisplayMember = "Content";
+                lbHotReports.Items.Add(report);
             }
+
         }
 
+        //Events--------------------------------------------
+
+        /// <summary>
+        /// Opens the reportdata form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbReports_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedReport = lbReports.SelectedItem as Report;
+
+            if (selectedReport != null)
+            {
+                DialogResult dialogresult = new DialogResult();
+                ReportData reportData = new ReportData(selectedReport);
+                dialogresult = reportData.ShowDialog();
+
+                if (dialogresult == DialogResult.OK)
+                {
+                    UpdateListBoxReports();
+                    UpdateListBoxHotReports();
+                }
+            }
+            lbHotReports.SelectedIndex = -1;
+            lbReports.SelectedIndex = -1;
+        }
+
+        /// <summary>
+        /// Opens the reportdata form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbHotReports_SelectedIndexChanged(object sender, EventArgs e)
         {
+            selectedReport = lbHotReports.SelectedItem as Report;
 
+            if (selectedReport != null)
+            {
+                DialogResult dialogresult = new DialogResult();
+                ReportData reportData = new ReportData(selectedReport);
+                dialogresult = reportData.ShowDialog();
+
+                if (dialogresult == DialogResult.OK)
+                {
+                    UpdateListBoxReports();
+                    UpdateListBoxHotReports();
+                } 
+            }
+            lbHotReports.SelectedIndex = -1;
+            lbReports.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Deletes all reports that are ''Hot'' and their respective media item or reaction.
+        /// </summary>
+        private void DeleteHotReportsAndTheirConnection()
+        {
+            foreach (Report report in HotReports)
+            {
+                if (report.MediaId != 0)
+                {
+                    connection.SQLQueryNoOutput(delete.DeleteMediaItem(report.MediaId));
+                }
+                else if (report.ReactionId != 0)
+                {
+                    connection.SQLQueryNoOutput(delete.DeleteReaction(report.ReactionId));
+                }
+                else if (report.CategoryId != 0)
+                {
+                    connection.SQLQueryNoOutput(update.EditCategoryName(report.CategoryId, "Category" + Convert.ToString(report.CategoryId)));
+                }
+                connection.SQLQueryNoOutput(delete.DeleteReportWithReportId(report.ReportId));
+            }
+        }
+        /// <summary>
+        /// Sets the threshold for when reports should be automatically deleted.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nudThreshold_ValueChanged(object sender, EventArgs e)
         {
-
+            UpdateListBoxReports();
+            UpdateListBoxHotReports();
         }
 
+        /// <summary>
+        /// Activates, or deactivates the AutoClean function.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chbAutoClean_CheckedChanged(object sender, EventArgs e)
         {
+            DeleteHotReportsAndTheirConnection();
+            UpdateListBoxHotReports();
+
             if (chbAutoClean.Checked == true)
             {
                 timerDeleteReports.Start();
@@ -156,14 +245,38 @@ namespace MediaSharingGuest
             else timerDeleteReports.Stop();
         }
 
+        /// <summary>
+        /// Timer for autodelete function.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerDeleteReports_Tick(object sender, EventArgs e)
         {
-            foreach (Report report in HotReports)
+            if (HotReports.Count > 0)
             {
-                
+                DeleteHotReportsAndTheirConnection();
             }
         }
 
-        
+        /// <summary>
+        /// Update timer for both the report listboxes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timerUpdate_Tick(object sender, EventArgs e)
+        {
+            UpdateListBoxHotReports();
+            UpdateListBoxReports();
+        }
+
+        /// <summary>
+        /// closes the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }   
     }
 }

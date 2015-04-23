@@ -78,5 +78,31 @@ namespace Management_System
                 MessageBox.Show("UserName and password not recognized");
             }
         }
+
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            if (Login())
+            {
+                CreateAccountForm form = new CreateAccountForm();
+                form.ShowDialog();
+                if (form.saved)
+                {
+                    Exception exception;
+                    string query = "";
+                    if(connection.SQLQueryNoOutput(query, out exception))
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(exception.ToString());
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("UserName and password not recognized");
+            }
+        }
     }
 }

@@ -14,6 +14,10 @@ namespace MediaSharingGuest
     {
         OracleConnection conn = new OracleConnection();
 
+        /// <summary>
+        /// Opens the connection to the database
+        /// </summary>
+        /// <returns></returns>
         public bool OpenConnection()
         {
 
@@ -35,6 +39,9 @@ namespace MediaSharingGuest
 
         }
 
+        /// <summary>
+        /// Closes the connection to the database.
+        /// </summary>
         public void CloseConnection()
         {
             conn.Close();
