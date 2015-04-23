@@ -15,6 +15,15 @@ namespace Management_System
         public int Price { get; set; }
         public int MaxPeople { get; set; }
 
+        /// <summary>
+        /// This class is similar to a row in the database table PT_EVENT_LOCATION
+        /// </summary>
+        /// <param name="locationID">The ID of this location</param>
+        /// <param name="campingID">The ID of the camping this location is on</param>
+        /// <param name="reservationID">The ID from the reservation that includes this location</param>
+        /// <param name="locationType">The locationType of this location</param>
+        /// <param name="price">The price of this location</param>
+        /// <param name="maxPeople">The maximum amount of people that can sleep on this location</param>
         public Location(int locationID, int campingID, int reservationID, LocationType locationType, int price, int maxPeople)
         {
             LocationID = locationID;

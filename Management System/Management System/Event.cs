@@ -15,6 +15,15 @@ namespace Management_System
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
+        /// <summary>
+        /// A class similar to a row i the database table PT_EVENT
+        /// </summary>
+        /// <param name="campingID">The ID from the camping this event will take place on</param>
+        /// <param name="eventID">The ID from this event</param>
+        /// <param name="name">The name from this event</param>
+        /// <param name="description">A description for this event</param>
+        /// <param name="startDate">The date this event will start on</param>
+        /// <param name="endDate">The date this event will end on</param>
         public Event(int campingID, int eventID, string name, string description, DateTime startDate, DateTime endDate)
         {
             Name = name;
