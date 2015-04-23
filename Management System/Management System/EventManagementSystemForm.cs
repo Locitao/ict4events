@@ -17,6 +17,9 @@ namespace Management_System
         private List<Location> locationList = new List<Location>();
         private List<Event> eventList = new List<Event>();
 
+        /// <summary>
+        /// Main form for the event management system
+        /// </summary>
         public EventManagementSystemForm()
         {
             InitializeComponent();
@@ -27,6 +30,9 @@ namespace Management_System
             cbType.Items.Add(LocationType.caravan);
         }
 
+        /// <summary>
+        /// get the data from campings and refresh the campings listbox
+        /// </summary>
         private void refreshCampingsData()
         {
             campingList.Clear();
@@ -51,6 +57,9 @@ namespace Management_System
             refreshEventsData();
         }
 
+        /// <summary>
+        /// get the data from camping locations and refresh the locations listbox
+        /// </summary>
         private void refreshLocationsData()
         {
             locationList.Clear();
@@ -85,6 +94,9 @@ namespace Management_System
             
         }
 
+        /// <summary>
+        /// get the data from events and refresh the events listbox
+        /// </summary>
         private void refreshEventsData()
         {
             eventList.Clear();
@@ -266,7 +278,27 @@ namespace Management_System
             
         }
 
-        
+        /// <summary>
+        /// Makes sure the user can only type letters and digits.
+        /// </summary>
+        private void tb_KeyPress_LettersAndDigits(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Makes sure the user can only type letters, digits, slashes and dots.
+        /// </summary>
+        private void tbMapPath_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '/' && e.KeyChar != '\\' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
 
         
     }

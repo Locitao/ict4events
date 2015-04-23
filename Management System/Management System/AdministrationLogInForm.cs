@@ -21,9 +21,13 @@ namespace Management_System
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Checks if the input is correct and if the user has access
+        /// </summary>
+        /// <returns>true if the user has access, false if the user hasn't</returns>
         private bool Login()
         {
-            string loginName = tbame.Text;
+            string loginName = tbName.Text;
             string password = tbPassword.Text;
             string query = "SELECT employee_rights from pt_employee_acc WHERE LOGIN_NAME = '" + loginName + "' AND login_password = '" + password + "'";
             List<List<string>> output;
@@ -53,8 +57,11 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// start the management system form if the login is correct.
+        /// </summary>
         private void btnLoginToManagementSystem_Click(object sender, EventArgs e)
-        {
+        { 
             if (Login())
             {
                 EventManagementSystemForm form = new EventManagementSystemForm();
@@ -66,6 +73,9 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// start the material renting form if the login is correct.
+        /// </summary>
         private void btnLogInMaterialRenting_Click(object sender, EventArgs e)
         {
             if (Login())
@@ -76,6 +86,47 @@ namespace Management_System
             else 
             {
                 MessageBox.Show("UserName and password not recognized");
+            }
+        }
+
+        /// <summary>
+        /// start the create account form if the login is correct.
+        /// </summary>
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            if (Login())
+            {
+                CreateAccountForm form = new CreateAccountForm();
+                form.ShowDialog();
+                if (form.saved)
+                {
+                    Exception exception;
+                    string query = form.Query;
+                    if(connection.SQLQueryNoOutput(query, out exception))
+                    {
+                        MessageBox.Show("New Account is Added. Don't forget the username and password!");
+                    }
+                    else
+                    {
+                        MessageBox.Show(exception.ToString());
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("UserName and password not recognized");
+            }
+        }
+
+        
+        /// <summary>
+        /// Makes sure the user can only type letters and digits.
+        /// </summary>
+        private void tb_KeyPress_LettersAndDigits(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

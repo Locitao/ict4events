@@ -20,6 +20,17 @@ namespace Management_System
         public MaterialStatus Status { get; set; }
         public int Price { get; set; }
 
+        /// <summary>
+        /// This class contains all info about a specific material
+        /// </summary>
+        /// <param name="materialID">The ID of this material</param>
+        /// <param name="reservationID">The ID from the reservation that includes this material</param>
+        /// <param name="rfid_code">The RFID code from the guest that reserves this material</param>
+        /// <param name="lendTime">The date this material was/will be lend on</param>
+        /// <param name="returnTime">The date this material should be returned on</param>
+        /// <param name="materialCategoryID">The category ID this material belongs to</param>
+        /// <param name="name">The name of the category this material belongs to</param>
+        /// <param name="price">The price of this material</param>
         public Material(int materialID, int reservationID, string rfid_code, DateTime lendTime, DateTime returnTime, int materialCategoryID, string name, int price)
         {
             MaterialID = materialID;

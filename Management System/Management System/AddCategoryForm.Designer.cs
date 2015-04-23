@@ -93,6 +93,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(104, 20);
             this.tbName.TabIndex = 8;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // AddCategoryForm
             // 

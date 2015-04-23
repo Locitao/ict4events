@@ -15,6 +15,11 @@ namespace Management_System
         public bool saved;
         public int selectedItem;
         List<List<string>> List;
+
+        /// <summary>
+        /// This form is used to add an item to the database
+        /// </summary>
+        /// <param name="list">Input a 2D list with all item categories</param>
         public AddItemForm(List<List<string>> list)
         {
             InitializeComponent();

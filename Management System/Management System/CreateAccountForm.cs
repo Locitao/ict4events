@@ -10,30 +10,32 @@ using System.Windows.Forms;
 
 namespace Management_System
 {
-    public partial class LendItemForm : Form
+    public partial class CreateAccountForm : Form
     {
         public bool saved;
-        public Material Mat;
-        public LendItemForm(Material material)
-        {
+        public string Query;
 
+        /// <summary>
+        /// this form is used to create a new employee account
+        /// </summary>
+        public CreateAccountForm()
+        {
             InitializeComponent();
             saved = false;
-            Mat = material;
-            lblMaterialName.Text = material.Name;
-            lblPrice.Text = material.Price.ToString();
-            lblStatus.Text = material.Status.ToString();
         }
 
-        private void btnLendItem_Click(object sender, EventArgs e)
+        private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            if (dateTimePickerReturnDate.Value > DateTime.Now)
+            if (tbPassword.Text == tbRepeatPassword.Text)
             {
-                Mat.LendTime = DateTime.Now;
-                Mat.ReturnTime = dateTimePickerReturnDate.Value;
-                Mat.RFID_CODE = tbRFIDCode.Text;
+                saved = true;
+                Query = "INSERT INTO PT_EMPLOYEE_ACC(EMPLOYEE_ID, LOGIN_NAME, LOGIN_PASSWORD, EMPLOYEE_RIGHTS) VALUES (auto_inc_emp.nextval, '" + tbName.Text + "', '" + tbPassword.Text + "', '1')";
+                this.Close();
             }
-            saved = true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
@@ -46,11 +48,6 @@ namespace Management_System
             {
                 e.Handled = true;
             }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
