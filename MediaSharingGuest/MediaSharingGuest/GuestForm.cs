@@ -188,7 +188,7 @@ namespace MediaSharingGuest
             }
         }
 
-        //This event loads the new folders inside the selected folder.
+        //Sets the selected Category
         private void lbFolders_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedCategory = lbFolders.SelectedItem as Category;
@@ -232,7 +232,7 @@ namespace MediaSharingGuest
             }
         }
 
-        //this event opens the selected media item in a new window.
+        //sets the current selected media item.
         private void lbMediaItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedMediaItem = lbMediaItems.SelectedItem as Media;
@@ -304,6 +304,7 @@ namespace MediaSharingGuest
             this.Close();
         }
 
+        //Doubleclicking opens the mediafile
         private void lbMediaItems_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             selectedMediaItem= lbMediaItems.SelectedItem as Media;
@@ -315,6 +316,7 @@ namespace MediaSharingGuest
             }
         }
 
+        //Doubleclicking opens the folder
         private void lbFolders_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             selectedCategory = lbFolders.SelectedItem as Category;
@@ -339,6 +341,7 @@ namespace MediaSharingGuest
             }
         }
 
+        //Opens the send report window, if you report a category you can't report it another time.
         private void btnReportCategory_Click(object sender, EventArgs e)
         {
             SendReport sendReport = new SendReport(medias, selectedCategory.CategoryId, "Category");
