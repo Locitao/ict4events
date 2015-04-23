@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbame = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLoginToManagementSystem = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
@@ -37,12 +37,13 @@
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tbame
+            // tbName
             // 
-            this.tbame.Location = new System.Drawing.Point(98, 42);
-            this.tbame.Name = "tbame";
-            this.tbame.Size = new System.Drawing.Size(100, 20);
-            this.tbame.TabIndex = 1;
+            this.tbName.Location = new System.Drawing.Point(98, 42);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(100, 20);
+            this.tbName.TabIndex = 1;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // tbPassword
             // 
@@ -50,6 +51,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(100, 20);
             this.tbPassword.TabIndex = 2;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // btnLoginToManagementSystem
             // 
@@ -110,7 +112,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnLoginToManagementSystem);
             this.Controls.Add(this.tbPassword);
-            this.Controls.Add(this.tbame);
+            this.Controls.Add(this.tbName);
             this.Name = "AdministrationLogInForm";
             this.Text = "Administration";
             this.ResumeLayout(false);
@@ -120,7 +122,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbame;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLoginToManagementSystem;
         private System.Windows.Forms.Label lblName;

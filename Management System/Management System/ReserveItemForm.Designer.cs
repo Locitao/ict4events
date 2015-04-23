@@ -50,6 +50,7 @@
             this.tbRFIDCode.Name = "tbRFIDCode";
             this.tbRFIDCode.Size = new System.Drawing.Size(100, 20);
             this.tbRFIDCode.TabIndex = 0;
+            this.tbRFIDCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // lblRFIDCode
             // 

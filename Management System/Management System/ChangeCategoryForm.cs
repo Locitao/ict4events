@@ -42,5 +42,16 @@ namespace Management_System
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Makes sure the user can only type letters and digits.
+        /// </summary>
+        private void tb_KeyPress_LettersAndDigits(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

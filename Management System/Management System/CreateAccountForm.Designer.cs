@@ -62,6 +62,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(100, 20);
             this.tbPassword.TabIndex = 7;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // tbName
             // 
@@ -69,6 +70,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(100, 20);
             this.tbName.TabIndex = 6;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // lblRepeatPassword
             // 
@@ -85,6 +87,7 @@
             this.tbRepeatPassword.Name = "tbRepeatPassword";
             this.tbRepeatPassword.Size = new System.Drawing.Size(100, 20);
             this.tbRepeatPassword.TabIndex = 10;
+            this.tbRepeatPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // btnCancel
             // 

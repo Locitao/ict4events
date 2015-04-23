@@ -14,6 +14,10 @@ namespace Management_System
     {
         public bool saved;
         public string Query;
+
+        /// <summary>
+        /// this form is used to create a new employee account
+        /// </summary>
         public CreateAccountForm()
         {
             InitializeComponent();
@@ -33,6 +37,17 @@ namespace Management_System
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Makes sure the user can only type letters and digits.
+        /// </summary>
+        private void tb_KeyPress_LettersAndDigits(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

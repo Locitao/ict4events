@@ -14,6 +14,11 @@ namespace Management_System
     {
         public bool saved;
         public Material Mat;
+
+        /// <summary>
+        /// this form is used to reserve materials to a guest
+        /// </summary>
+        /// <param name="material">the material that is not yet lend or reserved</param>
         public ReserveItemForm(Material material)
         {
 
@@ -46,6 +51,17 @@ namespace Management_System
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Makes sure the user can only type letters and digits.
+        /// </summary>
+        private void tb_KeyPress_LettersAndDigits(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

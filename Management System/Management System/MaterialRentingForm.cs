@@ -14,6 +14,10 @@ namespace Management_System
     {
         DatabaseConnection connection;
         List<Material> materialList;
+
+        /// <summary>
+        /// The main form for material renting
+        /// </summary>
         public MaterialRentingForm()
         {
             InitializeComponent();
@@ -22,7 +26,9 @@ namespace Management_System
             RefreshMaterialList();
         }
 
-
+        /// <summary>
+        /// refresh all the materials in the listbox
+        /// </summary>
         public void RefreshMaterialList()
         {
             materialList.Clear();
@@ -31,39 +37,45 @@ namespace Management_System
             Exception exception;
             if (connection.SQLQueryWithOutput("SELECT MATERIAL_ID, RESERVATION_ID, RFID_CODE, DATE_TAKEN, RETURN_DATE, MAT_CATEGORY_ID, MAT_NAME, PRICE FROM PT_MATERIAL m, PT_MAT_CATEGORY ca WHERE m.MAT_CATEGORY = ca.MAT_CATEGORY_ID ORDER BY m.MATERIAL_ID", out output, out exception))
             {
-                
-                foreach (List<string> list in output)
+                try
                 {
-                    int tempReservationID;
-                    DateTime tempStartDate;
-                    DateTime tempEndDate;
-                    if (list[1] == "")
+                    foreach (List<string> list in output)
                     {
-                        tempReservationID = 0;
+                        int tempReservationID;
+                        DateTime tempStartDate;
+                        DateTime tempEndDate;
+                        if (list[1] == "")
+                        {
+                            tempReservationID = 0;
+                        }
+                        else
+                        {
+                            tempReservationID = Convert.ToInt32(list[1]);
+                        }
+                        if (list[3] == "")
+                        {
+                            tempStartDate = DateTime.MinValue;
+                        }
+                        else
+                        {
+                            tempStartDate = Convert.ToDateTime(list[3]);
+                        }
+                        if (list[4] == "")
+                        {
+                            tempEndDate = DateTime.MinValue;
+                        }
+                        else
+                        {
+                            tempEndDate = Convert.ToDateTime(list[4]);
+                        }
+                        Material tempMaterial = new Material(Convert.ToInt32(list[0]), tempReservationID, list[2], tempStartDate, tempEndDate, Convert.ToInt32(5), list[6], Convert.ToInt32(list[7]));
+                        materialList.Add(tempMaterial);
+                        lbMaterials.Items.Add(tempMaterial);
                     }
-                    else
-                    {
-                        tempReservationID = Convert.ToInt32(list[1]);
-                    }
-                    if (list[3] == "")
-                    {
-                        tempStartDate = DateTime.MinValue;
-                    }
-                    else
-                    {
-                        tempStartDate = Convert.ToDateTime(list[3]);
-                    }
-                    if (list[4] == "")
-                    {
-                        tempEndDate = DateTime.MinValue;
-                    }
-                    else
-                    {
-                        tempEndDate = Convert.ToDateTime(list[4]);
-                    }
-                    Material tempMaterial = new Material(Convert.ToInt32(list[0]), tempReservationID, list[2], tempStartDate, tempEndDate, Convert.ToInt32(5), list[6], Convert.ToInt32(list[7]));
-                    materialList.Add(tempMaterial);
-                    lbMaterials.Items.Add(tempMaterial);
+                }
+                catch(Exception ex) 
+                {
+                    MessageBox.Show("This error occured:" + Environment.NewLine + ex.ToString());
                 }
             }
             else
@@ -209,12 +221,12 @@ namespace Management_System
             form.ShowDialog();
             if (form.saved)
             {
-                query = "INSERT INTO PT_MAT_CATEGORY(MAT_CATEGORY_ID, MAT_NAME, PRICE) VALUES(auto_inc_mct.nextval,'" + form.Name+ "','" + form.Price +"')";
+                query = "INSERT INTO PT_MAT_CATEGORY(MAT_CATEGORY_ID, MAT_NAME, PRICE) VALUES(auto_inc_mct.nextval,'" + form.CategoryName+ "','" + form.Price +"')";
             }
             Exception exception;
             if (connection.SQLQueryNoOutput(query, out exception))
             {
-                MessageBox.Show("Category: " + form.Name + "  is succesfully returned");
+                MessageBox.Show("Category: " + form.CategoryName + "  is succesfully returned");
             }
             else
             {

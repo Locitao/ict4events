@@ -109,6 +109,7 @@
             this.tbCampingName.Name = "tbCampingName";
             this.tbCampingName.Size = new System.Drawing.Size(130, 20);
             this.tbCampingName.TabIndex = 4;
+            this.tbCampingName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // lbLocations
             // 
@@ -349,6 +350,7 @@
             this.tbMapPath.Name = "tbMapPath";
             this.tbMapPath.Size = new System.Drawing.Size(130, 20);
             this.tbMapPath.TabIndex = 32;
+            this.tbMapPath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMapPath_KeyPress);
             // 
             // tbEventName
             // 
@@ -382,7 +384,7 @@
             this.tbDescription.Size = new System.Drawing.Size(197, 20);
             this.tbDescription.TabIndex = 36;
             // 
-            // EvenementManagementSystemForm
+            // EventManagementSystemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -420,7 +422,7 @@
             this.Controls.Add(this.lbCampings);
             this.Controls.Add(this.btnNewCamping);
             this.Controls.Add(this.lblMaxVisitors);
-            this.Name = "EvenementManagementSystemForm";
+            this.Name = "EventManagementSystemForm";
             this.Text = "EvenementManagementSystemForm";
             ((System.ComponentModel.ISupportInitialize)(this.numLocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxGuests)).EndInit();

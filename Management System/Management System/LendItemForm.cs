@@ -37,7 +37,18 @@ namespace Management_System
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Makes sure the user can only type letters and digits.
+        /// </summary>
+        private void tb_KeyPress_LettersAndDigits(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
