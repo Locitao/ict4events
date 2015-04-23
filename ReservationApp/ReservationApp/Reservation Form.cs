@@ -29,6 +29,7 @@ namespace ReservationApp
         public ReservationForm(string Name, string Phone)
         {
             InitializeComponent();
+            Refresh();
             name = Name;
             phone = Phone;
 
@@ -36,7 +37,7 @@ namespace ReservationApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Refresh();
+            //Refresh();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -99,8 +100,8 @@ namespace ReservationApp
 
                 try
                 {
-                    if (cbEvent.SelectedText != "" && nmLocId.Text != "0")
-                    {
+                    //if (cbEvent.SelectedText != "" && nmLocId.Text != "0")
+                    //{
 
                         var rfid = select.Select_User(phone);
 
@@ -127,7 +128,7 @@ namespace ReservationApp
                         reserve.Closed += (s, args) => Close();
                         reserve.Show();
 
-                    }
+                    //}
 
                 }
                 catch (Exception ex)
