@@ -99,30 +99,35 @@ namespace ReservationApp
 
                 try
                 {
-                    var rfid = select.Select_User(phone);
-
-                    MessageBox.Show(insert.Insert_Reservation(rfid, "2", nmPeople.Text, paid));
-
-                    var res = select.Find_Res_Id(rfid);
-                    var loc = nmLocId.Text;
-
-                    if (nmLoc2.Text != "0")
+                    if (cbEvent.SelectedText != "" && nmLocId.Text != "0")
                     {
-                        update.Update_Location(nmLoc2.Text, res);
+
+                        var rfid = select.Select_User(phone);
+
+                        MessageBox.Show(insert.Insert_Reservation(rfid, "1", nmPeople.Text, paid));
+
+                        var res = select.Find_Res_Id(rfid);
+                        var loc = nmLocId.Text;
+
+                        if (nmLoc2.Text != "0")
+                        {
+                            update.Update_Location(nmLoc2.Text, res);
+                        }
+
+                        if (nmLoc3.Text != "0")
+                        {
+                            update.Update_Location(nmLoc3.Text, res);
+                        }
+
+                        MessageBox.Show(update.Update_Location(loc, res));
+                        connect.CloseConnection();
+
+                        Hide();
+                        ReserveMaterials reserve = new ReserveMaterials(rfid);
+                        reserve.Closed += (s, args) => Close();
+                        reserve.Show();
+
                     }
-
-                    if (nmLoc3.Text != "0")
-                    {
-                        update.Update_Location(nmLoc3.Text, res);
-                    }
-
-                    MessageBox.Show(update.Update_Location(loc, res));
-                    connect.CloseConnection();
-
-                    Hide();
-                    ReserveMaterials reserve = new ReserveMaterials(rfid);
-                    reserve.Closed += (s, args) => Close();
-                    reserve.Show();
 
                 }
                 catch (Exception ex)
