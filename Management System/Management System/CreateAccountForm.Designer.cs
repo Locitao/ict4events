@@ -58,14 +58,14 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(109, 54);
+            this.tbPassword.Location = new System.Drawing.Point(124, 54);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(100, 20);
             this.tbPassword.TabIndex = 7;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(109, 28);
+            this.tbName.Location = new System.Drawing.Point(124, 28);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(100, 20);
             this.tbName.TabIndex = 6;
@@ -81,7 +81,7 @@
             // 
             // tbRepeatPassword
             // 
-            this.tbRepeatPassword.Location = new System.Drawing.Point(109, 80);
+            this.tbRepeatPassword.Location = new System.Drawing.Point(124, 80);
             this.tbRepeatPassword.Name = "tbRepeatPassword";
             this.tbRepeatPassword.Size = new System.Drawing.Size(100, 20);
             this.tbRepeatPassword.TabIndex = 10;
@@ -90,7 +90,7 @@
             // 
             this.btnCancel.Location = new System.Drawing.Point(154, 107);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(54, 23);
+            this.btnCancel.Size = new System.Drawing.Size(70, 23);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;

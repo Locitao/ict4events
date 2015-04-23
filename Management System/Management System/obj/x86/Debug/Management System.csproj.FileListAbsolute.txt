@@ -17,3 +17,4 @@ C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.AddCategoryForm.resources
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.AddItemForm.resources
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.EventManagementSystemForm.resources
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.CreateAccountForm.resources

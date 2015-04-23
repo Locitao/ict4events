@@ -88,10 +88,10 @@ namespace Management_System
                 if (form.saved)
                 {
                     Exception exception;
-                    string query = "";
+                    string query = form.Query;
                     if(connection.SQLQueryNoOutput(query, out exception))
                     {
-
+                        MessageBox.Show("New Account is Added. Don't forget the username and password!");
                     }
                     else
                     {

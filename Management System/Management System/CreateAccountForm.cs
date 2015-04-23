@@ -13,18 +13,19 @@ namespace Management_System
     public partial class CreateAccountForm : Form
     {
         public bool saved;
+        public string Query;
         public CreateAccountForm()
         {
             InitializeComponent();
             saved = false;
-            connection = new DatabaseConnection();
         }
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            if (lblPassword.Text == lblRepeatPassword.Text)
+            if (tbPassword.Text == tbRepeatPassword.Text)
             {
                 saved = true;
+                Query = "INSERT INTO PT_EMPLOYEE_ACC(EMPLOYEE_ID, LOGIN_NAME, LOGIN_PASSWORD, EMPLOYEE_RIGHTS) VALUES (auto_inc_emp.nextval, '" + tbName.Text + "', '" + tbPassword.Text + "', '1')";
                 this.Close();
             }
         }
