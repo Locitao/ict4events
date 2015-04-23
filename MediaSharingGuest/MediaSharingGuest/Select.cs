@@ -11,7 +11,7 @@ namespace MediaSharingGuest
     {
         public string GetName(string Rfidcode)
         {
-            string query = "SELECT User_Name, RFID_CODE FROM PT_USER_ACC WHERE RFID_CODE = '" + Rfidcode + "'";
+            string query = "SELECT USER_NAME, RFID_CODE, USER_BAN_STATE FROM PT_USER_ACC WHERE RFID_CODE = '" + Rfidcode + "'";
             return query;
         }
 
@@ -58,7 +58,7 @@ namespace MediaSharingGuest
 
         public string GetNewsFeedMessages()
         {
-            string query = "SELECT u.USER_NAME, r.REA_CONTENT FROM PT_REACTION r JOIN PT_USER_ACC u ON r.RFID_CODE = u.RFID_CODE WHERE MEDIA_ID IS NULL";
+            string query = "SELECT u.USER_NAME, r.REA_CONTENT, r.REACTION_ID, u.RFID_CODE FROM PT_REACTION r JOIN PT_USER_ACC u ON r.RFID_CODE = u.RFID_CODE WHERE MEDIA_ID IS NULL";
             return query;
         }
 

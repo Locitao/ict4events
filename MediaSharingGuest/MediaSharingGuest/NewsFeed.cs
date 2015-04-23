@@ -14,13 +14,6 @@ namespace MediaSharingGuest
         //Fields----------------------------
         List<Reaction> messages = new List<Reaction>();
 
-        //Properties------------------------
-        List<Reaction> Messages
-        {
-            get { return messages; }
-            set { messages = value; }
-        }
-
         //Constructor----------------------
         public NewsFeed()
         {

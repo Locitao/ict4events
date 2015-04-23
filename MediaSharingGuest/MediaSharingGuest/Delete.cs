@@ -53,5 +53,12 @@ namespace MediaSharingGuest
             return query;
         }
 
+        //Delete all newsfeedmessages
+        public string DeleteAllNewsFeedMessages()
+        {
+            string query = "DELETE FROM PT_REACTION WHERE MEDIA_ID IS NULL";
+            return query;
+        }
+
     }
 }

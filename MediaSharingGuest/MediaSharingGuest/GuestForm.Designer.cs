@@ -89,7 +89,7 @@
             // 
             this.tbNewsFeed.Location = new System.Drawing.Point(155, 199);
             this.tbNewsFeed.Margin = new System.Windows.Forms.Padding(4);
-            this.tbNewsFeed.MaxLength = 30;
+            this.tbNewsFeed.MaxLength = 50;
             this.tbNewsFeed.Name = "tbNewsFeed";
             this.tbNewsFeed.Size = new System.Drawing.Size(991, 22);
             this.tbNewsFeed.TabIndex = 2;

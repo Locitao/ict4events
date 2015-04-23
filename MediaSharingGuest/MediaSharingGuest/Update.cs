@@ -18,12 +18,14 @@ namespace MediaSharingGuest
             return query;
         }
 
+        //Bans user, uses rfid code.
         public string BanUser (string rfidCode)
         {
             string query = "UPDATE PT_USER_ACC SET USER_BAN_STATE = '1' WHERE RFID_CODE = '" + rfidCode + "'";
             return query;
         }
 
+        //Unbans user, uses rfidcode.
         public string UnbanUser(string rfidCode)
         {
             string query = "UPDATE PT_USER_ACC SET USER_BAN_STATE = '0' WHERE RFID_CODE = '" + rfidCode + "'";

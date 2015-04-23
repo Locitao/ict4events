@@ -43,7 +43,15 @@
             this.lblRfidCode = new System.Windows.Forms.Label();
             this.btnUnban = new System.Windows.Forms.Button();
             this.btnBan = new System.Windows.Forms.Button();
+            this.lbNewsFeedMessages = new System.Windows.Forms.ListBox();
+            this.lblNewsFeed = new System.Windows.Forms.Label();
+            this.BtnDeleteSelected = new System.Windows.Forms.Button();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
+            this.nudMessageClean = new System.Windows.Forms.NumericUpDown();
+            this.chbMessageClean = new System.Windows.Forms.CheckBox();
+            this.timerDeleteMessage = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMessageClean)).BeginInit();
             this.SuspendLayout();
             // 
             // lbReports
@@ -88,7 +96,7 @@
             // 
             // nudThreshold
             // 
-            this.nudThreshold.Location = new System.Drawing.Point(361, 295);
+            this.nudThreshold.Location = new System.Drawing.Point(256, 314);
             this.nudThreshold.Minimum = new decimal(new int[] {
             1,
             0,
@@ -107,7 +115,7 @@
             // lblThreshold
             // 
             this.lblThreshold.AutoSize = true;
-            this.lblThreshold.Location = new System.Drawing.Point(279, 300);
+            this.lblThreshold.Location = new System.Drawing.Point(253, 294);
             this.lblThreshold.Name = "lblThreshold";
             this.lblThreshold.Size = new System.Drawing.Size(76, 17);
             this.lblThreshold.TabIndex = 5;
@@ -116,7 +124,7 @@
             // chbAutoClean
             // 
             this.chbAutoClean.AutoSize = true;
-            this.chbAutoClean.Location = new System.Drawing.Point(282, 320);
+            this.chbAutoClean.Location = new System.Drawing.Point(256, 347);
             this.chbAutoClean.Name = "chbAutoClean";
             this.chbAutoClean.Size = new System.Drawing.Size(95, 21);
             this.chbAutoClean.TabIndex = 7;
@@ -136,7 +144,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(751, 389);
+            this.btnLogOut.Location = new System.Drawing.Point(786, 389);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(86, 34);
             this.btnLogOut.TabIndex = 8;
@@ -146,7 +154,7 @@
             // 
             // tbRfid
             // 
-            this.tbRfid.Location = new System.Drawing.Point(645, 28);
+            this.tbRfid.Location = new System.Drawing.Point(15, 314);
             this.tbRfid.Name = "tbRfid";
             this.tbRfid.Size = new System.Drawing.Size(167, 22);
             this.tbRfid.TabIndex = 9;
@@ -154,7 +162,7 @@
             // lblRfidCode
             // 
             this.lblRfidCode.AutoSize = true;
-            this.lblRfidCode.Location = new System.Drawing.Point(553, 31);
+            this.lblRfidCode.Location = new System.Drawing.Point(12, 294);
             this.lblRfidCode.Name = "lblRfidCode";
             this.lblRfidCode.Size = new System.Drawing.Size(86, 17);
             this.lblRfidCode.TabIndex = 10;
@@ -163,7 +171,7 @@
             // btnUnban
             // 
             this.btnUnban.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnUnban.Location = new System.Drawing.Point(645, 85);
+            this.btnUnban.Location = new System.Drawing.Point(15, 371);
             this.btnUnban.Name = "btnUnban";
             this.btnUnban.Size = new System.Drawing.Size(167, 23);
             this.btnUnban.TabIndex = 11;
@@ -174,7 +182,7 @@
             // btnBan
             // 
             this.btnBan.ForeColor = System.Drawing.Color.Maroon;
-            this.btnBan.Location = new System.Drawing.Point(645, 56);
+            this.btnBan.Location = new System.Drawing.Point(15, 342);
             this.btnBan.Name = "btnBan";
             this.btnBan.Size = new System.Drawing.Size(167, 23);
             this.btnBan.TabIndex = 12;
@@ -182,11 +190,89 @@
             this.btnBan.UseVisualStyleBackColor = true;
             this.btnBan.Click += new System.EventHandler(this.btnBan_Click);
             // 
+            // lbNewsFeedMessages
+            // 
+            this.lbNewsFeedMessages.FormattingEnabled = true;
+            this.lbNewsFeedMessages.ItemHeight = 16;
+            this.lbNewsFeedMessages.Location = new System.Drawing.Point(487, 28);
+            this.lbNewsFeedMessages.Name = "lbNewsFeedMessages";
+            this.lbNewsFeedMessages.Size = new System.Drawing.Size(244, 260);
+            this.lbNewsFeedMessages.TabIndex = 13;
+            this.lbNewsFeedMessages.SelectedIndexChanged += new System.EventHandler(this.lbNewsFeedMessages_SelectedIndexChanged);
+            // 
+            // lblNewsFeed
+            // 
+            this.lblNewsFeed.AutoSize = true;
+            this.lblNewsFeed.Location = new System.Drawing.Point(487, 9);
+            this.lblNewsFeed.Name = "lblNewsFeed";
+            this.lblNewsFeed.Size = new System.Drawing.Size(146, 17);
+            this.lblNewsFeed.TabIndex = 14;
+            this.lblNewsFeed.Text = "NewsFeed Messages:";
+            // 
+            // BtnDeleteSelected
+            // 
+            this.BtnDeleteSelected.Location = new System.Drawing.Point(490, 294);
+            this.BtnDeleteSelected.Name = "BtnDeleteSelected";
+            this.BtnDeleteSelected.Size = new System.Drawing.Size(241, 34);
+            this.BtnDeleteSelected.TabIndex = 15;
+            this.BtnDeleteSelected.Text = "Delete selected message";
+            this.BtnDeleteSelected.UseVisualStyleBackColor = true;
+            this.BtnDeleteSelected.Click += new System.EventHandler(this.BtnDeleteSelected_Click);
+            // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Location = new System.Drawing.Point(490, 334);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(241, 34);
+            this.btnDeleteAll.TabIndex = 16;
+            this.btnDeleteAll.Text = "Delete all";
+            this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
+            // 
+            // nudMessageClean
+            // 
+            this.nudMessageClean.Location = new System.Drawing.Point(611, 374);
+            this.nudMessageClean.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudMessageClean.Name = "nudMessageClean";
+            this.nudMessageClean.Size = new System.Drawing.Size(120, 22);
+            this.nudMessageClean.TabIndex = 17;
+            this.nudMessageClean.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // chbMessageClean
+            // 
+            this.chbMessageClean.AutoSize = true;
+            this.chbMessageClean.Location = new System.Drawing.Point(490, 375);
+            this.chbMessageClean.Name = "chbMessageClean";
+            this.chbMessageClean.Size = new System.Drawing.Size(95, 21);
+            this.chbMessageClean.TabIndex = 18;
+            this.chbMessageClean.Text = "AutoClean";
+            this.chbMessageClean.UseVisualStyleBackColor = true;
+            this.chbMessageClean.CheckedChanged += new System.EventHandler(this.chbMessageClean_CheckedChanged);
+            // 
+            // timerDeleteMessage
+            // 
+            this.timerDeleteMessage.Interval = 10000;
+            this.timerDeleteMessage.Tick += new System.EventHandler(this.timerDeleteMessage_Tick);
+            // 
             // ViewReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 435);
+            this.ClientSize = new System.Drawing.Size(884, 435);
+            this.Controls.Add(this.chbMessageClean);
+            this.Controls.Add(this.nudMessageClean);
+            this.Controls.Add(this.btnDeleteAll);
+            this.Controls.Add(this.BtnDeleteSelected);
+            this.Controls.Add(this.lblNewsFeed);
+            this.Controls.Add(this.lbNewsFeedMessages);
             this.Controls.Add(this.btnBan);
             this.Controls.Add(this.btnUnban);
             this.Controls.Add(this.lblRfidCode);
@@ -203,6 +289,7 @@
             this.Name = "ViewReports";
             this.Text = "Reports";
             ((System.ComponentModel.ISupportInitialize)(this.nudThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMessageClean)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +311,12 @@
         private System.Windows.Forms.Label lblRfidCode;
         private System.Windows.Forms.Button btnUnban;
         private System.Windows.Forms.Button btnBan;
+        private System.Windows.Forms.ListBox lbNewsFeedMessages;
+        private System.Windows.Forms.Label lblNewsFeed;
+        private System.Windows.Forms.Button BtnDeleteSelected;
+        private System.Windows.Forms.Button btnDeleteAll;
+        private System.Windows.Forms.NumericUpDown nudMessageClean;
+        private System.Windows.Forms.CheckBox chbMessageClean;
+        private System.Windows.Forms.Timer timerDeleteMessage;
     }
 }

@@ -17,6 +17,10 @@ namespace MediaSharingGuest
         public List<Like> Likes { get; set; }
         public List<Report> Reports { get; set; }
         public string AllInfo { get; set; }
+        public string ReportString
+        {
+            get { return RfidCode + " - " + Content; }
+        }
 
         //Constructor-------------------------
         public Reaction(string content, int mediaid, string rfidCode)

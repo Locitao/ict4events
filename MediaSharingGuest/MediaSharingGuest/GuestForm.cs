@@ -18,7 +18,7 @@ namespace MediaSharingGuest
     {
         //Fields------------------------------------
         MediaSharingSystem medias;
-        int startingCategoryId = 2;
+        int startingCategoryId = 1;
 
         Select select = new Select();
         Connection connection = new Connection();
@@ -172,6 +172,7 @@ namespace MediaSharingGuest
         {
             connection.SQLQueryNoOutput(insert.AddNewsFeedMessage(medias.RfidCode, protection.ProtectAgainstSQLInjection(tbNewsFeed.Text)));
             LoadNewsFeedMessages();
+            tbNewsFeed.Clear();
         }
 
         //This button opens the create category window.
@@ -344,6 +345,12 @@ namespace MediaSharingGuest
         //Opens the send report window, if you report a category you can't report it another time.
         private void btnReportCategory_Click(object sender, EventArgs e)
         {
+            if (selectedCategory == null)
+            {
+                MessageBox.Show("No category selected!");
+                return;
+            }
+
             SendReport sendReport = new SendReport(medias, selectedCategory.CategoryId, "Category");
             DialogResult dialogResult = sendReport.ShowDialog();
             if (dialogResult == DialogResult.OK)

@@ -46,7 +46,6 @@ namespace MediaSharingGuest
                 if (password == tablePassword)
                 {
                     ViewReports viewReports = new ViewReports();
-                    this.Hide();
                     viewReports.Show();
                 }
                 else MessageBox.Show("Wrong password!");
@@ -63,15 +62,25 @@ namespace MediaSharingGuest
             //Query that returns Name of the user, if no name then no login.
             connect.SQLQueryWithOutput(select.GetName(rfidcode), out output);
 
+            if (output == null)
+            {
+                MessageBox.Show("Database error.");
+                return;
+            }
+
             if (output.Count > 0)
             {
                 string Username = output[0][0];
                 string RfidCode = output[0][1];
-                
+                int banned = Convert.ToInt32(output[0][2]);
+
+                if (banned == 0)
+                {
                     MediaSharingSystem ms = new MediaSharingSystem(RfidCode, Username);
                     GuestForm guestform = new GuestForm(ms, 2);
-                    this.Hide();
                     guestform.Show();
+                }
+                else MessageBox.Show("You're banned! Please contact an administrator");
             }
 
             else

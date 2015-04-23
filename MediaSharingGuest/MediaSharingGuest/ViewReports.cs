@@ -19,6 +19,7 @@ namespace MediaSharingGuest
         List<List<string>> output = new List<List<string>>();
         List<Report> Reports = new List<Report>();
         List<Report> HotReports = new List<Report>();
+        List<Reaction> NewsFeedMessages = new List<Reaction>();
 
         Connection connection = new Connection();
         Update update = new Update();
@@ -27,6 +28,7 @@ namespace MediaSharingGuest
         Protection protection = new Protection();
 
         Report selectedReport;
+        Reaction selectedMessage;
 
         int reportId = 0;
         int categoryId = 0;
@@ -41,6 +43,7 @@ namespace MediaSharingGuest
             InitializeComponent();
             UpdateListBoxHotReports();
             UpdateListBoxReports();
+            AddNewsFeedMessagesToListBox();
             timerUpdate.Start();
         }
 
@@ -144,6 +147,33 @@ namespace MediaSharingGuest
 
         }
 
+        public void AddNewsFeedMessagesToListBox()
+        {
+            NewsFeedMessages.Clear();
+
+            connection.SQLQueryWithOutput(select.GetNewsFeedMessages(), out output);
+
+            foreach (List<string> stringList in output)
+            {
+                string poster = stringList[0];
+                string content = stringList[1];
+                int reactionId = Convert.ToInt32(stringList[2]);
+                string rfidCode = stringList[3];
+
+                Reaction newsfeedMessage = new Reaction(content, 0, rfidCode);
+                newsfeedMessage.ReactionId = reactionId;
+                NewsFeedMessages.Add(newsfeedMessage);
+            }
+
+            lbNewsFeedMessages.Items.Clear();
+
+            foreach (Reaction newsfeedmessage in NewsFeedMessages)
+            {
+                lbNewsFeedMessages.ValueMember = "ReactionId";
+                lbNewsFeedMessages.DisplayMember = "ReportString";
+                lbNewsFeedMessages.Items.Add(newsfeedmessage);
+            }
+        }
         //Events--------------------------------------------
 
         /// <summary>
@@ -268,6 +298,7 @@ namespace MediaSharingGuest
         {
             UpdateListBoxHotReports();
             UpdateListBoxReports();
+            AddNewsFeedMessagesToListBox();
         }
 
         /// <summary>
@@ -283,12 +314,77 @@ namespace MediaSharingGuest
         //Bans the user
         private void btnBan_Click(object sender, EventArgs e)
         {
-            connection.SQLQueryNoOutput(update.BanUser(protection.ProtectAgainstSQLInjection(tbRfid.Text)));
+            try
+            {
+                connection.SQLQueryNoOutput(update.BanUser(protection.ProtectAgainstSQLInjection(tbRfid.Text)));
+                tbRfid.Clear();
+            }
+            catch
+            {
+                MessageBox.Show("RFID Code doesn't exist");
+            }
         }
 
+        //Unbans the user.
         private void btnUnban_Click(object sender, EventArgs e)
         {
-            connection.SQLQueryNoOutput(update.UnbanUser(protection.ProtectAgainstSQLInjection(tbRfid.Text)));
+            try
+            {
+                connection.SQLQueryNoOutput(update.UnbanUser(protection.ProtectAgainstSQLInjection(tbRfid.Text)));
+                tbRfid.Clear();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("RFID Code doesn't exist");
+            }
+        }
+
+        private void lbNewsFeedMessages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedMessage = lbNewsFeedMessages.SelectedItem as Reaction;
+        }
+
+        private void BtnDeleteSelected_Click(object sender, EventArgs e)
+        {
+            if (selectedMessage != null)
+            {
+                connection.SQLQueryNoOutput(delete.DeleteReaction(selectedMessage.ReactionId));
+                AddNewsFeedMessagesToListBox();
+            }
+            else MessageBox.Show("Please select a message!");
+        }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            connection.SQLQueryNoOutput(delete.DeleteAllNewsFeedMessages());
+            AddNewsFeedMessagesToListBox();
+        }
+
+        //Starts or stops the message delete timer.
+        private void chbMessageClean_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbMessageClean.Checked == true)
+            {
+                if (NewsFeedMessages.Count >= nudMessageClean.Value)
+                {
+                    connection.SQLQueryNoOutput(delete.DeleteAllNewsFeedMessages());
+                    AddNewsFeedMessagesToListBox();
+                }  
+                timerDeleteMessage.Start();
+            }
+            else if (chbMessageClean.Checked == false)
+            {
+                timerDeleteMessage.Stop();
+            }
+        }
+
+        //When ticks, if threshold is met. Deletes messages.
+        private void timerDeleteMessage_Tick(object sender, EventArgs e)
+        {
+            if (NewsFeedMessages.Count > nudMessageClean.Value)
+            {
+                connection.SQLQueryNoOutput(delete.DeleteAllNewsFeedMessages());
+            }  
         }   
     }
 }
