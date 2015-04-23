@@ -38,12 +38,12 @@
             this.lbFolders = new System.Windows.Forms.ListBox();
             this.lblParentFolder = new System.Windows.Forms.Label();
             this.gbFiles = new System.Windows.Forms.GroupBox();
+            this.btnReportCategory = new System.Windows.Forms.Button();
             this.btnSearchMedia = new System.Windows.Forms.Button();
             this.btnSearchCategory = new System.Windows.Forms.Button();
             this.lbMediaItems = new System.Windows.Forms.ListBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.btnReportCategory = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnAddFolder = new System.Windows.Forms.Button();
             this.btnAddFile = new System.Windows.Forms.Button();
@@ -125,6 +125,7 @@
             this.lbFolders.Size = new System.Drawing.Size(341, 500);
             this.lbFolders.TabIndex = 4;
             this.lbFolders.SelectedIndexChanged += new System.EventHandler(this.lbFolders_SelectedIndexChanged);
+            this.lbFolders.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbFolders_MouseDoubleClick);
             // 
             // lblParentFolder
             // 
@@ -138,12 +139,12 @@
             // 
             // gbFiles
             // 
+            this.gbFiles.Controls.Add(this.btnReportCategory);
             this.gbFiles.Controls.Add(this.btnSearchMedia);
             this.gbFiles.Controls.Add(this.btnSearchCategory);
             this.gbFiles.Controls.Add(this.lbMediaItems);
             this.gbFiles.Controls.Add(this.tbSearch);
             this.gbFiles.Controls.Add(this.lblSearch);
-            this.gbFiles.Controls.Add(this.btnReportCategory);
             this.gbFiles.Controls.Add(this.btnLogOut);
             this.gbFiles.Location = new System.Drawing.Point(432, 236);
             this.gbFiles.Margin = new System.Windows.Forms.Padding(4);
@@ -153,6 +154,17 @@
             this.gbFiles.TabIndex = 6;
             this.gbFiles.TabStop = false;
             this.gbFiles.Text = "Files";
+            // 
+            // btnReportCategory
+            // 
+            this.btnReportCategory.Location = new System.Drawing.Point(10, 567);
+            this.btnReportCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReportCategory.Name = "btnReportCategory";
+            this.btnReportCategory.Size = new System.Drawing.Size(167, 46);
+            this.btnReportCategory.TabIndex = 20;
+            this.btnReportCategory.Text = "Report Category";
+            this.btnReportCategory.UseVisualStyleBackColor = true;
+            this.btnReportCategory.Click += new System.EventHandler(this.btnReportCategory_Click);
             // 
             // btnSearchMedia
             // 
@@ -184,6 +196,7 @@
             this.lbMediaItems.Size = new System.Drawing.Size(828, 500);
             this.lbMediaItems.TabIndex = 10;
             this.lbMediaItems.SelectedIndexChanged += new System.EventHandler(this.lbMediaItems_SelectedIndexChanged);
+            this.lbMediaItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbMediaItems_MouseDoubleClick);
             // 
             // tbSearch
             // 
@@ -200,16 +213,6 @@
             this.lblSearch.Size = new System.Drawing.Size(57, 17);
             this.lblSearch.TabIndex = 16;
             this.lblSearch.Text = "Search:";
-            // 
-            // btnReportCategory
-            // 
-            this.btnReportCategory.Location = new System.Drawing.Point(8, 567);
-            this.btnReportCategory.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReportCategory.Name = "btnReportCategory";
-            this.btnReportCategory.Size = new System.Drawing.Size(167, 46);
-            this.btnReportCategory.TabIndex = 13;
-            this.btnReportCategory.Text = "Report Category";
-            this.btnReportCategory.UseVisualStyleBackColor = true;
             // 
             // btnLogOut
             // 
@@ -346,7 +349,6 @@
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblLoggedInAs;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnReportCategory;
         private System.Windows.Forms.ListBox lbMediaItems;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnStart;
@@ -354,6 +356,7 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnSearchCategory;
         private System.Windows.Forms.Button btnSearchMedia;
+        private System.Windows.Forms.Button btnReportCategory;
     }
 }
 

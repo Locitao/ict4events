@@ -26,6 +26,8 @@ namespace MediaSharingGuest
         Protection protection = new Protection();
         NewsFeed newsfeed = new NewsFeed();
         Random RNG = new Random();
+        Media selectedMediaItem;
+        Category selectedCategory;
 
         List<string> NewsFeedMessages = new List<string>();
         List<List<string>> output = new List<List<string>>();
@@ -189,22 +191,16 @@ namespace MediaSharingGuest
         //This event loads the new folders inside the selected folder.
         private void lbFolders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            object cat = lbFolders.SelectedItem;
-            Category catt = cat as Category;
+            selectedCategory = lbFolders.SelectedItem as Category;
 
-            LoadCategories(catt.CategoryId);
-            LoadMediaItems(catt.CategoryId);
-            CurrentCategoryId = catt.CategoryId;
-            PreviousCategoryId = catt.ParentCategoryId;
+            //query to check if selected folder has been reported.
+            connection.SQLQueryWithOutput(select.GetCategoryReportedByUser(selectedCategory.CategoryId, medias.RfidCode), out output);
 
-            if (CurrentCategoryId == startingCategoryId)
+            if (output.Count == 0)
             {
-                btnBack.Enabled = false;
+                btnReportCategory.Enabled = true;
             }
-            else if (CurrentCategoryId != startingCategoryId)
-            {
-                btnBack.Enabled = true;
-            }
+            else btnReportCategory.Enabled = false;
         }
 
         //this button returns you to the parentfolder of the current folder.
@@ -239,13 +235,7 @@ namespace MediaSharingGuest
         //this event opens the selected media item in a new window.
         private void lbMediaItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Media medd = lbMediaItems.SelectedItem as Media;
-
-            if (medd != null)
-            {
-                ViewFile viewFile = new ViewFile(medias, medd.MediaId);
-                viewFile.Show();
-            }
+            selectedMediaItem = lbMediaItems.SelectedItem as Media;
         }
 
         //this event returns you to the root folder.
@@ -312,6 +302,51 @@ namespace MediaSharingGuest
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lbMediaItems_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            selectedMediaItem= lbMediaItems.SelectedItem as Media;
+
+            if (selectedMediaItem != null)
+            {
+                ViewFile viewFile = new ViewFile(medias, selectedMediaItem.MediaId);
+                viewFile.Show();
+            }
+        }
+
+        private void lbFolders_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            selectedCategory = lbFolders.SelectedItem as Category;
+
+            if (selectedCategory == null)
+            {
+                return;
+            }
+
+            LoadCategories(selectedCategory.CategoryId);
+            LoadMediaItems(selectedCategory.CategoryId);
+            CurrentCategoryId = selectedCategory.CategoryId;
+            PreviousCategoryId = selectedCategory.ParentCategoryId;
+
+            if (CurrentCategoryId == startingCategoryId)
+            {
+                btnBack.Enabled = false;
+            }
+            else if (CurrentCategoryId != startingCategoryId)
+            {
+                btnBack.Enabled = true;
+            }
+        }
+
+        private void btnReportCategory_Click(object sender, EventArgs e)
+        {
+            SendReport sendReport = new SendReport(medias, selectedCategory.CategoryId, "Category");
+            DialogResult dialogResult = sendReport.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                btnReportCategory.Enabled = false;
+            }
         }
     }
 }

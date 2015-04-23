@@ -18,6 +18,12 @@ namespace MediaSharingGuest
             string output;
             output = input.Replace(";", " ");
             output = input.Replace("'", " ");
+            output = input.Replace("%", " ");
+            output = input.Replace("_", " ");
+            output = input.Replace("*", " ");
+            output = input.Replace("$", " ");
+            output = input.Replace("NULL", " ");
+            output = input.Replace("null", " ");
             return output;
         }
 

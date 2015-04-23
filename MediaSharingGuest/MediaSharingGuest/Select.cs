@@ -130,7 +130,7 @@ namespace MediaSharingGuest
 
         public string GetAllReportsUnderThreshHold(int threshold)
         {
-            string query = "SELECT REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION FROM PT_REPORT HAVING COUNT(media_id) < " + "'" + threshold + "'" + " AND COUNT(REACTION_ID) < " + "'" + threshold + "'" + " AND COUNT (CATEGORY_ID) <= " + "'" + threshold + "'" + " GROUP BY REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION";
+            string query = "SELECT REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION FROM PT_REPORT HAVING COUNT(media_id) < " + "'" + threshold + "'" + " AND COUNT(REACTION_ID) < " + "'" + threshold + "'" + " AND COUNT (CATEGORY_ID) < " + "'" + threshold + "'" + " GROUP BY REPORT_ID, CATEGORY_ID, MEDIA_ID, REACTION_ID, RFID_CODE, REP_DESCRIPTION";
             return query;
         }
 
@@ -167,6 +167,12 @@ namespace MediaSharingGuest
         public string SearchMediaItems(string mediaName)
         {
             string query = "SELECT MEDIA_ID, MED_NAME FROM PT_MEDIA WHERE MED_NAME LIKE '%" + mediaName+ "%'";
+            return query;
+        }
+
+        public string GetCategoryReportedByUser(int categoryId, string rfidCode)
+        {
+            string query = "SELECT REPORT_ID FROM PT_REPORT WHERE CATEGORY_ID = '" + categoryId + "'" + " AND RFID_CODE = '" + rfidCode + "'";
             return query;
         }
     }
