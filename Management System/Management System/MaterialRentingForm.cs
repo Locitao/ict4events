@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phidgets;
+using Phidgets.Events;
 
 namespace Management_System
 {
@@ -233,6 +235,11 @@ namespace Management_System
                 MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
             }
             RefreshMaterialList();
+        }
+
+        private void MaterialRentingForm_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

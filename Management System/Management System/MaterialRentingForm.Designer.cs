@@ -197,6 +197,7 @@
             this.Controls.Add(this.lbMaterials);
             this.Name = "MaterialRentingForm";
             this.Text = "MaterialRentingForm";
+            this.Load += new System.EventHandler(this.MaterialRentingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

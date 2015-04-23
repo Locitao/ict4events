@@ -53,5 +53,10 @@ namespace Management_System
                 e.Handled = true;
             }
         }
+
+        private void ChangeCategoryForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

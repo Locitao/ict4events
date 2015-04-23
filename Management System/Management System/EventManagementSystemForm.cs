@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phidgets;
+using Phidgets.Events;
 
 namespace Management_System
 {
@@ -298,6 +300,11 @@ namespace Management_System
             {
                 e.Handled = true;
             }
+        }
+
+        private void EventManagementSystemForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         

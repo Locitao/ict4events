@@ -188,6 +188,7 @@
             this.Controls.Add(this.tbRFIDCode);
             this.Name = "ReserveItemForm";
             this.Text = "LendItemForm";
+            this.Load += new System.EventHandler(this.ReserveItemForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

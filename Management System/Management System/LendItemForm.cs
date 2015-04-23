@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phidgets;
+using Phidgets.Events;
 
 namespace Management_System
 {
@@ -51,6 +53,11 @@ namespace Management_System
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void LendItemForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
