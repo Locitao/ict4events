@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// The mediasharing system the user creates when logging in.
+    /// </summary>
     public class MediaSharingSystem
     {
         //Properties-------------------------------

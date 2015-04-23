@@ -274,7 +274,7 @@
             this.Controls.Add(this.pbImage);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewFile";
-            this.Text = "ViewFile";
+            this.Text = "View File";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

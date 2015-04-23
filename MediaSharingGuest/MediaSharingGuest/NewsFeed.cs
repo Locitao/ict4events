@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// The newsfeed class.
+    /// </summary>
     public class NewsFeed
     {
         //Fields----------------------------
@@ -21,7 +24,6 @@ namespace MediaSharingGuest
         //Constructor----------------------
         public NewsFeed()
         {
-
         }
     }
 }

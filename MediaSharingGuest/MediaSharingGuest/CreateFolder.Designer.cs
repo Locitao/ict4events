@@ -37,7 +37,7 @@
             // tbFolderName
             // 
             this.tbFolderName.Location = new System.Drawing.Point(111, 16);
-            this.tbFolderName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFolderName.Margin = new System.Windows.Forms.Padding(4);
             this.tbFolderName.Name = "tbFolderName";
             this.tbFolderName.Size = new System.Drawing.Size(243, 22);
             this.tbFolderName.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.btnCreate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnCreate.Location = new System.Drawing.Point(16, 59);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(100, 28);
             this.btnCreate.TabIndex = 2;
@@ -67,7 +67,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(124, 59);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 3;
@@ -84,9 +84,9 @@
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblFolderName);
             this.Controls.Add(this.tbFolderName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateFolder";
-            this.Text = "CreateFolder";
+            this.Text = "Create new folder";
             this.ResumeLayout(false);
             this.PerformLayout();
 

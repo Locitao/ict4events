@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaSharingGuest
 {
+    /// <summary>
+    /// This class contains all the information about a media item.
+    /// </summary>
     public class Media
     {
         //Properties-------------------------------

@@ -44,7 +44,7 @@
             // tbTitel
             // 
             this.tbTitel.Location = new System.Drawing.Point(345, 28);
-            this.tbTitel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTitel.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitel.Name = "tbTitel";
             this.tbTitel.Size = new System.Drawing.Size(320, 22);
             this.tbTitel.TabIndex = 17;
@@ -73,7 +73,7 @@
             // tbDesciption
             // 
             this.tbDesciption.Location = new System.Drawing.Point(345, 60);
-            this.tbDesciption.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDesciption.Margin = new System.Windows.Forms.Padding(4);
             this.tbDesciption.Multiline = true;
             this.tbDesciption.Name = "tbDesciption";
             this.tbDesciption.Size = new System.Drawing.Size(320, 144);
@@ -83,7 +83,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(464, 245);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(111, 36);
             this.btnCancel.TabIndex = 13;
@@ -94,7 +94,7 @@
             // pbImage
             // 
             this.pbImage.Location = new System.Drawing.Point(16, 28);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(321, 177);
             this.pbImage.TabIndex = 12;
@@ -104,7 +104,7 @@
             // 
             this.btnUpload.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnUpload.Location = new System.Drawing.Point(345, 245);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(111, 36);
             this.btnUpload.TabIndex = 11;
@@ -115,7 +115,7 @@
             // tbPath
             // 
             this.tbPath.Location = new System.Drawing.Point(16, 213);
-            this.tbPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPath.Margin = new System.Windows.Forms.Padding(4);
             this.tbPath.Name = "tbPath";
             this.tbPath.ReadOnly = true;
             this.tbPath.Size = new System.Drawing.Size(320, 22);
@@ -124,7 +124,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(16, 245);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(111, 36);
             this.btnBrowse.TabIndex = 9;
@@ -135,7 +135,7 @@
             // tbLocation
             // 
             this.tbLocation.Location = new System.Drawing.Point(345, 213);
-            this.tbLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbLocation.Margin = new System.Windows.Forms.Padding(4);
             this.tbLocation.Name = "tbLocation";
             this.tbLocation.Size = new System.Drawing.Size(320, 22);
             this.tbLocation.TabIndex = 18;
@@ -156,9 +156,9 @@
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.tbPath);
             this.Controls.Add(this.btnBrowse);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UploadFile";
-            this.Text = "UploadFile";
+            this.Text = "Upload File";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

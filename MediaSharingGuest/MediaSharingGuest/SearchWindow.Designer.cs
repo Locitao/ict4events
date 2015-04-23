@@ -71,7 +71,7 @@
             this.Controls.Add(this.lblSearchResults);
             this.Controls.Add(this.lbResults);
             this.Name = "SearchWindow";
-            this.Text = "SearchWindow";
+            this.Text = "Search";
             this.ResumeLayout(false);
             this.PerformLayout();
 

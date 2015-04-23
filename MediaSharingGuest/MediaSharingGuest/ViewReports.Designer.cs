@@ -155,7 +155,7 @@
             this.Controls.Add(this.lbReports);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewReports";
-            this.Text = "ViewReports";
+            this.Text = "Reports";
             ((System.ComponentModel.ISupportInitialize)(this.nudThreshold)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

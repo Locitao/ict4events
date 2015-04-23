@@ -39,10 +39,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnEditCategoryName = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblUserNameCreator = new System.Windows.Forms.Label();
             this.lblContentCreator = new System.Windows.Forms.Label();
-            this.btnBanReporter = new System.Windows.Forms.Button();
             this.gbReporterData = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbData.SuspendLayout();
@@ -85,7 +83,6 @@
             this.gbData.Controls.Add(this.label1);
             this.gbData.Controls.Add(this.textBox1);
             this.gbData.Controls.Add(this.btnEditCategoryName);
-            this.gbData.Controls.Add(this.button1);
             this.gbData.Controls.Add(this.lblUserNameCreator);
             this.gbData.Controls.Add(this.lblContentCreator);
             this.gbData.Location = new System.Drawing.Point(415, 12);
@@ -163,15 +160,6 @@
             this.btnEditCategoryName.UseVisualStyleBackColor = true;
             this.btnEditCategoryName.Click += new System.EventHandler(this.btnEditCategoryName_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(20, 214);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Ban Creator";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // lblUserNameCreator
             // 
             this.lblUserNameCreator.AutoSize = true;
@@ -190,20 +178,10 @@
             this.lblContentCreator.TabIndex = 0;
             this.lblContentCreator.Text = "Creator:";
             // 
-            // btnBanReporter
-            // 
-            this.btnBanReporter.Location = new System.Drawing.Point(9, 214);
-            this.btnBanReporter.Name = "btnBanReporter";
-            this.btnBanReporter.Size = new System.Drawing.Size(144, 32);
-            this.btnBanReporter.TabIndex = 2;
-            this.btnBanReporter.Text = "Ban Reporter";
-            this.btnBanReporter.UseVisualStyleBackColor = true;
-            // 
             // gbReporterData
             // 
             this.gbReporterData.Controls.Add(this.btnCancel);
             this.gbReporterData.Controls.Add(this.lblReporter);
-            this.gbReporterData.Controls.Add(this.btnBanReporter);
             this.gbReporterData.Controls.Add(this.tbReportContent);
             this.gbReporterData.Controls.Add(this.lblUsername);
             this.gbReporterData.Location = new System.Drawing.Point(11, 12);
@@ -215,7 +193,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(248, 229);
+            this.btnCancel.Location = new System.Drawing.Point(6, 229);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(144, 32);
             this.btnCancel.TabIndex = 3;
@@ -231,7 +209,7 @@
             this.Controls.Add(this.gbReporterData);
             this.Controls.Add(this.gbData);
             this.Name = "ReportData";
-            this.Text = "ReportData";
+            this.Text = "Report Data";
             this.gbData.ResumeLayout(false);
             this.gbData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMedia)).EndInit();
@@ -253,10 +231,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnEditCategoryName;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblUserNameCreator;
         private System.Windows.Forms.Label lblContentCreator;
-        private System.Windows.Forms.Button btnBanReporter;
         private System.Windows.Forms.GroupBox gbReporterData;
         private System.Windows.Forms.PictureBox pbMedia;
         private System.Windows.Forms.Button btnCancel;

@@ -46,7 +46,7 @@
             // 
             this.rbUser.AutoSize = true;
             this.rbUser.Location = new System.Drawing.Point(8, 23);
-            this.rbUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbUser.Margin = new System.Windows.Forms.Padding(4);
             this.rbUser.Name = "rbUser";
             this.rbUser.Size = new System.Drawing.Size(59, 21);
             this.rbUser.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.rbAdmin.AutoSize = true;
             this.rbAdmin.Location = new System.Drawing.Point(8, 47);
-            this.rbAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.rbAdmin.Name = "rbAdmin";
             this.rbAdmin.Size = new System.Drawing.Size(68, 21);
             this.rbAdmin.TabIndex = 1;
@@ -73,9 +73,9 @@
             this.gbLoginAs.Controls.Add(this.rbUser);
             this.gbLoginAs.Controls.Add(this.rbAdmin);
             this.gbLoginAs.Location = new System.Drawing.Point(16, 15);
-            this.gbLoginAs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbLoginAs.Margin = new System.Windows.Forms.Padding(4);
             this.gbLoginAs.Name = "gbLoginAs";
-            this.gbLoginAs.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbLoginAs.Padding = new System.Windows.Forms.Padding(4);
             this.gbLoginAs.Size = new System.Drawing.Size(97, 80);
             this.gbLoginAs.TabIndex = 2;
             this.gbLoginAs.TabStop = false;
@@ -105,7 +105,7 @@
             // tbUserOrRFID
             // 
             this.tbUserOrRFID.Location = new System.Drawing.Point(99, 16);
-            this.tbUserOrRFID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUserOrRFID.Margin = new System.Windows.Forms.Padding(4);
             this.tbUserOrRFID.Name = "tbUserOrRFID";
             this.tbUserOrRFID.Size = new System.Drawing.Size(251, 22);
             this.tbUserOrRFID.TabIndex = 5;
@@ -113,7 +113,7 @@
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(99, 47);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(251, 22);
@@ -127,9 +127,9 @@
             this.gbLogin.Controls.Add(this.lblPassword);
             this.gbLogin.Controls.Add(this.tbUserOrRFID);
             this.gbLogin.Location = new System.Drawing.Point(121, 15);
-            this.gbLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbLogin.Margin = new System.Windows.Forms.Padding(4);
             this.gbLogin.Name = "gbLogin";
-            this.gbLogin.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbLogin.Padding = new System.Windows.Forms.Padding(4);
             this.gbLogin.Size = new System.Drawing.Size(371, 80);
             this.gbLogin.TabIndex = 7;
             this.gbLogin.TabStop = false;
@@ -137,7 +137,7 @@
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(16, 102);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(97, 28);
             this.btnLogin.TabIndex = 8;
@@ -148,7 +148,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(115, 102);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(97, 28);
             this.btnCancel.TabIndex = 9;
@@ -165,9 +165,9 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.gbLogin);
             this.Controls.Add(this.gbLoginAs);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Text = "Login";
             this.gbLoginAs.ResumeLayout(false);
             this.gbLoginAs.PerformLayout();
             this.gbLogin.ResumeLayout(false);

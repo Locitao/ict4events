@@ -80,7 +80,7 @@
             this.Controls.Add(this.lblChangeNameInto);
             this.Controls.Add(this.tbName);
             this.Name = "EditCategoryName";
-            this.Text = "EditCategoryName";
+            this.Text = "Edit Category name";
             this.ResumeLayout(false);
             this.PerformLayout();
 
