@@ -53,16 +53,6 @@ namespace MediaSharingGuest
         /// </summary>
         /// <returns></returns>
 
-        public bool IsReportedMedia()
-        {
-            return true;
-        }
-
-        public bool IsReportedComment()
-        {
-            return true;
-        }
-
         public void ShowStaticInformation()
         {
             //Queries that get all the static information on the mediafile.
@@ -73,12 +63,42 @@ namespace MediaSharingGuest
                 string mediaName = lblTitle.Text = stringList[0];
                 string mediaLocation = lblLocation.Text = stringList[1];
                 string mediaDescription = tbDescription.Text = stringList[2];
-                string mediaPath = pbImage.ImageLocation = @stringList[3];
+                
                 lblName.Text = stringList[4];
                 string rfidCreator = stringList[5];
+                string type = "";
 
-                Media mediaItem = new Media(mediaName, mediaPath, mediaDescription, rfidCreator, mediaLocation, 0, MediaId);
+                if (Convert.ToInt32(stringList[6]) == 0)
+                {
+                    type = "Picture";
+                }
+                else
+                {
+                   type = "Video";
+                }
+
+                string mediaPath = @stringList[3];
+
+                Media mediaItem = new Media(mediaName, mediaPath, mediaDescription, rfidCreator, mediaLocation, 0, MediaId, type);
                 MediaItem[0] = mediaItem;
+
+                if (type == "Video")
+                {
+                    pbImage.Visible = false;
+                    windowsMediaPlayer.Visible = true;
+                    windowsMediaPlayer.URL = @mediaPath;
+                    btnPlay.Visible = true;
+                    btnStart.Visible = true;
+                    btnStop.Visible = true;
+                }
+                else if (type == "Picture")
+                {
+                    windowsMediaPlayer.Visible = false;
+                    pbImage.ImageLocation = @mediaPath;
+                    btnPlay.Visible = false;
+                    btnStart.Visible = false;
+                    btnStop.Visible = false;
+                }
             }
         }
 

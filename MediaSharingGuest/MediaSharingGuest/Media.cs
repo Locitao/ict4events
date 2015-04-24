@@ -22,9 +22,10 @@ namespace MediaSharingGuest
         public List<Like> Likes { get; set; }
         public List<Reaction> Reactions { get; set; }
         public List<Report> Reports { get; set; }
+        public string FileType { get; set; }
 
         //Constructor-----------------------------------------
-        public Media(string name, string path, string description, string rfidcreator, string location, int categoryid, int mediaId)
+        public Media(string name, string path, string description, string rfidcreator, string location, int categoryid, int mediaId, string fileType)
         {
             Name = name;
             Path = path;
@@ -33,6 +34,8 @@ namespace MediaSharingGuest
             Location = location;
             CategoryId = categoryid;
             MediaId = mediaId;
+            FileType = fileType;
+
             Likes = new List<Like>();
             Reactions = new List<Reaction>();
             Reports = new List<Report>();

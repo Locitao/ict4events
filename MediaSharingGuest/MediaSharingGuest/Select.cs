@@ -82,7 +82,7 @@ namespace MediaSharingGuest
 
         public string GetMediaItemInfo(int mediaId)
         {
-            string query = "SELECT m.MED_NAME, m.MED_LOCATION, m.MED_DESCRIPTION, m.MED_PATH, u.USER_NAME, u.RFID_CODE FROM PT_MEDIA m JOIN PT_USER_ACC u ON m.RFID_CODE = u.RFID_CODE WHERE MEDIA_ID = " + "'" + mediaId + "'";
+            string query = "SELECT m.MED_NAME, m.MED_LOCATION, m.MED_DESCRIPTION, m.MED_PATH, u.USER_NAME, u.RFID_CODE, m.VIDEO_FILE FROM PT_MEDIA m JOIN PT_USER_ACC u ON m.RFID_CODE = u.RFID_CODE WHERE MEDIA_ID = " + "'" + mediaId + "'";
             return query;
         }
 
@@ -173,6 +173,12 @@ namespace MediaSharingGuest
         public string GetCategoryReportedByUser(int categoryId, string rfidCode)
         {
             string query = "SELECT REPORT_ID FROM PT_REPORT WHERE CATEGORY_ID = '" + categoryId + "'" + " AND RFID_CODE = '" + rfidCode + "'";
+            return query;
+        }
+
+        public string GetMaxMedId()
+        {
+            string query = "SELECT MAX(MEDIA_ID) FROM PT_MEDIA";
             return query;
         }
     }

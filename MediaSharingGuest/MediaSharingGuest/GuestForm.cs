@@ -144,7 +144,7 @@ namespace MediaSharingGuest
                 string name = stringList[2];
                 string rfidCode = stringList[3];
 
-                Media mediaItem = new Media(medName, "", "", rfidCode, "", '0', medId);
+                Media mediaItem = new Media(medName, "", "", rfidCode, "", 0, medId, "Picture");
 
                 MediaItems.Add(mediaItem);
                 lbMediaItems.DisplayMember = "Name";
@@ -291,7 +291,7 @@ namespace MediaSharingGuest
                     int mediaId = Convert.ToInt32(stringList[0]);
                     string mediaName = stringList[1];
 
-                    Media media = new Media(mediaName, "", "", medias.RfidCode, "", 0, mediaId);
+                    Media media = new Media(mediaName, "", "", medias.RfidCode, "", 0, mediaId, "Picture");
                     foundMediaItems.Add(media);
                 }
                 SearchWindow searchWindow = new SearchWindow(medias, foundCategories, "Media", foundMediaItems);

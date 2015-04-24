@@ -25,7 +25,7 @@ namespace MediaSharingGuest
             const string pw = "ioMMVpigPp";
             const string test = "fhictora";
 
-            //Local con data
+           
             //const string user = "SYSTEM";
             //const string pw = "wachtwoord";
             //const string test = "xe";

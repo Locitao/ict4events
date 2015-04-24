@@ -12,9 +12,9 @@ namespace MediaSharingGuest
     class Insert
     {
         //Inserts image into database, uses category Id, media name, media location, media description, rfidcode.
-        public string InsertImage(int categoryID, string medName, string medLocation, string medDescription, string rfidCode, string medPath)
+        public string InsertImage(int categoryID, string medName, string medLocation, string medDescription, string rfidCode, string medPath, int type)
         {
-            string query = "INSERT INTO PT_MEDIA (MEDIA_ID, RFID_CODE, CATEGORY_ID, MED_NAME, MED_LOCATION, MED_PATH, MED_DESCRIPTION) VALUES (auto_inc_med.nextval, " + "'" + rfidCode + "', '" + categoryID + "' , '" + medName + "' ,'" + medLocation + "' , '" + medPath + "', '" + medDescription + "')";
+            string query = "INSERT INTO PT_MEDIA (MEDIA_ID, RFID_CODE, CATEGORY_ID, MED_NAME, MED_LOCATION, MED_PATH, MED_DESCRIPTION, VIDEO_FILE) VALUES (auto_inc_med.nextval, " + "'" + rfidCode + "', '" + categoryID + "' , '" + medName + "' ,'" + medLocation + "' , '" + medPath + "', '" + medDescription + "', '" + type +"')";
             return query;
         }
 

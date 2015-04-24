@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewFile));
             this.btnReportFile = new System.Windows.Forms.Button();
             this.btnReportComment = new System.Windows.Forms.Button();
             this.btnLikeComment = new System.Windows.Forms.Button();
@@ -47,7 +48,12 @@
             this.lblTakenAt = new System.Windows.Forms.Label();
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblLikesNumber = new System.Windows.Forms.Label();
+            this.windowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.windowsMediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReportFile
@@ -248,11 +254,51 @@
             this.lblLikesNumber.TabIndex = 34;
             this.lblLikesNumber.Text = " 0";
             // 
+            // windowsMediaPlayer
+            // 
+            this.windowsMediaPlayer.Enabled = true;
+            this.windowsMediaPlayer.Location = new System.Drawing.Point(8, 73);
+            this.windowsMediaPlayer.Name = "windowsMediaPlayer";
+            this.windowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("windowsMediaPlayer.OcxState")));
+            this.windowsMediaPlayer.Size = new System.Drawing.Size(462, 320);
+            this.windowsMediaPlayer.TabIndex = 35;
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Location = new System.Drawing.Point(233, 26);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(75, 40);
+            this.btnPlay.TabIndex = 36;
+            this.btnPlay.Text = "Play";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(314, 26);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(75, 40);
+            this.btnStop.TabIndex = 37;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(395, 26);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 40);
+            this.btnStart.TabIndex = 38;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            // 
             // ViewFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 795);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.btnPlay);
+            this.Controls.Add(this.windowsMediaPlayer);
             this.Controls.Add(this.lblLikesNumber);
             this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.lblTakenAt);
@@ -276,6 +322,7 @@
             this.Name = "ViewFile";
             this.Text = "View File";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.windowsMediaPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +349,9 @@
         private System.Windows.Forms.Label lblTakenAt;
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Label lblLikesNumber;
+        private AxWMPLib.AxWindowsMediaPlayer windowsMediaPlayer;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnStart;
     }
 }

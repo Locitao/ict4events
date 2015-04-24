@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MediaSharingGuest
 {
@@ -19,11 +20,14 @@ namespace MediaSharingGuest
         MediaSharingSystem medias;
         Protection protection = new Protection();
         Connection connection = new Connection();
+        Select select = new Select();
         Insert insert = new Insert();
         private string filePath = "";
+        private string savePath = "";
         private string title = "";
         private string description = "";
         private string location = "";
+        List<List<string>> output = new List<List<string>>();
 
         //Properties------------------------------------------
         public int uploadCategoryId { get; set; }
@@ -43,7 +47,7 @@ namespace MediaSharingGuest
         {
             OpenFileDialog fDialog = new OpenFileDialog();
             fDialog.Title = "Upload File";
-            fDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            fDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png | Video and Audio files (*.wma, *.mwv, *.avi, *.mid, *.mp3) | *.wma; *.mwv; *.avi; *.mid; *.mp3 ";
 
             if (fDialog.ShowDialog() == DialogResult.OK)
             {
@@ -63,12 +67,51 @@ namespace MediaSharingGuest
             }
             else if (filePath != "")
             {
+                connection.SQLQueryWithOutput(select.GetMaxMedId(), out output);
+                int number = 0;
+
+                if (output[0][0] == "")
+                {
+                    number = 1;
+                }
+                else
+                {
+                    number = Convert.ToInt32(output[0][0]);
+                }
+
+                string filename = "file" + Convert.ToString(number + 1);
+
                 title = protection.ProtectAgainstSQLInjection(tbTitel.Text);
                 description = protection.ProtectAgainstSQLInjection(tbDesciption.Text);
                 location = protection.ProtectAgainstSQLInjection(tbLocation.Text);
                 string creatorRfid = medias.RfidCode;
+                int type;
 
-                connection.SQLQueryNoOutput(insert.InsertImage(uploadCategoryId, title, location, description, medias.RfidCode, filePath));
+                string substringPath = filePath.Substring((filePath.Length) - 4);
+
+                if (substringPath.StartsWith("."))
+                {
+                    substringPath = substringPath.Substring(1);
+                }
+
+                
+
+                if (substringPath == "jpg" || substringPath == "jpeg" || substringPath == "jpe" || substringPath == "jfif" || substringPath == "png")
+                {
+                    type = 0;
+                }
+                else
+                {
+                    type = 1;
+                }
+
+                //Copy file
+                savePath = "../../../../" + filename + "." + substringPath;
+
+                connection.SQLQueryNoOutput(insert.InsertImage(uploadCategoryId, title, location, description, medias.RfidCode, savePath, type));
+
+                File.Copy(filePath, savePath);
+
                 this.Close();
             }
         }
