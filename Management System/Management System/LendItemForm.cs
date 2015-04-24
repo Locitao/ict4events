@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Phidgets;
-using Phidgets.Events;
-
 namespace Management_System
 {
     public partial class LendItemForm : Form

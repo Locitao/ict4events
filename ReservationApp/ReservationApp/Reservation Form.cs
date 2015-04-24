@@ -105,7 +105,7 @@ namespace ReservationApp
 
                         var rfid = select.Select_User(phone);
 
-                        MessageBox.Show(insert.Insert_Reservation(rfid, "1", nmPeople.Text, paid));
+                        MessageBox.Show(insert.Insert_Reservation(rfid, "2", nmPeople.Text, paid));
 
                         var res = select.Find_Res_Id(rfid);
                         var loc = nmLocId.Text;
@@ -159,7 +159,10 @@ namespace ReservationApp
         /// <param name="e"></param>
         private void pbLocations_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            System.Diagnostics.Process.Start(@"http://i.imgur.com/fN9DGFz.jpg");
+            //System.Diagnostics.Process.Start(@"http://i.imgur.com/fN9DGFz.jpg");
+            ShowMap sm = new ShowMap();
+            //sm.Closed += (s, args) => Close();
+            sm.Show();
         }
 
         private void lbLocations_SelectedIndexChanged(object sender, EventArgs e)

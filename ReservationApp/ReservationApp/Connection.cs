@@ -23,15 +23,15 @@ namespace ReservationApp
         public bool NewConnection()
         {
             
-            //const string user = "dbi320839";
-            //onst string pw = "ioMMVpigPp";
-            //const string test = "fhictora";
-            const string user = "system";
-            const string pw = "wachtwoord";
-            const string test = "xe";
+            const string user = "dbi320839";
+            const string pw = "ioMMVpigPp";
+            const string test = "fhictora";
+            //const string user = "system";
+            //const string pw = "wachtwoord";
+            //const string test = "xe";
 
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    "//192.168.1.20:1521/" + test + ";";
+                                    "//192.168.15.50:1521/" + test + ";";
             try
             {
                 conn.Open();

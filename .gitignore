@@ -6,12 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-	ReservationApp/ReservationApp.v12.suo
-	ReservationApp/ReservationApp/bin/x86/Debug/ReservationApp.exe
-	ReservationApp/ReservationApp/bin/x86/Debug/ReservationApp.pdb
-	ReservationApp/ReservationApp/obj/x86/Debug/ReservationApp.csproj.GenerateResource.Cache
-	ReservationApp/ReservationApp/obj/x86/Debug/ReservationApp.exe
-	ReservationApp/ReservationApp/obj/x86/Debug/ReservationApp.pdb
+	
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

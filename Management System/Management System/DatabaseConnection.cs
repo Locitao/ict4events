@@ -19,10 +19,10 @@ namespace Management_System
         {
             conn = new OracleConnection();
             // the connection details below are from Ricks athena server, and Martijns athena server, if there might be a problem with Ricks one we have a back up.
-            string user = "dbi320839";//rick
-            string pw = "ioMMVpigPp";//rick
-            string user2 = "dbi318946";//martijn
-            string pw2 = "VZ28qg04ly";//martijn
+            string user = "dbi320839";          //rick
+            string pw = "ioMMVpigPp";           //rick
+            //string user2 = "dbi318946";       //martijn
+            //string pw2 = "VZ28qg04ly";        //martijn
             
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
                                     "//192.168.15.50:1521/fhictora" + ";";
@@ -83,6 +83,11 @@ namespace Management_System
                         else if (rdr.GetValue(i) is long)
                         {
                             long tempInt = (long)rdr.GetValue(i);
+                            temp.Add(tempInt.ToString());
+                        }
+                        else if (rdr.GetValue(i) is short)
+                        {
+                            short tempInt = (short)rdr.GetValue(i);
                             temp.Add(tempInt.ToString());
                         }
                         else if (rdr.GetValue(i) is DateTime)

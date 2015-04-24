@@ -68,8 +68,14 @@ C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bi
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.application
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.exe.manifest
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.application
+<<<<<<< HEAD
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\Interop.WMPLib.dll
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.csproj.ResolveComReference.cache
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\Interop.WMPLib.dll
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\AxInterop.WMPLib.dll
+=======
+E:\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe.config
+E:\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.exe
+E:\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.pdb
+>>>>>>> origin/master
