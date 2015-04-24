@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,7 @@ namespace ReservationApp
             try
             {
                 string query =
-                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone) VALUES (auto_inc_acc.nextval, '" +
+                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone) VALUES ('" + RandomString() + "', '" +
                     user_name + "', '" + user_address + "', '" + user_phone + "' )";
 
                 conn.Execute(query);
@@ -90,7 +91,7 @@ namespace ReservationApp
             try
             {
                 string query =
-                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone, reservation_ID, event_ID) VALUES (auto_inc_acc.nextval, '" +
+                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone, reservation_ID, event_ID) VALUES ('" + RandomString() + "', '" +
                     user_name + "', '" + user_address + "', '" + user_phone + "', '" + reservation + "', '2')";
                 conn.Execute(query);
                 const string success = "Account created and coupled with your friends reservation!";
@@ -102,6 +103,15 @@ namespace ReservationApp
                 conn.CloseConnection();
                 return ex.Message;
             }
+        }
+
+        public string RandomString()
+        {
+            string random = Path.GetRandomFileName();
+            random = random.Replace(".", "");
+            random = random.Substring(1, 10);
+            
+            return random;
         }
     }
 }
