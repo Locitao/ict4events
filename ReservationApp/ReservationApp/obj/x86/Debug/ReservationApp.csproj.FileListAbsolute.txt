@@ -43,3 +43,4 @@ C:\Users\Bart\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\
 C:\Users\Bart\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.ReserveMaterials.resources
 C:\Users\Bart\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.Startup.resources
 C:\Users\Bart\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.csproj.GenerateResource.Cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\ReservationApp\ReservationApp\obj\x86\Debug\ReservationApp.ShowMap.resources

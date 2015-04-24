@@ -95,6 +95,12 @@
       <DependentUpon>ReserveMaterials.cs</DependentUpon>
     </Compile>
     <Compile Include="Select.cs" />
+    <Compile Include="ShowMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowMap.Designer.cs">
+      <DependentUpon>ShowMap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReserveMaterials.resx">
       <DependentUpon>ReserveMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowMap.resx">
+      <DependentUpon>ShowMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Startup.resx">
       <DependentUpon>Startup.cs</DependentUpon>
