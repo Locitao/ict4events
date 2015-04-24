@@ -60,7 +60,7 @@ namespace MediaSharingGuest
         public void LogIn(string rfidcode)
         {
             //Query that returns Name of the user, if no name then no login.
-            connect.SQLQueryWithOutput(select.GetName(rfidcode), out output);
+            connect.SQLQueryWithOutput(protection.ProtectAgainstSQLInjection(select.GetInlogDataUser(rfidcode)), out output);
 
             if (output == null)
             {

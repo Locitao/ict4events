@@ -9,7 +9,7 @@ namespace MediaSharingGuest
 {
     class Select
     {
-        public string GetName(string Rfidcode)
+        public string GetInlogDataUser(string Rfidcode)
         {
             string query = "SELECT USER_NAME, RFID_CODE, USER_BAN_STATE FROM PT_USER_ACC WHERE RFID_CODE = '" + Rfidcode + "'";
             return query;
