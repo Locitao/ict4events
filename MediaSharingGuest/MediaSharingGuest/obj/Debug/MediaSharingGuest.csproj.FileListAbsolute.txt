@@ -68,3 +68,6 @@ C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bi
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.application
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.exe.manifest
 C:\Users\Bart\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.application
+E:\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe.config
+E:\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.exe
+E:\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.pdb
