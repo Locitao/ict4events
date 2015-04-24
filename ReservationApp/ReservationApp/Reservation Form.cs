@@ -159,9 +159,7 @@ namespace ReservationApp
         /// <param name="e"></param>
         private void pbLocations_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //System.Diagnostics.Process.Start(@"http://i.imgur.com/fN9DGFz.jpg");
             ShowMap sm = new ShowMap();
-            //sm.Closed += (s, args) => Close();
             sm.Show();
         }
 
