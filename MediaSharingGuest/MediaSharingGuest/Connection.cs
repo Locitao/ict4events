@@ -81,6 +81,11 @@ namespace MediaSharingGuest
                             long tempInt = (long)rdr.GetValue(i);
                             temp.Add(tempInt.ToString());
                         }
+                        else if (rdr.GetValue(i) is short)
+                        {
+                            short tempInt = (short)rdr.GetValue(i);
+                            temp.Add(tempInt.ToString());
+                        }
                         else if (rdr.GetValue(i) is DateTime)
                         {
                             DateTime tempDateTime = (DateTime)rdr.GetValue(i);
