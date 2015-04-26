@@ -25,7 +25,7 @@ namespace Management_System
         /// Checks if the input is correct and if the user has access
         /// </summary>
         /// <returns>true if the user has access, false if the user hasn't</returns>
-        private bool LoginAsEmployee()
+        private bool LoginAsEmployee(out string error)
         {
             string loginName = tbName.Text;
             string password = tbPassword.Text;
@@ -38,21 +38,24 @@ namespace Management_System
                 {
                     if (Convert.ToInt32(output[0][0]) >= 1)
                     {
+                        error = "";
                         return true;
                     }
                     else
                     {
-                        MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+                        error = "You have no acces to this, contact an admin if you want acces.";
                         return false;
                     }
                 }
                 else
                 {
+                    error = "Login name and password not recognized.";
                     return false;
                 }
             }
             else
             {
+                error = "The following error has occured:" + Environment.NewLine + ex.ToString();
                 return false;
             }
         }
@@ -61,7 +64,7 @@ namespace Management_System
         /// Checks if the input is correct and if the user has access as admin
         /// </summary>
         /// <returns>true if the user has access, false if the user hasn't</returns>
-        private bool LoginAsAdmin()
+        private bool LoginAsAdmin(out string error)
         {
             string loginName = tbName.Text;
             string password = tbPassword.Text;
@@ -74,21 +77,24 @@ namespace Management_System
                 {
                     if (Convert.ToInt32(output[0][0]) >= 2)
                     {
+                        error = "";
                         return true;
                     }
                     else
                     {
-                        MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+                        error = "You have no acces to this, contact an admin if you want acces.";
                         return false;
                     }
                 }
                 else
                 {
+                    error = "Login name and password not recognized.";
                     return false;
                 }
             }
             else
             {
+                error = "The following error has occured:" + Environment.NewLine + ex.ToString();
                 return false;
             }
         }
@@ -97,15 +103,16 @@ namespace Management_System
         /// start the management system form if the login is correct.
         /// </summary>
         private void btnLoginToManagementSystem_Click(object sender, EventArgs e)
-        { 
-            if (LoginAsEmployee())
+        {
+            string error;
+            if (LoginAsEmployee(out error))
             {
                 EventManagementSystemForm form = new EventManagementSystemForm();
                 form.ShowDialog();
             }
             else
             {
-                MessageBox.Show("UserName and password not recognized");
+                MessageBox.Show(error);
             }
         }
 
@@ -114,14 +121,15 @@ namespace Management_System
         /// </summary>
         private void btnLogInMaterialRenting_Click(object sender, EventArgs e)
         {
-            if (LoginAsEmployee())
+            string error;
+            if (LoginAsEmployee(out error))
             {
                 MaterialRentingForm form = new MaterialRentingForm();
                 form.ShowDialog();
             }
             else 
             {
-                MessageBox.Show("UserName and password not recognized");
+                MessageBox.Show(error);
             }
         }
 
@@ -130,7 +138,8 @@ namespace Management_System
         /// </summary>
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            if (LoginAsAdmin())
+            string error;
+            if (LoginAsAdmin(out error))
             {
                 CreateAccountForm form = new CreateAccountForm();
                 form.ShowDialog();
@@ -150,7 +159,7 @@ namespace Management_System
             }
             else
             {
-                MessageBox.Show("UserName and password not recognized");
+                MessageBox.Show(error);
             }
         }
 
@@ -168,7 +177,16 @@ namespace Management_System
 
         private void btnControlGuestAccount_Click(object sender, EventArgs e)
         {
-
+            string error;
+            if (LoginAsEmployee(out error))
+            {
+                ControlGuestAccountsForm form = new ControlGuestAccountsForm();
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(error);
+            }
         }
     }
 }
