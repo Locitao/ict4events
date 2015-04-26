@@ -101,6 +101,7 @@
     <Compile Include="CreateAccountForm.Designer.cs">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Guest.cs" />
     <Compile Include="ReserveItemForm.cs">
       <SubType>Form</SubType>
     </Compile>

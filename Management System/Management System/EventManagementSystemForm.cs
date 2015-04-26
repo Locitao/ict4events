@@ -52,7 +52,10 @@ namespace Management_System
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
-            lbCampings.SelectedIndex = 0;
+            if (lbCampings.Items.Count > 0)
+            {
+                lbCampings.SelectedIndex = 0;
+            }
             refreshLocationsData();
             refreshEventsData();
         }
