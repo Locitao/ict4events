@@ -25,7 +25,7 @@ namespace Management_System
         /// Checks if the input is correct and if the user has access
         /// </summary>
         /// <returns>true if the user has access, false if the user hasn't</returns>
-        private bool Login()
+        private bool LoginAsEmployee()
         {
             string loginName = tbName.Text;
             string password = tbPassword.Text;
@@ -36,7 +36,43 @@ namespace Management_System
             {
                 if (output.Count > 0)
                 {
-                    if (Convert.ToInt32(output[0][0]) > 0)
+                    if (Convert.ToInt32(output[0][0]) >= 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Checks if the input is correct and if the user has access as admin
+        /// </summary>
+        /// <returns>true if the user has access, false if the user hasn't</returns>
+        private bool LoginAsAdmin()
+        {
+            string loginName = tbName.Text;
+            string password = tbPassword.Text;
+            string query = "SELECT employee_rights from pt_employee_acc WHERE LOGIN_NAME = '" + loginName + "' AND login_password = '" + password + "'";
+            List<List<string>> output;
+            Exception ex;
+            if (connection.SQLQueryWithOutput(query, out output, out ex))
+            {
+                if (output.Count > 0)
+                {
+                    if (Convert.ToInt32(output[0][0]) >= 2)
                     {
                         return true;
                     }
@@ -62,7 +98,7 @@ namespace Management_System
         /// </summary>
         private void btnLoginToManagementSystem_Click(object sender, EventArgs e)
         { 
-            if (Login())
+            if (LoginAsEmployee())
             {
                 EventManagementSystemForm form = new EventManagementSystemForm();
                 form.ShowDialog();
@@ -78,7 +114,7 @@ namespace Management_System
         /// </summary>
         private void btnLogInMaterialRenting_Click(object sender, EventArgs e)
         {
-            if (Login())
+            if (LoginAsEmployee())
             {
                 MaterialRentingForm form = new MaterialRentingForm();
                 form.ShowDialog();
@@ -94,7 +130,7 @@ namespace Management_System
         /// </summary>
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            if (Login())
+            if (LoginAsAdmin())
             {
                 CreateAccountForm form = new CreateAccountForm();
                 form.ShowDialog();
@@ -128,6 +164,11 @@ namespace Management_System
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnControlGuestAccount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
