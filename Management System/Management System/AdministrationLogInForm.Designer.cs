@@ -36,7 +36,7 @@
             this.btnLogInMaterialRenting = new System.Windows.Forms.Button();
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.btnControlGuestAccount = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnControlEmployeeAccounts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbName
@@ -113,21 +113,22 @@
             this.btnControlGuestAccount.UseVisualStyleBackColor = true;
             this.btnControlGuestAccount.Click += new System.EventHandler(this.btnControlGuestAccount_Click);
             // 
-            // button2
+            // btnControlEmployeeAccounts
             // 
-            this.button2.Location = new System.Drawing.Point(152, 141);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 41);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Modify Employee accounts";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnControlEmployeeAccounts.Location = new System.Drawing.Point(152, 141);
+            this.btnControlEmployeeAccounts.Name = "btnControlEmployeeAccounts";
+            this.btnControlEmployeeAccounts.Size = new System.Drawing.Size(140, 41);
+            this.btnControlEmployeeAccounts.TabIndex = 9;
+            this.btnControlEmployeeAccounts.Text = "Modify Employee accounts";
+            this.btnControlEmployeeAccounts.UseVisualStyleBackColor = true;
+            this.btnControlEmployeeAccounts.Click += new System.EventHandler(this.btnControlEmployeeAccounts_Click);
             // 
             // AdministrationLogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 227);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnControlEmployeeAccounts);
             this.Controls.Add(this.btnControlGuestAccount);
             this.Controls.Add(this.btnCreateAccount);
             this.Controls.Add(this.btnLogInMaterialRenting);
@@ -153,7 +154,7 @@
         private System.Windows.Forms.Button btnLogInMaterialRenting;
         private System.Windows.Forms.Button btnCreateAccount;
         private System.Windows.Forms.Button btnControlGuestAccount;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnControlEmployeeAccounts;
     }
 }
 

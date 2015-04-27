@@ -43,7 +43,7 @@ namespace Management_System
                     }
                     else
                     {
-                        error = "You have no acces to this, contact an admin if you want acces.";
+                        error = "You have no access to this, contact an admin if you want access.";
                         return false;
                     }
                 }
@@ -82,7 +82,7 @@ namespace Management_System
                     }
                     else
                     {
-                        error = "You have no acces to this, contact an admin if you want acces.";
+                        error = "You have no access to this, contact an admin if you want access.";
                         return false;
                     }
                 }
@@ -181,6 +181,20 @@ namespace Management_System
             if (LoginAsEmployee(out error))
             {
                 ControlGuestAccountsForm form = new ControlGuestAccountsForm();
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(error);
+            }
+        }
+
+        private void btnControlEmployeeAccounts_Click(object sender, EventArgs e)
+        {
+            string error;
+            if (LoginAsAdmin(out error))
+            {
+                ControlEmployeeAccountsForm form = new ControlEmployeeAccountsForm();
                 form.ShowDialog();
             }
             else

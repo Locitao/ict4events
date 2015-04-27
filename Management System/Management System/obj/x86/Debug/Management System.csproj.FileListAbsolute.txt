@@ -22,3 +22,4 @@ C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.exe
 C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.pdb
 C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ControlGuestAccountsForm.resources
+C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ControlEmployeeAccountsForm.resources
