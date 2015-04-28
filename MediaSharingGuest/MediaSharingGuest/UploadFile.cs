@@ -106,7 +106,8 @@ namespace MediaSharingGuest
                 }
 
                 //Copy file
-                savePath = "../../../../" + filename + "." + substringPath;
+                //"../../../../" + filename + "." + substringPath;
+                savePath = @"\\SERVER-S80\MediaSharing\" + filename + "." + substringPath;
 
                 connection.SQLQueryNoOutput(insert.InsertImage(uploadCategoryId, title, location, description, medias.RfidCode, savePath, type));
 
