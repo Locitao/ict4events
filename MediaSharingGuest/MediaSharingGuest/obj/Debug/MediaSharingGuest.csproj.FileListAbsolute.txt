@@ -79,3 +79,6 @@ E:\MediaSharingGuest\MediaSharingGuest\bin\Debug\MediaSharingGuest.exe.config
 E:\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.exe
 E:\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.pdb
 >>>>>>> origin/master
+C:\Users\martijn\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\Interop.WMPLib.dll
+C:\Users\martijn\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\martijn\Documents\GitHub\ict4events\MediaSharingGuest\MediaSharingGuest\obj\Debug\MediaSharingGuest.csproj.ResolveComReference.cache

@@ -16,7 +16,7 @@ namespace Management_System
         public string Query;
 
         /// <summary>
-        /// this form is used to create a new employee account
+        /// this form is used to create a new employee or admin account
         /// </summary>
         public CreateAccountForm()
         {

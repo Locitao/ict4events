@@ -69,8 +69,22 @@ namespace Management_System
                             tempEndDate = Convert.ToDateTime(list[4]);
                         }
                         Material tempMaterial = new Material(Convert.ToInt32(list[0]), tempReservationID, list[2], tempStartDate, tempEndDate, Convert.ToInt32(5), list[6], Convert.ToInt32(list[7]));
-                        materialList.Add(tempMaterial);
-                        lbMaterials.Items.Add(tempMaterial);
+
+                        if (tempMaterial.Status == MaterialStatus.free && cbFree.Checked)
+                        {
+                            materialList.Add(tempMaterial);
+                            lbMaterials.Items.Add(tempMaterial);
+                        }
+                        else if (tempMaterial.Status == MaterialStatus.reserved && cbReserved.Checked)
+                        {
+                            materialList.Add(tempMaterial);
+                            lbMaterials.Items.Add(tempMaterial);
+                        }
+                        else if (tempMaterial.Status == MaterialStatus.lent && cbLent.Checked)
+                        {
+                            materialList.Add(tempMaterial);
+                            lbMaterials.Items.Add(tempMaterial);
+                        }
                     }
                 }
                 catch(Exception ex) 
@@ -85,6 +99,12 @@ namespace Management_System
             if (lbMaterials.Items.Count > 0)
             {
                 lbMaterials.SelectedIndex = 0;
+            }
+            else
+            {
+                lblMaterialName.Text = "--";
+                lblPrice.Text = "--";
+                lblStatus.Text = "--";
             }
         }
 
@@ -241,9 +261,10 @@ namespace Management_System
             RefreshMaterialList();
         }
 
-        private void MaterialRentingForm_Load(object sender, EventArgs e)
-        {
 
+        private void checkboxes_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshMaterialList();
         }
 
     }
