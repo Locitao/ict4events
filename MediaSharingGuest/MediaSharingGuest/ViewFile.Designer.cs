@@ -50,7 +50,7 @@
             this.lblLikesNumber = new System.Windows.Forms.Label();
             this.windowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsMediaPlayer)).BeginInit();
@@ -58,10 +58,10 @@
             // 
             // btnReportFile
             // 
-            this.btnReportFile.Location = new System.Drawing.Point(316, 729);
+            this.btnReportFile.Location = new System.Drawing.Point(227, 611);
             this.btnReportFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportFile.Name = "btnReportFile";
-            this.btnReportFile.Size = new System.Drawing.Size(148, 49);
+            this.btnReportFile.Size = new System.Drawing.Size(81, 49);
             this.btnReportFile.TabIndex = 27;
             this.btnReportFile.Text = "Report this file";
             this.btnReportFile.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@
             // 
             // btnReportComment
             // 
-            this.btnReportComment.Location = new System.Drawing.Point(751, 729);
+            this.btnReportComment.Location = new System.Drawing.Point(600, 612);
             this.btnReportComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportComment.Name = "btnReportComment";
             this.btnReportComment.Size = new System.Drawing.Size(195, 49);
@@ -80,7 +80,7 @@
             // 
             // btnLikeComment
             // 
-            this.btnLikeComment.Location = new System.Drawing.Point(548, 729);
+            this.btnLikeComment.Location = new System.Drawing.Point(397, 611);
             this.btnLikeComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnLikeComment.Name = "btnLikeComment";
             this.btnLikeComment.Size = new System.Drawing.Size(195, 49);
@@ -91,10 +91,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(160, 729);
+            this.btnCancel.Location = new System.Drawing.Point(110, 612);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(148, 49);
+            this.btnCancel.Size = new System.Drawing.Size(81, 49);
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -102,10 +102,10 @@
             // 
             // btnAddComment
             // 
-            this.btnAddComment.Location = new System.Drawing.Point(4, 729);
+            this.btnAddComment.Location = new System.Drawing.Point(4, 611);
             this.btnAddComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddComment.Name = "btnAddComment";
-            this.btnAddComment.Size = new System.Drawing.Size(148, 49);
+            this.btnAddComment.Size = new System.Drawing.Size(81, 49);
             this.btnAddComment.TabIndex = 23;
             this.btnAddComment.Text = "Add Comment";
             this.btnAddComment.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@
             // 
             // btnLikeThisFile
             // 
-            this.btnLikeThisFile.Location = new System.Drawing.Point(315, 401);
+            this.btnLikeThisFile.Location = new System.Drawing.Point(153, 335);
             this.btnLikeThisFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnLikeThisFile.Name = "btnLikeThisFile";
             this.btnLikeThisFile.Size = new System.Drawing.Size(155, 26);
@@ -125,7 +125,7 @@
             // lblLikes
             // 
             this.lblLikes.AutoSize = true;
-            this.lblLikes.Location = new System.Drawing.Point(8, 397);
+            this.lblLikes.Location = new System.Drawing.Point(5, 331);
             this.lblLikes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLikes.Name = "lblLikes";
             this.lblLikes.Size = new System.Drawing.Size(45, 17);
@@ -135,7 +135,7 @@
             // lblYourComment
             // 
             this.lblYourComment.AutoSize = true;
-            this.lblYourComment.Location = new System.Drawing.Point(5, 584);
+            this.lblYourComment.Location = new System.Drawing.Point(1, 466);
             this.lblYourComment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblYourComment.Name = "lblYourComment";
             this.lblYourComment.Size = new System.Drawing.Size(103, 17);
@@ -144,11 +144,11 @@
             // 
             // tbYourComment
             // 
-            this.tbYourComment.Location = new System.Drawing.Point(8, 605);
+            this.tbYourComment.Location = new System.Drawing.Point(4, 487);
             this.tbYourComment.Margin = new System.Windows.Forms.Padding(4);
             this.tbYourComment.Multiline = true;
             this.tbYourComment.Name = "tbYourComment";
-            this.tbYourComment.Size = new System.Drawing.Size(466, 116);
+            this.tbYourComment.Size = new System.Drawing.Size(304, 116);
             this.tbYourComment.TabIndex = 19;
             // 
             // lblComments
@@ -163,12 +163,12 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(8, 431);
+            this.tbDescription.Location = new System.Drawing.Point(2, 369);
             this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(462, 149);
+            this.tbDescription.Size = new System.Drawing.Size(306, 93);
             this.tbDescription.TabIndex = 16;
             this.tbDescription.TabStop = false;
             this.tbDescription.Text = "Description";
@@ -188,7 +188,7 @@
             this.pbImage.Location = new System.Drawing.Point(8, 73);
             this.pbImage.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(462, 320);
+            this.pbImage.Size = new System.Drawing.Size(300, 255);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 14;
             this.pbImage.TabStop = false;
@@ -197,10 +197,10 @@
             // 
             this.lbComments.FormattingEnabled = true;
             this.lbComments.ItemHeight = 16;
-            this.lbComments.Location = new System.Drawing.Point(548, 59);
+            this.lbComments.Location = new System.Drawing.Point(397, 72);
             this.lbComments.Margin = new System.Windows.Forms.Padding(4);
             this.lbComments.Name = "lbComments";
-            this.lbComments.Size = new System.Drawing.Size(451, 644);
+            this.lbComments.Size = new System.Drawing.Size(451, 532);
             this.lbComments.TabIndex = 28;
             this.lbComments.SelectedIndexChanged += new System.EventHandler(this.lbComments_SelectedIndexChanged);
             // 
@@ -247,7 +247,7 @@
             // lblLikesNumber
             // 
             this.lblLikesNumber.AutoSize = true;
-            this.lblLikesNumber.Location = new System.Drawing.Point(53, 397);
+            this.lblLikesNumber.Location = new System.Drawing.Point(53, 332);
             this.lblLikesNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLikesNumber.Name = "lblLikesNumber";
             this.lblLikesNumber.Size = new System.Drawing.Size(20, 17);
@@ -257,46 +257,49 @@
             // windowsMediaPlayer
             // 
             this.windowsMediaPlayer.Enabled = true;
-            this.windowsMediaPlayer.Location = new System.Drawing.Point(8, 73);
+            this.windowsMediaPlayer.Location = new System.Drawing.Point(8, 72);
             this.windowsMediaPlayer.Name = "windowsMediaPlayer";
             this.windowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("windowsMediaPlayer.OcxState")));
-            this.windowsMediaPlayer.Size = new System.Drawing.Size(462, 320);
+            this.windowsMediaPlayer.Size = new System.Drawing.Size(300, 255);
             this.windowsMediaPlayer.TabIndex = 35;
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(233, 26);
+            this.btnPlay.Location = new System.Drawing.Point(314, 72);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(75, 40);
             this.btnPlay.TabIndex = 36;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
-            // btnStop
+            // btnPause
             // 
-            this.btnStop.Location = new System.Drawing.Point(314, 26);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(75, 40);
-            this.btnStop.TabIndex = 37;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnPause.Location = new System.Drawing.Point(314, 164);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(75, 40);
+            this.btnPause.TabIndex = 37;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(395, 26);
+            this.btnStart.Location = new System.Drawing.Point(315, 118);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 40);
             this.btnStart.TabIndex = 38;
-            this.btnStart.Text = "Start";
+            this.btnStart.Text = "Stop";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // ViewFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 795);
+            this.ClientSize = new System.Drawing.Size(875, 683);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.windowsMediaPlayer);
             this.Controls.Add(this.lblLikesNumber);
@@ -351,7 +354,7 @@
         private System.Windows.Forms.Label lblLikesNumber;
         private AxWMPLib.AxWindowsMediaPlayer windowsMediaPlayer;
         private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnStart;
     }
 }

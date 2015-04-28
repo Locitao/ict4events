@@ -89,7 +89,7 @@ namespace MediaSharingGuest
                     windowsMediaPlayer.URL = @mediaPath;
                     btnPlay.Visible = true;
                     btnStart.Visible = true;
-                    btnStop.Visible = true;
+                    btnPause.Visible = true;
                 }
                 else if (type == "Picture")
                 {
@@ -97,7 +97,7 @@ namespace MediaSharingGuest
                     pbImage.ImageLocation = @mediaPath;
                     btnPlay.Visible = false;
                     btnStart.Visible = false;
-                    btnStop.Visible = false;
+                    btnPause.Visible = false;
                 }
             }
         }
@@ -352,6 +352,21 @@ namespace MediaSharingGuest
                     btnReportComment.Enabled = false;
                 }
             }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            windowsMediaPlayer.Ctlcontrols.play();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            windowsMediaPlayer.Ctlcontrols.stop();
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            windowsMediaPlayer.Ctlcontrols.pause();
+        }
 
 
         }

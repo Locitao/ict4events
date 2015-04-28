@@ -69,7 +69,7 @@
             this.gbNewsfeed.Margin = new System.Windows.Forms.Padding(4);
             this.gbNewsfeed.Name = "gbNewsfeed";
             this.gbNewsfeed.Padding = new System.Windows.Forms.Padding(4);
-            this.gbNewsfeed.Size = new System.Drawing.Size(1264, 166);
+            this.gbNewsfeed.Size = new System.Drawing.Size(881, 166);
             this.gbNewsfeed.TabIndex = 1;
             this.gbNewsfeed.TabStop = false;
             this.gbNewsfeed.Text = "Newsfeed";
@@ -91,7 +91,7 @@
             this.tbNewsFeed.Margin = new System.Windows.Forms.Padding(4);
             this.tbNewsFeed.MaxLength = 50;
             this.tbNewsFeed.Name = "tbNewsFeed";
-            this.tbNewsFeed.Size = new System.Drawing.Size(991, 22);
+            this.tbNewsFeed.Size = new System.Drawing.Size(621, 22);
             this.tbNewsFeed.TabIndex = 2;
             // 
             // lblNewsFeedMessage
@@ -106,10 +106,10 @@
             // 
             // btnAddNewsFeedMessage
             // 
-            this.btnAddNewsFeedMessage.Location = new System.Drawing.Point(1155, 195);
+            this.btnAddNewsFeedMessage.Location = new System.Drawing.Point(784, 199);
             this.btnAddNewsFeedMessage.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNewsFeedMessage.Name = "btnAddNewsFeedMessage";
-            this.btnAddNewsFeedMessage.Size = new System.Drawing.Size(123, 28);
+            this.btnAddNewsFeedMessage.Size = new System.Drawing.Size(110, 28);
             this.btnAddNewsFeedMessage.TabIndex = 3;
             this.btnAddNewsFeedMessage.Text = "Add Message";
             this.btnAddNewsFeedMessage.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@
             this.lbFolders.Location = new System.Drawing.Point(12, 59);
             this.lbFolders.Margin = new System.Windows.Forms.Padding(4);
             this.lbFolders.Name = "lbFolders";
-            this.lbFolders.Size = new System.Drawing.Size(341, 500);
+            this.lbFolders.Size = new System.Drawing.Size(169, 276);
             this.lbFolders.TabIndex = 4;
             this.lbFolders.SelectedIndexChanged += new System.EventHandler(this.lbFolders_SelectedIndexChanged);
             this.lbFolders.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbFolders_MouseDoubleClick);
@@ -146,18 +146,18 @@
             this.gbFiles.Controls.Add(this.tbSearch);
             this.gbFiles.Controls.Add(this.lblSearch);
             this.gbFiles.Controls.Add(this.btnLogOut);
-            this.gbFiles.Location = new System.Drawing.Point(432, 236);
+            this.gbFiles.Location = new System.Drawing.Point(212, 236);
             this.gbFiles.Margin = new System.Windows.Forms.Padding(4);
             this.gbFiles.Name = "gbFiles";
             this.gbFiles.Padding = new System.Windows.Forms.Padding(4);
-            this.gbFiles.Size = new System.Drawing.Size(845, 626);
+            this.gbFiles.Size = new System.Drawing.Size(682, 399);
             this.gbFiles.TabIndex = 6;
             this.gbFiles.TabStop = false;
             this.gbFiles.Text = "Files";
             // 
             // btnReportCategory
             // 
-            this.btnReportCategory.Location = new System.Drawing.Point(10, 567);
+            this.btnReportCategory.Location = new System.Drawing.Point(18, 343);
             this.btnReportCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportCategory.Name = "btnReportCategory";
             this.btnReportCategory.Size = new System.Drawing.Size(167, 46);
@@ -168,7 +168,7 @@
             // 
             // btnSearchMedia
             // 
-            this.btnSearchMedia.Location = new System.Drawing.Point(655, 22);
+            this.btnSearchMedia.Location = new System.Drawing.Point(528, 22);
             this.btnSearchMedia.Name = "btnSearchMedia";
             this.btnSearchMedia.Size = new System.Drawing.Size(132, 35);
             this.btnSearchMedia.TabIndex = 19;
@@ -178,7 +178,7 @@
             // 
             // btnSearchCategory
             // 
-            this.btnSearchCategory.Location = new System.Drawing.Point(517, 22);
+            this.btnSearchCategory.Location = new System.Drawing.Point(390, 22);
             this.btnSearchCategory.Name = "btnSearchCategory";
             this.btnSearchCategory.Size = new System.Drawing.Size(132, 35);
             this.btnSearchCategory.TabIndex = 17;
@@ -190,10 +190,10 @@
             // 
             this.lbMediaItems.FormattingEnabled = true;
             this.lbMediaItems.ItemHeight = 16;
-            this.lbMediaItems.Location = new System.Drawing.Point(8, 59);
+            this.lbMediaItems.Location = new System.Drawing.Point(18, 64);
             this.lbMediaItems.Margin = new System.Windows.Forms.Padding(4);
             this.lbMediaItems.Name = "lbMediaItems";
-            this.lbMediaItems.Size = new System.Drawing.Size(828, 500);
+            this.lbMediaItems.Size = new System.Drawing.Size(642, 276);
             this.lbMediaItems.TabIndex = 10;
             this.lbMediaItems.SelectedIndexChanged += new System.EventHandler(this.lbMediaItems_SelectedIndexChanged);
             this.lbMediaItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbMediaItems_MouseDoubleClick);
@@ -202,7 +202,7 @@
             // 
             this.tbSearch.Location = new System.Drawing.Point(68, 33);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(443, 22);
+            this.tbSearch.Size = new System.Drawing.Size(316, 22);
             this.tbSearch.TabIndex = 15;
             // 
             // lblSearch
@@ -216,7 +216,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(669, 567);
+            this.btnLogOut.Location = new System.Drawing.Point(193, 343);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(167, 46);
@@ -227,10 +227,10 @@
             // 
             // btnAddFolder
             // 
-            this.btnAddFolder.Location = new System.Drawing.Point(12, 567);
+            this.btnAddFolder.Location = new System.Drawing.Point(12, 343);
             this.btnAddFolder.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFolder.Name = "btnAddFolder";
-            this.btnAddFolder.Size = new System.Drawing.Size(169, 46);
+            this.btnAddFolder.Size = new System.Drawing.Size(87, 46);
             this.btnAddFolder.TabIndex = 7;
             this.btnAddFolder.Text = "Add Folder";
             this.btnAddFolder.UseVisualStyleBackColor = true;
@@ -238,10 +238,10 @@
             // 
             // btnAddFile
             // 
-            this.btnAddFile.Location = new System.Drawing.Point(189, 567);
+            this.btnAddFile.Location = new System.Drawing.Point(98, 343);
             this.btnAddFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFile.Name = "btnAddFile";
-            this.btnAddFile.Size = new System.Drawing.Size(165, 46);
+            this.btnAddFile.Size = new System.Drawing.Size(83, 46);
             this.btnAddFile.TabIndex = 8;
             this.btnAddFile.Text = "Add File";
             this.btnAddFile.UseVisualStyleBackColor = true;
@@ -259,17 +259,17 @@
             this.gbFolders.Margin = new System.Windows.Forms.Padding(4);
             this.gbFolders.Name = "gbFolders";
             this.gbFolders.Padding = new System.Windows.Forms.Padding(4);
-            this.gbFolders.Size = new System.Drawing.Size(396, 626);
+            this.gbFolders.Size = new System.Drawing.Size(191, 399);
             this.gbFolders.TabIndex = 9;
             this.gbFolders.TabStop = false;
             this.gbFolders.Text = "Folders";
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(142, 27);
+            this.btnStart.Location = new System.Drawing.Point(71, 27);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(100, 28);
+            this.btnStart.Size = new System.Drawing.Size(60, 28);
             this.btnStart.TabIndex = 10;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -277,10 +277,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(255, 27);
+            this.btnBack.Location = new System.Drawing.Point(139, 27);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(100, 28);
+            this.btnBack.Size = new System.Drawing.Size(42, 28);
             this.btnBack.TabIndex = 9;
             this.btnBack.Text = "<<";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -289,7 +289,7 @@
             // lblLoggedInAs
             // 
             this.lblLoggedInAs.AutoSize = true;
-            this.lblLoggedInAs.Location = new System.Drawing.Point(1285, 24);
+            this.lblLoggedInAs.Location = new System.Drawing.Point(902, 22);
             this.lblLoggedInAs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoggedInAs.Name = "lblLoggedInAs";
             this.lblLoggedInAs.Size = new System.Drawing.Size(94, 17);
@@ -299,7 +299,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(1285, 41);
+            this.lblUsername.Location = new System.Drawing.Point(902, 39);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(73, 17);
             this.lblUsername.TabIndex = 14;
@@ -309,7 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1503, 967);
+            this.ClientSize = new System.Drawing.Size(1021, 967);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.gbFolders);
