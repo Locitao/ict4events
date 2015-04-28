@@ -65,6 +65,7 @@ namespace Management_System
         /// </summary>
         private void refreshLocationsData()
         {
+            int MaxGuestsOnCamping = 0;
             locationList.Clear();
             lbLocations.Items.Clear();
             Camping selectedCamping = (Camping)lbCampings.SelectedItem;
@@ -84,6 +85,8 @@ namespace Management_System
                     Location tempLocation = new Location(Convert.ToInt32(list[0]), Convert.ToInt32(list[1]), tempInt, type, Convert.ToInt32(list[4]), Convert.ToInt32(list[5]));
                     locationList.Add(tempLocation);
                     lbLocations.Items.Add(tempLocation);
+                    MaxGuestsOnCamping += tempLocation.MaxPeople;
+                    tbMaxVisitors.Text = MaxGuestsOnCamping.ToString();
                 }
             }
             else
@@ -94,7 +97,6 @@ namespace Management_System
             {
                 lbLocations.SelectedIndex = 0;
             }
-            
         }
 
         /// <summary>
