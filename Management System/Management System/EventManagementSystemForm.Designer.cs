@@ -423,7 +423,7 @@
             this.Controls.Add(this.btnNewCamping);
             this.Controls.Add(this.lblMaxVisitors);
             this.Name = "EventManagementSystemForm";
-            this.Text = "EvenementManagementSystemForm";
+            this.Text = "Management System";
             this.Load += new System.EventHandler(this.EventManagementSystemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numLocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxGuests)).EndInit();

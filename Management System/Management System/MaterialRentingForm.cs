@@ -69,8 +69,22 @@ namespace Management_System
                             tempEndDate = Convert.ToDateTime(list[4]);
                         }
                         Material tempMaterial = new Material(Convert.ToInt32(list[0]), tempReservationID, list[2], tempStartDate, tempEndDate, Convert.ToInt32(5), list[6], Convert.ToInt32(list[7]));
-                        materialList.Add(tempMaterial);
-                        lbMaterials.Items.Add(tempMaterial);
+
+                        if (tempMaterial.Status == MaterialStatus.free && cbFree.Checked)
+                        {
+                            materialList.Add(tempMaterial);
+                            lbMaterials.Items.Add(tempMaterial);
+                        }
+                        else if (tempMaterial.Status == MaterialStatus.reserved && cbReserved.Checked)
+                        {
+                            materialList.Add(tempMaterial);
+                            lbMaterials.Items.Add(tempMaterial);
+                        }
+                        else if (tempMaterial.Status == MaterialStatus.lent && cbLent.Checked)
+                        {
+                            materialList.Add(tempMaterial);
+                            lbMaterials.Items.Add(tempMaterial);
+                        }
                     }
                 }
                 catch(Exception ex) 
@@ -82,7 +96,16 @@ namespace Management_System
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
-            lbMaterials.SelectedIndex = 0;
+            if (lbMaterials.Items.Count > 0)
+            {
+                lbMaterials.SelectedIndex = 0;
+            }
+            else
+            {
+                lblMaterialName.Text = "--";
+                lblPrice.Text = "--";
+                lblStatus.Text = "--";
+            }
         }
 
         private void lbMaterials_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,14 +155,17 @@ namespace Management_System
                 }
             }
             Exception exception;
-            string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
-            if (connection.SQLQueryNoOutput(query, out exception))
+            if (material != null)
             {
-                MessageBox.Show("Item: " + material.Name + "  is succesfully reserved to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine + "from: " + material.LendTime.ToString() + Environment.NewLine + "until: " + material.ReturnTime.ToString());
-            }
-            else
-            {
-                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+                string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+                if (connection.SQLQueryNoOutput(query, out exception))
+                {
+                    MessageBox.Show("Item: " + material.Name + "  is succesfully reserved to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine + "from: " + material.LendTime.ToString() + Environment.NewLine + "until: " + material.ReturnTime.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+                }
             }
             RefreshMaterialList();
         }
@@ -235,9 +261,10 @@ namespace Management_System
             RefreshMaterialList();
         }
 
-        private void MaterialRentingForm_Load(object sender, EventArgs e)
-        {
 
+        private void checkboxes_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshMaterialList();
         }
 
     }

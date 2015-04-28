@@ -167,7 +167,7 @@
             this.Controls.Add(this.lblRFIDCode);
             this.Controls.Add(this.tbRFIDCode);
             this.Name = "LendItemForm";
-            this.Text = "LendItemForm";
+            this.Text = "Lend Item";
             this.Load += new System.EventHandler(this.LendItemForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

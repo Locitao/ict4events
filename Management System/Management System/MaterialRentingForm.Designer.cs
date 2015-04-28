@@ -42,6 +42,10 @@
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.btnReserveItem = new System.Windows.Forms.Button();
             this.btnChangeCategory = new System.Windows.Forms.Button();
+            this.cbLent = new System.Windows.Forms.CheckBox();
+            this.cbReserved = new System.Windows.Forms.CheckBox();
+            this.cbFree = new System.Windows.Forms.CheckBox();
+            this.lblFilterMaterials = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbMaterials
@@ -49,7 +53,7 @@
             this.lbMaterials.FormattingEnabled = true;
             this.lbMaterials.Location = new System.Drawing.Point(12, 29);
             this.lbMaterials.Name = "lbMaterials";
-            this.lbMaterials.Size = new System.Drawing.Size(208, 329);
+            this.lbMaterials.Size = new System.Drawing.Size(208, 342);
             this.lbMaterials.TabIndex = 0;
             this.lbMaterials.SelectedIndexChanged += new System.EventHandler(this.lbMaterials_SelectedIndexChanged);
             // 
@@ -176,11 +180,63 @@
             this.btnChangeCategory.UseVisualStyleBackColor = true;
             this.btnChangeCategory.Click += new System.EventHandler(this.btnChangeCategory_Click);
             // 
+            // cbLent
+            // 
+            this.cbLent.AutoSize = true;
+            this.cbLent.Checked = true;
+            this.cbLent.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbLent.Location = new System.Drawing.Point(226, 351);
+            this.cbLent.Name = "cbLent";
+            this.cbLent.Size = new System.Drawing.Size(47, 17);
+            this.cbLent.TabIndex = 15;
+            this.cbLent.Text = "Lent";
+            this.cbLent.UseVisualStyleBackColor = true;
+            this.cbLent.CheckedChanged += new System.EventHandler(this.checkboxes_CheckedChanged);
+            // 
+            // cbReserved
+            // 
+            this.cbReserved.AutoSize = true;
+            this.cbReserved.Checked = true;
+            this.cbReserved.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbReserved.Location = new System.Drawing.Point(226, 328);
+            this.cbReserved.Name = "cbReserved";
+            this.cbReserved.Size = new System.Drawing.Size(72, 17);
+            this.cbReserved.TabIndex = 16;
+            this.cbReserved.Text = "Reserved";
+            this.cbReserved.UseVisualStyleBackColor = true;
+            this.cbReserved.CheckedChanged += new System.EventHandler(this.checkboxes_CheckedChanged);
+            // 
+            // cbFree
+            // 
+            this.cbFree.AutoSize = true;
+            this.cbFree.Checked = true;
+            this.cbFree.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbFree.Location = new System.Drawing.Point(226, 305);
+            this.cbFree.Name = "cbFree";
+            this.cbFree.Size = new System.Drawing.Size(47, 17);
+            this.cbFree.TabIndex = 17;
+            this.cbFree.Text = "Free";
+            this.cbFree.UseVisualStyleBackColor = true;
+            this.cbFree.CheckedChanged += new System.EventHandler(this.checkboxes_CheckedChanged);
+            // 
+            // lblFilterMaterials
+            // 
+            this.lblFilterMaterials.AutoSize = true;
+            this.lblFilterMaterials.Location = new System.Drawing.Point(226, 286);
+            this.lblFilterMaterials.Name = "lblFilterMaterials";
+            this.lblFilterMaterials.Size = new System.Drawing.Size(77, 13);
+            this.lblFilterMaterials.TabIndex = 18;
+            this.lblFilterMaterials.Text = "Filter Materials:";
+            // 
             // MaterialRentingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 380);
+            this.Controls.Add(this.lblFilterMaterials);
+            this.Controls.Add(this.cbFree);
+            this.Controls.Add(this.cbReserved);
+            this.Controls.Add(this.cbLent);
             this.Controls.Add(this.btnChangeCategory);
             this.Controls.Add(this.btnReserveItem);
             this.Controls.Add(this.btnAddCategory);
@@ -196,8 +252,7 @@
             this.Controls.Add(this.lblMaterials);
             this.Controls.Add(this.lbMaterials);
             this.Name = "MaterialRentingForm";
-            this.Text = "MaterialRentingForm";
-            this.Load += new System.EventHandler(this.MaterialRentingForm_Load);
+            this.Text = "Material Renting";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +274,9 @@
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Button btnReserveItem;
         private System.Windows.Forms.Button btnChangeCategory;
+        private System.Windows.Forms.CheckBox cbLent;
+        private System.Windows.Forms.CheckBox cbReserved;
+        private System.Windows.Forms.CheckBox cbFree;
+        private System.Windows.Forms.Label lblFilterMaterials;
     }
 }

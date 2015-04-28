@@ -30,14 +30,14 @@
         {
             this.tbRFIDCode = new System.Windows.Forms.TextBox();
             this.lblRFIDCode = new System.Windows.Forms.Label();
-            this.btnLendItem = new System.Windows.Forms.Button();
+            this.btnReserveItem = new System.Windows.Forms.Button();
             this.lblPriceConstant = new System.Windows.Forms.Label();
             this.lblStatusConstant = new System.Windows.Forms.Label();
             this.lblMaterialName = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblMaterialNameConstant = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.dateTimePickerReturnDate = new System.Windows.Forms.DateTimePicker();
             this.lblReturnDate = new System.Windows.Forms.Label();
             this.lblLendDate = new System.Windows.Forms.Label();
@@ -61,15 +61,15 @@
             this.lblRFIDCode.TabIndex = 1;
             this.lblRFIDCode.Text = "RFID Code:";
             // 
-            // btnLendItem
+            // btnReserveItem
             // 
-            this.btnLendItem.Location = new System.Drawing.Point(43, 149);
-            this.btnLendItem.Name = "btnLendItem";
-            this.btnLendItem.Size = new System.Drawing.Size(92, 23);
-            this.btnLendItem.TabIndex = 2;
-            this.btnLendItem.Text = "Lend Item";
-            this.btnLendItem.UseVisualStyleBackColor = true;
-            this.btnLendItem.Click += new System.EventHandler(this.btnLendItem_Click);
+            this.btnReserveItem.Location = new System.Drawing.Point(43, 149);
+            this.btnReserveItem.Name = "btnReserveItem";
+            this.btnReserveItem.Size = new System.Drawing.Size(92, 23);
+            this.btnReserveItem.TabIndex = 2;
+            this.btnReserveItem.Text = "Reserve Item";
+            this.btnReserveItem.UseVisualStyleBackColor = true;
+            this.btnReserveItem.Click += new System.EventHandler(this.btnReserveItem_Click);
             // 
             // lblPriceConstant
             // 
@@ -125,15 +125,15 @@
             this.lblMaterialNameConstant.TabIndex = 9;
             this.lblMaterialNameConstant.Text = "Name:";
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Location = new System.Drawing.Point(141, 149);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Abort mission";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancel.Location = new System.Drawing.Point(141, 149);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(92, 23);
+            this.btnCancel.TabIndex = 15;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dateTimePickerReturnDate
             // 
@@ -176,19 +176,18 @@
             this.Controls.Add(this.dateTimePickerLendDate);
             this.Controls.Add(this.lblReturnDate);
             this.Controls.Add(this.dateTimePickerReturnDate);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblPriceConstant);
             this.Controls.Add(this.lblStatusConstant);
             this.Controls.Add(this.lblMaterialName);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblMaterialNameConstant);
-            this.Controls.Add(this.btnLendItem);
+            this.Controls.Add(this.btnReserveItem);
             this.Controls.Add(this.lblRFIDCode);
             this.Controls.Add(this.tbRFIDCode);
             this.Name = "ReserveItemForm";
-            this.Text = "LendItemForm";
-            this.Load += new System.EventHandler(this.ReserveItemForm_Load);
+            this.Text = "Reserve Item";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,14 +197,14 @@
 
         private System.Windows.Forms.TextBox tbRFIDCode;
         private System.Windows.Forms.Label lblRFIDCode;
-        private System.Windows.Forms.Button btnLendItem;
+        private System.Windows.Forms.Button btnReserveItem;
         private System.Windows.Forms.Label lblPriceConstant;
         private System.Windows.Forms.Label lblStatusConstant;
         private System.Windows.Forms.Label lblMaterialName;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblMaterialNameConstant;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DateTimePicker dateTimePickerReturnDate;
         private System.Windows.Forms.Label lblReturnDate;
         private System.Windows.Forms.Label lblLendDate;

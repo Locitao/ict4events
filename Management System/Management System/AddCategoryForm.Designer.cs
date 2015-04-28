@@ -107,7 +107,7 @@
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.lblName);
             this.Name = "AddCategoryForm";
-            this.Text = "AddCategoryForm";
+            this.Text = "Add Item Category";
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

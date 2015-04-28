@@ -16,12 +16,15 @@ namespace Management_System
         public string Query;
 
         /// <summary>
-        /// this form is used to create a new employee account
+        /// this form is used to create a new employee or admin account
         /// </summary>
         public CreateAccountForm()
         {
             InitializeComponent();
             saved = false;
+            cbRights.Items.Add("No rights");
+            cbRights.Items.Add("Employee");
+            cbRights.Items.Add("Admin");
         }
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
@@ -29,7 +32,15 @@ namespace Management_System
             if (tbPassword.Text == tbRepeatPassword.Text)
             {
                 saved = true;
-                Query = "INSERT INTO PT_EMPLOYEE_ACC(EMPLOYEE_ID, LOGIN_NAME, LOGIN_PASSWORD, EMPLOYEE_RIGHTS) VALUES (auto_inc_emp.nextval, '" + tbName.Text + "', '" + tbPassword.Text + "', '1')";
+                string tempString;
+                switch ((string)cbRights.SelectedItem)
+                {
+                    case "No Rights": { tempString = "0"; break; }
+                    case "Employee": { tempString = "1"; break; }
+                    case "Admin": { tempString = "2"; break; }
+                    default: { tempString = "0"; break; }
+                }
+                Query = "Insert into PT_EMPLOYEE_ACC(employee_ID, login_name, login_password, employee_rights, acc_name, acc_address, phone_number) VALUES (auto_inc_emp.nextval, '" + tbName.Text + "', '" + tbPassword.Text + "', '" + tempString + "', '" +  tbName.Text +"', '" + tbAddress.Text + "', '" + tbPhoneNumber.Text + "')";
                 this.Close();
             }
         }
@@ -45,6 +56,17 @@ namespace Management_System
         private void tb_KeyPress_LettersAndDigits(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// makes sure the user can only type digits.
+        /// </summary>
+        private void tb_KeyPress_Digits(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

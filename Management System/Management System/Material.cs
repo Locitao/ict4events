@@ -46,13 +46,13 @@ namespace Management_System
             {
                 Status = MaterialStatus.free;
             }
-            else if (LendTime != DateTime.MinValue)
+            else if (lendTime <= DateTime.Now)
             {
-                Status = MaterialStatus.reserved;
+                Status = MaterialStatus.lent;
             }
             else
             {
-                Status = MaterialStatus.lent;
+                Status = MaterialStatus.reserved;
             }
 
         }
