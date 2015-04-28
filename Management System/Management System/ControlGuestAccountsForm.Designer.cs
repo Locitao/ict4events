@@ -81,7 +81,7 @@
             this.btnDeleteAccount.Location = new System.Drawing.Point(353, 124);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
             this.btnDeleteAccount.Size = new System.Drawing.Size(169, 23);
-            this.btnDeleteAccount.TabIndex = 7;
+            this.btnDeleteAccount.TabIndex = 4;
             this.btnDeleteAccount.Text = "Delete Account";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
             this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
@@ -91,7 +91,7 @@
             this.btnChangeInfo.Location = new System.Drawing.Point(352, 95);
             this.btnChangeInfo.Name = "btnChangeInfo";
             this.btnChangeInfo.Size = new System.Drawing.Size(168, 23);
-            this.btnChangeInfo.TabIndex = 8;
+            this.btnChangeInfo.TabIndex = 3;
             this.btnChangeInfo.Text = "Change info";
             this.btnChangeInfo.UseVisualStyleBackColor = true;
             this.btnChangeInfo.Click += new System.EventHandler(this.btnChangeInfo_Click);
@@ -101,7 +101,7 @@
             this.btnExit.Location = new System.Drawing.Point(352, 153);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(169, 23);
-            this.btnExit.TabIndex = 9;
+            this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -111,21 +111,24 @@
             this.tbUserName.Location = new System.Drawing.Point(421, 13);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(100, 20);
-            this.tbUserName.TabIndex = 10;
+            this.tbUserName.TabIndex = 0;
+            this.tbUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersDigitsAndSpaces);
             // 
             // tbRFIDCode
             // 
             this.tbRFIDCode.Location = new System.Drawing.Point(421, 39);
             this.tbRFIDCode.Name = "tbRFIDCode";
             this.tbRFIDCode.Size = new System.Drawing.Size(100, 20);
-            this.tbRFIDCode.TabIndex = 11;
+            this.tbRFIDCode.TabIndex = 1;
+            this.tbRFIDCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // tbAdress
             // 
             this.tbAdress.Location = new System.Drawing.Point(421, 65);
             this.tbAdress.Name = "tbAdress";
             this.tbAdress.Size = new System.Drawing.Size(100, 20);
-            this.tbAdress.TabIndex = 12;
+            this.tbAdress.TabIndex = 2;
+            this.tbAdress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersDigitsAndSpaces);
             // 
             // ControlGuestAccountsForm
             // 

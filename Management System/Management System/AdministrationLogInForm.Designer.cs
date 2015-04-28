@@ -44,7 +44,7 @@
             this.tbName.Location = new System.Drawing.Point(98, 42);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(100, 20);
-            this.tbName.TabIndex = 1;
+            this.tbName.TabIndex = 0;
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // tbPassword
@@ -52,7 +52,7 @@
             this.tbPassword.Location = new System.Drawing.Point(98, 68);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(100, 20);
-            this.tbPassword.TabIndex = 2;
+            this.tbPassword.TabIndex = 1;
             this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // btnLoginToManagementSystem
@@ -60,7 +60,7 @@
             this.btnLoginToManagementSystem.Location = new System.Drawing.Point(12, 94);
             this.btnLoginToManagementSystem.Name = "btnLoginToManagementSystem";
             this.btnLoginToManagementSystem.Size = new System.Drawing.Size(88, 41);
-            this.btnLoginToManagementSystem.TabIndex = 3;
+            this.btnLoginToManagementSystem.TabIndex = 2;
             this.btnLoginToManagementSystem.Text = "Log in into management system";
             this.btnLoginToManagementSystem.UseVisualStyleBackColor = true;
             this.btnLoginToManagementSystem.Click += new System.EventHandler(this.btnLoginToManagementSystem_Click);
@@ -88,7 +88,7 @@
             this.btnLogInMaterialRenting.Location = new System.Drawing.Point(110, 94);
             this.btnLogInMaterialRenting.Name = "btnLogInMaterialRenting";
             this.btnLogInMaterialRenting.Size = new System.Drawing.Size(88, 41);
-            this.btnLogInMaterialRenting.TabIndex = 6;
+            this.btnLogInMaterialRenting.TabIndex = 3;
             this.btnLogInMaterialRenting.Text = "Log in into material renting";
             this.btnLogInMaterialRenting.UseVisualStyleBackColor = true;
             this.btnLogInMaterialRenting.Click += new System.EventHandler(this.btnLogInMaterialRenting_Click);
@@ -98,7 +98,7 @@
             this.btnCreateAccount.Location = new System.Drawing.Point(204, 94);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(88, 41);
-            this.btnCreateAccount.TabIndex = 7;
+            this.btnCreateAccount.TabIndex = 4;
             this.btnCreateAccount.Text = "Create new account";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
@@ -108,7 +108,7 @@
             this.btnControlGuestAccount.Location = new System.Drawing.Point(12, 141);
             this.btnControlGuestAccount.Name = "btnControlGuestAccount";
             this.btnControlGuestAccount.Size = new System.Drawing.Size(134, 41);
-            this.btnControlGuestAccount.TabIndex = 8;
+            this.btnControlGuestAccount.TabIndex = 5;
             this.btnControlGuestAccount.Text = "Modify Guest accounts";
             this.btnControlGuestAccount.UseVisualStyleBackColor = true;
             this.btnControlGuestAccount.Click += new System.EventHandler(this.btnControlGuestAccount_Click);
@@ -118,7 +118,7 @@
             this.btnControlEmployeeAccounts.Location = new System.Drawing.Point(152, 141);
             this.btnControlEmployeeAccounts.Name = "btnControlEmployeeAccounts";
             this.btnControlEmployeeAccounts.Size = new System.Drawing.Size(140, 41);
-            this.btnControlEmployeeAccounts.TabIndex = 9;
+            this.btnControlEmployeeAccounts.TabIndex = 6;
             this.btnControlEmployeeAccounts.Text = "Modify Employee accounts";
             this.btnControlEmployeeAccounts.UseVisualStyleBackColor = true;
             this.btnControlEmployeeAccounts.Click += new System.EventHandler(this.btnControlEmployeeAccounts_Click);

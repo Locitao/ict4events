@@ -69,7 +69,7 @@
             this.tbPassword.Location = new System.Drawing.Point(124, 54);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(134, 20);
-            this.tbPassword.TabIndex = 7;
+            this.tbPassword.TabIndex = 1;
             this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // tbName
@@ -77,7 +77,7 @@
             this.tbName.Location = new System.Drawing.Point(124, 28);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(134, 20);
-            this.tbName.TabIndex = 6;
+            this.tbName.TabIndex = 0;
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // lblRepeatPassword
@@ -94,7 +94,7 @@
             this.tbRepeatPassword.Location = new System.Drawing.Point(124, 80);
             this.tbRepeatPassword.Name = "tbRepeatPassword";
             this.tbRepeatPassword.Size = new System.Drawing.Size(134, 20);
-            this.tbRepeatPassword.TabIndex = 10;
+            this.tbRepeatPassword.TabIndex = 2;
             this.tbRepeatPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // btnCancel
@@ -102,7 +102,7 @@
             this.btnCancel.Location = new System.Drawing.Point(154, 211);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(104, 23);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -112,7 +112,7 @@
             this.btnCreateAccount.Location = new System.Drawing.Point(27, 211);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(121, 23);
-            this.btnCreateAccount.TabIndex = 13;
+            this.btnCreateAccount.TabIndex = 7;
             this.btnCreateAccount.Text = "Create New Account";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
@@ -132,7 +132,7 @@
             this.cbRights.Location = new System.Drawing.Point(124, 184);
             this.cbRights.Name = "cbRights";
             this.cbRights.Size = new System.Drawing.Size(134, 21);
-            this.cbRights.TabIndex = 25;
+            this.cbRights.TabIndex = 6;
             // 
             // lbPhoneNumber
             // 
@@ -157,21 +157,24 @@
             this.tbPhoneNumber.Location = new System.Drawing.Point(124, 158);
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(134, 20);
-            this.tbPhoneNumber.TabIndex = 22;
+            this.tbPhoneNumber.TabIndex = 5;
+            this.tbPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_Digits);
             // 
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(124, 135);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(134, 20);
-            this.tbAddress.TabIndex = 21;
+            this.tbAddress.TabIndex = 4;
+            this.tbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersDigitsAndSpaces);
             // 
             // tbEmployeeName
             // 
             this.tbEmployeeName.Location = new System.Drawing.Point(124, 109);
             this.tbEmployeeName.Name = "tbEmployeeName";
             this.tbEmployeeName.Size = new System.Drawing.Size(134, 20);
-            this.tbEmployeeName.TabIndex = 20;
+            this.tbEmployeeName.TabIndex = 3;
+            this.tbEmployeeName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersDigitsAndSpaces);
             // 
             // lblAdress
             // 

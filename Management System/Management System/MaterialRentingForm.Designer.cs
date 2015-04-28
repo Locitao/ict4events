@@ -98,7 +98,7 @@
             this.btnLendItem.Location = new System.Drawing.Point(226, 71);
             this.btnLendItem.Name = "btnLendItem";
             this.btnLendItem.Size = new System.Drawing.Size(143, 23);
-            this.btnLendItem.TabIndex = 9;
+            this.btnLendItem.TabIndex = 0;
             this.btnLendItem.Text = "Lend item";
             this.btnLendItem.UseVisualStyleBackColor = true;
             this.btnLendItem.Click += new System.EventHandler(this.btnLendItem_Click);
@@ -135,7 +135,7 @@
             this.btnReturnItem.Location = new System.Drawing.Point(226, 129);
             this.btnReturnItem.Name = "btnReturnItem";
             this.btnReturnItem.Size = new System.Drawing.Size(143, 23);
-            this.btnReturnItem.TabIndex = 10;
+            this.btnReturnItem.TabIndex = 2;
             this.btnReturnItem.Text = "Return item";
             this.btnReturnItem.UseVisualStyleBackColor = true;
             this.btnReturnItem.Click += new System.EventHandler(this.btnReturnItem_Click);
@@ -145,7 +145,7 @@
             this.btnAddItem.Location = new System.Drawing.Point(226, 187);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(143, 23);
-            this.btnAddItem.TabIndex = 11;
+            this.btnAddItem.TabIndex = 4;
             this.btnAddItem.Text = "Add new item";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
@@ -155,7 +155,7 @@
             this.btnAddCategory.Location = new System.Drawing.Point(226, 216);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(143, 23);
-            this.btnAddCategory.TabIndex = 12;
+            this.btnAddCategory.TabIndex = 5;
             this.btnAddCategory.Text = "Add new category";
             this.btnAddCategory.UseVisualStyleBackColor = true;
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
@@ -165,7 +165,7 @@
             this.btnReserveItem.Location = new System.Drawing.Point(226, 100);
             this.btnReserveItem.Name = "btnReserveItem";
             this.btnReserveItem.Size = new System.Drawing.Size(143, 23);
-            this.btnReserveItem.TabIndex = 13;
+            this.btnReserveItem.TabIndex = 1;
             this.btnReserveItem.Text = "Reserve item";
             this.btnReserveItem.UseVisualStyleBackColor = true;
             this.btnReserveItem.Click += new System.EventHandler(this.btnReserveItem_Click);
@@ -175,7 +175,7 @@
             this.btnChangeCategory.Location = new System.Drawing.Point(226, 158);
             this.btnChangeCategory.Name = "btnChangeCategory";
             this.btnChangeCategory.Size = new System.Drawing.Size(143, 23);
-            this.btnChangeCategory.TabIndex = 14;
+            this.btnChangeCategory.TabIndex = 3;
             this.btnChangeCategory.Text = "Change Category";
             this.btnChangeCategory.UseVisualStyleBackColor = true;
             this.btnChangeCategory.Click += new System.EventHandler(this.btnChangeCategory_Click);

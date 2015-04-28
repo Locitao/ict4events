@@ -66,7 +66,7 @@
             this.btnReserveItem.Location = new System.Drawing.Point(43, 149);
             this.btnReserveItem.Name = "btnReserveItem";
             this.btnReserveItem.Size = new System.Drawing.Size(92, 23);
-            this.btnReserveItem.TabIndex = 2;
+            this.btnReserveItem.TabIndex = 3;
             this.btnReserveItem.Text = "Reserve Item";
             this.btnReserveItem.UseVisualStyleBackColor = true;
             this.btnReserveItem.Click += new System.EventHandler(this.btnReserveItem_Click);
@@ -130,7 +130,7 @@
             this.btnCancel.Location = new System.Drawing.Point(141, 149);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(92, 23);
-            this.btnCancel.TabIndex = 15;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -140,7 +140,7 @@
             this.dateTimePickerReturnDate.Location = new System.Drawing.Point(115, 123);
             this.dateTimePickerReturnDate.Name = "dateTimePickerReturnDate";
             this.dateTimePickerReturnDate.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerReturnDate.TabIndex = 16;
+            this.dateTimePickerReturnDate.TabIndex = 2;
             // 
             // lblReturnDate
             // 
@@ -165,7 +165,7 @@
             this.dateTimePickerLendDate.Location = new System.Drawing.Point(115, 97);
             this.dateTimePickerLendDate.Name = "dateTimePickerLendDate";
             this.dateTimePickerLendDate.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerLendDate.TabIndex = 18;
+            this.dateTimePickerLendDate.TabIndex = 1;
             // 
             // ReserveItemForm
             // 

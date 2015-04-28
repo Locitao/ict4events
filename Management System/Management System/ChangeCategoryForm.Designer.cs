@@ -70,7 +70,7 @@
             this.btnCancel.Location = new System.Drawing.Point(124, 97);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 23);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -85,14 +85,14 @@
             0});
             this.nudPrice.Name = "nudPrice";
             this.nudPrice.Size = new System.Drawing.Size(104, 20);
-            this.nudPrice.TabIndex = 7;
+            this.nudPrice.TabIndex = 1;
             // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(97, 45);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(104, 20);
-            this.tbName.TabIndex = 8;
+            this.tbName.TabIndex = 0;
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // ChangeCategoryForm

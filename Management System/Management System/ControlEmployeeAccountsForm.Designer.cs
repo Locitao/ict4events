@@ -76,7 +76,7 @@
             this.btnDeleteAccount.Location = new System.Drawing.Point(353, 173);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
             this.btnDeleteAccount.Size = new System.Drawing.Size(177, 23);
-            this.btnDeleteAccount.TabIndex = 7;
+            this.btnDeleteAccount.TabIndex = 6;
             this.btnDeleteAccount.Text = "Delete Account";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
             this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
@@ -86,7 +86,7 @@
             this.btnChangeInfo.Location = new System.Drawing.Point(353, 144);
             this.btnChangeInfo.Name = "btnChangeInfo";
             this.btnChangeInfo.Size = new System.Drawing.Size(176, 23);
-            this.btnChangeInfo.TabIndex = 8;
+            this.btnChangeInfo.TabIndex = 5;
             this.btnChangeInfo.Text = "Change info";
             this.btnChangeInfo.UseVisualStyleBackColor = true;
             this.btnChangeInfo.Click += new System.EventHandler(this.btnChangeInfo_Click);
@@ -96,7 +96,7 @@
             this.btnExit.Location = new System.Drawing.Point(352, 202);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(177, 23);
-            this.btnExit.TabIndex = 9;
+            this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -106,28 +106,32 @@
             this.tbLoginName.Location = new System.Drawing.Point(429, 13);
             this.tbLoginName.Name = "tbLoginName";
             this.tbLoginName.Size = new System.Drawing.Size(100, 20);
-            this.tbLoginName.TabIndex = 10;
+            this.tbLoginName.TabIndex = 0;
+            this.tbLoginName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // tbEmployeeName
             // 
             this.tbEmployeeName.Location = new System.Drawing.Point(429, 42);
             this.tbEmployeeName.Name = "tbEmployeeName";
             this.tbEmployeeName.Size = new System.Drawing.Size(100, 20);
-            this.tbEmployeeName.TabIndex = 11;
+            this.tbEmployeeName.TabIndex = 1;
+            this.tbEmployeeName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersDigitsAndSpaces);
             // 
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(429, 68);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(100, 20);
-            this.tbAddress.TabIndex = 12;
+            this.tbAddress.TabIndex = 2;
+            this.tbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersDigitsAndSpaces);
             // 
             // tbPhoneNumber
             // 
             this.tbPhoneNumber.Location = new System.Drawing.Point(429, 91);
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(100, 20);
-            this.tbPhoneNumber.TabIndex = 14;
+            this.tbPhoneNumber.TabIndex = 3;
+            this.tbPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_Digits);
             // 
             // lblEmployeeName
             // 
@@ -153,7 +157,7 @@
             this.cbRights.Location = new System.Drawing.Point(429, 117);
             this.cbRights.Name = "cbRights";
             this.cbRights.Size = new System.Drawing.Size(100, 21);
-            this.cbRights.TabIndex = 17;
+            this.cbRights.TabIndex = 4;
             // 
             // lblRights
             // 

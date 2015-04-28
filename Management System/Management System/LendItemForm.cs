@@ -47,14 +47,12 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// closes this form
+        /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void LendItemForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

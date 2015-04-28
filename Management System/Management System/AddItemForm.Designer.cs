@@ -56,7 +56,7 @@
             this.btnCancel.Location = new System.Drawing.Point(140, 65);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 23);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -66,7 +66,7 @@
             this.btnAddItem.Location = new System.Drawing.Point(28, 65);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(106, 23);
-            this.btnAddItem.TabIndex = 6;
+            this.btnAddItem.TabIndex = 1;
             this.btnAddItem.Text = "Add Item";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);

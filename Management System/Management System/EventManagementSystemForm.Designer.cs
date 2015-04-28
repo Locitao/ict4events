@@ -71,7 +71,7 @@
             this.btnNewCamping.Location = new System.Drawing.Point(119, 202);
             this.btnNewCamping.Name = "btnNewCamping";
             this.btnNewCamping.Size = new System.Drawing.Size(108, 23);
-            this.btnNewCamping.TabIndex = 2;
+            this.btnNewCamping.TabIndex = 4;
             this.btnNewCamping.Text = "Add new camping";
             this.btnNewCamping.UseVisualStyleBackColor = true;
             this.btnNewCamping.Click += new System.EventHandler(this.btnNewCamping_Click);
@@ -108,7 +108,7 @@
             this.tbCampingName.Location = new System.Drawing.Point(97, 118);
             this.tbCampingName.Name = "tbCampingName";
             this.tbCampingName.Size = new System.Drawing.Size(130, 20);
-            this.tbCampingName.TabIndex = 4;
+            this.tbCampingName.TabIndex = 0;
             this.tbCampingName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // lbLocations
@@ -133,7 +133,7 @@
             this.btnAddLocation.Location = new System.Drawing.Point(450, 226);
             this.btnAddLocation.Name = "btnAddLocation";
             this.btnAddLocation.Size = new System.Drawing.Size(89, 23);
-            this.btnAddLocation.TabIndex = 8;
+            this.btnAddLocation.TabIndex = 10;
             this.btnAddLocation.Text = "Add location";
             this.btnAddLocation.UseVisualStyleBackColor = true;
             this.btnAddLocation.Click += new System.EventHandler(this.btnAddLocation_Click);
@@ -157,7 +157,7 @@
             0});
             this.numLocation.Name = "numLocation";
             this.numLocation.Size = new System.Drawing.Size(89, 20);
-            this.numLocation.TabIndex = 12;
+            this.numLocation.TabIndex = 5;
             // 
             // numMaxGuests
             // 
@@ -174,7 +174,7 @@
             0});
             this.numMaxGuests.Name = "numMaxGuests";
             this.numMaxGuests.Size = new System.Drawing.Size(89, 20);
-            this.numMaxGuests.TabIndex = 13;
+            this.numMaxGuests.TabIndex = 6;
             this.numMaxGuests.Value = new decimal(new int[] {
             1,
             0,
@@ -187,14 +187,14 @@
             this.tbMaxVisitors.Name = "tbMaxVisitors";
             this.tbMaxVisitors.ReadOnly = true;
             this.tbMaxVisitors.Size = new System.Drawing.Size(130, 20);
-            this.tbMaxVisitors.TabIndex = 14;
+            this.tbMaxVisitors.TabIndex = 1;
             // 
             // btnDeleteCamping
             // 
             this.btnDeleteCamping.Location = new System.Drawing.Point(12, 202);
             this.btnDeleteCamping.Name = "btnDeleteCamping";
             this.btnDeleteCamping.Size = new System.Drawing.Size(101, 23);
-            this.btnDeleteCamping.TabIndex = 15;
+            this.btnDeleteCamping.TabIndex = 3;
             this.btnDeleteCamping.Text = "Delete selected";
             this.btnDeleteCamping.UseVisualStyleBackColor = true;
             this.btnDeleteCamping.Click += new System.EventHandler(this.btnDeleteCamping_Click);
@@ -230,7 +230,7 @@
             this.btnDeleteLocation.Location = new System.Drawing.Point(357, 226);
             this.btnDeleteLocation.Name = "btnDeleteLocation";
             this.btnDeleteLocation.Size = new System.Drawing.Size(90, 23);
-            this.btnDeleteLocation.TabIndex = 19;
+            this.btnDeleteLocation.TabIndex = 9;
             this.btnDeleteLocation.Text = "Delete Location";
             this.btnDeleteLocation.UseVisualStyleBackColor = true;
             this.btnDeleteLocation.Click += new System.EventHandler(this.btnDeleteLocation_Click);
@@ -249,7 +249,7 @@
             this.dateTimePickerStartingDate.Location = new System.Drawing.Point(9, 277);
             this.dateTimePickerStartingDate.Name = "dateTimePickerStartingDate";
             this.dateTimePickerStartingDate.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerStartingDate.TabIndex = 21;
+            this.dateTimePickerStartingDate.TabIndex = 11;
             // 
             // lblStartingDate
             // 
@@ -274,14 +274,14 @@
             this.dateTimePickerEndingDate.Location = new System.Drawing.Point(9, 316);
             this.dateTimePickerEndingDate.Name = "dateTimePickerEndingDate";
             this.dateTimePickerEndingDate.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerEndingDate.TabIndex = 23;
+            this.dateTimePickerEndingDate.TabIndex = 12;
             // 
             // btnCreateEvent
             // 
             this.btnCreateEvent.Location = new System.Drawing.Point(12, 420);
             this.btnCreateEvent.Name = "btnCreateEvent";
             this.btnCreateEvent.Size = new System.Drawing.Size(200, 60);
-            this.btnCreateEvent.TabIndex = 25;
+            this.btnCreateEvent.TabIndex = 15;
             this.btnCreateEvent.Text = "Create event";
             this.btnCreateEvent.UseVisualStyleBackColor = true;
             this.btnCreateEvent.Click += new System.EventHandler(this.btnCreateEvent_Click);
@@ -293,7 +293,7 @@
             this.cbType.MaxDropDownItems = 20;
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(89, 21);
-            this.cbType.TabIndex = 26;
+            this.cbType.TabIndex = 7;
             // 
             // lblLocationType
             // 
@@ -319,7 +319,7 @@
             0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(89, 20);
-            this.numPrice.TabIndex = 28;
+            this.numPrice.TabIndex = 8;
             this.numPrice.Value = new decimal(new int[] {
             1,
             0,
@@ -349,7 +349,7 @@
             this.tbMapPath.Location = new System.Drawing.Point(97, 173);
             this.tbMapPath.Name = "tbMapPath";
             this.tbMapPath.Size = new System.Drawing.Size(130, 20);
-            this.tbMapPath.TabIndex = 32;
+            this.tbMapPath.TabIndex = 2;
             this.tbMapPath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMapPath_KeyPress);
             // 
             // tbEventName
@@ -357,7 +357,7 @@
             this.tbEventName.Location = new System.Drawing.Point(12, 355);
             this.tbEventName.Name = "tbEventName";
             this.tbEventName.Size = new System.Drawing.Size(197, 20);
-            this.tbEventName.TabIndex = 33;
+            this.tbEventName.TabIndex = 13;
             // 
             // lblEventName
             // 
@@ -382,7 +382,7 @@
             this.tbDescription.Location = new System.Drawing.Point(12, 394);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(197, 20);
-            this.tbDescription.TabIndex = 36;
+            this.tbDescription.TabIndex = 14;
             // 
             // EventManagementSystemForm
             // 

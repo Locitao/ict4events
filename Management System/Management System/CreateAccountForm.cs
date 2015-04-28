@@ -62,6 +62,17 @@ namespace Management_System
         }
 
         /// <summary>
+        /// Makes sure the user can only type letters, digits and spaces.
+        /// </summary>
+        private void tb_KeyPress_LettersDigitsAndSpaces(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
         /// makes sure the user can only type digits.
         /// </summary>
         private void tb_KeyPress_Digits(object sender, KeyPressEventArgs e)

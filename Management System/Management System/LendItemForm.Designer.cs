@@ -128,7 +128,7 @@
             this.btnCancel.Location = new System.Drawing.Point(141, 122);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(92, 23);
-            this.btnCancel.TabIndex = 15;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -138,7 +138,7 @@
             this.dateTimePickerReturnDate.Location = new System.Drawing.Point(115, 96);
             this.dateTimePickerReturnDate.Name = "dateTimePickerReturnDate";
             this.dateTimePickerReturnDate.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerReturnDate.TabIndex = 16;
+            this.dateTimePickerReturnDate.TabIndex = 1;
             // 
             // lblReturnDate
             // 
@@ -168,7 +168,6 @@
             this.Controls.Add(this.tbRFIDCode);
             this.Name = "LendItemForm";
             this.Text = "Lend Item";
-            this.Load += new System.EventHandler(this.LendItemForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
