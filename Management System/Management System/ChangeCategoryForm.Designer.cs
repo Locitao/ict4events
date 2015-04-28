@@ -107,7 +107,7 @@
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.lblName);
             this.Name = "ChangeCategoryForm";
-            this.Text = "ChangeCategoryForm";
+            this.Text = "Change category";
             this.Load += new System.EventHandler(this.ChangeCategoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);

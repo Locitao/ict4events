@@ -33,23 +33,10 @@ namespace Management_System
 
         private void btnLendItem_Click(object sender, EventArgs e)
         {
-            if (dateTimePickerReturnDate.Value >= dateTimePickerLendDate.Value
-                && dateTimePickerLendDate.Value >= DateTime.Now)
-            {
-                Mat.LendTime = dateTimePickerLendDate.Value;
-                Mat.ReturnTime = dateTimePickerReturnDate.Value;
-                Mat.RFID_CODE = tbRFIDCode.Text;
-                saved = true;
-                this.Close();
-            }
-            else 
-            {
-                MessageBox.Show("Input wasnt correct. Please fill in correct info and try again.");
-            }
-            
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -65,9 +52,21 @@ namespace Management_System
             }
         }
 
-        private void ReserveItemForm_Load(object sender, EventArgs e)
+        private void btnReserveItem_Click(object sender, EventArgs e)
         {
-
+            if (dateTimePickerReturnDate.Value >= dateTimePickerLendDate.Value
+                && dateTimePickerLendDate.Value >= DateTime.Now)
+            {
+                Mat.LendTime = dateTimePickerLendDate.Value;
+                Mat.ReturnTime = dateTimePickerReturnDate.Value;
+                Mat.RFID_CODE = tbRFIDCode.Text;
+                saved = true;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Input wasnt correct. Please fill in correct info and try again.");
+            }
         }
     }
 }

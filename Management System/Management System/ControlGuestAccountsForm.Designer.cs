@@ -143,7 +143,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lbUserAccounts);
             this.Name = "ControlGuestAccountsForm";
-            this.Text = "ControlGuestAccountsForm";
+            this.Text = "Manage Guests";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -99,9 +99,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(154, 246);
+            this.btnCancel.Location = new System.Drawing.Point(154, 211);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(70, 23);
+            this.btnCancel.Size = new System.Drawing.Size(104, 23);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             // btnCreateAccount
             // 
-            this.btnCreateAccount.Location = new System.Drawing.Point(27, 227);
+            this.btnCreateAccount.Location = new System.Drawing.Point(27, 211);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(121, 23);
             this.btnCreateAccount.TabIndex = 13;
@@ -186,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 314);
+            this.ClientSize = new System.Drawing.Size(284, 252);
             this.Controls.Add(this.lblRights);
             this.Controls.Add(this.cbRights);
             this.Controls.Add(this.lbPhoneNumber);
@@ -204,7 +204,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
             this.Name = "CreateAccountForm";
-            this.Text = "Form1";
+            this.Text = "Create Employee Account";
             this.ResumeLayout(false);
             this.PerformLayout();
 

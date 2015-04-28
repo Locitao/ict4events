@@ -252,7 +252,7 @@
             this.Controls.Add(this.lblMaterials);
             this.Controls.Add(this.lbMaterials);
             this.Name = "MaterialRentingForm";
-            this.Text = "MaterialRentingForm";
+            this.Text = "Material Renting";
             this.ResumeLayout(false);
             this.PerformLayout();
 

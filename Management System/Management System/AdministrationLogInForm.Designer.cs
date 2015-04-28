@@ -138,7 +138,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
             this.Name = "AdministrationLogInForm";
-            this.Text = "Administration";
+            this.Text = "Log in";
             this.ResumeLayout(false);
             this.PerformLayout();
 

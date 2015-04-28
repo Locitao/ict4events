@@ -81,7 +81,7 @@
             this.Controls.Add(this.lbItem);
             this.Controls.Add(this.cbItem);
             this.Name = "AddItemForm";
-            this.Text = "AddForm";
+            this.Text = "Add item";
             this.ResumeLayout(false);
             this.PerformLayout();
 

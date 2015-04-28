@@ -184,7 +184,7 @@
             this.Controls.Add(this.lblLoginName);
             this.Controls.Add(this.lbEmployeeAccounts);
             this.Name = "ControlEmployeeAccountsForm";
-            this.Text = "ControlEmployeeAccountsForm";
+            this.Text = "Manage Employees";
             this.ResumeLayout(false);
             this.PerformLayout();
 
