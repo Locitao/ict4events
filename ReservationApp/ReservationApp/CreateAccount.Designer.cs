@@ -50,7 +50,7 @@
             this.tbPhone.MaxLength = 15;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(135, 20);
-            this.tbPhone.TabIndex = 20;
+            this.tbPhone.TabIndex = 6;
             this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             // 
             // tbCity
@@ -59,7 +59,7 @@
             this.tbCity.MaxLength = 50;
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(135, 20);
-            this.tbCity.TabIndex = 19;
+            this.tbCity.TabIndex = 5;
             this.tbCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCity_KeyPress);
             // 
             // tbPostal
@@ -68,7 +68,7 @@
             this.tbPostal.MaxLength = 20;
             this.tbPostal.Name = "tbPostal";
             this.tbPostal.Size = new System.Drawing.Size(135, 20);
-            this.tbPostal.TabIndex = 18;
+            this.tbPostal.TabIndex = 4;
             this.tbPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPostal_KeyPress);
             // 
             // tbAddress
@@ -77,7 +77,7 @@
             this.tbAddress.MaxLength = 50;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(135, 20);
-            this.tbAddress.TabIndex = 17;
+            this.tbAddress.TabIndex = 2;
             this.tbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAddress_KeyPress);
             // 
             // label5
@@ -131,7 +131,7 @@
             this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(135, 20);
-            this.tbName.TabIndex = 11;
+            this.tbName.TabIndex = 1;
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // btnCreate
@@ -139,7 +139,7 @@
             this.btnCreate.Location = new System.Drawing.Point(88, 212);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(116, 34);
-            this.btnCreate.TabIndex = 21;
+            this.btnCreate.TabIndex = 7;
             this.btnCreate.Text = "Create your account!";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -159,7 +159,7 @@
             this.tbCountry.MaxLength = 50;
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.Size = new System.Drawing.Size(135, 20);
-            this.tbCountry.TabIndex = 23;
+            this.tbCountry.TabIndex = 3;
             this.tbCountry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCountry_KeyPress);
             // 
             // Create_Account
