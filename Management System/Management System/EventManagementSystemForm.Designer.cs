@@ -61,6 +61,7 @@
             this.lblEventName = new System.Windows.Forms.Label();
             this.lblDesctiption = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxGuests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
@@ -348,6 +349,7 @@
             // 
             this.tbMapPath.Location = new System.Drawing.Point(97, 173);
             this.tbMapPath.Name = "tbMapPath";
+            this.tbMapPath.ReadOnly = true;
             this.tbMapPath.Size = new System.Drawing.Size(130, 20);
             this.tbMapPath.TabIndex = 2;
             this.tbMapPath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMapPath_KeyPress);
@@ -384,11 +386,22 @@
             this.tbDescription.Size = new System.Drawing.Size(197, 20);
             this.tbDescription.TabIndex = 14;
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(233, 173);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(52, 23);
+            this.btnBrowse.TabIndex = 36;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
             // EventManagementSystemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 502);
+            this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.lblDesctiption);
             this.Controls.Add(this.lblEventName);
@@ -424,7 +437,6 @@
             this.Controls.Add(this.lblMaxVisitors);
             this.Name = "EventManagementSystemForm";
             this.Text = "Management System";
-            this.Load += new System.EventHandler(this.EventManagementSystemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numLocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxGuests)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
@@ -468,6 +480,7 @@
         private System.Windows.Forms.Label lblEventName;
         private System.Windows.Forms.Label lblDesctiption;
         private System.Windows.Forms.TextBox tbDescription;
+        private System.Windows.Forms.Button btnBrowse;
 
     }
 }

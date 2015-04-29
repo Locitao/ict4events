@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+
 namespace Management_System
 {
     public partial class EventManagementSystemForm : Form
@@ -16,6 +18,8 @@ namespace Management_System
         private List<Camping> campingList = new List<Camping>();
         private List<Location> locationList = new List<Location>();
         private List<Event> eventList = new List<Event>();
+        private string saveFilePath = @"\\SERVER-S80\CampingMaps\";
+        private string oldFilePath = "";
 
         /// <summary>
         /// Main form for the event management system
@@ -153,6 +157,9 @@ namespace Management_System
             {
                 MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
             }
+
+            
+            File.Copy(oldFilePath, saveFilePath);
 
         }
 
@@ -305,9 +312,19 @@ namespace Management_System
             }
         }
 
-        private void EventManagementSystemForm_Load(object sender, EventArgs e)
+        private void btnBrowse_Click(object sender, EventArgs e)
         {
+            OpenFileDialog fDialog = new OpenFileDialog();
 
+            if (fDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = fDialog.FileName.ToString();
+                tbMapPath.Text = filePath;
+                string savePath = @"\\SERVER-S80\CampingMaps\";
+                savePath += fDialog.SafeFileName;
+                saveFilePath = savePath;
+                oldFilePath = filePath;
+            }
         }
 
         
