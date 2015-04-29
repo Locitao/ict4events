@@ -367,7 +367,5 @@ namespace MediaSharingGuest
         {
             windowsMediaPlayer.Ctlcontrols.pause();
         }
-
-
         }
     }
