@@ -13,8 +13,7 @@ using Phidgets.Events;
 namespace AccessControl
 {
     public partial class AccessControlForm : Form
-    {
-        readonly Connection connect = new Connection();
+    {        
         readonly Select select = new Select();        
         readonly Update update = new Update();
         readonly Delete delete = new Delete();       
@@ -28,6 +27,7 @@ namespace AccessControl
         private void bttnRefresh_Click(object sender, EventArgs e)
         {              
             tbRFIDSearsh.Text = "";
+            lblResult.Text = "";
             Refresh("");
         }
 
@@ -35,7 +35,8 @@ namespace AccessControl
         {
             // Puts all the data in the listbox.
             lbRFIDCodes.Items.Clear();
-            lblRFID.Text = "";
+            bttnCancel.Enabled = true;
+            BttnPayed.Enabled = true;
 
             try
             {
@@ -44,7 +45,12 @@ namespace AccessControl
                 if (RFID != "")
                 {
                     reserves = select.Select_ReservesOnRFID(RFID);
-                }                
+                    lblRFID.Text = RFID;
+                }
+                else
+                {
+                    lblRFID.Text = "";
+                }
 
                 foreach (Dictionary<string, object> row in reserves)
                 {
@@ -87,17 +93,40 @@ namespace AccessControl
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void changePresence(string RFID)
+        {
+            // Updates the Event_ID, 0 if the user leaves and 1 if the user enters.
+            try
+            {               
+                bool gelukt = update.Update_CheckPresent(RFID);
+                if (gelukt == true)
+                {
+                    lblResult.ForeColor = Color.Green;
+                    lblResult.Text = "User can leave/enter";
+
+                    Refresh(RFID);
+                }
+                else
+                {
+                    MessageBox.Show("Action failed");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error, contact a admin");
+            }
+        }
         
         
         private void BttnPayed_Click(object sender, EventArgs e)
         {
             try
             {  
-                // Changes paid into 1 or 0, depending on the old status.
-                string ReserveID = lbRFIDCodes.SelectedItem.ToString().Substring(12, 3);
+                // Changes paid into 1 or 0, depending on the old status.               
                 string RFID = lbRFIDCodes.SelectedItem.ToString().Substring(23, 10);
 
-                update.Update_Paid(ReserveID);
+                update.Update_Paid(RFID);                
                 Refresh(RFID);
             }
             catch
@@ -134,27 +163,43 @@ namespace AccessControl
             }
         }
 
-        private void bttnPresence_Click(object sender, EventArgs e)
+        private void bttnPpleOnTerrain_Click(object sender, EventArgs e)
         {
+            lbRFIDCodes.Items.Clear();
+            lblRFID.Text = "";
+            lblResult.Text = "";
+
+            bttnCancel.Enabled = false;
+            BttnPayed.Enabled = false;
+
             try
             {
-                // Updates the Event_ID, 0 if the user leaves and 1 if the user enters.
-                string RFID = lbRFIDCodes.SelectedItem.ToString().Substring(23, 10);
-                bool gelukt = update.Update_CheckPresent(RFID);
-                if (gelukt == true)
+                var people = select.Select_peopleOnTerrain();
+                string amountOfPeople = select.Select_amountOfPeopleOnTerrain();
+
+                lbRFIDCodes.Items.Add("Amount of people on terrain: " + amountOfPeople);
+                lbRFIDCodes.Items.Add("");
+
+                foreach (Dictionary<string, object> row in people)
                 {
-                    MessageBox.Show("User can leave/enter event");
-                    Refresh(RFID);
-                }
-                else
-                {
-                    MessageBox.Show("Action failed");
+                    string present = Convert.ToString(row["EVENT_ID"]);
+                   
+                    if (present != "")
+                    {
+                        present = "Yes";
+                    }
+                    else
+                    {
+                        present = "No";
+                    }                   
+
+                    lbRFIDCodes.Items.Add("RFID: " + row["RFID_CODE"] + ". Name: " + row["USER_NAME"] + ". Present?: " + present);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("No user selected");
-            }
+                MessageBox.Show(ex.Message);
+            }            
         }
 
         private void tmrRFIDCheck_Tick(object sender, EventArgs e)
@@ -162,11 +207,35 @@ namespace AccessControl
             // Checks if tbRFIDSearsh has 10 textLength, if so, it will read the rfid code and calls the method refreshOnRFID.
             if (tbRFIDSearsh.TextLength == 10)
             {
+                int hasPaid;
                 string RFID = tbRFIDSearsh.Text;
-                Refresh(RFID);
-                lblRFID.Text = RFID;
-                
                 tbRFIDSearsh.Text = "";
+
+                bttnCancel.Enabled = true;
+                BttnPayed.Enabled = true;
+
+                try
+                {
+                    hasPaid = Convert.ToInt32(select.GetPaid(RFID));                    
+                    lblRFID.Text = RFID;
+
+                    if (hasPaid != 0)
+                    {
+                        changePresence(RFID);
+                    }
+                    else
+                    {
+                        lblResult.ForeColor = Color.Red;
+                        lblResult.Text = "User has not paid yet";
+                    }
+
+                    Refresh(RFID);
+                }
+                catch
+                {
+                    lblResult.ForeColor = Color.Red;
+                    lblResult.Text = "Invalid user : " + RFID; 
+                }                
             }
         }
     }

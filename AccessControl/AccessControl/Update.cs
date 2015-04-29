@@ -11,12 +11,12 @@ namespace AccessControl
         Connection connect = new Connection();
         Select select = new Select();
 
-        public string Update_Paid(string reserveID)
+        public string Update_Paid(string RFID)
          {
              try
              {
                  int paid = 0;
-                 string currentStatus = select.GetPaid(reserveID);
+                 string currentStatus = select.GetPaid(RFID);
 
                  if (currentStatus == "1")
                  {
@@ -26,9 +26,9 @@ namespace AccessControl
                  {
                      paid = 1;
                  }
-                 string query = "UPDATE PT_RESERVATION r SET r.PAID = '" + paid + "' WHERE r.RESERVATION_ID = '" + reserveID + "'";
+                 string query = "UPDATE PT_RESERVATION r SET r.PAID = '" + paid + "' WHERE r.RESERVATION_ID = (SELECT u.RESERVATION_ID FROM PT_USER_ACC u WHERE u.RFID_CODE = '" + RFID + "')";
                  connect.Execute(query);
-
+                 
                  return "Update succsesfull";
              }
              catch

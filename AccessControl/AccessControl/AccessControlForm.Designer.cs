@@ -32,12 +32,13 @@
             this.tbRFIDSearsh = new System.Windows.Forms.TextBox();
             this.lbRFIDCodes = new System.Windows.Forms.ListBox();
             this.BttnPayed = new System.Windows.Forms.Button();
-            this.bttnPresence = new System.Windows.Forms.Button();
             this.bttnCancel = new System.Windows.Forms.Button();
             this.lblSearsh = new System.Windows.Forms.Label();
             this.bttnRefresh = new System.Windows.Forms.Button();
             this.tmrRFIDCheck = new System.Windows.Forms.Timer(this.components);
             this.lblRFID = new System.Windows.Forms.Label();
+            this.bttnPpleOnTerrain = new System.Windows.Forms.Button();
+            this.lblResult = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbRFIDSearsh
@@ -66,16 +67,6 @@
             this.BttnPayed.UseVisualStyleBackColor = true;
             this.BttnPayed.Click += new System.EventHandler(this.BttnPayed_Click);
             // 
-            // bttnPresence
-            // 
-            this.bttnPresence.Location = new System.Drawing.Point(278, 240);
-            this.bttnPresence.Name = "bttnPresence";
-            this.bttnPresence.Size = new System.Drawing.Size(119, 23);
-            this.bttnPresence.TabIndex = 3;
-            this.bttnPresence.Text = "Toggle presence";
-            this.bttnPresence.UseVisualStyleBackColor = true;
-            this.bttnPresence.Click += new System.EventHandler(this.bttnPresence_Click);
-            // 
             // bttnCancel
             // 
             this.bttnCancel.Location = new System.Drawing.Point(138, 240);
@@ -91,9 +82,9 @@
             this.lblSearsh.AutoSize = true;
             this.lblSearsh.Location = new System.Drawing.Point(10, 9);
             this.lblSearsh.Name = "lblSearsh";
-            this.lblSearsh.Size = new System.Drawing.Size(110, 13);
+            this.lblSearsh.Size = new System.Drawing.Size(111, 13);
             this.lblSearsh.TabIndex = 7;
-            this.lblSearsh.Text = "Searsh on RFID code";
+            this.lblSearsh.Text = "Search on RFID code";
             // 
             // bttnRefresh
             // 
@@ -117,17 +108,38 @@
             this.lblRFID.Size = new System.Drawing.Size(0, 13);
             this.lblRFID.TabIndex = 11;
             // 
+            // bttnPpleOnTerrain
+            // 
+            this.bttnPpleOnTerrain.Location = new System.Drawing.Point(278, 240);
+            this.bttnPpleOnTerrain.Name = "bttnPpleOnTerrain";
+            this.bttnPpleOnTerrain.Size = new System.Drawing.Size(119, 23);
+            this.bttnPpleOnTerrain.TabIndex = 12;
+            this.bttnPpleOnTerrain.Text = "People on terrain list";
+            this.bttnPpleOnTerrain.UseVisualStyleBackColor = true;
+            this.bttnPpleOnTerrain.Click += new System.EventHandler(this.bttnPpleOnTerrain_Click);
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.ForeColor = System.Drawing.Color.Red;
+            this.lblResult.Location = new System.Drawing.Point(139, 281);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(0, 29);
+            this.lblResult.TabIndex = 13;
+            // 
             // AccessControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(534, 330);
+            this.Controls.Add(this.lblResult);
+            this.Controls.Add(this.bttnPpleOnTerrain);
             this.Controls.Add(this.lblRFID);
             this.Controls.Add(this.bttnRefresh);
             this.Controls.Add(this.lblSearsh);
             this.Controls.Add(this.bttnCancel);
-            this.Controls.Add(this.bttnPresence);
             this.Controls.Add(this.BttnPayed);
             this.Controls.Add(this.lbRFIDCodes);
             this.Controls.Add(this.tbRFIDSearsh);
@@ -144,12 +156,13 @@
         private System.Windows.Forms.TextBox tbRFIDSearsh;
         private System.Windows.Forms.ListBox lbRFIDCodes;
         private System.Windows.Forms.Button BttnPayed;
-        private System.Windows.Forms.Button bttnPresence;
         private System.Windows.Forms.Button bttnCancel;
         private System.Windows.Forms.Label lblSearsh;
         private System.Windows.Forms.Button bttnRefresh;
         private System.Windows.Forms.Timer tmrRFIDCheck;
         private System.Windows.Forms.Label lblRFID;
+        private System.Windows.Forms.Button bttnPpleOnTerrain;
+        private System.Windows.Forms.Label lblResult;
     }
 }
 
