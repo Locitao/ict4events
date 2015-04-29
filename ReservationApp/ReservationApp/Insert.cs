@@ -91,8 +91,8 @@ namespace ReservationApp
             try
             {
                 string query =
-                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone, reservation_ID, event_ID) VALUES ('" + RandomString() + "', '" +
-                    user_name + "', '" + user_address + "', '" + user_phone + "', '" + reservation + "', '2')";
+                    "INSERT INTO PT_USER_ACC (rfid_CODE, user_name, user_address, user_phone, reservation_ID) VALUES ('" + RandomString() + "', '" +
+                    user_name + "', '" + user_address + "', '" + user_phone + "', '" + reservation + "')";
                 conn.Execute(query);
                 const string success = "Account created and coupled with your friends reservation!";
                 conn.CloseConnection();
