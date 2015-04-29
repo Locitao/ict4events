@@ -15,12 +15,22 @@ namespace AccessControl
 
         public bool NewConnection()
         {
+            // -- Athena login
 
-            const string user = "dbi320839";
-            const string pw = "ioMMVpigPp";
+            //const string user = "dbi320839";
+            //const string pw = "ioMMVpigPp";
+
+            //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
+            //                        "//192.168.15.50:1521/fhictora" + ";";
+
+            // -- Vmware server login
+
+            const string user = "system";
+            const string pw = "wachtwoord";
+            const string test = "xe";
 
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    "//192.168.15.50:1521/fhictora" + ";";
+                                    "//172.19.180.2:1521/" + test + ";";
             try
             {
                 conn.Open();
