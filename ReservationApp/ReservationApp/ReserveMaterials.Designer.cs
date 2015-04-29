@@ -91,7 +91,7 @@
             this.tbMatOne.MaxLength = 3;
             this.tbMatOne.Name = "tbMatOne";
             this.tbMatOne.Size = new System.Drawing.Size(135, 20);
-            this.tbMatOne.TabIndex = 5;
+            this.tbMatOne.TabIndex = 0;
             this.tbMatOne.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMatOne_KeyPress);
             // 
             // tbMatTwo
@@ -100,7 +100,7 @@
             this.tbMatTwo.MaxLength = 3;
             this.tbMatTwo.Name = "tbMatTwo";
             this.tbMatTwo.Size = new System.Drawing.Size(135, 20);
-            this.tbMatTwo.TabIndex = 6;
+            this.tbMatTwo.TabIndex = 1;
             this.tbMatTwo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMatTwo_KeyPress);
             // 
             // tbMatThree
@@ -109,7 +109,7 @@
             this.tbMatThree.MaxLength = 3;
             this.tbMatThree.Name = "tbMatThree";
             this.tbMatThree.Size = new System.Drawing.Size(135, 20);
-            this.tbMatThree.TabIndex = 7;
+            this.tbMatThree.TabIndex = 2;
             this.tbMatThree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMatThree_KeyPress);
             // 
             // btnMat

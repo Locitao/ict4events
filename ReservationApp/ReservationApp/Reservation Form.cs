@@ -105,7 +105,7 @@ namespace ReservationApp
 
                         var rfid = select.Select_User(phone);
 
-                        MessageBox.Show(insert.Insert_Reservation(rfid, "2", nmPeople.Text, paid));
+                        MessageBox.Show(insert.Insert_Reservation(rfid, "1", nmPeople.Text, paid));
 
                         var res = select.Find_Res_Id(rfid);
                         var loc = nmLocId.Text;
