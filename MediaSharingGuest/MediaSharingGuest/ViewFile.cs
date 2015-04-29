@@ -262,7 +262,7 @@ namespace MediaSharingGuest
             }
             else
             {
-                connection.SQLQueryNoOutput(delete.DeleteLikeMedia(MediaId));
+                connection.SQLQueryNoOutput(delete.DeleteLikeMedia(MediaId, medias.RfidCode));
             }
             ShowDynamicInformation();
         }

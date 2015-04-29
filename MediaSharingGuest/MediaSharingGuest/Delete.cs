@@ -12,9 +12,9 @@ namespace MediaSharingGuest
     class Delete
     {
         //Deletes a media item like, uses media Id.
-        public string DeleteLikeMedia(int mediaId)
+        public string DeleteLikeMedia(int mediaId, string rfidCode)
         {
-            string query = "DELETE FROM PT_USER_LIKE WHERE MEDIA_ID = " + "'" + mediaId + "'";
+            string query = "DELETE FROM PT_USER_LIKE WHERE MEDIA_ID = " + "'" + mediaId + "'" + "AND RFID_CODE = " + "'" + rfidCode + "'";
             return query;
         }
 
