@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WMPLib;
+using System.Media;
 
 namespace MediaSharingGuest
 {
@@ -26,7 +26,7 @@ namespace MediaSharingGuest
         Connection connection = new Connection();
         List<List<string>> output = new List<List<string>>();
         List<List<string>> output2 = new List<List<string>>();
-
+        SoundPlayer soundplayer;
         public int MediaId { get; set; }
 
         //CONSTRUCTOR-------------------------------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ namespace MediaSharingGuest
                 string mediaName = lblTitle.Text = stringList[0];
                 string mediaLocation = lblLocation.Text = stringList[1];
                 string mediaDescription = tbDescription.Text = stringList[2];
-                
+
                 lblName.Text = stringList[4];
                 string rfidCreator = stringList[5];
                 string type = "";
@@ -75,7 +75,7 @@ namespace MediaSharingGuest
                 }
                 else
                 {
-                   type = "Video";
+                    type = "Video";
                 }
 
                 string mediaPath = @stringList[3];
@@ -86,19 +86,15 @@ namespace MediaSharingGuest
                 if (type == "Video")
                 {
                     pbImage.Visible = false;
-                    windowsMediaPlayer.Visible = true;
-                    windowsMediaPlayer.URL = @mediaPath;
+                    SoundPlayer soundplayer = new SoundPlayer(mediaPath);
                     btnPlay.Visible = true;
-                    btnStart.Visible = true;
-                    btnPause.Visible = true;
+                    
                 }
                 else if (type == "Picture")
                 {
-                    windowsMediaPlayer.Visible = false;
                     pbImage.ImageLocation = @mediaPath;
                     btnPlay.Visible = false;
-                    btnStart.Visible = false;
-                    btnPause.Visible = false;
+                  
                 }
             }
         }
@@ -117,14 +113,14 @@ namespace MediaSharingGuest
 
         public bool LikedByUserReaction()
         {
-           foreach (Like like in selectedReaction.Likes)
-           {
-               if (like.RfidCode == medias.RfidCode)
-               {
-                   return true;
-               }
-           }
-           return false;
+            foreach (Like like in selectedReaction.Likes)
+            {
+                if (like.RfidCode == medias.RfidCode)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool ReportedByUserReaction()
@@ -157,12 +153,12 @@ namespace MediaSharingGuest
 
             connection.SQLQueryWithOutput(select.GetMediaLikes(MediaId), out output);
             {
-                 foreach (List<string> stringList in output)
-                 {
-                     string likerRfidCode = stringList[0];
-                     Like like = new Like(likerRfidCode, 0, MediaId);
-                     MediaItem[0].Likes.Add(like);
-                 }
+                foreach (List<string> stringList in output)
+                {
+                    string likerRfidCode = stringList[0];
+                    Like like = new Like(likerRfidCode, 0, MediaId);
+                    MediaItem[0].Likes.Add(like);
+                }
                 lblLikesNumber.Text = Convert.ToString(MediaItem[0].Likes.Count);
 
                 if (LikedByUserMedia())
@@ -194,7 +190,7 @@ namespace MediaSharingGuest
             //This code gets all reactions for the selected Media Item.
             MediaItem[0].Reactions.Clear();
             lbComments.Items.Clear();
-            connection.SQLQueryWithOutput(select.GetAllReactionsData(MediaId), out output);  
+            connection.SQLQueryWithOutput(select.GetAllReactionsData(MediaId), out output);
             foreach (List<string> stringList in output)
             {
                 int reactionId = Convert.ToInt32(stringList[0]);
@@ -216,7 +212,7 @@ namespace MediaSharingGuest
                     Like like = new Like(likerRfidCode, reactionId, 0);
                     reaction.Likes.Add(like);
                 }
-                    reaction.UpdateAllInfoProperty();
+                reaction.UpdateAllInfoProperty();
 
                 //this code gets gets the report of the user of the reactions.
                 connection.SQLQueryWithOutput(select.GetReportComment(medias.RfidCode, reactionId), out output2);
@@ -235,10 +231,10 @@ namespace MediaSharingGuest
                 }
                 else btnReportFile.Enabled = true;
 
-                    MediaItem[0].Reactions.Add(reaction);
-                    lbComments.DisplayMember = "AllInfo";
-                    lbComments.ValueMember = "ReactionId";
-                    lbComments.Items.Add(reaction);
+                MediaItem[0].Reactions.Add(reaction);
+                lbComments.DisplayMember = "AllInfo";
+                lbComments.ValueMember = "ReactionId";
+                lbComments.Items.Add(reaction);
             }
         }
 
@@ -288,7 +284,7 @@ namespace MediaSharingGuest
 
         private void btnLikeComment_Click(object sender, EventArgs e)
         {
-            if (isLikedReaction== false)
+            if (isLikedReaction == false)
             {
                 connection.SQLQueryNoOutput(insert.InsertLikeReaction(selectedReaction.ReactionId, medias.RfidCode));
             }
@@ -325,48 +321,45 @@ namespace MediaSharingGuest
         {
             selectedReaction = lbComments.SelectedItem as Reaction;
 
-                if (selectedReaction != null)
+            if (selectedReaction != null)
+            {
+                btnLikeComment.Enabled = true;
+                btnReportComment.Enabled = true;
+
+                if (LikedByUserReaction())
                 {
-                    btnLikeComment.Enabled = true;
-                    btnReportComment.Enabled = true;
-
-                    if (LikedByUserReaction())
-                    {
-                        btnLikeComment.Text = "Unlike this comment!";
-                        isLikedReaction = true;
-                    }
-                    else
-                    {
-                        btnLikeComment.Text = "Like this comment!";
-                        isLikedReaction = false;
-                    }
-
-                    if (ReportedByUserReaction())
-                    {
-                        btnReportComment.Enabled = false;
-                    }
-                    else btnReportComment.Enabled = true;
+                    btnLikeComment.Text = "Unlike this comment!";
+                    isLikedReaction = true;
                 }
-                else if (selectedReaction == null)
+                else
                 {
-                    btnLikeComment.Enabled = false;
+                    btnLikeComment.Text = "Like this comment!";
+                    isLikedReaction = false;
+                }
+
+                if (ReportedByUserReaction())
+                {
                     btnReportComment.Enabled = false;
                 }
+                else btnReportComment.Enabled = true;
             }
+            else if (selectedReaction == null)
+            {
+                btnLikeComment.Enabled = false;
+                btnReportComment.Enabled = false;
+            }
+        }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            windowsMediaPlayer.Ctlcontrols.play();
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            windowsMediaPlayer.Ctlcontrols.stop();
-        }
-
-        private void btnPause_Click(object sender, EventArgs e)
-        {
-            windowsMediaPlayer.Ctlcontrols.pause();
-        }
+            try
+            {
+                soundplayer.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex));
+            }
         }
     }
+}
