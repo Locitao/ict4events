@@ -13,6 +13,10 @@ namespace Management_System
     public partial class ControlEmployeeAccountsForm : Form
     {
         DatabaseConnection connection = new DatabaseConnection();
+
+        /// <summary>
+        /// Manage all employees here.
+        /// </summary>
         public ControlEmployeeAccountsForm()
         {
             InitializeComponent();
@@ -22,6 +26,9 @@ namespace Management_System
             RefreshEmployeeListbox();
         }
 
+        /// <summary>
+        /// Refresh the list with all employees
+        /// </summary>
         private void RefreshEmployeeListbox()
         {
             lbEmployeeAccounts.Items.Clear();
@@ -46,6 +53,9 @@ namespace Management_System
             RefreshTextboxes();
         }
         
+        /// <summary>
+        /// Refresh the textboxes that contain the information from employees
+        /// </summary>
         private void RefreshTextboxes()
         {
             if (lbEmployeeAccounts.Items.Count > 0)
@@ -70,16 +80,25 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// Close this form and go back to the login menu
+        /// </summary>
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Refresh the textboxes when another employee has been selected
+        /// </summary>
         private void lbEmployeeAccounts_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshTextboxes();
         }
 
+        /// <summary>
+        /// Save the changes that are just made to the selected employee
+        /// </summary>
         private void btnChangeInfo_Click(object sender, EventArgs e)
         {
             Employee tempEmployee = (Employee)lbEmployeeAccounts.SelectedItem;
@@ -104,6 +123,9 @@ namespace Management_System
             RefreshEmployeeListbox();
         }
 
+        /// <summary>
+        /// Delete the selected employee
+        /// </summary>
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             Employee tempEmployee = (Employee)lbEmployeeAccounts.SelectedItem;

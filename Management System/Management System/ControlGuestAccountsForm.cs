@@ -13,12 +13,18 @@ namespace Management_System
     public partial class ControlGuestAccountsForm : Form
     {
         DatabaseConnection connection = new DatabaseConnection();
+        /// <summary>
+        /// manage all guests' accounts here
+        /// </summary>
         public ControlGuestAccountsForm()
         {
             InitializeComponent();
             RefreshGuestsListbox();
         }
 
+        /// <summary>
+        /// retreive all guest information from the database and put it in the listbox
+        /// </summary>
         private void RefreshGuestsListbox()
         {
             lbUserAccounts.Items.Clear();
@@ -52,6 +58,9 @@ namespace Management_System
             RefreshTextboxes();
         }
 
+        /// <summary>
+        /// refresh the textboxes with the selected guest's info
+        /// </summary>
         private void RefreshTextboxes()
         {
             Guest tempGuest  = (Guest)lbUserAccounts.SelectedItem;
@@ -60,11 +69,17 @@ namespace Management_System
             tbAdress.Text = tempGuest.Adress;
         }
 
+        /// <summary>
+        /// refresh the textboxes when another guest has been selected
+        /// </summary>
         private void lbUserAccounts_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshTextboxes();
         }
 
+        /// <summary>
+        /// Save the changes that were made to the selected user
+        /// </summary>
         private void btnChangeInfo_Click(object sender, EventArgs e)
         {
             Guest tempGuest = (Guest)lbUserAccounts.SelectedItem;
@@ -81,6 +96,11 @@ namespace Management_System
             RefreshGuestsListbox();
         }
 
+        /// <summary>
+        /// Delete the selected guest account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             Guest tempGuest = (Guest)lbUserAccounts.SelectedItem;
@@ -97,6 +117,9 @@ namespace Management_System
             RefreshGuestsListbox();
         }
 
+        /// <summary>
+        /// Close this form
+        /// </summary>
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();

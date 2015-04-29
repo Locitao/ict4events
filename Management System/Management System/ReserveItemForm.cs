@@ -31,11 +31,9 @@ namespace Management_System
             lblStatus.Text = material.Status.ToString();
         }
 
-        private void btnLendItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Close this form
+        /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,6 +50,9 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// Reserve the item that was selected, from and until the selected dates
+        /// </summary>
         private void btnReserveItem_Click(object sender, EventArgs e)
         {
             if (dateTimePickerReturnDate.Value >= dateTimePickerLendDate.Value

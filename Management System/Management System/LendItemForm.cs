@@ -13,6 +13,11 @@ namespace Management_System
     {
         public bool saved;
         public Material Mat;
+
+        /// <summary>
+        /// Gives a pop up where the user can put in data for the guest who lends the material
+        /// </summary>
+        /// <param name="material">the material that will be lend</param>
         public LendItemForm(Material material)
         {
 
@@ -24,6 +29,9 @@ namespace Management_System
             lblStatus.Text = material.Status.ToString();
         }
 
+        /// <summary>
+        /// Change the item status in the database to lent
+        /// </summary>
         private void btnLendItem_Click(object sender, EventArgs e)
         {
             if (dateTimePickerReturnDate.Value > DateTime.Now)

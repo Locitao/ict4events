@@ -175,6 +175,9 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// Opens the form where employees can edit guest information.
+        /// </summary>
         private void btnControlGuestAccount_Click(object sender, EventArgs e)
         {
             string error;
@@ -189,6 +192,10 @@ namespace Management_System
             }
         }
 
+
+        /// <summary>
+        /// Opens the form where admins can edit admin information.
+        /// </summary>
         private void btnControlEmployeeAccounts_Click(object sender, EventArgs e)
         {
             string error;
