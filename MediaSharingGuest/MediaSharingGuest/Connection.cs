@@ -25,13 +25,19 @@ namespace MediaSharingGuest
             //const string pw = "ioMMVpigPp";
             //const string test = "fhictora";
 
+            //Athena ip //192.168.15.50:1521/
+
+            //local ip vmware: 172.19.180.2:1521
+
            
             const string user = "SYSTEM";
             const string pw = "wachtwoord";
             const string test = "xe";
 
-            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    "//172.19.180.2:1521/" + test + ";";
+            //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
+                                    //"//192.168.15.50:1521/" + test + ";";
+
+            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + " //localhost:1521/xe" + ";";
             try
             {
                 conn.Open();

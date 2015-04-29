@@ -26,7 +26,7 @@ namespace MediaSharingGuest
         Connection connection = new Connection();
         List<List<string>> output = new List<List<string>>();
         List<List<string>> output2 = new List<List<string>>();
-        SoundPlayer soundplayer;
+        SoundPlayer soundPlayer;
         public int MediaId { get; set; }
 
         //CONSTRUCTOR-------------------------------------------------------------------------------------------------------------------------
@@ -86,7 +86,8 @@ namespace MediaSharingGuest
                 if (type == "Video")
                 {
                     pbImage.Visible = false;
-                    SoundPlayer soundplayer = new SoundPlayer(mediaPath);
+                    SoundPlayer YES = new SoundPlayer(mediaPath);
+                    soundPlayer = YES;
                     btnPlay.Visible = true;
                     
                 }
@@ -354,7 +355,7 @@ namespace MediaSharingGuest
         {
             try
             {
-                soundplayer.Play();
+                soundPlayer.Play();
             }
             catch (Exception ex)
             {
