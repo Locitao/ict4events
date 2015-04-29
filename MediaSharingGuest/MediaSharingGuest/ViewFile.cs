@@ -359,7 +359,7 @@ namespace MediaSharingGuest
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Convert.ToString(ex));
+                MessageBox.Show("Uploaded song file is in wrong format (we only support PCM wav files)");
             }
         }
     }

@@ -47,7 +47,7 @@ namespace MediaSharingGuest
         {
             OpenFileDialog fDialog = new OpenFileDialog();
             fDialog.Title = "Upload File";
-            fDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png | Video and Audio files (*.wma, *.mwv, *.avi, *.mid, *.mp3) | *.wma; *.mwv; *.avi; *.mid; *.mp3 ";
+            fDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png | Audio files (*.wav) | *.wav";
 
             if (fDialog.ShowDialog() == DialogResult.OK)
             {
