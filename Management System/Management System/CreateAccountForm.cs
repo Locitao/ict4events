@@ -27,6 +27,9 @@ namespace Management_System
             cbRights.Items.Add("Admin");
         }
 
+        /// <summary>
+        /// create a new account for an employee
+        /// </summary>
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             if (tbPassword.Text == tbRepeatPassword.Text)
@@ -45,6 +48,11 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// Close this form without adding a new employee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -23,6 +23,9 @@ namespace Management_System
             saved = false;
         }
 
+        /// <summary>
+        /// Save the changes made to this category
+        /// </summary>
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
             if (tbName.Text != "")
@@ -38,6 +41,9 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// Close this form
+        /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,11 +58,6 @@ namespace Management_System
             {
                 e.Handled = true;
             }
-        }
-
-        private void ChangeCategoryForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -31,11 +31,18 @@ namespace Management_System
             saved = false;
         }
 
+        /// <summary>
+        /// Close this form
+        /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        /// <summary>
+        /// Add another instance of the selected category
+        /// </summary>
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             if (cbItem.SelectedItem != null)

@@ -133,36 +133,48 @@ namespace Management_System
         }
 
         
-
+        /// <summary>
+        /// Refresh the locations data when another camping has been selected
+        /// </summary>
         private void lbCampings_SelectedIndexChanged(object sender, EventArgs e)
         {
             refreshLocationsData();
             refreshEventsData();
         }
 
+        /// <summary>
+        /// Create a new camping with a name and a map
+        /// </summary>
         private void btnNewCamping_Click(object sender, EventArgs e)
         {
             string campingName = tbCampingName.Text;
             string mapPath = tbMapPath.Text;
-            string query = "Insert into PT_CAMPING(camping_ID, camping_name, camping_map) VALUES(auto_inc_cam.nextval,'" + campingName + "', '" + mapPath + "')";
-            Exception ex;
-            if (connection.SQLQueryNoOutput(query, out ex))
+            if (mapPath != "" && campingName != "")
             {
-                MessageBox.Show("New camping is succesfully added to our system.");
-                refreshCampingsData();
-                tbCampingName.Text = "";
-                tbMapPath.Text = "";
+                string query = "Insert into PT_CAMPING(camping_ID, camping_name, camping_map) VALUES(auto_inc_cam.nextval,'" + campingName + "', '" + mapPath + "')";
+                Exception ex;
+                if (connection.SQLQueryNoOutput(query, out ex))
+                {
+                    File.Copy(oldFilePath, saveFilePath);
+                    MessageBox.Show("New camping is succesfully added to our system.");
+                    refreshCampingsData();
+                    tbCampingName.Text = "";
+                    tbMapPath.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+                }
             }
             else
             {
-                MessageBox.Show("The following error has occured:" + Environment.NewLine + ex.ToString());
+                MessageBox.Show("Cannot add a camping with no map and/or no name");
             }
-
-            
-            File.Copy(oldFilePath, saveFilePath);
-
         }
 
+        /// <summary>
+        /// Deletes the selected camping
+        /// </summary>
         private void btnDeleteCamping_Click(object sender, EventArgs e)
         {
             if (lbCampings.SelectedItem != null)
@@ -183,6 +195,9 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// Add a camping Location to the selected camping
+        /// </summary>
         private void btnAddLocation_Click(object sender, EventArgs e)
         {
             try
@@ -229,6 +244,9 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// Delete teh selected camping location
+        /// </summary>
         private void btnDeleteLocation_Click(object sender, EventArgs e)
         {
             if (lbCampings.SelectedItem != null)

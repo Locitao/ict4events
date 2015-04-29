@@ -108,6 +108,9 @@ namespace Management_System
             }
         }
 
+        /// <summary>
+        /// Refresh the label text when another material has been selected
+        /// </summary>
         private void lbMaterials_SelectedIndexChanged(object sender, EventArgs e)
         {
             Material m = (Material)lbMaterials.SelectedItem;
@@ -116,6 +119,9 @@ namespace Management_System
             lblStatus.Text = m.Status.ToString();
         }
 
+        /// <summary>
+        /// creates a form where the user can put in info about lending the selected item
+        /// </summary>
         private void btnLendItem_Click(object sender, EventArgs e)
         {
             Material material = null;
@@ -126,22 +132,26 @@ namespace Management_System
                 if (form.saved)
                 {
                     material = form.Mat;
+                    Exception exception;
+                    string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+                    if (connection.SQLQueryNoOutput(query, out exception))
+                    {
+                        MessageBox.Show("Item" + material.Name + "is succesfully lend out to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine + "until: " + material.ReturnTime.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+                    }
+                    RefreshMaterialList();
                 }
             }
-            Exception exception;
-            string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
-            if (connection.SQLQueryNoOutput(query, out exception))
-            {
-                MessageBox.Show("Item" + material.Name + "is succesfully lend out to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine +"until: " + material.ReturnTime.ToString());
-            }
-            else
-            {
-                 MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
-            }
-            RefreshMaterialList();
+            
 
         }
 
+        /// <summary>
+        /// Reserves an item to a guest
+        /// </summary>
         private void btnReserveItem_Click(object sender, EventArgs e)
         {
             Material material = null;
@@ -152,24 +162,28 @@ namespace Management_System
                 if (form.saved)
                 {
                     material = form.Mat;
+                    Exception exception;
+                    if (material != null)
+                    {
+                        string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+                        if (connection.SQLQueryNoOutput(query, out exception))
+                        {
+                            MessageBox.Show("Item: " + material.Name + "  is succesfully reserved to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine + "from: " + material.LendTime.ToString() + Environment.NewLine + "until: " + material.ReturnTime.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+                        }
+                    }
+                    RefreshMaterialList();
                 }
             }
-            Exception exception;
-            if (material != null)
-            {
-                string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
-                if (connection.SQLQueryNoOutput(query, out exception))
-                {
-                    MessageBox.Show("Item: " + material.Name + "  is succesfully reserved to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine + "from: " + material.LendTime.ToString() + Environment.NewLine + "until: " + material.ReturnTime.ToString());
-                }
-                else
-                {
-                    MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
-                }
-            }
-            RefreshMaterialList();
+            
         }
 
+        /// <summary>
+        /// Returns an item status into free, from reserved or lend
+        /// </summary>
         private void btnReturnItem_Click(object sender, EventArgs e)
         {
             Material material = (Material)lbMaterials.SelectedItem;
@@ -186,6 +200,9 @@ namespace Management_System
             RefreshMaterialList();
         }
 
+        /// <summary>
+        /// Save the changes made to a item category
+        /// </summary>
         private void btnChangeCategory_Click(object sender, EventArgs e)
         {
             Material material = null;
@@ -196,21 +213,25 @@ namespace Management_System
                 if (form.saved)
                 {
                     material = form.Mat;
+                    Exception exception;
+                    string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = ' " + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
+                    if (connection.SQLQueryNoOutput(query, out exception))
+                    {
+                        MessageBox.Show("Item: " + material.Name + "  is succesfully returned");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+                    }
+                    RefreshMaterialList();
                 }
             }
-            Exception exception;
-            string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = ' " + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
-            if (connection.SQLQueryNoOutput(query, out exception))
-            {
-                MessageBox.Show("Item: " + material.Name + "  is succesfully returned");
-            }
-            else
-            {
-                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
-            }
-            RefreshMaterialList();
+            
         }
 
+        /// <summary>
+        /// Add an instance from the selected item category
+        /// </summary>
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             List<List<string>> output;
@@ -240,6 +261,9 @@ namespace Management_System
             RefreshMaterialList();
         }
 
+        /// <summary>
+        /// Add a new item category
+        /// </summary>
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
             string query = "";
@@ -248,20 +272,23 @@ namespace Management_System
             if (form.saved)
             {
                 query = "INSERT INTO PT_MAT_CATEGORY(MAT_CATEGORY_ID, MAT_NAME, PRICE) VALUES(auto_inc_mct.nextval,'" + form.CategoryName+ "','" + form.Price +"')";
+                Exception exception;
+                if (connection.SQLQueryNoOutput(query, out exception))
+                {
+                    MessageBox.Show("Category: " + form.CategoryName + "  is succesfully returned");
+                }
+                else
+                {
+                    MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
+                }
+                RefreshMaterialList();
             }
-            Exception exception;
-            if (connection.SQLQueryNoOutput(query, out exception))
-            {
-                MessageBox.Show("Category: " + form.CategoryName + "  is succesfully returned");
-            }
-            else
-            {
-                MessageBox.Show("The following error has occured:" + Environment.NewLine + exception.ToString());
-            }
-            RefreshMaterialList();
+            
         }
 
-
+        /// <summary>
+        /// Refresh the material list when filter states change
+        /// </summary>
         private void checkboxes_CheckedChanged(object sender, EventArgs e)
         {
             RefreshMaterialList();
