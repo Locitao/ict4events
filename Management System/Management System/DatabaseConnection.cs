@@ -25,6 +25,7 @@ namespace Management_System
             string ip = "//192.168.15.50:1521/fhictora";
             
             /*
+             // this are the connection specs for connection to the database in the VMware
             string user = "system";
             string pw = "wachtwoord";
             string ip = "172.19.180.2:1521/xe";

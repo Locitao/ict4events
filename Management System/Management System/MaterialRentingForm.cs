@@ -68,7 +68,7 @@ namespace Management_System
                         {
                             tempEndDate = Convert.ToDateTime(list[4]);
                         }
-                        Material tempMaterial = new Material(Convert.ToInt32(list[0]), tempReservationID, list[2], tempStartDate, tempEndDate, Convert.ToInt32(5), list[6], Convert.ToInt32(list[7]));
+                        Material tempMaterial = new Material(Convert.ToInt32(list[0]), tempReservationID, list[2], tempStartDate, tempEndDate, Convert.ToInt32(list[5]), list[6], Convert.ToInt32(list[7]));
 
                         if (tempMaterial.Status == MaterialStatus.free && cbFree.Checked)
                         {
@@ -200,6 +200,7 @@ namespace Management_System
             RefreshMaterialList();
         }
 
+
         /// <summary>
         /// Save the changes made to a item category
         /// </summary>
@@ -214,10 +215,10 @@ namespace Management_System
                 {
                     material = form.Mat;
                     Exception exception;
-                    string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = ' " + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
+                    string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = '" + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
                     if (connection.SQLQueryNoOutput(query, out exception))
                     {
-                        MessageBox.Show("Item: " + material.Name + "  is succesfully returned");
+                        MessageBox.Show("Item: " + material.Name + "  is succesfully changed, the new price is: " + material.Price.ToString() + ".");
                     }
                     else
                     {
