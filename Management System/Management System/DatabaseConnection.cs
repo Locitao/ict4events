@@ -18,15 +18,17 @@ namespace Management_System
         public DatabaseConnection()
         {
             conn = new OracleConnection();
-            /*
+            
             // this are the old athena connection specs just in case we need them back.
-            string user = "dbi320839";          //rick
-            string pw = "ioMMVpigPp";           //rick
+            string user = "dbi320839";
+            string pw = "ioMMVpigPp";
             string ip = "//192.168.15.50:1521/fhictora";
-            */
+            
+            /*
             string user = "system";
             string pw = "wachtwoord";
             string ip = "172.19.180.2:1521/xe";
+             * */
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + ip + ";";
         }
 

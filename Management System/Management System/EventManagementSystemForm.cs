@@ -249,6 +249,11 @@ namespace Management_System
             }
         }
 
+
+        /// <summary>
+        /// This creates an event and puts it in the database.
+        /// WARNING, you computer language must be english, because the oracle database can't handle foreign languages.
+        /// </summary>
         private void btnCreateEvent_Click(object sender, EventArgs e)
         {
             try{
@@ -268,7 +273,7 @@ namespace Management_System
             string description = tbDescription.Text;
             string query = "Insert into PT_EVENT(event_ID, event_name, event_descr, camping_ID, startdate, enddate) "
                            + "Values(auto_inc_evt.nextval, ' " + name + "', '" + description + "', '" + selectedCamping + "', "
-                 + "TO_DATE('" + startDate.ToString() + "', 'dd-mm-yyyy hh24:mi:ss')" + ", " + "TO_DATE('" + endDate.ToString() + "', 'dd-mm-yyyy hh24:mi:ss')" + ")";
+                 + "TO_DATE('" + startDate.ToString("dd-MMM-yyyy hh:mm:ss") + "', 'dd-mm-yyyy hh24:mi:ss')" + ", " + "TO_DATE('" + endDate.ToString("dd-MMM-yyyy hh:mm:ss") + "', 'dd-mm-yyyy hh24:mi:ss')" + ")";
                 Exception ex;
                 if (connection.SQLQueryNoOutput(query, out ex))
                 {
@@ -302,19 +307,12 @@ namespace Management_System
         }
 
         /// <summary>
-        /// Makes sure the user can only type letters, digits, slashes and dots.
+        /// browse on the computer, let the user select his image/camping map
         /// </summary>
-        private void tbMapPath_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '/' && e.KeyChar != '\\' && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-        }
-
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog fDialog = new OpenFileDialog();
+            fDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
 
             if (fDialog.ShowDialog() == DialogResult.OK)
             {

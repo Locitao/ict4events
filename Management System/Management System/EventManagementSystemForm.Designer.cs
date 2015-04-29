@@ -352,7 +352,6 @@
             this.tbMapPath.ReadOnly = true;
             this.tbMapPath.Size = new System.Drawing.Size(130, 20);
             this.tbMapPath.TabIndex = 2;
-            this.tbMapPath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMapPath_KeyPress);
             // 
             // tbEventName
             // 
@@ -360,6 +359,7 @@
             this.tbEventName.Name = "tbEventName";
             this.tbEventName.Size = new System.Drawing.Size(197, 20);
             this.tbEventName.TabIndex = 13;
+            this.tbEventName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // lblEventName
             // 
@@ -385,6 +385,7 @@
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(197, 20);
             this.tbDescription.TabIndex = 14;
+            this.tbDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress_LettersAndDigits);
             // 
             // btnBrowse
             // 
