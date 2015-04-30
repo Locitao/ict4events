@@ -68,7 +68,7 @@ namespace Management_System
                         {
                             tempEndDate = Convert.ToDateTime(list[4]);
                         }
-                        Material tempMaterial = new Material(Convert.ToInt32(list[0]), tempReservationID, list[2], tempStartDate, tempEndDate, Convert.ToInt32(5), list[6], Convert.ToInt32(list[7]));
+                        Material tempMaterial = new Material(Convert.ToInt32(list[0]), tempReservationID, list[2], tempStartDate, tempEndDate, Convert.ToInt32(list[5]), list[6], Convert.ToInt32(list[7]));
 
                         if (tempMaterial.Status == MaterialStatus.free && cbFree.Checked)
                         {
@@ -121,6 +121,7 @@ namespace Management_System
 
         /// <summary>
         /// creates a form where the user can put in info about lending the selected item
+        /// WARNING, you computer language must be english, because the oracle database can't handle foreign languages.
         /// </summary>
         private void btnLendItem_Click(object sender, EventArgs e)
         {
@@ -133,7 +134,7 @@ namespace Management_System
                 {
                     material = form.Mat;
                     Exception exception;
-                    string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+                    string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString("dd-MMM-yyyy hh:mm:ss") + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString("dd-MMM-yyyy hh:mm:ss") + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
                     if (connection.SQLQueryNoOutput(query, out exception))
                     {
                         MessageBox.Show("Item" + material.Name + "is succesfully lend out to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine + "until: " + material.ReturnTime.ToString());
@@ -151,6 +152,7 @@ namespace Management_System
 
         /// <summary>
         /// Reserves an item to a guest
+        /// WARNING, you computer language must be english, because the oracle database can't handle foreign languages.
         /// </summary>
         private void btnReserveItem_Click(object sender, EventArgs e)
         {
@@ -165,7 +167,7 @@ namespace Management_System
                     Exception exception;
                     if (material != null)
                     {
-                        string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString() + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
+                        string query = "UPDATE PT_MATERIAL SET RFID_CODE = '" + material.RFID_CODE + "', DATE_TAKEN = TO_DATE('" + material.LendTime.ToString("dd-MMM-yyyy hh:mm:ss") + "', 'dd-mm-yyyy hh24:mi:ss'), RETURN_DATE = TO_DATE('" + material.ReturnTime.ToString("dd-MMM-yyyy hh:mm:ss") + "', 'dd-mm-yyyy hh24:mi:ss') WHERE MATERIAL_ID = '" + material.MaterialID + "'";
                         if (connection.SQLQueryNoOutput(query, out exception))
                         {
                             MessageBox.Show("Item: " + material.Name + "  is succesfully reserved to RFID_CODE: " + material.RFID_CODE + "," + Environment.NewLine + "from: " + material.LendTime.ToString() + Environment.NewLine + "until: " + material.ReturnTime.ToString());
@@ -200,6 +202,7 @@ namespace Management_System
             RefreshMaterialList();
         }
 
+
         /// <summary>
         /// Save the changes made to a item category
         /// </summary>
@@ -214,10 +217,10 @@ namespace Management_System
                 {
                     material = form.Mat;
                     Exception exception;
-                    string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = ' " + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
+                    string query = "UPDATE PT_MAT_CATEGORY SET MAT_NAME = '" + material.Name + "', PRICE = '" + material.Price.ToString() + "' WHERE MAT_CATEGORY_ID = '" + material.MaterialCategoryID + "'";
                     if (connection.SQLQueryNoOutput(query, out exception))
                     {
-                        MessageBox.Show("Item: " + material.Name + "  is succesfully returned");
+                        MessageBox.Show("Item: " + material.Name + "  is succesfully changed, the new price is: " + material.Price.ToString() + ".");
                     }
                     else
                     {

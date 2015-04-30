@@ -32,6 +32,7 @@ namespace Management_System
             cbType.Items.Add(LocationType.tent);
             cbType.Items.Add(LocationType.preplacedtent);
             cbType.Items.Add(LocationType.caravan);
+            cbType.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -90,13 +91,13 @@ namespace Management_System
                     locationList.Add(tempLocation);
                     lbLocations.Items.Add(tempLocation);
                     MaxGuestsOnCamping += tempLocation.MaxPeople;
-                    tbMaxVisitors.Text = MaxGuestsOnCamping.ToString();
                 }
             }
             else
             {
                 MessageBox.Show("This error occured:" + Environment.NewLine + exception.ToString());
             }
+            tbMaxVisitors.Text = MaxGuestsOnCamping.ToString();
             if (lbLocations.Items.Count > 0)
             {
                 lbLocations.SelectedIndex = 0;
@@ -202,13 +203,6 @@ namespace Management_System
         {
             try
             {
-                foreach (Location l in locationList)
-                {
-                    if (numLocation.Value == l.CampingID)
-                    {
-                        throw new Exception("Location ID is already in use");
-                    }
-                }
                 Camping tempCamping;
                 if (lbCampings.SelectedItem != null)
                 {
@@ -218,7 +212,7 @@ namespace Management_System
                 {
                     throw new Exception("No camping selected");
                 }
-                Location tempLocation = new Location(Convert.ToInt32(numLocation.Value), tempCamping.CampingID, 0, (LocationType)cbType.SelectedItem, Convert.ToInt32(numPrice.Value), Convert.ToInt32(numMaxGuests.Value));
+                Location tempLocation = new Location(0, tempCamping.CampingID, 0, (LocationType)cbType.SelectedItem, Convert.ToInt32(numPrice.Value), Convert.ToInt32(numMaxGuests.Value));
                 string query = "Insert into PT_EVENT_LOCATION(location_ID, camping_id, loc_type, price, max_people) Values(auto_inc_loc.nextval, '" + tempLocation.CampingID + "', '" + tempLocation.Type.ToString() + "', '" + tempLocation.Price.ToString() + "', '" + tempLocation.MaxPeople.ToString() + "')";
                 Exception ex;
                 if (connection.SQLQueryNoOutput(query, out ex))

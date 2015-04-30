@@ -34,10 +34,8 @@
             this.lblCampingName = new System.Windows.Forms.Label();
             this.tbCampingName = new System.Windows.Forms.TextBox();
             this.lbLocations = new System.Windows.Forms.ListBox();
-            this.lblLocationNumber = new System.Windows.Forms.Label();
             this.btnAddLocation = new System.Windows.Forms.Button();
             this.lblMaxGuests = new System.Windows.Forms.Label();
-            this.numLocation = new System.Windows.Forms.NumericUpDown();
             this.numMaxGuests = new System.Windows.Forms.NumericUpDown();
             this.tbMaxVisitors = new System.Windows.Forms.TextBox();
             this.btnDeleteCamping = new System.Windows.Forms.Button();
@@ -62,7 +60,6 @@
             this.lblDesctiption = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxGuests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             this.SuspendLayout();
@@ -120,18 +117,9 @@
             this.lbLocations.Size = new System.Drawing.Size(341, 82);
             this.lbLocations.TabIndex = 7;
             // 
-            // lblLocationNumber
-            // 
-            this.lblLocationNumber.AutoSize = true;
-            this.lblLocationNumber.Location = new System.Drawing.Point(354, 121);
-            this.lblLocationNumber.Name = "lblLocationNumber";
-            this.lblLocationNumber.Size = new System.Drawing.Size(89, 13);
-            this.lblLocationNumber.TabIndex = 11;
-            this.lblLocationNumber.Text = "Location number:";
-            // 
             // btnAddLocation
             // 
-            this.btnAddLocation.Location = new System.Drawing.Point(450, 226);
+            this.btnAddLocation.Location = new System.Drawing.Point(450, 201);
             this.btnAddLocation.Name = "btnAddLocation";
             this.btnAddLocation.Size = new System.Drawing.Size(89, 23);
             this.btnAddLocation.TabIndex = 10;
@@ -142,27 +130,15 @@
             // lblMaxGuests
             // 
             this.lblMaxGuests.AutoSize = true;
-            this.lblMaxGuests.Location = new System.Drawing.Point(354, 149);
+            this.lblMaxGuests.Location = new System.Drawing.Point(354, 124);
             this.lblMaxGuests.Name = "lblMaxGuests";
             this.lblMaxGuests.Size = new System.Drawing.Size(68, 13);
             this.lblMaxGuests.TabIndex = 10;
             this.lblMaxGuests.Text = "max. Guests:";
             // 
-            // numLocation
-            // 
-            this.numLocation.Location = new System.Drawing.Point(450, 121);
-            this.numLocation.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numLocation.Name = "numLocation";
-            this.numLocation.Size = new System.Drawing.Size(89, 20);
-            this.numLocation.TabIndex = 5;
-            // 
             // numMaxGuests
             // 
-            this.numMaxGuests.Location = new System.Drawing.Point(450, 147);
+            this.numMaxGuests.Location = new System.Drawing.Point(450, 122);
             this.numMaxGuests.Maximum = new decimal(new int[] {
             10,
             0,
@@ -228,7 +204,7 @@
             // 
             // btnDeleteLocation
             // 
-            this.btnDeleteLocation.Location = new System.Drawing.Point(357, 226);
+            this.btnDeleteLocation.Location = new System.Drawing.Point(357, 201);
             this.btnDeleteLocation.Name = "btnDeleteLocation";
             this.btnDeleteLocation.Size = new System.Drawing.Size(90, 23);
             this.btnDeleteLocation.TabIndex = 9;
@@ -290,7 +266,7 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(450, 173);
+            this.cbType.Location = new System.Drawing.Point(450, 148);
             this.cbType.MaxDropDownItems = 20;
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(89, 21);
@@ -299,7 +275,7 @@
             // lblLocationType
             // 
             this.lblLocationType.AutoSize = true;
-            this.lblLocationType.Location = new System.Drawing.Point(354, 176);
+            this.lblLocationType.Location = new System.Drawing.Point(354, 151);
             this.lblLocationType.Name = "lblLocationType";
             this.lblLocationType.Size = new System.Drawing.Size(74, 13);
             this.lblLocationType.TabIndex = 27;
@@ -307,7 +283,7 @@
             // 
             // numPrice
             // 
-            this.numPrice.Location = new System.Drawing.Point(450, 200);
+            this.numPrice.Location = new System.Drawing.Point(450, 175);
             this.numPrice.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -330,7 +306,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(354, 202);
+            this.lblPrice.Location = new System.Drawing.Point(354, 177);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(34, 13);
             this.lblPrice.TabIndex = 29;
@@ -426,8 +402,6 @@
             this.Controls.Add(this.btnDeleteCamping);
             this.Controls.Add(this.tbMaxVisitors);
             this.Controls.Add(this.numMaxGuests);
-            this.Controls.Add(this.numLocation);
-            this.Controls.Add(this.lblLocationNumber);
             this.Controls.Add(this.btnAddLocation);
             this.Controls.Add(this.lblMaxGuests);
             this.Controls.Add(this.lbLocations);
@@ -438,7 +412,6 @@
             this.Controls.Add(this.lblMaxVisitors);
             this.Name = "EventManagementSystemForm";
             this.Text = "Management System";
-            ((System.ComponentModel.ISupportInitialize)(this.numLocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxGuests)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
@@ -454,10 +427,8 @@
         private System.Windows.Forms.Label lblCampingName;
         private System.Windows.Forms.TextBox tbCampingName;
         private System.Windows.Forms.ListBox lbLocations;
-        private System.Windows.Forms.Label lblLocationNumber;
         private System.Windows.Forms.Button btnAddLocation;
         private System.Windows.Forms.Label lblMaxGuests;
-        private System.Windows.Forms.NumericUpDown numLocation;
         private System.Windows.Forms.NumericUpDown numMaxGuests;
         private System.Windows.Forms.TextBox tbMaxVisitors;
         private System.Windows.Forms.Button btnDeleteCamping;
