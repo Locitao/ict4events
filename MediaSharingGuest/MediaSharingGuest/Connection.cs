@@ -21,12 +21,13 @@ namespace MediaSharingGuest
         public bool OpenConnection()
         {
 
+            //Athena Connection data
             //const string user = "dbi320839";
             //const string pw = "ioMMVpigPp";
             //const string test = "fhictora";
-
             //Athena ip //192.168.15.50:1521/
 
+            //VMware connection data
             //local ip vmware: 172.19.180.2:1521
 
            
@@ -35,9 +36,11 @@ namespace MediaSharingGuest
             const string test = "xe";
 
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    "//192.168.15.50:1521/" + test + ";";
+                                    "//172.19.180.2:1521/" + test + ";";
 
+            //Local connection data
             //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + " //localhost:1521/xe" + ";";
+
             try
             {
                 conn.Open();
