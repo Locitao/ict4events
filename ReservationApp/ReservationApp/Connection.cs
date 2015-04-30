@@ -32,7 +32,7 @@ namespace ReservationApp
             const string test = "xe";
 
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    "//localhost/" + test + ";";
+                                    "//172.19.180.2:1521/" + test + ";";
             try
             {
                 
