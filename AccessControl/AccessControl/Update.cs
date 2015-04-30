@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace AccessControl
 {
+    /// <summary>
+    /// This class has all the update statements, with which you can update the database with the
+    /// appropriate information.
+    /// </summary>
     class Update
     {
         Connection connect = new Connection();
         Select select = new Select();
 
+        /// <summary>
+        /// This method updates the paid status of an account.
+        /// </summary>
+        /// <param name="RFID"></param>
+        /// <returns></returns>
         public string Update_Paid(string RFID)
          {
              try
@@ -36,7 +45,11 @@ namespace AccessControl
                  return "Error, update failed";
              }
          }
-
+        /// <summary>
+        /// When a user checks into the event, event_ID is updated in the database.
+        /// </summary>
+        /// <param name="RFID_Code"></param>
+        /// <returns></returns>
         public bool Update_CheckPresent(string RFID_Code)
         {
             string present = select.CheckPresent(RFID_Code);
@@ -62,7 +75,11 @@ namespace AccessControl
                 return false;
             }
         }
-
+        /// <summary>
+        /// Updates a reservation ID
+        /// </summary>
+        /// <param name="reserveCode"></param>
+        /// <returns></returns>
         public bool Update_location(string reserveCode)
         {
             try
@@ -92,7 +109,11 @@ namespace AccessControl
                 return false;
             }
         }
-
+        /// <summary>
+        /// Updates the material.
+        /// </summary>
+        /// <param name="reserveCode"></param>
+        /// <returns></returns>
         public bool Update_Material(string reserveCode)
         {
             try

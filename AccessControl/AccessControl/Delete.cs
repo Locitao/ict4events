@@ -8,6 +8,9 @@ namespace AccessControl
 {
     class Delete
     {
+        /// <summary>
+        /// This class takes care of all the deletions that have to happen in the database.
+        /// </summary>
         Connection connect = new Connection();
 
         public bool Delete_Reservation(string ReserveID)
