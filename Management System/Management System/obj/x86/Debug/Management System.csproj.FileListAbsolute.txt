@@ -26,3 +26,19 @@ C:\Users\martijn\Documents\GitHub\ict4events\Management System\Management System
 C:\Users\Bart\Documents\GitHub\ict4events\Management System\Management System\bin\x86\Debug\Management System.exe.config
 C:\Users\Bart\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.exe
 C:\Users\Bart\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.pdb
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\bin\x86\Debug\Management System.exe
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\bin\x86\Debug\Management System.pdb
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.csprojResolveAssemblyReference.cache
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.AddItemForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.AdministrationLogInForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.AddCategoryForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ChangeCategoryForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ControlEmployeeAccountsForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ControlGuestAccountsForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.CreateAccountForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.EventManagementSystemForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.ReserveItemForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.LendItemForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.MaterialRentingForm.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management_System.Properties.Resources.resources
+C:\Users\rvanduijnhoven\Documents\GitHub\ict4events\Management System\Management System\obj\x86\Debug\Management System.csproj.GenerateResource.Cache

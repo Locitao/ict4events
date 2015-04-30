@@ -39,13 +39,13 @@ namespace Management_System
             }
             else
             {
-                MessageBox.Show("the name can't be empty");
+                MessageBox.Show("the name can't be empty.");
             }
         }
 
 
         /// <summary>
-        /// Close this form
+        /// Close this form.
         /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
