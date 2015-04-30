@@ -5,7 +5,7 @@
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+       private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -52,9 +52,10 @@
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(160, 46);
+            this.btnChange.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnChange.Location = new System.Drawing.Point(140, 31);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(75, 23);
+            this.btnChange.Size = new System.Drawing.Size(75, 34);
             this.btnChange.TabIndex = 2;
             this.btnChange.Text = "Change";
             this.btnChange.UseVisualStyleBackColor = true;
@@ -62,9 +63,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(241, 46);
+            this.btnCancel.Location = new System.Drawing.Point(221, 31);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 34);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -74,13 +75,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 81);
+            this.ClientSize = new System.Drawing.Size(328, 79);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.lblChangeNameInto);
             this.Controls.Add(this.tbName);
             this.Name = "EditCategoryName";
             this.Text = "Edit Category name";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

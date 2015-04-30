@@ -24,6 +24,7 @@ namespace MediaSharingGuest
         List<List<string>> output = new List<List<string>>();
        
         Connection connection = new Connection();
+        Protection protection = new Protection();
         Select select = new Select();
         Delete delete = new Delete();
         Update update = new Update();
@@ -48,6 +49,11 @@ namespace MediaSharingGuest
                 kindOfReport = "Category";
                 btnDeleteMedia.Enabled = false;
                 btnDeleteReaction.Enabled = false;
+                tbCategory.Visible = true;
+                tbText.Visible = true;
+
+                connection.SQLQueryWithOutput(select.GetCategoryNameWithID(report.CategoryId), out output);
+                tbText.Text = output[0][0];
             }
             else if (report.MediaId != 0)
             {
@@ -79,7 +85,7 @@ namespace MediaSharingGuest
                     return;
                 }
 
-                tbReportContent.Text = output[0][0];
+                tbText.Text = output[0][0];
             }
 
             tbReportContent.Text = report.Content;
@@ -138,8 +144,17 @@ namespace MediaSharingGuest
         //button to edit the category name
         private void btnEditCategoryName_Click(object sender, EventArgs e)
         {
-            EditCategoryName editCategoryName = new EditCategoryName(report.CategoryId);
-            editCategoryName.Show();
+            if (tbCategory.Text == "")
+            {
+                tbCategory.Text = "Default";
+            }
+            else
+            {
+                connection.SQLQueryNoOutput(update.EditCategoryName(report.CategoryId, protection.ProtectAgainstSQLInjection(tbCategory.Text)));
+                connection.SQLQueryNoOutput(delete.DeleteReportsWithCategoryId(report.CategoryId));
+                MessageBox.Show("Category name changed.");
+                this.Close();
+            }
         }
 
         //Closes the window.

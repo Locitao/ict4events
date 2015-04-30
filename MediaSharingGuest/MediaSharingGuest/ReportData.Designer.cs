@@ -32,6 +32,8 @@
             this.lblReporter = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.gbData = new System.Windows.Forms.GroupBox();
+            this.tbCategory = new System.Windows.Forms.TextBox();
+            this.btnBanCreator = new System.Windows.Forms.Button();
             this.pbMedia = new System.Windows.Forms.PictureBox();
             this.lblTypeContent = new System.Windows.Forms.Label();
             this.btnDeleteReaction = new System.Windows.Forms.Button();
@@ -42,9 +44,9 @@
             this.lblUserNameCreator = new System.Windows.Forms.Label();
             this.lblContentCreator = new System.Windows.Forms.Label();
             this.gbReporterData = new System.Windows.Forms.GroupBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnBanReporter = new System.Windows.Forms.Button();
-            this.btnBanCreator = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.tbText = new System.Windows.Forms.TextBox();
             this.gbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMedia)).BeginInit();
             this.gbReporterData.SuspendLayout();
@@ -78,6 +80,8 @@
             // 
             // gbData
             // 
+            this.gbData.Controls.Add(this.tbText);
+            this.gbData.Controls.Add(this.tbCategory);
             this.gbData.Controls.Add(this.btnBanCreator);
             this.gbData.Controls.Add(this.pbMedia);
             this.gbData.Controls.Add(this.lblTypeContent);
@@ -94,6 +98,25 @@
             this.gbData.TabIndex = 3;
             this.gbData.TabStop = false;
             this.gbData.Text = "Reported Item Data";
+            // 
+            // tbCategory
+            // 
+            this.tbCategory.Location = new System.Drawing.Point(222, 38);
+            this.tbCategory.Name = "tbCategory";
+            this.tbCategory.Size = new System.Drawing.Size(194, 22);
+            this.tbCategory.TabIndex = 12;
+            this.tbCategory.Visible = false;
+            // 
+            // btnBanCreator
+            // 
+            this.btnBanCreator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBanCreator.Location = new System.Drawing.Point(338, 219);
+            this.btnBanCreator.Name = "btnBanCreator";
+            this.btnBanCreator.Size = new System.Drawing.Size(116, 45);
+            this.btnBanCreator.TabIndex = 5;
+            this.btnBanCreator.Text = "BAN CREATOR";
+            this.btnBanCreator.UseVisualStyleBackColor = true;
+            this.btnBanCreator.Click += new System.EventHandler(this.btnBanCreator_Click);
             // 
             // pbMedia
             // 
@@ -118,7 +141,7 @@
             this.btnDeleteReaction.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnDeleteReaction.Location = new System.Drawing.Point(222, 142);
             this.btnDeleteReaction.Name = "btnDeleteReaction";
-            this.btnDeleteReaction.Size = new System.Drawing.Size(144, 32);
+            this.btnDeleteReaction.Size = new System.Drawing.Size(194, 32);
             this.btnDeleteReaction.TabIndex = 9;
             this.btnDeleteReaction.Text = "Delete Reaction";
             this.btnDeleteReaction.UseVisualStyleBackColor = true;
@@ -129,7 +152,7 @@
             this.btnDeleteMedia.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnDeleteMedia.Location = new System.Drawing.Point(222, 104);
             this.btnDeleteMedia.Name = "btnDeleteMedia";
-            this.btnDeleteMedia.Size = new System.Drawing.Size(144, 32);
+            this.btnDeleteMedia.Size = new System.Drawing.Size(194, 32);
             this.btnDeleteMedia.TabIndex = 8;
             this.btnDeleteMedia.Text = "Delete Media";
             this.btnDeleteMedia.UseVisualStyleBackColor = true;
@@ -157,9 +180,9 @@
             this.btnEditCategoryName.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnEditCategoryName.Location = new System.Drawing.Point(222, 66);
             this.btnEditCategoryName.Name = "btnEditCategoryName";
-            this.btnEditCategoryName.Size = new System.Drawing.Size(144, 32);
+            this.btnEditCategoryName.Size = new System.Drawing.Size(194, 32);
             this.btnEditCategoryName.TabIndex = 5;
-            this.btnEditCategoryName.Text = "Edit Category Name";
+            this.btnEditCategoryName.Text = "Change Category Name";
             this.btnEditCategoryName.UseVisualStyleBackColor = true;
             this.btnEditCategoryName.Click += new System.EventHandler(this.btnEditCategoryName_Click);
             // 
@@ -195,16 +218,6 @@
             this.gbReporterData.TabStop = false;
             this.gbReporterData.Text = "Reporter Data";
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(6, 229);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(144, 32);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnBanReporter
             // 
             this.btnBanReporter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -216,16 +229,23 @@
             this.btnBanReporter.UseVisualStyleBackColor = true;
             this.btnBanReporter.Click += new System.EventHandler(this.btnBanReporter_Click);
             // 
-            // btnBanCreator
+            // btnCancel
             // 
-            this.btnBanCreator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnBanCreator.Location = new System.Drawing.Point(338, 219);
-            this.btnBanCreator.Name = "btnBanCreator";
-            this.btnBanCreator.Size = new System.Drawing.Size(116, 45);
-            this.btnBanCreator.TabIndex = 5;
-            this.btnBanCreator.Text = "BAN CREATOR";
-            this.btnBanCreator.UseVisualStyleBackColor = true;
-            this.btnBanCreator.Click += new System.EventHandler(this.btnBanCreator_Click);
+            this.btnCancel.Location = new System.Drawing.Point(6, 229);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(144, 32);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // tbText
+            // 
+            this.tbText.Location = new System.Drawing.Point(20, 66);
+            this.tbText.Multiline = true;
+            this.tbText.Name = "tbText";
+            this.tbText.Size = new System.Drawing.Size(196, 136);
+            this.tbText.TabIndex = 13;
             // 
             // ReportData
             // 
@@ -264,5 +284,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnBanCreator;
         private System.Windows.Forms.Button btnBanReporter;
+        private System.Windows.Forms.TextBox tbCategory;
+        private System.Windows.Forms.TextBox tbText;
     }
 }

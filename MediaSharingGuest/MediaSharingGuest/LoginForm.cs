@@ -20,6 +20,7 @@ namespace MediaSharingGuest
         Select select = new Select();
         Protection protection = new Protection();
         List<List<string>> output = new List<List<string>>();
+        int startFolderId = 1;
 
         //Constructor-----------------------
         public LoginForm()
@@ -46,6 +47,8 @@ namespace MediaSharingGuest
                 if (password == tablePassword)
                 {
                     ViewReports viewReports = new ViewReports();
+                    tbPassword.Clear();
+                    tbUserOrRFID.Clear();
                     viewReports.Show();
                 }
                 else MessageBox.Show("Wrong password!");
@@ -77,7 +80,9 @@ namespace MediaSharingGuest
                 if (banned == 0)
                 {
                     MediaSharingSystem ms = new MediaSharingSystem(RfidCode, Username);
-                    GuestForm guestform = new GuestForm(ms, 2);
+                    GuestForm guestform = new GuestForm(ms, startFolderId);
+                    tbPassword.Clear();
+                    tbUserOrRFID.Clear();
                     guestform.Show();
                 }
                 else MessageBox.Show("You're banned! Please contact an administrator");
@@ -87,6 +92,9 @@ namespace MediaSharingGuest
             {
                 MessageBox.Show("Wrong RFID Code!");
             }
+
+            tbPassword.Clear();
+            tbUserOrRFID.Clear();
         }
 
         ///Events------------------------------------
@@ -150,6 +158,9 @@ namespace MediaSharingGuest
                 lblPassword.Visible = true;
                 tbPassword.Visible = true;
             }
+
+            tbPassword.Clear();
+            tbUserOrRFID.Clear();
         }
     }
 }

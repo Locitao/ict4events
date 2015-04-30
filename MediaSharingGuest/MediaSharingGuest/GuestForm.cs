@@ -47,7 +47,6 @@ namespace MediaSharingGuest
             PreviousCategoryId = 2;
 
             this.medias = medias;
-            this.startingCategoryId = startingCategoryId;
             timerNewsFeed.Start();
             
             timerNewsFeed.Start();
@@ -91,16 +90,26 @@ namespace MediaSharingGuest
             CurrentCategoryId = categoryId;
             lbFolders.Items.Clear();
             Categories.Clear();
-            
+
             //SELECT query to select the folder content from the database.
             connection.SQLQueryWithOutput(select.GetCategories(categoryId), out output);
-            
+
             //CODE TO UPDATE LISTBOX
             foreach (List<string> stringList in output)
             {
                 int categoryIdLoad = Convert.ToInt32(stringList[0]);
                 string categoryNameLoad = stringList[1];
-                int parentCategoryIdLoad = Convert.ToInt32(stringList[2]);
+                int parentCategoryIdLoad = 0;
+
+                if (stringList[2] != "")
+                {
+                    parentCategoryIdLoad = Convert.ToInt32(stringList[2]);
+                }
+                else
+                {
+                    btnBack.Enabled = false;
+                }
+
 
                 Category category = new Category(categoryNameLoad, categoryIdLoad, parentCategoryIdLoad, rfidCodeUser);
 
@@ -110,19 +119,12 @@ namespace MediaSharingGuest
                 lbFolders.Items.Add(category);
             }
 
-            if (Categories.Count > 0)
+            if (CurrentCategoryId == startingCategoryId)
             {
-                if (Categories[0].ParentCategoryId == startingCategoryId)
-                {
-                    btnBack.Enabled = false;
-                }
-                else if (Categories[0].ParentCategoryId != startingCategoryId)
-                {
-                    btnBack.Enabled = true;
-                }
+                btnBack.Enabled = false;
             }
+        }
 
-            }
 
         /// <summary>
         /// Loads all media items and displays them in the media listbox.
@@ -155,7 +157,7 @@ namespace MediaSharingGuest
           
         //Events-----------------------------------------
 
-        //This buttonopens the upload file window.
+        //This button opens the upload file window.
         private void btnAddFile_Click_1(object sender, EventArgs e)
         {
             DialogResult dialogresult = new DialogResult();

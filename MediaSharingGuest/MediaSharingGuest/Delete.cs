@@ -42,7 +42,7 @@ namespace MediaSharingGuest
         //Deletes a report about a category, using category Id.
         public string DeleteReportsWithCategoryId(int categoryId)
         {
-            string query = "DELETE FROM PT_REPORT WHERE REACTION_ID = " + "'" + categoryId + "'";
+            string query = "DELETE FROM PT_REPORT WHERE CATEGORY_ID = " + "'" + categoryId + "'";
             return query;
         }
 

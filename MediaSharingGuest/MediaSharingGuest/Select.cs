@@ -9,6 +9,12 @@ namespace MediaSharingGuest
 {
     class Select
     {
+        public string GetCategoryNameWithID(int categoryId)
+        {
+            string query = "SELECT CATEGORY_NAME FROM PT_MED_CATEGORY WHERE CATEGORY_ID = " + "'" + categoryId + "'";
+            return query;
+        }
+
         public string GetInlogDataUser(string Rfidcode)
         {
             string query = "SELECT USER_NAME, RFID_CODE, USER_BAN_STATE FROM PT_USER_ACC WHERE RFID_CODE = '" + Rfidcode + "'";
