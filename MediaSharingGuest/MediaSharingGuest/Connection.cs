@@ -30,14 +30,15 @@ namespace MediaSharingGuest
             //local ip vmware: 172.19.180.2:1521
 
            
-            const string user = "SYSTEM";
-            const string pw = "wachtwoord";
-            const string test = "xe";
+            //const string user = "SYSTEM";
+            //const string pw = "wachtwoord";
+            //const string test = "xe";
 
             //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
                                     //"//192.168.15.50:1521/" + test + ";";
 
-            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + " //localhost:1521/xe" + ";";
+            //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + " //localhost:1521/xe" + ";";
+            conn.ConnectionString = "User Id=system;Password=wachtwoord;Data Source=172.19.180.2:1521/xe;";
             try
             {
                 conn.Open();
@@ -91,6 +92,11 @@ namespace MediaSharingGuest
                         else if (rdr.GetValue(i) is short)
                         {
                             short tempInt = (short)rdr.GetValue(i);
+                            temp.Add(tempInt.ToString());
+                        }
+                        else if (rdr.GetValue(i) is decimal)
+                        {
+                            decimal tempInt = (decimal)rdr.GetValue(i);
                             temp.Add(tempInt.ToString());
                         }
                         else if (rdr.GetValue(i) is DateTime)

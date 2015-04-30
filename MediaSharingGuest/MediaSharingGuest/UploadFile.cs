@@ -70,7 +70,7 @@ namespace MediaSharingGuest
                 connection.SQLQueryWithOutput(select.GetMaxMedId(), out output);
                 int number = 0;
 
-                if (output[0][0] == "")
+                if (output.Count > 0 && output[0].Count > 0)
                 {
                     number = 1;
                 }
