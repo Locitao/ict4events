@@ -81,9 +81,9 @@
             this.lblNewsMessage.Location = new System.Drawing.Point(23, 67);
             this.lblNewsMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewsMessage.Name = "lblNewsMessage";
-            this.lblNewsMessage.Size = new System.Drawing.Size(549, 54);
+            this.lblNewsMessage.Size = new System.Drawing.Size(412, 54);
             this.lblNewsMessage.TabIndex = 0;
-            this.lblNewsMessage.Text = "Jan: Newsfeed bericht!!!";
+            this.lblNewsMessage.Text = "User: Testbericht!";
             // 
             // tbNewsFeed
             // 

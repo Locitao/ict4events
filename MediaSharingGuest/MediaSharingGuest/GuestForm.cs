@@ -194,14 +194,17 @@ namespace MediaSharingGuest
         {
             selectedCategory = lbFolders.SelectedItem as Category;
 
-            //query to check if selected folder has been reported.
-            connection.SQLQueryWithOutput(select.GetCategoryReportedByUser(selectedCategory.CategoryId, medias.RfidCode), out output);
-
-            if (output.Count == 0)
+            if (selectedCategory != null)
             {
-                btnReportCategory.Enabled = true;
+                //query to check if selected folder has been reported.
+                connection.SQLQueryWithOutput(select.GetCategoryReportedByUser(selectedCategory.CategoryId, medias.RfidCode), out output);
+
+                if (output.Count == 0)
+                {
+                    btnReportCategory.Enabled = true;
+                }
+                else btnReportCategory.Enabled = false;
             }
-            else btnReportCategory.Enabled = false;
         }
 
         //this button returns you to the parentfolder of the current folder.

@@ -22,13 +22,13 @@ namespace MediaSharingGuest
         {
 
             //Barts local database for testing purpose
-            //conn.ConnectionString = "User Id=system;Password=wachtwoord;Data Source=//localhost:1521/xe;";
+            conn.ConnectionString = "User Id=system;Password=wachtwoord;Data Source=//localhost:1521/xe;";
 
             // athea database from rick
             //conn.ConnectionString = "User Id=dbi320839;Password=ioMMVpigPp;Data Source=//192.168.15.50:1521/fhictora;";
 
             // local database string for WMware
-            conn.ConnectionString = "User Id=system;Password=wachtwoord;Data Source=172.19.180.2:1521/xe;";
+            //conn.ConnectionString = "User Id=system;Password=wachtwoord;Data Source=172.19.180.2:1521/xe;";
             try
             {
                 conn.Open();
