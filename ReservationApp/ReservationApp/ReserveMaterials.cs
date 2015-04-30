@@ -85,6 +85,15 @@ namespace ReservationApp
         /// <param name="e"></param>
         private void btnMat_Click(object sender, EventArgs e)
         {
+            if (tbMatOne.Text == "" && tbMatTwo.Text == "" && tbMatThree.Text == "")
+            {
+                MessageBox.Show("Thank you for placing your reservation. You will now be returned to the start. Remember that your friends have to register their account as well, to receive their RFID tag!");
+                Hide();
+                Startup start = new Startup();
+                start.Closed += (s, args) => Close();
+                start.Show();
+            }
+
             bool test = false;
             try
             {
