@@ -124,27 +124,36 @@ namespace ReservationApp
                         var res = select.Find_Res_Id(rfid);
                         var loc = nmLocId.Text;
 
-                        if (nmLoc2.Text != "0" && CheckLocation(nmLoc2.Text))
+                        if (nmLoc2.Text != "0")
                         {
-                            update.Update_Location(nmLoc2.Text, res);
-                        }
-                        else
-                        {
-                            MessageBox.Show(
-                                "This location doesn't exist, or has been reserved already. Pick one from the list.");
+                            if (CheckLocation(nmLoc2.Text))
+                            {
+                                update.Update_Location(nmLoc2.Text, res);
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                    "This location doesn't exist, or has been reserved already. Pick one from the list.");
 
+                            }
+                            
                         }
+                        
 
-                        if (nmLoc3.Text != "0" && CheckLocation(nmLoc3.Text))
+                        if (nmLoc3.Text != "0")
                         {
-                            update.Update_Location(nmLoc3.Text, res);
-                        }
-                        else
-                        {
-                            MessageBox.Show(
-                                "This location doesn't exist, or has been reserved already. Pick one from the list.");
+                            if (CheckLocation(nmLoc3.Text))
+                            {
+                                update.Update_Location(nmLoc3.Text, res);
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                    "This location doesn't exist, or has been reserved already. Pick one from the list.");
 
+                            }
                         }
+                        
 
                         MessageBox.Show(update.Update_Location(loc, res));
                         connect.CloseConnection();
