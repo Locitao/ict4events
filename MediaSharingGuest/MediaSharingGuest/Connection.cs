@@ -34,10 +34,10 @@ namespace MediaSharingGuest
             const string pw = "wachtwoord";
             const string test = "xe";
 
-            //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    //"//192.168.15.50:1521/" + test + ";";
+            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
+                                    "//192.168.15.50:1521/" + test + ";";
 
-            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + " //localhost:1521/xe" + ";";
+            //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + " //localhost:1521/xe" + ";";
             try
             {
                 conn.Open();
