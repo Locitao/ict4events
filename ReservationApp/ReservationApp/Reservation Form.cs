@@ -25,6 +25,7 @@ namespace ReservationApp
 
         private string name;
         private readonly string phone;
+        private List<string> listlocations = new List<string>(); 
         
         public ReservationForm(string Name, string Phone)
         {
@@ -51,6 +52,7 @@ namespace ReservationApp
         public override void Refresh()
         {
             lbLocations.Items.Clear();
+            listlocations.Clear();
             nmLocId.Value = 0;
 
             try
@@ -60,6 +62,15 @@ namespace ReservationApp
                 foreach (Dictionary<string, object> row in locations)
                 {
                     lbLocations.Items.Add("Location ID: "+row["LOCATION_ID"]+". Type: "+row["LOC_TYPE"]+". "+"Maximum amount of people: "+row["MAX_PEOPLE"]+". "+"Price: "+row["PRICE"]+".");
+                    
+                    Dictionary<string, string> locs = row.ToDictionary(k => k.Key,
+                        k => k.Value == null ? "" : k.Value.ToString());
+                    
+                    
+                }
+                foreach (var s in locations)
+                {
+                    listlocations.Add(Convert.ToString(s["LOCATION_ID"]));
                 }
             }
             catch (Exception ex)
@@ -104,20 +115,35 @@ namespace ReservationApp
                     //{
 
                         var rfid = select.Select_User(phone);
-
+                    if (nmPeople.Text != "0" && CheckLocation(nmLocId.Text))
+                    {
+                        
+                    
                         MessageBox.Show(insert.Insert_Reservation(rfid, "1", nmPeople.Text, paid));
 
                         var res = select.Find_Res_Id(rfid);
                         var loc = nmLocId.Text;
 
-                        if (nmLoc2.Text != "0")
+                        if (nmLoc2.Text != "0" && CheckLocation(nmLoc2.Text))
                         {
                             update.Update_Location(nmLoc2.Text, res);
                         }
+                        else
+                        {
+                            MessageBox.Show(
+                                "This location doesn't exist, or has been reserved already. Pick one from the list.");
 
-                        if (nmLoc3.Text != "0")
+                        }
+
+                        if (nmLoc3.Text != "0" && CheckLocation(nmLoc3.Text))
                         {
                             update.Update_Location(nmLoc3.Text, res);
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                                "This location doesn't exist, or has been reserved already. Pick one from the list.");
+
                         }
 
                         MessageBox.Show(update.Update_Location(loc, res));
@@ -128,7 +154,12 @@ namespace ReservationApp
                         reserve.Closed += (s, args) => Close();
                         reserve.Show();
 
-                    //}
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Either you're trying to make a reservation for 0 people, or your location doesn't exist. Please check both.");
+                    }
 
                 }
                 catch (Exception ex)
@@ -168,6 +199,9 @@ namespace ReservationApp
 
         }
 
-        
+        private bool CheckLocation(string s)
+        {
+            return listlocations.Any(x => s == x);
+        }
     }
 }
