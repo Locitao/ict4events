@@ -21,31 +21,14 @@ namespace MediaSharingGuest
         public bool OpenConnection()
         {
 
-            //Athena Connection data
-            //const string user = "dbi320839";
-            //const string pw = "ioMMVpigPp";
-            //const string test = "fhictora";
-            //Athena ip //192.168.15.50:1521/
+            //Barts local database for testing purpose
+            //conn.ConnectionString = "User Id=system;Password=wachtwoord;Data Source=//localhost:1521/xe;";
 
-            //VMware connection data
-            //local ip vmware: 172.19.180.2:1521
+            // athea database from rick
+            //conn.ConnectionString = "User Id=dbi320839;Password=ioMMVpigPp;Data Source=//192.168.15.50:1521/fhictora;";
 
-           
-            //const string user = "SYSTEM";
-            //const string pw = "wachtwoord";
-            //const string test = "xe";
-
-            conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    "//172.19.180.2:1521/" + test + ";";
-
-            //Local connection data
-            //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + " //localhost:1521/xe" + ";";
-
-<<<<<<< HEAD
-            //conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" + " //localhost:1521/xe" + ";";
+            // local database string for WMware
             conn.ConnectionString = "User Id=system;Password=wachtwoord;Data Source=172.19.180.2:1521/xe;";
-=======
->>>>>>> origin/master
             try
             {
                 conn.Open();
