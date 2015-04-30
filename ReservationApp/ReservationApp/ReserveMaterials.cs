@@ -25,6 +25,7 @@ namespace ReservationApp
         /// List of materials which can be reserved.
         /// </summary>
         readonly List<Material> allMaterials = new List<Material>(); 
+         
         
 
         private readonly string rfid;
@@ -84,28 +85,62 @@ namespace ReservationApp
         /// <param name="e"></param>
         private void btnMat_Click(object sender, EventArgs e)
         {
+            bool test = false;
             try
             {
                 if (tbMatOne.Text != "")
                 {
-                    MessageBox.Show(update.Update_Material(Convert.ToString(tbMatOne.Text), rfid));
+                    if (checkMaterial(tbMatOne.Text))
+                    {
+                        MessageBox.Show(update.Update_Material(Convert.ToString(tbMatOne.Text), rfid));
+                        test = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("This material doesn't exist, enter a correct ID.");
+                    }
+
+
                 }
+               
 
                 if (tbMatTwo.Text != "")
                 {
-                    MessageBox.Show(update.Update_Material(Convert.ToString(tbMatTwo.Text), rfid));
-                }
+                    if (checkMaterial(tbMatTwo.Text))
+                    {
+                        MessageBox.Show(update.Update_Material(Convert.ToString(tbMatTwo.Text), rfid));
+                        test = true;  
+                    }
+                    else
+                    {
+                        MessageBox.Show("This material doesn't exist, enter a correct ID.");
+                    }
 
-                if (tbMatThree.Text != "")
+                }
+                
+
+                if (tbMatThree.Text != "" && checkMaterial(tbMatThree.Text))
                 {
-                    MessageBox.Show(update.Update_Material(Convert.ToString(tbMatThree.Text), rfid));
+                    if (checkMaterial(tbMatThree.Text))
+                    {
+                        MessageBox.Show(update.Update_Material(Convert.ToString(tbMatThree.Text), rfid));
+                        test = true; 
+                    }
+                    else
+                    {
+                        MessageBox.Show("This material doesn't exist, enter a correct ID.");
+                    }
                 }
-
-                MessageBox.Show("Thank you for placing your reservation. You will now be returned to the start. Remember that your friends have to register their account as well, to receive their RFID tag!");
-                Hide();
-                Startup start = new Startup();
-                start.Closed += (s, args) => Close();
-                start.Show();
+                
+                if (test)
+                {
+                    MessageBox.Show("Thank you for placing your reservation. You will now be returned to the start. Remember that your friends have to register their account as well, to receive their RFID tag!");
+                    Hide();
+                    Startup start = new Startup();
+                    start.Closed += (s, args) => Close();
+                    start.Show(); 
+                }
+                
             }
             catch (Exception ex)
             {
@@ -141,6 +176,19 @@ namespace ReservationApp
             {
                 e.Handled = true;
             }
+        }
+
+        private bool checkMaterial(string s)
+        {
+            foreach (Material m in allMaterials)
+            {
+                int x = Convert.ToInt32(s);
+                if (x == m.MaterialId)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

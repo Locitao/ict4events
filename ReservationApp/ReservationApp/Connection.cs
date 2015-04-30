@@ -26,12 +26,13 @@ namespace ReservationApp
             //const string user2 = "dbi320839";
             //const string pw2 = "ioMMVpigPp";
             //const string test2 = "fhictora";
+            //172.19.180.2:1521
             const string user = "system";
             const string pw = "wachtwoord";
             const string test = "xe";
 
             conn.ConnectionString = "User Id=" + user + ";Password=" + pw + ";Data Source=" +
-                                    "//172.19.180.2:1521/" + test + ";";
+                                    "//localhost/" + test + ";";
             try
             {
                 
