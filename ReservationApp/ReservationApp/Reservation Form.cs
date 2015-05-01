@@ -33,12 +33,14 @@ namespace ReservationApp
             Refresh();
             name = Name;
             phone = Phone;
+            cbEvent.SelectedItem = "ICT4Events";
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //Refresh();
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -86,6 +88,7 @@ namespace ReservationApp
                 {
                     cbEvent.Items.Add(row["EVENT_NAME"]);
                 }
+                
             }
             catch (Exception ex)
             {
@@ -101,91 +104,100 @@ namespace ReservationApp
         /// <param name="e"></param>
         private void btnCreateRes_Click(object sender, EventArgs e)
         {
-            try
+            if (cbEvent.SelectedIndex == 1)
             {
-                var paid = "0";
-                if (cbPay.Checked)
-                {
-                    paid = "1";
-                }
-
                 try
                 {
-                    //if (cbEvent.SelectedText != "" && nmLocId.Text != "0")
-                    //{
+                    var paid = "0";
+                    if (cbPay.Checked)
+                    {
+                        paid = "1";
+                    }
+
+                    try
+                    {
+                        //if (cbEvent.SelectedText != "" && nmLocId.Text != "0")
+                        //{
 
                         var rfid = select.Select_User(phone);
-                    if (nmPeople.Text != "0" && CheckLocation(nmLocId.Text))
+                        if (nmPeople.Text != "0" && CheckLocation(nmLocId.Text))
+                        {
+
+
+                            MessageBox.Show(insert.Insert_Reservation(rfid, "1", nmPeople.Text, paid));
+
+                            var res = select.Find_Res_Id(rfid);
+                            var loc = nmLocId.Text;
+
+                            if (nmLoc2.Text != "0")
+                            {
+                                if (CheckLocation(nmLoc2.Text))
+                                {
+                                    update.Update_Location(nmLoc2.Text, res);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(
+                                        "This location doesn't exist, or has been reserved already. Pick one from the list.");
+
+                                }
+
+                            }
+
+
+                            if (nmLoc3.Text != "0")
+                            {
+                                if (CheckLocation(nmLoc3.Text))
+                                {
+                                    update.Update_Location(nmLoc3.Text, res);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(
+                                        "This location doesn't exist, or has been reserved already. Pick one from the list.");
+
+                                }
+                            }
+
+
+                            MessageBox.Show(update.Update_Location(loc, res));
+                            connect.CloseConnection();
+
+                            Hide();
+                            ReserveMaterials reserve = new ReserveMaterials(rfid);
+                            reserve.Closed += (s, args) => Close();
+                            reserve.Show();
+
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Either you're trying to make a reservation for 0 people, or your location doesn't exist. Please check both.");
+                        }
+
+                    }
+                    catch (Exception ex)
                     {
-                        
-                    
-                        MessageBox.Show(insert.Insert_Reservation(rfid, "1", nmPeople.Text, paid));
-
-                        var res = select.Find_Res_Id(rfid);
-                        var loc = nmLocId.Text;
-
-                        if (nmLoc2.Text != "0")
-                        {
-                            if (CheckLocation(nmLoc2.Text))
-                            {
-                                update.Update_Location(nmLoc2.Text, res);
-                            }
-                            else
-                            {
-                                MessageBox.Show(
-                                    "This location doesn't exist, or has been reserved already. Pick one from the list.");
-
-                            }
-                            
-                        }
-                        
-
-                        if (nmLoc3.Text != "0")
-                        {
-                            if (CheckLocation(nmLoc3.Text))
-                            {
-                                update.Update_Location(nmLoc3.Text, res);
-                            }
-                            else
-                            {
-                                MessageBox.Show(
-                                    "This location doesn't exist, or has been reserved already. Pick one from the list.");
-
-                            }
-                        }
-                        
-
-                        MessageBox.Show(update.Update_Location(loc, res));
                         connect.CloseConnection();
-
-                        Hide();
-                        ReserveMaterials reserve = new ReserveMaterials(rfid);
-                        reserve.Closed += (s, args) => Close();
-                        reserve.Show();
-
+                        MessageBox.Show(ex.Message);
                     }
 
-                    else
-                    {
-                        MessageBox.Show("Either you're trying to make a reservation for 0 people, or your location doesn't exist. Please check both.");
-                    }
 
+
+                    Refresh();
                 }
                 catch (Exception ex)
                 {
                     connect.CloseConnection();
                     MessageBox.Show(ex.Message);
                 }
-                
-
-
-                Refresh();
             }
-            catch (Exception ex)
+
+            else
             {
-                connect.CloseConnection();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Select an event!");
             }
+            
        
                 
             
