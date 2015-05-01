@@ -73,7 +73,7 @@
             this.bttnCancel.Name = "bttnCancel";
             this.bttnCancel.Size = new System.Drawing.Size(119, 23);
             this.bttnCancel.TabIndex = 4;
-            this.bttnCancel.Text = "Cancel reserve";
+            this.bttnCancel.Text = "Cancel reservation";
             this.bttnCancel.UseVisualStyleBackColor = true;
             this.bttnCancel.Click += new System.EventHandler(this.bttnCancel_Click);
             // 
